@@ -18,9 +18,9 @@ import getImagesInfo from "./modules/getImagesInfo"
  */
 (async () => {
   const BASE_ROOT = __dirname.replace("/scripts", "")
-  const ORIGIN_DIR = "/test" // TODO: ディレクトリ構成確定後に変更
-  const DIST_DIR = "/gallery" // TODO: 画面用資材のディレクトリ構成確定後に変更
-  const INFO_FILE = "/galleryInfo.ts" // TODO: 置き場所が決まったら変更
+  const ORIGIN_DIR = "/galleryOrigin"
+  const DIST_DIR = "/src/client/public/images/gallery"
+  const INFO_FILE = "/src/client/shared/const/galleryInfoList.ts"
   const ORIGIN_ROOT = `${BASE_ROOT}${ORIGIN_DIR}`
 
   fs.removeSync(`${BASE_ROOT}/${DIST_DIR}`)
