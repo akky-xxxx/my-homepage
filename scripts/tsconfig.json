@@ -1,21 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "downlevelIteration": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "checkJs": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noEmit": true,
-  },
+  "extends": "../tsconfig",
   "exclude": [
     "../node_modules"
   ],
