@@ -8,9 +8,12 @@
   "scripts": {
     "build": "run-p build:*",
     "build:client": "next ./src/client",
+    "convert-gallery": "ts-node scripts/convertGalleryTask.ts",
     "fix": "run-p fix:*",
+    "fix:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client --fix",
     "fix:pack": "fixpack",
-    "convert-gallery": "ts-node scripts/convertGalleryTask.ts"
+    "lint": "run-p lint:*",
+    "lint:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client"
   },
   "dependencies": {
     "agreed-typed": "^1.0.1",
