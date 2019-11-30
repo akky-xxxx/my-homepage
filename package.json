@@ -6,6 +6,8 @@
   "repository": "https://github.com/akky-xxxx/portfolio.git",
   "main": "index.js",
   "scripts": {
+    "build": "run-p build:*",
+    "build:client": "next ./src/client",
     "fix": "run-p fix:*",
     "fix:pack": "fixpack",
     "convert-gallery": "ts-node scripts/convertGalleryTask.ts"
