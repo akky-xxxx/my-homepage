@@ -16,7 +16,8 @@ import getImagesInfo from "./modules/getImagesInfo"
 /**
  * main
  */
-(async () => {
+
+const convertGalleryTask = async () => {
   const BASE_ROOT = __dirname.replace("/scripts", "")
   const ORIGIN_DIR = "/galleryOrigin"
   const DIST_DIR = "/src/client/public/images/gallery"
@@ -25,14 +26,10 @@ import getImagesInfo from "./modules/getImagesInfo"
 
   fs.removeSync(`${BASE_ROOT}/${DIST_DIR}`)
 
-  const fileNames = glob.sync(`${ORIGIN_ROOT}/**/*.jpg`)
-    .filter(fileName => fileName.includes(".webp."))
+  const fileNames = glob.sync(`${ORIGIN_ROOT}/**/*.jpg`).filter(fileName => fileName.includes(".webp."))
 
   const imagesInfo = getImagesInfo(fileNames, ORIGIN_ROOT)
-  fs.outputFileSync(
-    `${BASE_ROOT}${INFO_FILE}`,
-    `export default ${JSON.stringify(imagesInfo)}\n`,
-  )
+  fs.outputFileSync(`${BASE_ROOT}${INFO_FILE}`, `export default ${JSON.stringify(imagesInfo)}\n`)
 
   await createDirs(fileNames, {
     BASE_ROOT,
@@ -40,8 +37,8 @@ import getImagesInfo from "./modules/getImagesInfo"
     DIST_DIR,
   })
 
-  await Promise.all(
-    fileNames.map(fileName => convertToWebp(fileName, ORIGIN_DIR, DIST_DIR)),
-  )
+  await Promise.all(fileNames.map(fileName => convertToWebp(fileName, ORIGIN_DIR, DIST_DIR)))
   console.log(`${DONE} ${successMessage("All task success")}`)
-})()
+}
+
+convertGalleryTask()

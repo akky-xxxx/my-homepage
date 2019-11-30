@@ -26,25 +26,12 @@ const convertToWebp = async (imagePath: string, ORIGIN_DIR: string, DIST_DIR: st
   const directory = flagRemovedPath.slice(0, lastSlashPosition).replace(ORIGIN_DIR, DIST_DIR)
   const fileName = flagRemovedPath.slice(lastSlashPosition + 1)
 
-  const {
-    width: originImageWidth,
-    height: originImageHeight,
-  } = await sharp(imagePath).metadata()
+  const { width: originImageWidth, height: originImageHeight } = await sharp(imagePath).metadata()
 
   if (!originImageWidth || !originImageHeight) return
 
-  const {
-    newImageWidth,
-    newImageHeight,
-    thumbWidth,
-    thumbHeight,
-  } = getImageSizes(originImageWidth, originImageHeight)
-  const {
-    webpPath,
-    jpgPath,
-    webpThumbPath,
-    jpgThumbPath,
-  } = getEachPaths(directory, fileName)
+  const { newImageWidth, newImageHeight, thumbWidth, thumbHeight } = getImageSizes(originImageWidth, originImageHeight)
+  const { webpPath, jpgPath, webpThumbPath, jpgThumbPath } = getEachPaths(directory, fileName)
 
   await Promise.all([
     // webp 大
@@ -62,7 +49,7 @@ const convertToWebp = async (imagePath: string, ORIGIN_DIR: string, DIST_DIR: st
     // jpg サムネ
     sharp(imagePath)
       .resize(thumbWidth, thumbHeight, { fit: "outside" })
-      .toFile(jpgThumbPath)
+      .toFile(jpgThumbPath),
   ])
   console.log(`${DONE} ${target(imagePath)} ${successMessage("is converted")}`)
 }
