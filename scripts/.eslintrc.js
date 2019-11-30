@@ -5,21 +5,27 @@ const ERROR = 2
 // eslint-enable no-unused-vars
 
 module.exports = {
-  root: true,
   env: {
     browser: true,
     jest: true,
   },
   parser: "@typescript-eslint/parser",
   plugins: [
+    "@typescript-eslint",
     "prettier",
     "import",
   ],
   extends: [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
+    "prettier/@typescript-eslint",
   ],
   rules: {
     "import/prefer-default-export": OFF,
+    "no-console":OFF,
+    "@typescript-eslint/explicit-member-accessibility": OFF,
+    "@typescript-eslint/explicit-function-return-type": OFF,
     "prettier/prettier": [
       ERROR,
       {
@@ -34,6 +40,7 @@ module.exports = {
       node: {
         extensions: [
           ".js",
+          ".ts"
         ],
       },
     },
