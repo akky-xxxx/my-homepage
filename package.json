@@ -9,6 +9,7 @@
     "build": "run-p build:*",
     "build:client": "next ./src/client",
     "convert-gallery": "ts-node scripts/convertGalleryTask.ts",
+    "dev": "npm-run-all build",
     "fix": "run-p fix:*",
     "fix:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client --fix",
     "fix:pack": "fixpack",
