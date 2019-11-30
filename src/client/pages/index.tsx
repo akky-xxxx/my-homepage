@@ -6,9 +6,9 @@ const Top = () => {
   return (
     <div>
       {galleryInfoList.map(galleryInfo => {
-        const { path } = galleryInfo
+        const { thumbPath } = galleryInfo
         return (
-          <img key={path} src={`/images/gallery${path}`} alt="" width={300}/>
+          <img key={thumbPath} src={`/images/gallery${thumbPath}`} alt=""/>
         )
       })}
     </div>

@@ -1,5 +1,6 @@
 interface ImagesInfo {
   path: string
+  thumbPath: string
   year: number
   prefCode: string
 }
@@ -12,6 +13,7 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
       const prefCode = pref.slice(0, 2)
       arr.push({
         path: relatedPath,
+        thumbPath: relatedPath.replace(".webp.jpg", ".thumb.webp.jpg"),
         year: parseInt(year, 10),
         prefCode,
       })
