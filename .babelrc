@@ -10,22 +10,6 @@
       {
         "ssr": true
       }
-    ],
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": "css"
-      },
-      "ant"
-    ],
-    [
-      "import",
-      {
-        "libraryName": "antd-mobile",
-        "style": "css"
-      },
-      "antd-mobile"
     ]
   ]
 }

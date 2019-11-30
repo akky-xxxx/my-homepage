@@ -3,7 +3,7 @@
 .cache
 
 # ビルドファイル
-.next
+dist
 bin
 
 # node_modules
