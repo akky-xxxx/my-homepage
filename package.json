@@ -12,8 +12,8 @@
     "dev": "npm-run-all build",
     "fix": "run-p fix:*",
     "fix:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client --fix",
-    "fix:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts --fix",
     "fix:pack": "fixpack",
+    "fix:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts --fix",
     "lint": "run-p lint:*",
     "lint:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client",
     "lint:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts"

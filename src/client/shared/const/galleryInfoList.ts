@@ -17,4 +17,4 @@ export default [
     year: 2017,
     prefCode: "01",
   },
-]
+] as const
