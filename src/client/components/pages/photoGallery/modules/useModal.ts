@@ -14,7 +14,9 @@ import { ModalStatus } from "../components/galleryModal"
  */
 export type HandleOpenModal = (imagePath: string, prefCode: PrefCode) => void
 
-const useModal = () => {
+type UseModal = () => [ModalStatus, HandleOpenModal, () => void]
+
+const useModal: UseModal = () => {
   const [modalStatus, setOpen] = useState<ModalStatus>({
     isOpen: false,
     imagePath: "",
@@ -37,7 +39,7 @@ const useModal = () => {
     })
   }
 
-  return { modalStatus, handleOpenModal, handleCloseModal }
+  return [modalStatus, handleOpenModal, handleCloseModal]
 }
 
 export default useModal

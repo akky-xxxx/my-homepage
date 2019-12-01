@@ -21,7 +21,7 @@ import useModal from "./modules/useModal"
  */
 
 const PhotoGallery: NextPage = () => {
-  const { modalStatus, handleOpenModal, handleCloseModal } = useModal()
+  const [modalStatus, handleOpenModal, handleCloseModal] = useModal()
 
   return (
     <Wrapper>
