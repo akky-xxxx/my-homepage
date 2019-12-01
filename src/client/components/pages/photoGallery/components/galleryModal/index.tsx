@@ -1,14 +1,16 @@
 /**
  * import node_modules
  */
-import React, { FC } from "react"
+import React, { FC, useRef } from "react"
 import { Dialog, DialogTitle, DialogContent } from "@material-ui/core"
+import { Fullscreen } from "@material-ui/icons"
 import styled from "styled-components"
 
 /**
  * import others
  */
 import PREF_MAP, { PrefCode } from "../../../../../shared/const/prefMap"
+import handleToFullScreen from "../../../../../shared/utils/handleToFullScreen"
 
 /**
  * main
@@ -30,6 +32,8 @@ const GalleryModal: FC<GalleryModalProps> = props => {
     handleCloseModal,
   } = props
 
+  const fullScreenRef = useRef<HTMLImageElement>(null)
+
   if (!prefCode || !imagePath) return null
 
   return (
@@ -40,9 +44,12 @@ const GalleryModal: FC<GalleryModalProps> = props => {
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
     >
-      <DialogTitle id="scroll-dialog-title">{PREF_MAP[prefCode]}</DialogTitle>
+      <ModalHeader>
+        <DialogTitle id="scroll-dialog-title">{PREF_MAP[prefCode]}</DialogTitle>
+        <StyledFullscreen fontSize="large" onClick={() => handleToFullScreen(fullScreenRef.current)} />
+      </ModalHeader>
       <StyledDialogContent dividers>
-        <StyledImage src={imagePath} alt="" />
+        <StyledImage src={imagePath} alt="" ref={fullScreenRef} />
       </StyledDialogContent>
     </StyledDialog>
   )
@@ -54,6 +61,17 @@ const StyledDialog = styled(Dialog)`
   .MuiPaper-root {
     height: 100%;
   }
+`
+
+const ModalHeader = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 18px;
+`
+
+const StyledFullscreen = styled(Fullscreen)`
+  cursor: pointer;
 `
 
 const StyledDialogContent = styled(DialogContent)`
