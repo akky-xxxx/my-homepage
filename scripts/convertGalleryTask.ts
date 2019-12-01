@@ -29,7 +29,7 @@ const convertGalleryTask = async () => {
   const fileNames = glob.sync(`${ORIGIN_ROOT}/**/*.jpg`).filter(fileName => fileName.includes(".webp."))
 
   const imagesInfo = getImagesInfo(fileNames, ORIGIN_ROOT)
-  fs.outputFileSync(`${BASE_ROOT}${INFO_FILE}`, `export default ${JSON.stringify(imagesInfo)}\n`)
+  fs.outputFileSync(`${BASE_ROOT}${INFO_FILE}`, `export default ${JSON.stringify(imagesInfo)} as const\n`)
 
   await createDirs(fileNames, {
     BASE_ROOT,
