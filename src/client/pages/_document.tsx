@@ -1,42 +1,39 @@
-import React, { Fragment } from "react"
-import Document, { Main, NextScript, DocumentContext } from "next/document"
-import { ServerStyleSheet } from "styled-components"
+import React from "react"
+import NextDocument, { DocumentContext } from "next/document"
+import { ServerStyleSheet as StyledComponentSheets } from "styled-components"
+import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@material-ui/styles"
 
-export default class MyDocument extends Document {
-  static async getInitialProps(context: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const newContext = { ...context }
+export default class Document extends NextDocument {
+  static async getInitialProps(ctx: DocumentContext) {
+    const styledComponentSheet = new StyledComponentSheets()
+    const materialUiSheets = new MaterialUiServerStyleSheets()
+    const originalRenderPage = ctx.renderPage
+
     try {
-      newContext.renderPage = () =>
-        context.renderPage({
+      ctx.renderPage = () =>
+        originalRenderPage({
           enhanceApp: App => props => {
             const { Component, router, pageProps } = props
-            return sheet.collectStyles(<App Component={Component} router={router} pageProps={pageProps} />)
+            return styledComponentSheet.collectStyles(
+              materialUiSheets.collect(<App Component={Component} router={router} pageProps={pageProps} />),
+            )
           },
         })
-      const initialProps = await Document.getInitialProps(newContext)
+
+      const initialProps = await NextDocument.getInitialProps(ctx)
+
       return {
         ...initialProps,
-        styles: (
-          <Fragment>
+        styles: [
+          <React.Fragment key="styles">
             {initialProps.styles}
-            {sheet.getStyleElement()}
-          </Fragment>
-        ),
+            {materialUiSheets.getStyleElement()}
+            {styledComponentSheet.getStyleElement()}
+          </React.Fragment>,
+        ],
       }
     } finally {
-      sheet.seal()
+      styledComponentSheet.seal()
     }
-  }
-
-  render(): JSX.Element {
-    return (
-      <html lang="ja">
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
-    )
   }
 }
