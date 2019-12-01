@@ -2,7 +2,7 @@
  * import node_modules
  */
 import React, { FC, useRef } from "react"
-import { Dialog, DialogTitle, DialogContent } from "@material-ui/core"
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@material-ui/core"
 import { Fullscreen } from "@material-ui/icons"
 import styled from "styled-components"
 
@@ -51,6 +51,11 @@ const GalleryModal: FC<GalleryModalProps> = props => {
       <StyledDialogContent dividers>
         <StyledImage src={imagePath} alt="" ref={fullScreenRef} />
       </StyledDialogContent>
+      <DialogActions>
+        <Button onClick={handleCloseModal} variant="contained">
+          閉じる
+        </Button>
+      </DialogActions>
     </StyledDialog>
   )
 }
@@ -59,7 +64,7 @@ const StyledDialog = styled(Dialog)`
   height: 100%;
 
   .MuiPaper-root {
-    height: 100%;
+    height: auto;
   }
 `
 
