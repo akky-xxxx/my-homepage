@@ -13,6 +13,7 @@ module.exports = {
   plugins: [
     "@typescript-eslint",
     "react",
+    "react-hooks",
     "prettier",
     "import",
   ],
@@ -29,6 +30,7 @@ module.exports = {
     "react/jsx-filename-extension": OFF,
     "react/prop-types": OFF,
     "react/jsx-fragments": [ERROR, "element"],
+    "react-hooks/rules-of-hooks": ERROR,
     "@typescript-eslint/explicit-member-accessibility": OFF,
     "@typescript-eslint/explicit-function-return-type": OFF,
     "prettier/prettier": [
