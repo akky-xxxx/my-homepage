@@ -27,7 +27,7 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
         const { prefCode, thumbPath, path } = galleryInfo
         return (
           <GridListTile key={thumbPath} onClick={() => handleOpenModal(path, prefCode)}>
-            <img src={`/images/gallery${thumbPath}`} alt={prefCode} />
+            <img src={`/images/gallery${path}`} alt={prefCode} />
             <GridListTileBar title={PREF_MAP[prefCode]} />
           </GridListTile>
         )
