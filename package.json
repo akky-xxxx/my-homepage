@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.7.0",
+    "@material-ui/styles": "^4.6.0",
     "agreed-typed": "^1.0.1",
     "chalk": "^3.0.0",
     "date-fns": "^2.8.1",
