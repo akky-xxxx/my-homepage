@@ -2,9 +2,9 @@
  * import node_modules
  */
 import React, { FC, useRef } from "react"
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@material-ui/core"
-import { Fullscreen } from "@material-ui/icons"
-import styled from "styled-components"
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Fab } from "@material-ui/core"
+import { Fullscreen, NavigateBefore, NavigateNext } from "@material-ui/icons"
+import styled, { css } from "styled-components"
 
 /**
  * import others
@@ -49,6 +49,16 @@ const GalleryModal: FC<GalleryModalProps> = props => {
         <StyledFullscreen fontSize="large" onClick={() => handleToFullScreen(fullScreenRef.current)} />
       </ModalHeader>
       <StyledDialogContent dividers>
+        <NavigationPrev>
+          <Fab color="primary">
+            <NavigateBefore fontSize="large" />
+          </Fab>
+        </NavigationPrev>
+        <NavigationNext>
+          <Fab color="primary">
+            <NavigateNext fontSize="large" />
+          </Fab>
+        </NavigationNext>
         <StyledImage src={imagePath} alt="" ref={fullScreenRef} />
       </StyledDialogContent>
       <DialogActions>
@@ -71,6 +81,7 @@ const StyledDialog = styled(Dialog)`
 const ModalHeader = styled.div`
   align-items: center;
   display: flex;
+  height: 64px;
   justify-content: space-between;
   padding-right: 18px;
 `
@@ -81,7 +92,29 @@ const StyledFullscreen = styled(Fullscreen)`
 
 const StyledDialogContent = styled(DialogContent)`
   height: 100%;
+  position: relative;
   text-align: center;
+`
+
+const navigationBase = css`
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: auto;
+  margin-top: auto;
+  position: fixed;
+  top: 0;
+`
+
+const NavigationPrev = styled.div`
+  ${navigationBase};
+  left: 70px;
+`
+
+const NavigationNext = styled.div`
+  ${navigationBase};
+  right: 70px;
 `
 
 const StyledImage = styled.img`
