@@ -11,7 +11,7 @@ const replaceToWebpMiddleWare = (req: Request, _res: Response, next: NextFunctio
     req.headers.accept &&
     req.headers.accept.includes("image/webp")
   ) {
-    req.url = req.url.replace(".webp.", ".webp.")
+    req.url = req.url.replace(/\.(jpg)/, "")
   }
   next()
 }
