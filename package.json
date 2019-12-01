@@ -7,16 +7,17 @@
   "main": "index.js",
   "scripts": {
     "build": "run-p build:*",
-    "build:client": "next ./src/client",
+    "build:server": "parcel build src/server/www.ts -d bin --target node",
     "convert-gallery": "ts-node scripts/convertGalleryTask.ts",
-    "dev": "npm-run-all build",
+    "dev": "npm-run-all build -p serve",
     "fix": "run-p fix:*",
     "fix:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client --fix",
     "fix:pack": "fixpack",
     "fix:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts --fix",
     "lint": "run-p lint:*",
     "lint:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client",
-    "lint:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts"
+    "lint:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts",
+    "serve": "cross-env DEBUG=app:server:* node bin/www.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.7.0",
