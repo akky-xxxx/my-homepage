@@ -2,7 +2,7 @@
  * import node_modules
  */
 import React, { FC } from "react"
-import { Dialog, DialogTitle, DialogContent, DialogContentText } from "@material-ui/core"
+import { Dialog, DialogTitle, DialogContent } from "@material-ui/core"
 import styled from "styled-components"
 
 /**
@@ -33,23 +33,33 @@ const GalleryModal: FC<GalleryModalProps> = props => {
   if (!prefCode || !imagePath) return null
 
   return (
-    <Dialog
+    <StyledDialog
       open={isOpen}
       onClose={handleCloseModal}
-      scroll="paper"
       maxWidth={false}
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
     >
       <DialogTitle id="scroll-dialog-title">{PREF_MAP[prefCode]}</DialogTitle>
-      <DialogContent dividers>
-        <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
-          <StyledImage src={imagePath} alt="" />
-        </DialogContentText>
-      </DialogContent>
-    </Dialog>
+      <StyledDialogContent dividers>
+        <StyledImage src={imagePath} alt="" />
+      </StyledDialogContent>
+    </StyledDialog>
   )
 }
+
+const StyledDialog = styled(Dialog)`
+  height: 100%;
+
+  .MuiPaper-root {
+    height: 100%;
+  }
+`
+
+const StyledDialogContent = styled(DialogContent)`
+  height: 100%;
+  text-align: center;
+`
 
 const StyledImage = styled.img`
   max-height: 100%;
