@@ -50,13 +50,13 @@ const GalleryModal: FC<GalleryModalProps> = props => {
       </ModalHeader>
       <StyledDialogContent dividers>
         <NavigationPrev>
-          <Fab color="primary">
-            <NavigateBefore fontSize="large" />
+          <Fab color="primary" size="small">
+            <NavigateBefore fontSize="small" />
           </Fab>
         </NavigationPrev>
         <NavigationNext>
-          <Fab color="primary">
-            <NavigateNext fontSize="large" />
+          <Fab color="primary" size="small">
+            <NavigateNext fontSize="small" />
           </Fab>
         </NavigationNext>
         <StyledImage src={imagePath} alt="" ref={fullScreenRef} />
@@ -99,27 +99,27 @@ const StyledDialogContent = styled(DialogContent)`
 const navigationBase = css`
   align-items: center;
   bottom: 0;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   margin-bottom: auto;
   margin-top: auto;
-  position: fixed;
+  position: absolute;
   top: 0;
 `
 
 const NavigationPrev = styled.div`
   ${navigationBase};
-  left: 70px;
+  left: 10px;
 `
 
 const NavigationNext = styled.div`
   ${navigationBase};
-  right: 70px;
+  right: 10px;
 `
 
 const StyledImage = styled.img`
-  max-height: 100%;
-  max-width: 100%;
+  max-height: calc(100vh - 218px);
+  max-width: calc(100vw - 228px);
 `
 
 export default GalleryModal
