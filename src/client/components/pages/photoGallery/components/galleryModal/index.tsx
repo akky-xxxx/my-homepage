@@ -9,32 +9,31 @@ import styled, { css } from "styled-components"
 /**
  * import others
  */
-import PREF_MAP, { PrefCode } from "../../../../../shared/const/prefMap"
 import handleToFullScreen from "../../../../../shared/utils/handleToFullScreen"
+import { HandleAction } from "../../../../../shared/types/common"
+import originGalleryInfoList from "../../../../../shared/const/galleryInfoList"
+import PREF_MAP from "../../../../../shared/const/prefMap"
 
 /**
  * main
  */
-export interface ModalStatus {
-  imagePath: string
-  isOpen: boolean
-  prefCode: "" | PrefCode
-}
-
 interface GalleryModalProps {
-  modalStatus: ModalStatus
-  handleCloseModal: () => void
+  isOpen: boolean
+  galleryInfoList: typeof originGalleryInfoList
+  currentImageId: null | number
+  handleCloseModal: HandleAction
 }
 
 const GalleryModal: FC<GalleryModalProps> = props => {
-  const {
-    modalStatus: { imagePath, isOpen, prefCode },
-    handleCloseModal,
-  } = props
+  const { isOpen, handleCloseModal, currentImageId, galleryInfoList } = props
 
   const fullScreenRef = useRef<HTMLImageElement>(null)
 
-  if (!prefCode || !imagePath) return null
+  if (!currentImageId) return null
+
+  const photoInfo = galleryInfoList.find(info => info.imageId === currentImageId)
+  if (!photoInfo) return null
+  const { prefCode, path } = photoInfo
 
   return (
     <StyledDialog
@@ -59,7 +58,7 @@ const GalleryModal: FC<GalleryModalProps> = props => {
             <NavigateNext fontSize="small" />
           </Fab>
         </NavigationNext>
-        <StyledImage src={imagePath} alt="" ref={fullScreenRef} />
+        <StyledImage src={`/images/gallery${path}`} alt={PREF_MAP[prefCode]} ref={fullScreenRef} />
       </StyledDialogContent>
       <DialogActions>
         <Button onClick={handleCloseModal} variant="contained">

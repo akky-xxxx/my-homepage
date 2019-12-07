@@ -14,19 +14,26 @@ import GalleryModal from "./components/galleryModal"
 /**
  * import others
  */
-import useModal from "./modules/useModal"
+import { State, HandleActions } from "../../../store/modules/pages/photo-gallery/types"
 
 /**
  * main
  */
 
-const PhotoGallery: NextPage = () => {
-  const [modalStatus, handleOpenModal, handleCloseModal] = useModal()
+export interface PhotoGalleryProps extends State, HandleActions {}
+
+const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
+  const { handleOpenModal, handleCloseModal, isOpen, currentImageId, galleryInfoList } = props
 
   return (
     <Wrapper>
-      <GalleryBody handleOpenModal={handleOpenModal} />
-      <GalleryModal modalStatus={modalStatus} handleCloseModal={handleCloseModal} />
+      <GalleryBody galleryInfoList={galleryInfoList} handleOpenModal={handleOpenModal} />
+      <GalleryModal
+        galleryInfoList={galleryInfoList}
+        currentImageId={currentImageId}
+        isOpen={isOpen}
+        handleCloseModal={handleCloseModal}
+      />
     </Wrapper>
   )
 }

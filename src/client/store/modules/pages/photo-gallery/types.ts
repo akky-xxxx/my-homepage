@@ -7,6 +7,7 @@ import { Action } from "redux-actions"
  * import others
  */
 import galleryInfoList from "../../../../shared/const/galleryInfoList"
+import { HandleAction } from "../../../../shared/types/common"
 
 /**
  * main
@@ -25,3 +26,8 @@ export interface ImageModalPayload {
 
 // handle actions
 export type HandleOpenModalAction = (payload: ImageModalPayload) => Action<ImageModalPayload>
+
+export interface HandleActions {
+  handleOpenModal: HandleOpenModalAction
+  handleCloseModal: HandleAction
+}

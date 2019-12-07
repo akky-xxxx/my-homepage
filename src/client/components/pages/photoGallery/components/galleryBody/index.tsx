@@ -7,26 +7,27 @@ import { GridList, GridListTile, GridListTileBar } from "@material-ui/core"
 /**
  * import others
  */
-import { HandleOpenModal } from "../../modules/useModal"
-import galleryInfoList from "../../../../../shared/const/galleryInfoList"
+import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/types"
+import originGalleryInfoList from "../../../../../shared/const/galleryInfoList"
 import PREF_MAP from "../../../../../shared/const/prefMap"
 
 /**
  * main
  */
 interface GalleryBodyProps {
-  handleOpenModal: HandleOpenModal
+  galleryInfoList: typeof originGalleryInfoList
+  handleOpenModal: HandleOpenModalAction
 }
 
 const GalleryBody: FC<GalleryBodyProps> = props => {
-  const { handleOpenModal } = props
+  const { galleryInfoList, handleOpenModal } = props
 
   return (
     <GridList cols={3}>
       {galleryInfoList.map(galleryInfo => {
-        const { prefCode, thumbPath, path } = galleryInfo
+        const { imageId, prefCode, thumbPath, path } = galleryInfo
         return (
-          <GridListTile key={thumbPath} onClick={() => handleOpenModal(path, prefCode)}>
+          <GridListTile key={thumbPath} onClick={() => handleOpenModal({ targetId: imageId })}>
             <img src={`/images/gallery${path}`} alt={prefCode} />
             <GridListTileBar title={PREF_MAP[prefCode]} />
           </GridListTile>
