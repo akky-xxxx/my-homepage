@@ -3,6 +3,7 @@
  */
 import React, { FC } from "react"
 import { GridList, GridListTile, GridListTileBar } from "@material-ui/core"
+import styled from "styled-components"
 
 /**
  * import others
@@ -27,14 +28,18 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
       {galleryInfoList.map(galleryInfo => {
         const { imageId, prefCode, thumbPath, path } = galleryInfo
         return (
-          <GridListTile key={thumbPath} onClick={() => handleOpenModal({ targetId: imageId })}>
+          <StyledGridList key={thumbPath} onClick={() => handleOpenModal({ targetId: imageId })}>
             <img src={`/images/gallery${path}`} alt={prefCode} />
             <GridListTileBar title={PREF_MAP[prefCode]} />
-          </GridListTile>
+          </StyledGridList>
         )
       })}
     </GridList>
   )
 }
+
+const StyledGridList = styled(GridListTile)`
+  cursor: pointer;
+`
 
 export default GalleryBody
