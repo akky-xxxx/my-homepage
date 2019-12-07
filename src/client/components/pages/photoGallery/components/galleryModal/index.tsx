@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import React, { FC, useRef } from "react"
+import React, { FC, useRef, useEffect } from "react"
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Fab } from "@material-ui/core"
 import { Fullscreen, NavigateBefore, NavigateNext } from "@material-ui/icons"
 import styled, { css } from "styled-components"
@@ -37,6 +37,22 @@ const GalleryModal: FC<GalleryModalProps> = props => {
   } = props
 
   const fullScreenRef = useRef<HTMLImageElement>(null)
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const { code } = event
+    if (code === "ArrowRight") {
+      handleChangeNextImage()
+      return
+    }
+    if (code === "ArrowLeft") {
+      handleChangePrevImage()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [])
 
   if (!currentImageId) return null
 
