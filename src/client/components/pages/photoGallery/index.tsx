@@ -23,7 +23,15 @@ import { State, HandleActions } from "../../../store/modules/pages/photo-gallery
 export interface PhotoGalleryProps extends State, HandleActions {}
 
 const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
-  const { handleOpenModal, handleCloseModal, isOpen, currentImageId, galleryInfoList } = props
+  const {
+    handleOpenModal,
+    handleCloseModal,
+    handleChangeNextImage,
+    handleChangePrevImage,
+    isOpen,
+    currentImageId,
+    galleryInfoList,
+  } = props
 
   return (
     <Wrapper>
@@ -33,6 +41,8 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
         currentImageId={currentImageId}
         isOpen={isOpen}
         handleCloseModal={handleCloseModal}
+        handleChangeNextImage={handleChangeNextImage}
+        handleChangePrevImage={handleChangePrevImage}
       />
     </Wrapper>
   )

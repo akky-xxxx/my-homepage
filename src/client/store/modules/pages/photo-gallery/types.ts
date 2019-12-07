@@ -30,4 +30,6 @@ export type HandleOpenModalAction = (payload: ImageModalPayload) => Action<Image
 export interface HandleActions {
   handleOpenModal: HandleOpenModalAction
   handleCloseModal: HandleAction
+  handleChangeNextImage: HandleAction
+  handleChangePrevImage: HandleAction
 }

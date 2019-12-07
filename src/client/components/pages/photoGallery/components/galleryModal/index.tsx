@@ -22,10 +22,19 @@ interface GalleryModalProps {
   galleryInfoList: typeof originGalleryInfoList
   currentImageId: null | number
   handleCloseModal: HandleAction
+  handleChangeNextImage: HandleAction
+  handleChangePrevImage: HandleAction
 }
 
 const GalleryModal: FC<GalleryModalProps> = props => {
-  const { isOpen, handleCloseModal, currentImageId, galleryInfoList } = props
+  const {
+    isOpen,
+    handleCloseModal,
+    handleChangeNextImage,
+    handleChangePrevImage,
+    currentImageId,
+    galleryInfoList,
+  } = props
 
   const fullScreenRef = useRef<HTMLImageElement>(null)
 
@@ -49,12 +58,12 @@ const GalleryModal: FC<GalleryModalProps> = props => {
       </ModalHeader>
       <StyledDialogContent dividers>
         <NavigationPrev>
-          <Fab color="primary" size="small">
+          <Fab color="primary" size="small" onClick={handleChangePrevImage}>
             <NavigateBefore fontSize="small" />
           </Fab>
         </NavigationPrev>
         <NavigationNext>
-          <Fab color="primary" size="small">
+          <Fab color="primary" size="small" onClick={handleChangeNextImage}>
             <NavigateNext fontSize="small" />
           </Fab>
         </NavigationNext>

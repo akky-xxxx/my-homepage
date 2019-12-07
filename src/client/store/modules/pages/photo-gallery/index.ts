@@ -23,8 +23,8 @@ const PREV_IMAGE = `${NAMESPACE}/modal/prev`
 // action 定義
 const openModal = createAction<ImageModalPayload>(OPEN_MODAL)
 const closeModal = createAction(CLOSE_MODAL)
-const changeNextImage = createAction<ImageModalPayload>(NEXT_IMAGE)
-const changePrevImage = createAction<ImageModalPayload>(PREV_IMAGE)
+const changeNextImage = createAction(NEXT_IMAGE)
+const changePrevImage = createAction(PREV_IMAGE)
 export const actions = {
   openModal,
   closeModal,
@@ -57,30 +57,26 @@ const reducer = handleActions<State, ImageModalPayload>(
     [NEXT_IMAGE]: state => {
       const { galleryInfoList: thisGalleryInfoList, currentImageId } = state
       if (!currentImageId) return state
-      const currentIndex = thisGalleryInfoList.findIndex(info => info.imageId === currentImageId)
+      const currentIndex = thisGalleryInfoList.findIndex(info => info.imageId === currentImageId) + 1
 
-      const nextIndex = currentIndex < currentImageId ? currentIndex : 0
+      const nextIndex = currentIndex < thisGalleryInfoList.length ? currentIndex : 0
       const targetInfo = thisGalleryInfoList[nextIndex]
       return {
         ...state,
-        currentImageInfo: {
-          ...targetInfo,
-        },
+        currentImageId: targetInfo.imageId,
       }
     },
 
     [PREV_IMAGE]: state => {
       const { galleryInfoList: thisGalleryInfoList, currentImageId } = state
       if (!currentImageId) return state
-      const currentIndex = thisGalleryInfoList.findIndex(info => info.imageId === currentImageId)
+      const currentIndex = thisGalleryInfoList.findIndex(info => info.imageId === currentImageId) - 1
 
-      const nextIndex = currentIndex > 0 ? currentIndex : thisGalleryInfoList.length
+      const nextIndex = currentIndex > -1 ? currentIndex : thisGalleryInfoList.length - 1
       const targetInfo = state.galleryInfoList[nextIndex]
       return {
         ...state,
-        currentImageInfo: {
-          ...targetInfo,
-        },
+        currentImageId: targetInfo.imageId,
       }
     },
   },
