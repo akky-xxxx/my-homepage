@@ -2,12 +2,15 @@
  * import node_modules
  */
 import App from "next/app"
+import { NextPageContext } from "next"
 import React, { Fragment } from "react"
 import { createGlobalStyle } from "styled-components"
+import { Provider } from "react-redux"
 
 /**
  * import others
  */
+import WithRedux from "../store/with-redux-store"
 import reset from "../assets/styles/reset"
 
 /**
@@ -17,17 +20,19 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 `
 
-class MyApp extends App {
+class MyApp extends App<NextPageContext> {
   render() {
-    const { Component } = this.props
+    const { Component, reduxStore } = this.props
 
     return (
       <Fragment>
-        <GlobalStyle />
-        <Component />
+        <Provider store={reduxStore}>
+          <GlobalStyle />
+          <Component />
+        </Provider>
       </Fragment>
     )
   }
 }
 
-export default MyApp
+export default WithRedux(MyApp)

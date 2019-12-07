@@ -1,3 +1,5 @@
+import { connect } from "react-redux"
+
 import PhotoGallery from "../../components/pages/photoGallery"
 
-export default PhotoGallery
+export default connect()(PhotoGallery)
