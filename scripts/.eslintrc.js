@@ -22,6 +22,13 @@ module.exports = {
     "prettier/@typescript-eslint",
   ],
   rules: {
+    "import/extensions": [
+      "error",
+      {
+        "js": "never",
+        "ts": "never",
+      }
+    ],
     "import/prefer-default-export": OFF,
     "no-console":OFF,
     "@typescript-eslint/explicit-member-accessibility": OFF,
