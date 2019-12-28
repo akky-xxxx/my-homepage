@@ -11,6 +11,4 @@ const PREF_MAP = {
   "26": "京都府",
 } as const
 
-export type PrefCode = keyof typeof PREF_MAP
-
 export default PREF_MAP
