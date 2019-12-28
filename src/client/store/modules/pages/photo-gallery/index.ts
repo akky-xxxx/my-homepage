@@ -6,7 +6,7 @@ import { createAction, handleActions } from "redux-actions"
 /**
  * import others
  */
-import { ImageModalPayload, State } from "./types"
+import { ImageModalPayload, State, SelectViewPrefPayload, ModalAction, SelectViewAction } from "./types"
 import galleryInfoList from "../../../../shared/const/galleryInfoList"
 import { visibleModalReducer } from "./utils"
 
@@ -19,17 +19,20 @@ const OPEN_MODAL = `${NAMESPACE}/modal/open`
 const CLOSE_MODAL = `${NAMESPACE}/modal/close`
 const NEXT_IMAGE = `${NAMESPACE}/modal/next`
 const PREV_IMAGE = `${NAMESPACE}/modal/prev`
+const SELECT_PREF = `${NAMESPACE}/filter/pref`
 
 // action 定義
 const openModal = createAction<ImageModalPayload>(OPEN_MODAL)
 const closeModal = createAction(CLOSE_MODAL)
 const changeNextImage = createAction(NEXT_IMAGE)
 const changePrevImage = createAction(PREV_IMAGE)
+const selectViewPref = createAction<SelectViewPrefPayload>(SELECT_PREF)
 export const actions = {
   openModal,
   closeModal,
   changeNextImage,
   changePrevImage,
+  selectViewPref,
 }
 
 // initial state 定義
@@ -37,12 +40,13 @@ const initialState: State = {
   galleryInfoList,
   isOpen: false,
   currentImageId: null,
+  viewPref: "00",
 }
 
 // reducer
-const reducer = handleActions<State, ImageModalPayload>(
+const reducer = handleActions<State, any>(
   {
-    [OPEN_MODAL]: (state, action) => {
+    [OPEN_MODAL]: (state, action: ModalAction) => {
       const {
         payload: { targetId },
       } = action
@@ -77,6 +81,17 @@ const reducer = handleActions<State, ImageModalPayload>(
       return {
         ...state,
         currentImageId: targetInfo.imageId,
+      }
+    },
+
+    [SELECT_PREF]: (state, action: SelectViewAction) => {
+      const {
+        payload: { targetPref },
+      } = action
+
+      return {
+        ...state,
+        viewPref: targetPref,
       }
     },
   },
