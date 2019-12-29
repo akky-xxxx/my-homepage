@@ -29,15 +29,9 @@ const GalleryModal: FC<GalleryModalProps> = props => {
 
   const slider = useRef<Slider>(null)
 
-  const showPrev = () => {
-    // eslint-disable-next-line no-unused-expressions
-    slider.current?.slickPrev()
-  }
+  const showPrev = () => slider.current?.slickPrev()
 
-  const showNext = () => {
-    // eslint-disable-next-line no-unused-expressions
-    slider.current?.slickNext()
-  }
+  const showNext = () => slider.current?.slickNext()
 
   const handleKeyDown = (event: KeyboardEvent) => {
     const { code } = event
