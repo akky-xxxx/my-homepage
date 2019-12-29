@@ -17,7 +17,7 @@ import PREF_MAP from "../../../../../shared/const/prefMap"
 
 export interface PrefSelectProps {
   handleSelectViewPref: HandleSelectViewPref
-  viewPref: ViewPref
+  selectedViewPref: ViewPref
 }
 
 type ViewPrefOptions = {
@@ -45,14 +45,14 @@ const viewPrefOptions: ViewPrefOption[] = (Object.keys(viewPrefOptionsBase) as V
   })
 
 const PrefSelect: NextPage<PrefSelectProps> = props => {
-  const { handleSelectViewPref, viewPref } = props
+  const { handleSelectViewPref, selectedViewPref } = props
 
   return (
     <Fragment>
       <InputLabel id="pref-select">地域</InputLabel>
       <Select
         labelId="pref-select"
-        value={viewPref}
+        value={selectedViewPref}
         onChange={event => handleSelectViewPref({ targetPref: event.target.value as ViewPref })}
       >
         {viewPrefOptions.map(prefData => {

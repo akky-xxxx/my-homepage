@@ -20,7 +20,7 @@ export interface State {
   galleryInfoList: typeof galleryInfoList
   isOpen: boolean
   currentImageId: null | number
-  viewPref: ViewPref
+  selectedViewPref: ViewPref
 }
 
 // payload

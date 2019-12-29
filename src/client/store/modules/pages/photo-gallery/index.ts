@@ -34,7 +34,7 @@ const initialState: State = {
   galleryInfoList,
   isOpen: false,
   currentImageId: null,
-  viewPref: "00",
+  selectedViewPref: "00",
 }
 
 // reducer

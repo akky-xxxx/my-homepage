@@ -32,20 +32,20 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     isOpen,
     currentImageId,
     galleryInfoList,
-    viewPref,
+    selectedViewPref,
   } = props
 
   // TODO: 型を整理して解決させる
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore
   const filteredList: typeof originGalleryInfoList = galleryInfoList.filter(galleryInfo => {
-    if (viewPref === "00") return true
-    return galleryInfo.prefCode === viewPref
+    if (selectedViewPref === "00") return true
+    return galleryInfo.prefCode === selectedViewPref
   })
 
   return (
     <Wrapper>
-      <PrefSelect handleSelectViewPref={handleSelectViewPref} viewPref={viewPref} />
+      <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
       <GalleryBody galleryInfoList={filteredList} handleOpenModal={handleOpenModal} />
       <GalleryModal
         galleryInfoList={filteredList}
