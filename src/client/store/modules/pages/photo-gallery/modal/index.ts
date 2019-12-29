@@ -17,7 +17,7 @@ const initialState: State = {
 }
 
 const modalModule = createSlice({
-  name: "photo-gallery/modal",
+  name: "pages/photo-gallery/modal",
   initialState,
   reducers: {
     openModal: (state, action: ModalAction) => {

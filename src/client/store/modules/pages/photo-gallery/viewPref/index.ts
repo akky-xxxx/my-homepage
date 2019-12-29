@@ -12,7 +12,7 @@ const initialState: State = "00"
 
 // reducer
 const viewPrefModule = createSlice({
-  name: "photo-gallery/viewPref",
+  name: "pages/photo-gallery/viewPref",
   initialState,
   reducers: {
     selectViewPref: (_state, action) => {
