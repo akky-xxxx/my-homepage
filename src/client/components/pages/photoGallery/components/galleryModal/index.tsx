@@ -2,16 +2,14 @@
  * import node_modules
  */
 import React, { FC, useRef, useEffect } from "react"
-// import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Fab } from "@material-ui/core"
 import { Dialog, DialogContent, DialogActions, Button, Fab } from "@material-ui/core"
-import { Fullscreen, NavigateBefore, NavigateNext } from "@material-ui/icons"
+import { NavigateBefore, NavigateNext } from "@material-ui/icons"
 import styled, { css } from "styled-components"
 import Slider from "react-slick"
 
 /**
  * import others
  */
-import handleToFullScreen from "../../../../../shared/utils/handleToFullScreen"
 import { HandleAction } from "../../../../../shared/types/common"
 import originGalleryInfoList from "../../../../../shared/const/galleryInfoList"
 // import PREF_MAP from "../../../../../shared/const/prefMap"
@@ -32,30 +30,13 @@ const GalleryModal: FC<GalleryModalProps> = props => {
   const {
     isOpen,
     handleCloseModal,
-    handleChangeNextImage,
-    handleChangePrevImage,
+    // handleChangeNextImage,
+    // handleChangePrevImage,
     currentImageId,
     galleryInfoList,
   } = props
 
-  const fullScreenRef = useRef<HTMLImageElement>(null)
   const slider = useRef<Slider>(null)
-
-  const handleKeyDown = (event: KeyboardEvent) => {
-    const { code } = event
-    if (code === "ArrowRight") {
-      handleChangeNextImage()
-      return
-    }
-    if (code === "ArrowLeft") {
-      handleChangePrevImage()
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [])
 
   const showPrev = () => {
     // eslint-disable-next-line no-unused-expressions
@@ -67,13 +48,25 @@ const GalleryModal: FC<GalleryModalProps> = props => {
     slider.current?.slickNext()
   }
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const { code } = event
+    if (code === "ArrowRight") {
+      showNext()
+      return
+    }
+    if (code === "ArrowLeft") {
+      showPrev()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [])
+
   if (!currentImageId) return null
 
   const currentIndex = galleryInfoList.findIndex(galleryInfo => galleryInfo.imageId === currentImageId)
-
-  // const photoInfo = galleryInfoList.find(info => info.imageId === currentImageId)
-  // if (!photoInfo) return null
-  // const { prefCode, path } = photoInfo
 
   return (
     <StyledDialog
@@ -83,10 +76,6 @@ const GalleryModal: FC<GalleryModalProps> = props => {
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
     >
-      <ModalHeader>
-        {/* <DialogTitle id="scroll-dialog-title">{PREF_MAP[prefCode]}</DialogTitle> */}
-        <StyledFullscreen fontSize="large" onClick={() => handleToFullScreen(fullScreenRef.current)} />
-      </ModalHeader>
       <StyledDialogContent dividers>
         <NavigationPrev>
           <Fab color="primary" size="small" onClick={showPrev}>
@@ -121,18 +110,6 @@ const StyledDialog = styled(Dialog)`
   .MuiPaper-root {
     height: auto;
   }
-`
-
-const ModalHeader = styled.div`
-  align-items: center;
-  display: flex;
-  height: 64px;
-  justify-content: space-between;
-  padding-right: 18px;
-`
-
-const StyledFullscreen = styled(Fullscreen)`
-  cursor: pointer;
 `
 
 const StyledDialogContent = styled(DialogContent)`
