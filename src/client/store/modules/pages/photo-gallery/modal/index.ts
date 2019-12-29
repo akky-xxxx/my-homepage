@@ -2,6 +2,10 @@
  * import node_modules
  */
 import { createSlice } from "@reduxjs/toolkit"
+
+/**
+ * import others
+ */
 import { State, ModalAction } from "./types"
 
 /**
