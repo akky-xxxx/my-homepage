@@ -8,7 +8,7 @@ import { InputLabel, Select, MenuItem } from "@material-ui/core"
 /**
  * import others
  */
-import { HandleSelectViewPref, ViewPref } from "../../../../../store/modules/pages/photo-gallery/types"
+import { HandleSelectViewPref, ViewPref } from "../../../../../store/modules/pages/photo-gallery/viewPref/types"
 import PREF_MAP from "../../../../../shared/const/prefMap"
 
 /**

@@ -1,12 +1,9 @@
 /**
- * import node_modules
+ * import
  */
-import { Action } from "redux-actions"
-
-/**
- * import others
- */
-import { HandleAction, PrefCode } from "../../../../shared/types/common"
+import { PrefCode } from "../../../../shared/types/common"
+import { State as ModalState, HandleActions as ModalHandleActions } from "./modal/types"
+import { State as ViewPrefState, HandleActions as ViewPrefHandleActions } from "./viewPref/types"
 
 /**
  * main
@@ -16,36 +13,9 @@ export type ViewPref = PrefCode | "00"
 
 // state
 export interface State {
-  isOpen: boolean
-  currentImageId: null | number
-  selectedViewPref: ViewPref
-}
-
-// payload
-export interface ImageModalPayload {
-  targetId: number
-}
-
-export interface SelectViewPrefPayload {
-  targetPref: ViewPref
-}
-
-// action
-export interface ModalAction {
-  payload: ImageModalPayload
-}
-
-export interface SelectViewAction {
-  payload: SelectViewPrefPayload
+  modal: ModalState
+  selectedViewPref: ViewPrefState
 }
 
 // handle actions
-export type HandleOpenModalAction = (payload: ImageModalPayload) => Action<ImageModalPayload>
-
-export type HandleSelectViewPref = (payload: SelectViewPrefPayload) => Action<SelectViewPrefPayload>
-
-export interface HandleActions {
-  handleOpenModal: HandleOpenModalAction
-  handleCloseModal: HandleAction
-  handleSelectViewPref: HandleSelectViewPref
-}
+export interface HandleActions extends ModalHandleActions, ViewPrefHandleActions {}

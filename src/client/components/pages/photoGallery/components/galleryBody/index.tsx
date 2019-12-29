@@ -8,7 +8,7 @@ import styled from "styled-components"
 /**
  * import others
  */
-import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/types"
+import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
 import originGalleryInfoList from "../../../../../shared/const/galleryInfoList"
 import PREF_MAP from "../../../../../shared/const/prefMap"
 

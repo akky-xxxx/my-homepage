@@ -25,7 +25,13 @@ import galleryInfoList from "../../../shared/const/galleryInfoList"
 export interface PhotoGalleryProps extends State, HandleActions {}
 
 const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
-  const { handleOpenModal, handleCloseModal, handleSelectViewPref, isOpen, currentImageId, selectedViewPref } = props
+  const {
+    handleOpenModal,
+    handleCloseModal,
+    handleSelectViewPref,
+    selectedViewPref,
+    modal: { isOpen, currentImageId },
+  } = props
 
   // TODO: 型を整理して解決させる
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
