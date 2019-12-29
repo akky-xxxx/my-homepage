@@ -2,7 +2,7 @@
  * import node_modules
  */
 import React, { FC, useRef, useEffect } from "react"
-import { Dialog, DialogContent, DialogActions, Button, Fab } from "@material-ui/core"
+import { Dialog, DialogContent, Fab } from "@material-ui/core"
 import { NavigateBefore, NavigateNext } from "@material-ui/icons"
 import styled, { css } from "styled-components"
 import Slider from "react-slick"
@@ -22,19 +22,10 @@ interface GalleryModalProps {
   galleryInfoList: typeof originGalleryInfoList
   currentImageId: null | number
   handleCloseModal: HandleAction
-  handleChangeNextImage: HandleAction
-  handleChangePrevImage: HandleAction
 }
 
 const GalleryModal: FC<GalleryModalProps> = props => {
-  const {
-    isOpen,
-    handleCloseModal,
-    // handleChangeNextImage,
-    // handleChangePrevImage,
-    currentImageId,
-    galleryInfoList,
-  } = props
+  const { isOpen, handleCloseModal, currentImageId, galleryInfoList } = props
 
   const slider = useRef<Slider>(null)
 
@@ -95,11 +86,6 @@ const GalleryModal: FC<GalleryModalProps> = props => {
         </StyledSlider>
         {/* <StyledImage src={`/images/gallery${path}`} alt={PREF_MAP[prefCode]} ref={fullScreenRef} /> */}
       </StyledDialogContent>
-      <DialogActions>
-        <Button onClick={handleCloseModal} variant="contained">
-          閉じる
-        </Button>
-      </DialogActions>
     </StyledDialog>
   )
 }

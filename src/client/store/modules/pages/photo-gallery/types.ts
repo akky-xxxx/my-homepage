@@ -49,7 +49,5 @@ export type HandleSelectViewPref = (payload: SelectViewPrefPayload) => Action<Se
 export interface HandleActions {
   handleOpenModal: HandleOpenModalAction
   handleCloseModal: HandleAction
-  handleChangeNextImage: HandleAction
-  handleChangePrevImage: HandleAction
   handleSelectViewPref: HandleSelectViewPref
 }
