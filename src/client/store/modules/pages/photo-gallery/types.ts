@@ -6,7 +6,6 @@ import { Action } from "redux-actions"
 /**
  * import others
  */
-import galleryInfoList from "../../../../shared/const/galleryInfoList"
 import { HandleAction, PrefCode } from "../../../../shared/types/common"
 
 /**
@@ -17,7 +16,6 @@ export type ViewPref = PrefCode | "00"
 
 // state
 export interface State {
-  galleryInfoList: typeof galleryInfoList
   isOpen: boolean
   currentImageId: null | number
   selectedViewPref: ViewPref

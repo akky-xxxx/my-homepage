@@ -16,7 +16,7 @@ import PrefSelect from "./components/PrefSelect"
  * import others
  */
 import { State, HandleActions } from "../../../store/modules/pages/photo-gallery/types"
-import originGalleryInfoList from "../../../shared/const/galleryInfoList"
+import galleryInfoList from "../../../shared/const/galleryInfoList"
 
 /**
  * main
@@ -25,20 +25,12 @@ import originGalleryInfoList from "../../../shared/const/galleryInfoList"
 export interface PhotoGalleryProps extends State, HandleActions {}
 
 const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
-  const {
-    handleOpenModal,
-    handleCloseModal,
-    handleSelectViewPref,
-    isOpen,
-    currentImageId,
-    galleryInfoList,
-    selectedViewPref,
-  } = props
+  const { handleOpenModal, handleCloseModal, handleSelectViewPref, isOpen, currentImageId, selectedViewPref } = props
 
   // TODO: 型を整理して解決させる
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore
-  const filteredList: typeof originGalleryInfoList = galleryInfoList.filter(galleryInfo => {
+  const filteredList: typeof galleryInfoList = galleryInfoList.filter(galleryInfo => {
     if (selectedViewPref === "00") return true
     return galleryInfo.prefCode === selectedViewPref
   })

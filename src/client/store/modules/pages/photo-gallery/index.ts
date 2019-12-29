@@ -7,8 +7,6 @@ import { createAction, handleActions } from "redux-actions"
  * import others
  */
 import { ImageModalPayload, State, SelectViewPrefPayload, ModalAction, SelectViewAction } from "./types"
-import galleryInfoList from "../../../../shared/const/galleryInfoList"
-import { visibleModalReducer } from "./utils"
 
 /**
  * main
@@ -31,7 +29,6 @@ export const actions = {
 
 // initial state 定義
 const initialState: State = {
-  galleryInfoList,
   isOpen: false,
   currentImageId: null,
   selectedViewPref: "00",
@@ -45,11 +42,19 @@ const reducer = handleActions<State, any>(
         payload: { targetId },
       } = action
 
-      return visibleModalReducer(state, targetId, true)
+      return {
+        ...state,
+        isOpen: true,
+        currentImageId: targetId,
+      }
     },
 
     [CLOSE_MODAL]: state => {
-      return visibleModalReducer(state, null, false)
+      return {
+        ...state,
+        isOpen: false,
+        currentImageId: null,
+      }
     },
 
     [SELECT_PREF]: (state, action: SelectViewAction) => {
