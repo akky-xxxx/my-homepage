@@ -17,7 +17,8 @@
     "lint": "run-p lint:*",
     "lint:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client",
     "lint:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts",
-    "serve": "cross-env DEBUG=app:server:* node bin/www.js"
+    "serve": "cross-env DEBUG=app:server:* node bin/www.js",
+    "spell-check": "cspell './src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@material-ui/core": "^4.8.1",
