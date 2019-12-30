@@ -8,6 +8,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:server": "parcel build src/server/www.ts -d bin --target node",
+    "check-all": "run-p lint type-check spell-check",
     "convert-gallery": "ts-node scripts/convertGalleryTask.ts",
     "dev": "npm-run-all build -p serve",
     "fix": "run-p fix:*",
