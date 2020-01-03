@@ -5,7 +5,7 @@
 import React, { Component } from "react"
 import cloneDeep from "lodash/cloneDeep"
 import { Store } from "redux"
-import { Router } from "express"
+import { Router } from "next/router"
 
 /**
  * import others
