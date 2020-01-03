@@ -1,1 +1,7 @@
 DEVTOOLS
+reduxjs
+webp
+Kanagawa
+Saitama
+Ishikawa
+screenfull
