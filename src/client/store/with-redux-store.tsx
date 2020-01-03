@@ -2,8 +2,10 @@
 /**
  * import node_modules
  */
-import React from "react"
+import React, { Component } from "react"
 import cloneDeep from "lodash/cloneDeep"
+import { Store } from "redux"
+import { Router } from "express"
 
 /**
  * import others
@@ -13,10 +15,10 @@ import { initializeStore, StoreState } from "./store"
 /**
  * main
  */
-declare global {
-  interface Window {
-    __NEXT_REDUX_STORE__: null | Function
-  }
+interface Props {
+  Component: Component
+  router: Router
+  pageProps: unknown
 }
 
 const isServer = typeof window === "undefined"
@@ -28,15 +30,17 @@ function getOrCreateStore(initialState?: StoreState) {
   }
 
   if (!window.__NEXT_REDUX_STORE__) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
     window.__NEXT_REDUX_STORE__ = initializeStore(initialState)
   }
   return window.__NEXT_REDUX_STORE__
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (App: any) => {
-  return class AppWithRedux extends React.Component {
+  return class AppWithRedux extends Component<Props> {
+    reduxStore: Store
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static async getInitialProps(appContext: any) {
       const reduxStore = getOrCreateStore()
       const newAppContext = cloneDeep(appContext)
@@ -50,24 +54,19 @@ export default (App: any) => {
 
       return {
         ...appProps,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
         initialReduxState: reduxStore.getState(),
       }
     }
 
-    constructor(props: any) {
+    constructor(props: Props) {
       super(props)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      this.reduxStore = getOrCreateStore(props.initialReduxState)
+      this.reduxStore = getOrCreateStore()
     }
 
     render() {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      return <App {...this.props} reduxStore={this.reduxStore} />
+      const { Component: thisComponent, router, pageProps } = this.props
+
+      return <App Component={thisComponent} router={router} pageProps={pageProps} reduxStore={this.reduxStore} />
     }
   }
 }
