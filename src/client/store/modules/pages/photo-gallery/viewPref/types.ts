@@ -22,11 +22,6 @@ export interface SelectViewPrefPayload {
   targetPref: ViewPref
 }
 
-// actions
-export interface SelectViewAction {
-  payload: SelectViewPrefPayload
-}
-
 // handle actions
 export type HandleSelectViewPref = (payload: SelectViewPrefPayload) => Action<SelectViewPrefPayload>
 

@@ -1,39 +1,26 @@
 /**
  * import node_modules
  */
-import { createAction, handleActions } from "redux-actions"
+import { createSlice } from "@reduxjs/toolkit"
 
 /**
  * import others
  */
-import { ImageModalPayload, State, ModalAction } from "./types"
+import { State, ModalAction } from "./types"
 
 /**
  * main
  */
-// action 名の定義
-const NAMESPACE = "pages/photo-gallery"
-const OPEN_MODAL = `${NAMESPACE}/modal/open`
-const CLOSE_MODAL = `${NAMESPACE}/modal/close`
-
-// action 定義
-const openModal = createAction<ImageModalPayload>(OPEN_MODAL)
-const closeModal = createAction(CLOSE_MODAL)
-export const actions = {
-  openModal,
-  closeModal,
-}
-
-// initial state 定義
 const initialState: State = {
   isOpen: false,
   currentImageId: null,
 }
 
-// reducer
-const reducer = handleActions<State, any>(
-  {
-    [OPEN_MODAL]: (state, action: ModalAction) => {
+const modalModule = createSlice({
+  name: "pages/photo-gallery/modal",
+  initialState,
+  reducers: {
+    openModal: (state, action: ModalAction) => {
       const {
         payload: { targetId },
       } = action
@@ -44,8 +31,7 @@ const reducer = handleActions<State, any>(
         currentImageId: targetId,
       }
     },
-
-    [CLOSE_MODAL]: state => {
+    closeModal: state => {
       return {
         ...state,
         isOpen: false,
@@ -53,7 +39,6 @@ const reducer = handleActions<State, any>(
       }
     },
   },
-  initialState,
-)
+})
 
-export default reducer
+export default modalModule

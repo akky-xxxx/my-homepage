@@ -1,25 +1,27 @@
 /**
  * import node_modules
  */
-import { combineReducers } from "redux"
+import { combineReducers } from "@reduxjs/toolkit"
 
 /**
  * import others
  */
-import { State } from "./types"
-import modalReducer, { actions as modalActions } from "./modal"
-import viewPrefReducer, { actions as viewPrefActions } from "./viewPref"
+import modalModule from "./modal"
+import viewPrefModule from "./viewPref"
 
 /**
  * main
  */
+const { actions: modalActions, reducer: modalReducer } = modalModule
+const { actions: viewPrefActions, reducer: viewPrefReducer } = viewPrefModule
+
 export const actions = {
   ...modalActions,
   ...viewPrefActions,
 }
 
 // reducer
-const reducer = combineReducers<State>({
+const reducer = combineReducers({
   modal: modalReducer,
   selectedViewPref: viewPrefReducer,
 })
