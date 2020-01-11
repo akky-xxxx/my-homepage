@@ -9,14 +9,14 @@ import styled from "styled-components"
  * import others
  */
 import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
-import originGalleryInfoList from "../../../../../shared/const/galleryInfoList"
 import PREF_MAP from "../../../../../shared/const/prefMap"
+import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 
 /**
  * main
  */
 interface GalleryBodyProps {
-  galleryInfoList: typeof originGalleryInfoList
+  galleryInfoList: GalleryItem[]
   handleOpenModal: HandleOpenModalAction
 }
 
@@ -26,9 +26,9 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
   return (
     <GridList cols={3}>
       {galleryInfoList.map(galleryInfo => {
-        const { imageId, prefCode, thumbPath, path } = galleryInfo
+        const { imageId, prefCode, path } = galleryInfo
         return (
-          <StyledGridList key={thumbPath} onClick={() => handleOpenModal({ targetId: imageId })}>
+          <StyledGridList key={imageId} onClick={() => handleOpenModal({ targetId: imageId })}>
             <img src={`/images/gallery${path}`} alt={prefCode} />
             <GridListTileBar title={PREF_MAP[prefCode]} />
           </StyledGridList>
