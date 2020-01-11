@@ -31,9 +31,11 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
     <GridList cols={4} cellHeight="auto" spacing={16}>
       {galleryInfoList.map(galleryInfo => {
         const { imageId, prefCode, path, date } = galleryInfo
+        const handleClick = () => handleOpenModal({ targetId: imageId })
+
         return (
-          <StyledGridList key={imageId} onClick={() => handleOpenModal({ targetId: imageId })}>
-            <GalleryCard path={path} date={date} prefCode={prefCode} />
+          <StyledGridList key={imageId}>
+            <GalleryCard path={path} date={date} prefCode={prefCode} handleClick={handleClick} />
           </StyledGridList>
         )
       })}
@@ -42,8 +44,6 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
 }
 
 const StyledGridList = styled(GridListTile)`
-  cursor: pointer;
-
   .MuiGridListTile-tile {
     overflow: visible;
   }

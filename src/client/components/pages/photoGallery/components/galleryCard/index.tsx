@@ -14,20 +14,25 @@ import PREF_MAP from "../../../../../shared/const/prefMap"
 /**
  * main
  */
-type GalleryCardProps = Omit<GalleryItem, "imageId">
+interface GalleryCardProps extends Omit<GalleryItem, "imageId"> {
+  handleClick: () => void
+}
 
 const useStyles = makeStyles({
+  card: {
+    cursor: "pointer",
+  },
   media: {
     height: 200,
   },
 })
 
 const GalleryCard: FC<GalleryCardProps> = props => {
-  const { path, date, prefCode } = props
+  const { path, date, prefCode, handleClick } = props
   const classes = useStyles()
 
   return (
-    <Card>
+    <Card onClick={handleClick} className={classes.card}>
       <CardMedia className={classes.media} image={`/images/gallery${path}`} title={PREF_MAP[prefCode]} />
       <CardContent>
         <Typography component="h3">{PREF_MAP[prefCode]}</Typography>
