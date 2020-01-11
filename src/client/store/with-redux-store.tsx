@@ -3,7 +3,7 @@
  * import node_modules
  */
 import React, { Component } from "react"
-import cloneDeep from "lodash/cloneDeep"
+import { clone } from "remeda"
 import { Store } from "redux"
 import { Router } from "next/router"
 
@@ -43,7 +43,7 @@ export default (App: any) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static async getInitialProps(appContext: any) {
       const reduxStore = getOrCreateStore()
-      const newAppContext = cloneDeep(appContext)
+      const newAppContext = clone(appContext)
 
       newAppContext.ctx.reduxStore = reduxStore
 
