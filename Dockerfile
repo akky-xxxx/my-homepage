@@ -5,7 +5,7 @@ COPY . .
 # 資材のビルド
 RUN yarn install
 ENV NODE_ENV=production
-RUN yarn build && rm -rf dist/cache node_modules && cd src && ls -l
+RUN yarn build && rm -rf dist/cache node_modules
 
 # dependencies のみの node_modules を作成
 RUN yarn install
