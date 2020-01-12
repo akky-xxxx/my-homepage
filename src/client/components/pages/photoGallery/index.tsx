@@ -17,6 +17,7 @@ import PrefSelect from "./components/PrefSelect"
  */
 import { State, HandleActions } from "../../../store/modules/pages/photo-gallery/types"
 import galleryInfoList from "../../../shared/const/galleryInfoList"
+import { GalleryItem } from "../../../shared/types/pages/galleryList"
 
 /**
  * main
@@ -33,10 +34,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     modal: { isOpen, currentImageId },
   } = props
 
-  // TODO: 型を整理して解決させる
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore
-  const filteredList: typeof galleryInfoList = galleryInfoList.filter(galleryInfo => {
+  const filteredList: GalleryItem[] = galleryInfoList.filter(galleryInfo => {
     if (selectedViewPref === "00") return true
     return galleryInfo.prefCode === selectedViewPref
   })

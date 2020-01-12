@@ -11,15 +11,14 @@ import Slider from "react-slick"
  * import others
  */
 import { HandleAction } from "../../../../../shared/types/common"
-import originGalleryInfoList from "../../../../../shared/const/galleryInfoList"
-// import PREF_MAP from "../../../../../shared/const/prefMap"
+import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 
 /**
  * main
  */
 interface GalleryModalProps {
   isOpen: boolean
-  galleryInfoList: typeof originGalleryInfoList
+  galleryInfoList: GalleryItem[]
   currentImageId: null | number
   handleCloseModal: HandleAction
 }
