@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import fs from "fs-extra"
+import fs from "fs-extra" // eslint-disable-line import/no-extraneous-dependencies
 
 /**
  * import others

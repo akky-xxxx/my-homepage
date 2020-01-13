@@ -17,7 +17,7 @@ import nextConfig from "../../next.config"
 /**
  * main
  */
-const PORT = process.env.PORT || 3000
+const PORT: number = parseInt(process.env.PORT as string, 10) || 3000
 const isDev = process.env.NODE_ENV !== "production"
 const ROOT_DIR = path.resolve(__dirname, "../")
 const CLIENT_DIR = path.resolve(ROOT_DIR, "src/client")
