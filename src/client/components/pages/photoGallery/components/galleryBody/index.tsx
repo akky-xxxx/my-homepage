@@ -2,12 +2,13 @@
  * import node_modules
  */
 import React, { FC } from "react"
-import { GridList, GridListTile } from "@material-ui/core"
+import { GridListTile } from "@material-ui/core"
 import styled from "styled-components"
 
 /**
  * import components
  */
+import GalleryBodyWrapper from "../galleryBodyWrapper"
 import GalleryCard from "../galleryCard"
 
 /**
@@ -28,7 +29,7 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
   const { galleryInfoList, handleOpenModal } = props
 
   return (
-    <GridList cols={4} cellHeight="auto" spacing={16}>
+    <GalleryBodyWrapper>
       {galleryInfoList.map(galleryInfo => {
         const { imageId, prefCode, path, date } = galleryInfo
         const handleClick = () => handleOpenModal({ targetId: imageId })
@@ -39,7 +40,7 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
           </StyledGridList>
         )
       })}
-    </GridList>
+    </GalleryBodyWrapper>
   )
 }
 
