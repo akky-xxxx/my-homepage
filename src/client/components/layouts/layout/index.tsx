@@ -14,7 +14,7 @@ import MenuDrawer from "../menuDrawer"
 /**
  * main
  */
-const { spacing } = createMuiTheme()
+const { spacing, breakpoints } = createMuiTheme()
 const Layout: FC = props => {
   const { children } = props
   // TODO: redux に差し替える
@@ -34,7 +34,12 @@ const Layout: FC = props => {
 }
 
 const ContentWrapper = styled.div`
-  padding: ${spacing(2)}px;
+  ${breakpoints.up("md")} {
+    padding: ${spacing(3)}px;
+  }
+  ${breakpoints.down("sm")} {
+    padding: ${spacing(2)}px;
+  }
 `
 
 export default Layout
