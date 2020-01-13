@@ -8,6 +8,11 @@ import { createGlobalStyle } from "styled-components"
 import { Provider } from "react-redux"
 
 /**
+ * import components
+ */
+import Layout from "../components/layouts/layout"
+
+/**
  * import others
  */
 import WithRedux from "../store/with-redux-store"
@@ -27,8 +32,10 @@ class MyApp extends App<NextPageContext> {
     return (
       <Fragment>
         <Provider store={reduxStore}>
-          <GlobalStyle />
-          <Component />
+          <Layout>
+            <GlobalStyle />
+            <Component />
+          </Layout>
         </Provider>
       </Fragment>
     )

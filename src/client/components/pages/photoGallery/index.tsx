@@ -54,8 +54,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
 }
 
 const Wrapper = styled.div`
-  overflow-x: hidden;
-  width: 100vw;
+  width: 100%;
 `
 
 export default PhotoGallery
