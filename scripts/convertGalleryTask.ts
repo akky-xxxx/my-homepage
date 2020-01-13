@@ -1,8 +1,8 @@
 /**
  * import node_modules
  */
-import glob from "glob"
-import fs from "fs-extra"
+import glob from "glob" // eslint-disable-line import/no-extraneous-dependencies
+import fs from "fs-extra" // eslint-disable-line import/no-extraneous-dependencies
 
 /**
  * import others

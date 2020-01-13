@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import sharp from "sharp"
+import sharp from "sharp" // eslint-disable-line import/no-extraneous-dependencies
 
 /**
  * import others
