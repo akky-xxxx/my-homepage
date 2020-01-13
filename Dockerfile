@@ -1,4 +1,4 @@
-FROM node:12.14.0-alpine as base
+FROM node:12.14.1-alpine as base
 WORKDIR ./build
 COPY . .
 
@@ -11,7 +11,7 @@ RUN yarn build && rm -rf dist/cache node_modules
 RUN yarn install
 
 # 最終イメージ
-FROM node:12.14.0-alpine as app
+FROM node:12.14.1-alpine as app
 WORKDIR ./app
 COPY --from=base ./build/bin ./bin
 COPY --from=base ./build/dist ./dist
