@@ -27,12 +27,11 @@ const app = next({
   dev: isDev,
 })
 const handle = app.getRequestHandler()
+const server = express()
 
 app
   .prepare()
   .then(() => {
-    const server = express()
-
     server.get("*.webp.*", replaceToWebpMiddleWare)
 
     server.get('*', (req, res) => {
