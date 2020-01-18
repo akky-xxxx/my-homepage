@@ -12,6 +12,7 @@ import replaceToWebpMiddleWare from "./serverMiddleWares/replaceToWebp"
  * import others
  */
 import nextConfig from "../../next.config"
+import nextRoutes from "./serverMiddleWares/nextRoutes"
 
 
 /**
@@ -26,7 +27,7 @@ const app = next({
   conf: nextConfig,
   dev: isDev,
 })
-const handle = app.getRequestHandler()
+const handle = nextRoutes.getRequestHandler(app)
 const server = express()
 
 app
@@ -34,9 +35,7 @@ app
   .then(() => {
     server.get("*.webp.*", replaceToWebpMiddleWare)
 
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    })
+    server.use(handle)
 
     server.listen(PORT, (err: Error) => {
       if (err) throw err
