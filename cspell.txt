@@ -7,3 +7,5 @@ Ishikawa
 screenfull
 mixins
 remeda
+nprogress
+stylelint
