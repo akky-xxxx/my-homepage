@@ -11,7 +11,7 @@ import chalk from "chalk"
  */
 import nextConfig from "../../next.config"
 import replaceToWebpMiddleWare from "./serverMiddleWares/replaceToWebp"
-import nextRoutes from "./serverMiddleWares/nextRoutes"
+import setNextRoutes from "./serverMiddleWares/setNextRoutes"
 
 /**
  * main
@@ -25,7 +25,7 @@ const app = next({
   conf: nextConfig,
   dev: isDev,
 })
-const handle = nextRoutes.getRequestHandler(app)
+const handle = setNextRoutes(app)
 const server = express()
 
 app
