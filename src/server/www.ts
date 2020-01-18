@@ -6,14 +6,12 @@ import express from "express"
 import path from "path"
 import chalk from "chalk"
 
-import replaceToWebpMiddleWare from "./serverMiddleWares/replaceToWebp"
-
 /**
  * import others
  */
 import nextConfig from "../../next.config"
+import replaceToWebpMiddleWare from "./serverMiddleWares/replaceToWebp"
 import nextRoutes from "./serverMiddleWares/nextRoutes"
-
 
 /**
  * main
