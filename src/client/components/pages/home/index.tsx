@@ -9,7 +9,7 @@ import { NextPage } from "next"
  */
 import CustomHead from "../../molecules/customHead"
 import PageAbove from "../../molecules/pageAbove"
-import MainContent from "../../molecules/mainContent"
+import MainContentWrapper from "../../molecules/mainContentWrapper"
 
 /**
  * main
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
     <div>
       <CustomHead title="Home" />
       <PageAbove title="Home" />
-      <MainContent />
+      <MainContentWrapper />
     </div>
   )
 }
