@@ -2,14 +2,13 @@
  * import node_modules
  */
 import React, { FC } from "react"
-import { GridListTile } from "@material-ui/core"
 import styled from "styled-components"
+import { createMuiTheme } from "@material-ui/core"
 
 /**
  * import components
  */
-import GalleryBodyWrapper from "../galleryBodyWrapper"
-import GalleryCard from "../galleryCard"
+import GalleryCardWrapper from "../galleryCardWrapper"
 
 /**
  * import others
@@ -25,28 +24,39 @@ interface GalleryBodyProps {
   handleOpenModal: HandleOpenModalAction
 }
 
+const { spacing, breakpoints } = createMuiTheme()
+
 const GalleryBody: FC<GalleryBodyProps> = props => {
   const { galleryInfoList, handleOpenModal } = props
 
   return (
-    <GalleryBodyWrapper>
+    <GalleryList>
       {galleryInfoList.map(galleryInfo => {
         const { imageId, prefCode, path, date } = galleryInfo
         const handleClick = () => handleOpenModal({ targetId: imageId })
 
         return (
-          <StyledGridList key={imageId}>
-            <GalleryCard path={path} date={date} prefCode={prefCode} handleClick={handleClick} />
-          </StyledGridList>
+          <GalleryCardWrapper key={imageId} prefCode={prefCode} path={path} date={date} handleClick={handleClick} />
         )
       })}
-    </GalleryBodyWrapper>
+    </GalleryList>
   )
 }
 
-const StyledGridList = styled(GridListTile)`
-  .MuiGridListTile-tile {
-    overflow: visible;
+const GalleryList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+
+  ${breakpoints.up("lg")} {
+    margin: -${spacing(1)}px;
+  }
+
+  ${breakpoints.only("md")} {
+    margin: -${spacing(1)}px;
+  }
+
+  ${breakpoints.down("sm")} {
+    margin: -${spacing(0.5)}px;
   }
 `
 
