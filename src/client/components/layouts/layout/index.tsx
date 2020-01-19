@@ -2,8 +2,6 @@
  * import node_modules
  */
 import React, { FC, Fragment, useState } from "react"
-import { createMuiTheme } from "@material-ui/core"
-import styled from "styled-components"
 
 /**
  * import components
@@ -14,7 +12,6 @@ import MenuDrawer from "../menuDrawer"
 /**
  * main
  */
-const { spacing, breakpoints } = createMuiTheme()
 const Layout: FC = props => {
   const { children } = props
   // TODO: redux に差し替える
@@ -28,18 +25,9 @@ const Layout: FC = props => {
       <HeaderBar handleOpenMenu={handleOpenMenu} />
       <MenuDrawer isMenuOpen={isMenuOpen} handleCloseMenu={handleCloseMenu} />
 
-      <ContentWrapper>{children}</ContentWrapper>
+      <main>{children}</main>
     </Fragment>
   )
 }
-
-const ContentWrapper = styled.div`
-  ${breakpoints.up("md")} {
-    padding: ${spacing(3)}px;
-  }
-  ${breakpoints.down("sm")} {
-    padding: ${spacing(2)}px;
-  }
-`
 
 export default Layout
