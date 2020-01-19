@@ -39,11 +39,11 @@ const MainContent: FC<MainContentProps> = props => {
   return (
     <Grid container>
       <LeftCol>
-        <GalleryBody galleryInfoList={filteredList} handleOpenModal={handleOpenModal}/>
+        <GalleryBody galleryInfoList={filteredList} handleOpenModal={handleOpenModal} />
       </LeftCol>
       <RightCol>
         <RightColInner>
-          <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref}/>
+          <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
         </RightColInner>
       </RightCol>
     </Grid>
