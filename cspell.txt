@@ -1,6 +1,7 @@
 DEVTOOLS
 reduxjs
 webp
+Tochigi
 Kanagawa
 Saitama
 Ishikawa
