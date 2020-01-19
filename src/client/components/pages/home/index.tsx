@@ -8,6 +8,8 @@ import { NextPage } from "next"
  * import components
  */
 import CustomHead from "../../molecules/customHead"
+import PageAbove from "../../molecules/pageAbove"
+import MainContentWrapper from "../../molecules/mainContentWrapper"
 
 /**
  * main
@@ -16,7 +18,8 @@ const Home: NextPage = () => {
   return (
     <div>
       <CustomHead title="Home" />
-      Home
+      <PageAbove title="Home" />
+      <MainContentWrapper />
     </div>
   )
 }

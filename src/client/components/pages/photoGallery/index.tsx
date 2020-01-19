@@ -9,9 +9,10 @@ import styled from "styled-components"
  * import components
  */
 import CustomHead from "../../molecules/customHead"
-import GalleryBody from "./components/galleryBody"
+import PageAbove from "../../molecules/pageAbove"
+import MainContentWrapper from "../../molecules/mainContentWrapper"
+import MainContent from "./components/mainContent"
 import GalleryModal from "./components/galleryModal"
-import PrefSelect from "./components/PrefSelect"
 
 /**
  * import others
@@ -23,7 +24,6 @@ import { GalleryItem } from "../../../shared/types/pages/galleryList"
 /**
  * main
  */
-
 export interface PhotoGalleryProps extends State, HandleActions {}
 
 const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
@@ -43,8 +43,14 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
   return (
     <Wrapper>
       <CustomHead title="Photo Gallery" />
-      <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
-      <GalleryBody galleryInfoList={filteredList} handleOpenModal={handleOpenModal} />
+      <PageAbove title="Photo Gallery" />
+      <MainContentWrapper>
+        <MainContent
+          selectedViewPref={selectedViewPref}
+          handleOpenModal={handleOpenModal}
+          handleSelectViewPref={handleSelectViewPref}
+        />
+      </MainContentWrapper>
       <GalleryModal
         galleryInfoList={filteredList}
         currentImageId={currentImageId}
