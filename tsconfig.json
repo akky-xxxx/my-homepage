@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "checkJs": true,
+    "checkJs": false,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noEmit": true
