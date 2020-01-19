@@ -21,7 +21,7 @@ const PageAbove: FC<PageAboveProps> = props => {
   const { title, children } = props
 
   return (
-    <PageAboveWrapper>
+    <div>
       <PageAboveInner>
         <Grid container justify="space-between" alignItems="center">
           <Typography variant="h6" component="h2">
@@ -33,19 +33,9 @@ const PageAbove: FC<PageAboveProps> = props => {
       </PageAboveInner>
 
       <Divider />
-    </PageAboveWrapper>
+    </div>
   )
 }
-
-const PageAboveWrapper = styled.div`
-  ${APP_BREAKPOINTS.PC} {
-    margin-bottom: ${APP_MARGINS.PC.HORIZON}px;
-  }
-
-  ${APP_BREAKPOINTS.SP} {
-    margin-bottom: ${APP_MARGINS.SP.HORIZON}px;
-  }
-`
 
 const PageAboveInner = styled.div`
   ${APP_BREAKPOINTS.PC} {
