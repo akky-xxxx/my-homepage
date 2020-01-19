@@ -12,13 +12,13 @@ import { APP_BREAKPOINTS, APP_MARGINS } from "../../../shared/const/styles"
 /**
  * main
  */
-const MainContent: FC = props => {
+const MainContentWrapper: FC = props => {
   const { children } = props
 
-  return <MainContentWrapper>{children}</MainContentWrapper>
+  return <StyledMainContentWrapper>{children}</StyledMainContentWrapper>
 }
 
-const MainContentWrapper = styled.div`
+const StyledMainContentWrapper = styled.div`
   ${APP_BREAKPOINTS.PC} {
     padding-bottom: ${APP_MARGINS.PC.VERTICAL}px;
     padding-left: ${APP_MARGINS.PC.HORIZON}px;
@@ -32,4 +32,4 @@ const MainContentWrapper = styled.div`
   }
 `
 
-export default MainContent
+export default MainContentWrapper
