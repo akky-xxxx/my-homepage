@@ -22,3 +22,5 @@ export interface MenuItem {
 }
 
 export type HandleAction = () => Action
+
+export type IsNoReRender<T> = (beforeProps: T, afterProps: T) => boolean
