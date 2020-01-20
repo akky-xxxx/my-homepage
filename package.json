@@ -22,7 +22,7 @@
     "fix:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts --fix",
     "gcloud": "run-s gcloud:change:prj gcloud:submit gcloud:deploy",
     "gcloud:change:prj": "gcloud config set project eloquent-figure-263607",
-    "gcloud:deploy": "gcloud beta run deploy --image gcr.io/eloquent-figure-263607/fe",
+    "gcloud:deploy": "gcloud beta run deploy --image gcr.io/eloquent-figure-263607/fe --platform managed --region=asia-northeast1",
     "gcloud:submit": "gcloud builds submit --tag gcr.io/eloquent-figure-263607/fe",
     "lint": "run-p lint:*",
     "lint:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client",
