@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Typography, Divider, Grid } from "@material-ui/core"
 import styled from "styled-components"
 
@@ -9,6 +9,7 @@ import styled from "styled-components"
  * import others
  */
 import { APP_BREAKPOINTS, APP_MARGINS } from "../../../shared/const/styles"
+import { IsNoReRender } from "../../../shared/types/common"
 
 /**
  * main
@@ -47,4 +48,6 @@ const PageAboveInner = styled.div`
   }
 `
 
-export default PageAbove
+const isNoReRender: IsNoReRender<PageAboveProps> = (beforeProps, afterProps) => beforeProps.title === afterProps.title
+
+export default memo(PageAbove, isNoReRender)
