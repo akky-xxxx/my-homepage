@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import styled from "styled-components"
 import { createMuiTheme } from "@material-ui/core"
 
@@ -14,6 +14,7 @@ import GalleryCard from "../galleryCard"
  * import others
  */
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
+import { IsNoReRender } from "../../../../../shared/types/common"
 
 /**
  * main
@@ -51,4 +52,7 @@ const StyledGalleryCardWrapper = styled.div`
   }
 `
 
-export default GalleryCardWrapper
+const isNoReRender: IsNoReRender<GalleryCardWrapperProps> = (beforeProps, afterProps) =>
+  beforeProps.path === afterProps.path
+
+export default memo(GalleryCardWrapper, isNoReRender)
