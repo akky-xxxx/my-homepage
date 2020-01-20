@@ -34,7 +34,7 @@ const GalleryCardWrapper: FC<GalleryCardWrapperProps> = props => {
   )
 }
 
-const StyledGalleryCardWrapper = styled.li`
+const StyledGalleryCardWrapper = styled.div`
   ${breakpoints.up("lg")} {
     flex-basis: calc(25% - ${spacing(2)}px);
     margin: ${spacing(1)}px;
