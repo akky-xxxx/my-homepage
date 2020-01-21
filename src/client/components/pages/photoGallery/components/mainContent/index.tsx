@@ -55,10 +55,11 @@ const MainContent: FC<MainContentProps> = props => {
   )
 }
 
+const RIGHT_COL_WIDTH = 200
 const LeftCol = styled.div`
   ${APP_BREAKPOINTS.PC} {
     padding-top: ${APP_MARGINS.PC.VERTICAL}px;
-    width: calc(100% - 200px);
+    width: calc(100% - ${RIGHT_COL_WIDTH}px);
   }
 `
 
@@ -69,7 +70,7 @@ const RightCol = styled.div`
     margin-left: ${APP_MARGINS.PC.HORIZON}px;
     padding-left: ${APP_MARGINS.PC.HORIZON}px;
     padding-top: ${APP_MARGINS.PC.VERTICAL}px;
-    width: (200px - ${APP_MARGINS.PC.HORIZON}px);
+    width: ${RIGHT_COL_WIDTH - APP_MARGINS.PC.HORIZON}px;
   }
 
   ${APP_BREAKPOINTS.SP} {
@@ -80,7 +81,7 @@ const RightCol = styled.div`
 const RightColInner = styled.div`
   ${APP_BREAKPOINTS.PC} {
     position: sticky;
-    top: calc(64px + ${APP_MARGINS.PC.VERTICAL}px);
+    top: ${64 - APP_MARGINS.PC.VERTICAL}px;
   }
 `
 
