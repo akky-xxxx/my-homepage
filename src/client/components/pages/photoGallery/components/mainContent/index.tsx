@@ -9,6 +9,7 @@ import { Grid, createMuiTheme } from "@material-ui/core"
  * import components
  */
 import GalleryBody from "../galleryBody"
+import GalleryLength from "../galleryLength"
 import PrefSelect from "../PrefSelect"
 
 /**
@@ -26,7 +27,7 @@ export interface MainContentProps
   extends Pick<State, "selectedViewPref">,
     Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref"> {}
 
-const { palette } = createMuiTheme()
+const { palette, spacing } = createMuiTheme()
 
 const MainContent: FC<MainContentProps> = props => {
   const { handleOpenModal, handleSelectViewPref, selectedViewPref } = props
@@ -43,6 +44,10 @@ const MainContent: FC<MainContentProps> = props => {
       </LeftCol>
       <RightCol>
         <RightColInner>
+          <GalleryLengthWrapper>
+            <GalleryLength resultLength={filteredList.length} />
+          </GalleryLengthWrapper>
+
           <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
         </RightColInner>
       </RightCol>
@@ -77,6 +82,10 @@ const RightColInner = styled.div`
     position: sticky;
     top: calc(64px + ${APP_MARGINS.PC.VERTICAL}px);
   }
+`
+
+const GalleryLengthWrapper = styled.div`
+  margin-bottom: ${spacing(1)}px;
 `
 
 export default MainContent
