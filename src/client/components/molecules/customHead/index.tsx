@@ -1,8 +1,13 @@
 /**
  * import node_modules
  */
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import NextHead from "next/head"
+
+/**
+ * import others
+ */
+import { IsNoReRender } from "../../../shared/types/common"
 
 /**
  * main
@@ -23,4 +28,6 @@ const CustomHead: FC<CustomHeadProps> = props => {
   )
 }
 
-export default CustomHead
+const isNoReRender: IsNoReRender<CustomHeadProps> = (beforeProps, afterProps) => beforeProps.title === afterProps.title
+
+export default memo(CustomHead, isNoReRender)

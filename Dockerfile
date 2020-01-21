@@ -3,12 +3,8 @@ WORKDIR ./build
 COPY . .
 
 # 資材のビルド
-RUN yarn install
 ENV NODE_ENV=production
-RUN yarn build && rm -rf dist/cache node_modules
-
-# dependencies のみの node_modules を作成
-RUN yarn install
+RUN yarn install && yarn build && rm -rf dist/cache
 
 # 最終イメージ
 FROM node:12.14.1-alpine as app
