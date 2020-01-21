@@ -3,7 +3,7 @@
  */
 import React, { FC } from "react"
 import styled from "styled-components"
-import { Grid, createMuiTheme } from "@material-ui/core"
+import { Grid, Divider, createMuiTheme } from "@material-ui/core"
 
 /**
  * import components
@@ -48,6 +48,10 @@ const MainContent: FC<MainContentProps> = props => {
             <GalleryLength resultLength={filteredList.length} />
           </GalleryLengthWrapper>
 
+          <DividerWrapper>
+            <Divider />
+          </DividerWrapper>
+
           <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
         </RightColInner>
       </RightCol>
@@ -87,6 +91,10 @@ const RightColInner = styled.div`
 
 const GalleryLengthWrapper = styled.div`
   margin-bottom: ${spacing(1)}px;
+`
+
+const DividerWrapper = styled.div`
+  margin-bottom: ${spacing(2)}px;
 `
 
 export default MainContent
