@@ -25,13 +25,9 @@ interface GalleryModalProps {
 
 const GalleryModal: FC<GalleryModalProps> = props => {
   const { isOpen, handleCloseModal, currentImageId, galleryInfoList } = props
-
   const slider = useRef<Slider>(null)
-
   const showPrev = () => slider.current?.slickPrev()
-
   const showNext = () => slider.current?.slickNext()
-
   const handleKeyDown = (event: KeyboardEvent) => {
     const { code } = event
     if (code === "ArrowRight") {
