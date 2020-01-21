@@ -115,11 +115,6 @@ const NavigationNext = styled.div`
   right: 10px;
 `
 
-// const StyledImage = styled.img`
-//   max-height: calc(100vh - 218px);
-//   max-width: calc(100vw - 228px);
-// `
-
 const StyledSlider = styled(Slider)`
   height: calc(100vh - 218px);
   width: calc(100vw - 228px);
