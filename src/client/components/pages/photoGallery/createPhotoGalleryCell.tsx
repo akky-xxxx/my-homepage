@@ -31,12 +31,19 @@ const createPhotoGalleryCell = (colNum: number) => {
     const { style, rowIndex, columnIndex, data } = props
     const index = rowIndex * colNum + columnIndex
     if (!data[index]) return null
-    const { imageId, prefCode, path, date, handleOpenModal } = data[index]
+    const { imageId, prefCode, path, date, tags, handleOpenModal } = data[index]
     const handleClick = () => handleOpenModal({ targetId: imageId })
 
     return (
       <div style={style}>
-        <GalleryCardWrapper key={imageId} prefCode={prefCode} path={path} date={date} handleClick={handleClick} />
+        <GalleryCardWrapper
+          key={imageId}
+          prefCode={prefCode}
+          path={path}
+          date={date}
+          tags={tags}
+          handleClick={handleClick}
+        />
       </div>
     )
   }

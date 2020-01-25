@@ -2,7 +2,7 @@
  * import node_modules
  */
 import React, { FC } from "react"
-import { Card, CardMedia, CardContent, Typography, CircularProgress, Grid, makeStyles } from "@material-ui/core"
+import { Card, CardHeader, CardMedia, CardContent, CircularProgress, Grid, Chip, makeStyles } from "@material-ui/core"
 import { format } from "date-fns"
 import { useInView } from "react-intersection-observer"
 
@@ -19,14 +19,17 @@ interface GalleryCardProps extends Omit<GalleryItem, "imageId"> {
   handleClick: () => void
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
     cursor: "pointer",
   },
   media: {
     height: 200,
   },
-})
+  tag: {
+    margin: theme.spacing(0.5),
+  },
+}))
 
 const BeforeLoad = () => {
   const classes = useStyles()
@@ -39,23 +42,25 @@ const BeforeLoad = () => {
 }
 
 const GalleryCard: FC<GalleryCardProps> = props => {
-  const { path, date, prefCode, handleClick } = props
+  const { path, date, prefCode, tags, handleClick } = props
   const classes = useStyles()
   const [ref, inView] = useInView()
 
   return (
     <Card onClick={handleClick} className={classes.card} ref={ref}>
+      <CardHeader title={PREF_MAP[prefCode]} subheader={format(new Date(date), "yyyy年M月d日")} />
       {inView ? (
         <CardMedia className={classes.media} image={`/images/gallery${path}`} title={PREF_MAP[prefCode]} />
       ) : (
         <BeforeLoad />
       )}
-      <CardContent>
-        <Typography component="h3">{PREF_MAP[prefCode]}</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {format(new Date(date), "yyyy年M月d日")}
-        </Typography>
-      </CardContent>
+      {Boolean(tags.length) && (
+        <CardContent>
+          {tags.map(tag => (
+            <Chip key={tag} className={classes.tag} size="small" label={tag} />
+          ))}
+        </CardContent>
+      )}
     </Card>
   )
 }

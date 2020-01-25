@@ -26,11 +26,11 @@ interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId"> {
 const { spacing, breakpoints } = createMuiTheme()
 
 const GalleryCardWrapper: FC<GalleryCardWrapperProps> = props => {
-  const { path, date, prefCode, handleClick } = props
+  const { path, date, prefCode, tags, handleClick } = props
 
   return (
     <StyledGalleryCardWrapper>
-      <GalleryCard path={path} date={date} prefCode={prefCode} handleClick={handleClick} />
+      <GalleryCard path={path} date={date} prefCode={prefCode} handleClick={handleClick} tags={tags} />
     </StyledGalleryCardWrapper>
   )
 }
