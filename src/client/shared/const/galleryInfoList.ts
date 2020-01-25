@@ -1,3 +1,5 @@
+import { GalleryItem } from "../types/pages/galleryList"
+
 export default [
   {
     imageId: 73,
@@ -1084,4 +1086,4 @@ export default [
     prefCode: "14",
     tags: [],
   },
-]
+] as GalleryItem[]
