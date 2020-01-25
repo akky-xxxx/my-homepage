@@ -4,7 +4,10 @@ interface ImagesInfo {
   thumbPath: string
   date: Date
   prefCode: string
+  tags: string[]
 }
+
+const tagRegExp = /\[([^\]]+)]/g
 
 const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
   fileNames
@@ -15,12 +18,19 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
       const month = date.slice(4, 6)
       const day = date.slice(6)
       const prefCode = pref.slice(0, 2)
+      const tags = []
+      const matches = relatedPath.match(tagRegExp)
+      if (matches) {
+        tags.push(...matches[0].replace(tagRegExp, "$1").split(","))
+        tags.sort()
+      }
       arr.push({
         imageId: index + 1,
         path: relatedPath,
         thumbPath: relatedPath.replace(".webp.jpg", ".thumb.webp.jpg"),
         date: new Date(`${year}-${month}-${day}`),
         prefCode,
+        tags,
       })
       return arr
     }, [])
