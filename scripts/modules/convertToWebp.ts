@@ -15,13 +15,14 @@ import getImageSizes from "./getImageSizes"
  * main
  */
 const WEBP_FLAG = ".webp."
+const tagRegExp = /\[([^\]]+)]/g
 
 const convertToWebp = async (imagePath: string, ORIGIN_DIR: string, DIST_DIR: string) => {
   if (!imagePath.includes(WEBP_FLAG)) {
     console.log(`${WARNING} ${target(imagePath)} ${warningMessage("is not hoped webp")}`)
     return
   }
-  const flagRemovedPath = imagePath.replace(WEBP_FLAG, ".")
+  const flagRemovedPath = imagePath.replace(WEBP_FLAG, ".").replace(tagRegExp, "")
   const lastSlashPosition = flagRemovedPath.lastIndexOf("/")
   const directory = flagRemovedPath.slice(0, lastSlashPosition).replace(ORIGIN_DIR, DIST_DIR)
   const fileName = flagRemovedPath.slice(lastSlashPosition + 1)

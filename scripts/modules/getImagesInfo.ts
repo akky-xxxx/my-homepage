@@ -26,8 +26,8 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
       }
       arr.push({
         imageId: index + 1,
-        path: relatedPath,
-        thumbPath: relatedPath.replace(".webp.jpg", ".thumb.webp.jpg"),
+        path: relatedPath.replace(tagRegExp, ""),
+        thumbPath: relatedPath.replace(tagRegExp, "").replace(".webp.jpg", ".thumb.webp.jpg"),
         date: new Date(`${year}-${month}-${day}`),
         prefCode,
         tags,
