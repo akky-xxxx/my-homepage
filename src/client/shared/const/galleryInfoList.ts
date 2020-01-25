@@ -2,7 +2,6 @@ export default [
   {
     imageId: 73,
     path: "/14.Kanagawa/20190502/_DSC0910.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0910.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -10,7 +9,6 @@ export default [
   {
     imageId: 72,
     path: "/14.Kanagawa/20190502/_DSC0878.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0878.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -18,7 +16,6 @@ export default [
   {
     imageId: 71,
     path: "/14.Kanagawa/20190502/_DSC0868.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0868.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -26,7 +23,6 @@ export default [
   {
     imageId: 70,
     path: "/14.Kanagawa/20190502/_DSC0843.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0843.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -34,7 +30,6 @@ export default [
   {
     imageId: 69,
     path: "/14.Kanagawa/20190502/_DSC0842.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0842.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -42,7 +37,6 @@ export default [
   {
     imageId: 68,
     path: "/14.Kanagawa/20190502/_DSC0838.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0838.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -50,7 +44,6 @@ export default [
   {
     imageId: 67,
     path: "/14.Kanagawa/20190502/_DSC0828.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0828.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -58,7 +51,6 @@ export default [
   {
     imageId: 66,
     path: "/14.Kanagawa/20190502/_DSC0826.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0826.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -66,7 +58,6 @@ export default [
   {
     imageId: 65,
     path: "/14.Kanagawa/20190502/_DSC0820.webp.jpg",
-    thumbPath: "/14.Kanagawa/20190502/_DSC0820.thumb.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -74,7 +65,6 @@ export default [
   {
     imageId: 39,
     path: "/06.Yamagata/20190105/_DSC0809.webp.jpg",
-    thumbPath: "/06.Yamagata/20190105/_DSC0809.thumb.webp.jpg",
     date: "2019-01-05T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "建物", "街灯", "雪"],
@@ -82,7 +72,6 @@ export default [
   {
     imageId: 38,
     path: "/06.Yamagata/20190105/_DSC0790.webp.jpg",
-    thumbPath: "/06.Yamagata/20190105/_DSC0790.thumb.webp.jpg",
     date: "2019-01-05T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "建物", "街灯", "街頭", "雪"],
@@ -90,7 +79,6 @@ export default [
   {
     imageId: 37,
     path: "/06.Yamagata/20190105/_DSC0749.webp.jpg",
-    thumbPath: "/06.Yamagata/20190105/_DSC0749.thumb.webp.jpg",
     date: "2019-01-05T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "建物", "街灯", "雪"],
@@ -98,7 +86,6 @@ export default [
   {
     imageId: 36,
     path: "/06.Yamagata/20190105/_DSC0732.webp.jpg",
-    thumbPath: "/06.Yamagata/20190105/_DSC0732.thumb.webp.jpg",
     date: "2019-01-05T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "建物", "街灯", "雪"],
@@ -106,7 +93,6 @@ export default [
   {
     imageId: 35,
     path: "/06.Yamagata/20190103/DSC_0093.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0093.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "夕日", "植物", "空", "雪"],
@@ -114,7 +100,6 @@ export default [
   {
     imageId: 34,
     path: "/06.Yamagata/20190103/DSC_0083.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0083.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "空", "雪"],
@@ -122,7 +107,6 @@ export default [
   {
     imageId: 33,
     path: "/06.Yamagata/20190103/DSC_0077.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0077.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "植物", "空", "雪"],
@@ -130,7 +114,6 @@ export default [
   {
     imageId: 32,
     path: "/06.Yamagata/20190103/DSC_0071.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0071.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "建物", "植物", "雪"],
@@ -138,7 +121,6 @@ export default [
   {
     imageId: 31,
     path: "/06.Yamagata/20190103/DSC_0052.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0052.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "植物", "雪"],
@@ -146,7 +128,6 @@ export default [
   {
     imageId: 30,
     path: "/06.Yamagata/20190103/DSC_0016.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0016.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "植物", "雪"],
@@ -154,7 +135,6 @@ export default [
   {
     imageId: 29,
     path: "/06.Yamagata/20190103/DSC_0004.webp.jpg",
-    thumbPath: "/06.Yamagata/20190103/DSC_0004.thumb.webp.jpg",
     date: "2019-01-03T00:00:00.000Z",
     prefCode: "06",
     tags: ["冬", "樹氷", "雪"],
@@ -162,7 +142,6 @@ export default [
   {
     imageId: 64,
     path: "/14.Kanagawa/20181123/_DSC0615.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0615.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -170,7 +149,6 @@ export default [
   {
     imageId: 63,
     path: "/14.Kanagawa/20181123/_DSC0609.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0609.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -178,7 +156,6 @@ export default [
   {
     imageId: 62,
     path: "/14.Kanagawa/20181123/_DSC0595.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0595.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -186,7 +163,6 @@ export default [
   {
     imageId: 61,
     path: "/14.Kanagawa/20181123/_DSC0583.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0583.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -194,7 +170,6 @@ export default [
   {
     imageId: 60,
     path: "/14.Kanagawa/20181123/_DSC0547.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0547.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -202,7 +177,6 @@ export default [
   {
     imageId: 59,
     path: "/14.Kanagawa/20181123/_DSC0528.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0528.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -210,7 +184,6 @@ export default [
   {
     imageId: 58,
     path: "/14.Kanagawa/20181123/_DSC0508.webp.jpg",
-    thumbPath: "/14.Kanagawa/20181123/_DSC0508.thumb.webp.jpg",
     date: "2018-11-23T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -218,7 +191,6 @@ export default [
   {
     imageId: 28,
     path: "/05.Akita/20181104/_DSC9963.webp.jpg",
-    thumbPath: "/05.Akita/20181104/_DSC9963.thumb.webp.jpg",
     date: "2018-11-04T00:00:00.000Z",
     prefCode: "05",
     tags: ["川", "橋", "秋", "空", "紅葉"],
@@ -226,7 +198,6 @@ export default [
   {
     imageId: 27,
     path: "/05.Akita/20181104/_DSC9882.webp.jpg",
-    thumbPath: "/05.Akita/20181104/_DSC9882.thumb.webp.jpg",
     date: "2018-11-04T00:00:00.000Z",
     prefCode: "05",
     tags: ["川", "秋", "紅葉"],
@@ -234,7 +205,6 @@ export default [
   {
     imageId: 26,
     path: "/05.Akita/20181104/_DSC0481.webp.jpg",
-    thumbPath: "/05.Akita/20181104/_DSC0481.thumb.webp.jpg",
     date: "2018-11-04T00:00:00.000Z",
     prefCode: "05",
     tags: ["海", "空"],
@@ -242,7 +212,6 @@ export default [
   {
     imageId: 25,
     path: "/05.Akita/20181103/_DSC0400.webp.jpg",
-    thumbPath: "/05.Akita/20181103/_DSC0400.thumb.webp.jpg",
     date: "2018-11-03T00:00:00.000Z",
     prefCode: "05",
     tags: ["海", "空"],
@@ -250,7 +219,6 @@ export default [
   {
     imageId: 24,
     path: "/05.Akita/20181103/_DSC0366.webp.jpg",
-    thumbPath: "/05.Akita/20181103/_DSC0366.thumb.webp.jpg",
     date: "2018-11-03T00:00:00.000Z",
     prefCode: "05",
     tags: ["夕日", "海", "空"],
@@ -258,7 +226,6 @@ export default [
   {
     imageId: 23,
     path: "/05.Akita/20181103/_DSC0310.webp.jpg",
-    thumbPath: "/05.Akita/20181103/_DSC0310.thumb.webp.jpg",
     date: "2018-11-03T00:00:00.000Z",
     prefCode: "05",
     tags: ["すすき", "秋"],
@@ -266,7 +233,6 @@ export default [
   {
     imageId: 22,
     path: "/05.Akita/20181103/_DSC0276.webp.jpg",
-    thumbPath: "/05.Akita/20181103/_DSC0276.thumb.webp.jpg",
     date: "2018-11-03T00:00:00.000Z",
     prefCode: "05",
     tags: ["すすき", "滝", "秋", "紅葉"],
@@ -274,7 +240,6 @@ export default [
   {
     imageId: 21,
     path: "/05.Akita/20181103/_DSC0257.webp.jpg",
-    thumbPath: "/05.Akita/20181103/_DSC0257.thumb.webp.jpg",
     date: "2018-11-03T00:00:00.000Z",
     prefCode: "05",
     tags: ["滝", "秋", "紅葉"],
@@ -282,7 +247,6 @@ export default [
   {
     imageId: 20,
     path: "/05.Akita/20181103/_DSC0224.webp.jpg",
-    thumbPath: "/05.Akita/20181103/_DSC0224.thumb.webp.jpg",
     date: "2018-11-03T00:00:00.000Z",
     prefCode: "05",
     tags: ["山", "空"],
@@ -290,7 +254,6 @@ export default [
   {
     imageId: 19,
     path: "/05.Akita/20181102/_DSC0178.webp.jpg",
-    thumbPath: "/05.Akita/20181102/_DSC0178.thumb.webp.jpg",
     date: "2018-11-02T00:00:00.000Z",
     prefCode: "05",
     tags: ["星"],
@@ -298,7 +261,6 @@ export default [
   {
     imageId: 18,
     path: "/05.Akita/20181102/_DSC0170.webp.jpg",
-    thumbPath: "/05.Akita/20181102/_DSC0170.thumb.webp.jpg",
     date: "2018-11-02T00:00:00.000Z",
     prefCode: "05",
     tags: ["秋", "空", "紅葉"],
@@ -306,7 +268,6 @@ export default [
   {
     imageId: 17,
     path: "/05.Akita/20181102/_DSC0165.webp.jpg",
-    thumbPath: "/05.Akita/20181102/_DSC0165.thumb.webp.jpg",
     date: "2018-11-02T00:00:00.000Z",
     prefCode: "05",
     tags: ["山", "秋", "空", "紅葉"],
@@ -314,7 +275,6 @@ export default [
   {
     imageId: 16,
     path: "/05.Akita/20181102/_DSC0077.webp.jpg",
-    thumbPath: "/05.Akita/20181102/_DSC0077.thumb.webp.jpg",
     date: "2018-11-02T00:00:00.000Z",
     prefCode: "05",
     tags: ["川", "滝", "秋", "紅葉"],
@@ -322,7 +282,6 @@ export default [
   {
     imageId: 15,
     path: "/05.Akita/20181102/_DSC0038.webp.jpg",
-    thumbPath: "/05.Akita/20181102/_DSC0038.thumb.webp.jpg",
     date: "2018-11-02T00:00:00.000Z",
     prefCode: "05",
     tags: ["川", "秋"],
@@ -330,7 +289,6 @@ export default [
   {
     imageId: 14,
     path: "/05.Akita/20181102/_DSC0006.webp.jpg",
-    thumbPath: "/05.Akita/20181102/_DSC0006.thumb.webp.jpg",
     date: "2018-11-02T00:00:00.000Z",
     prefCode: "05",
     tags: ["植物", "秋", "紅葉"],
@@ -338,7 +296,6 @@ export default [
   {
     imageId: 13,
     path: "/01.Hokkaido/20171125/_DSC9700.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171125/_DSC9700.thumb.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "月"],
@@ -346,7 +303,6 @@ export default [
   {
     imageId: 12,
     path: "/01.Hokkaido/20171125/_DSC9691.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171125/_DSC9691.thumb.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "夜景", "室蘭"],
@@ -354,7 +310,6 @@ export default [
   {
     imageId: 11,
     path: "/01.Hokkaido/20171125/_DSC9613.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171125/_DSC9613.thumb.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "夜景", "室蘭", "橋"],
@@ -362,7 +317,6 @@ export default [
   {
     imageId: 10,
     path: "/01.Hokkaido/20171125/_DSC9498.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171125/_DSC9498.thumb.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "雪"],
@@ -370,7 +324,6 @@ export default [
   {
     imageId: 9,
     path: "/01.Hokkaido/20171125/_DSC9471.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171125/_DSC9471.thumb.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
     tags: [" 空", "冬", "雪"],
@@ -378,7 +331,6 @@ export default [
   {
     imageId: 8,
     path: "/01.Hokkaido/20171125/_DSC9451.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171125/_DSC9451.thumb.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "森", "空", "雪"],
@@ -386,7 +338,6 @@ export default [
   {
     imageId: 7,
     path: "/01.Hokkaido/20171124/_DSC9436.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9436.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["イルミネーション", "冬", "夜景", "小樽", "運河", "雪"],
@@ -394,7 +345,6 @@ export default [
   {
     imageId: 6,
     path: "/01.Hokkaido/20171124/_DSC9410.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9410.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "夜景", "小樽", "植物", "街灯", "雪"],
@@ -402,7 +352,6 @@ export default [
   {
     imageId: 5,
     path: "/01.Hokkaido/20171124/_DSC9403.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9403.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "小樽", "運河"],
@@ -410,7 +359,6 @@ export default [
   {
     imageId: 4,
     path: "/01.Hokkaido/20171124/_DSC9377.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9377.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["イルミネーション", "冬", "小樽", "雪"],
@@ -418,7 +366,6 @@ export default [
   {
     imageId: 3,
     path: "/01.Hokkaido/20171124/_DSC9344.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9344.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["小樽", "屋内"],
@@ -426,7 +373,6 @@ export default [
   {
     imageId: 2,
     path: "/01.Hokkaido/20171124/_DSC9331.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9331.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "小樽", "街灯", "鳥"],
@@ -434,7 +380,6 @@ export default [
   {
     imageId: 1,
     path: "/01.Hokkaido/20171124/_DSC9313.webp.jpg",
-    thumbPath: "/01.Hokkaido/20171124/_DSC9313.thumb.webp.jpg",
     date: "2017-11-24T00:00:00.000Z",
     prefCode: "01",
     tags: ["冬", "小樽", "運河", "雪"],
@@ -442,7 +387,6 @@ export default [
   {
     imageId: 125,
     path: "/20.Nagano/20161015/_DSC9277.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9277.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -450,7 +394,6 @@ export default [
   {
     imageId: 124,
     path: "/20.Nagano/20161015/_DSC9243.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9243.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -458,7 +401,6 @@ export default [
   {
     imageId: 123,
     path: "/20.Nagano/20161015/_DSC9229.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9229.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -466,7 +408,6 @@ export default [
   {
     imageId: 122,
     path: "/20.Nagano/20161015/_DSC9223.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9223.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -474,7 +415,6 @@ export default [
   {
     imageId: 121,
     path: "/20.Nagano/20161015/_DSC9207.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9207.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -482,7 +422,6 @@ export default [
   {
     imageId: 120,
     path: "/20.Nagano/20161015/_DSC9183.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9183.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -490,7 +429,6 @@ export default [
   {
     imageId: 119,
     path: "/20.Nagano/20161015/_DSC9172.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9172.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -498,7 +436,6 @@ export default [
   {
     imageId: 118,
     path: "/20.Nagano/20161015/_DSC9169.webp.jpg",
-    thumbPath: "/20.Nagano/20161015/_DSC9169.thumb.webp.jpg",
     date: "2016-10-15T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -506,7 +443,6 @@ export default [
   {
     imageId: 117,
     path: "/20.Nagano/20161014/_DSC9133.webp.jpg",
-    thumbPath: "/20.Nagano/20161014/_DSC9133.thumb.webp.jpg",
     date: "2016-10-14T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -514,7 +450,6 @@ export default [
   {
     imageId: 116,
     path: "/20.Nagano/20161014/_DSC9110.webp.jpg",
-    thumbPath: "/20.Nagano/20161014/_DSC9110.thumb.webp.jpg",
     date: "2016-10-14T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -522,7 +457,6 @@ export default [
   {
     imageId: 115,
     path: "/20.Nagano/20160924/_DSC8989.webp.jpg",
-    thumbPath: "/20.Nagano/20160924/_DSC8989.thumb.webp.jpg",
     date: "2016-09-24T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -530,7 +464,6 @@ export default [
   {
     imageId: 114,
     path: "/20.Nagano/20160924/_DSC8926.webp.jpg",
-    thumbPath: "/20.Nagano/20160924/_DSC8926.thumb.webp.jpg",
     date: "2016-09-24T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -538,7 +471,6 @@ export default [
   {
     imageId: 113,
     path: "/20.Nagano/20160922/_DSC8858.webp.jpg",
-    thumbPath: "/20.Nagano/20160922/_DSC8858.thumb.webp.jpg",
     date: "2016-09-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -546,7 +478,6 @@ export default [
   {
     imageId: 112,
     path: "/20.Nagano/20160922/_DSC8839.webp.jpg",
-    thumbPath: "/20.Nagano/20160922/_DSC8839.thumb.webp.jpg",
     date: "2016-09-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -554,7 +485,6 @@ export default [
   {
     imageId: 111,
     path: "/20.Nagano/20160922/_DSC8804.webp.jpg",
-    thumbPath: "/20.Nagano/20160922/_DSC8804.thumb.webp.jpg",
     date: "2016-09-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -562,7 +492,6 @@ export default [
   {
     imageId: 110,
     path: "/20.Nagano/20160922/_DSC8696.webp.jpg",
-    thumbPath: "/20.Nagano/20160922/_DSC8696.thumb.webp.jpg",
     date: "2016-09-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -570,7 +499,6 @@ export default [
   {
     imageId: 109,
     path: "/20.Nagano/20160922/_DSC8694.webp.jpg",
-    thumbPath: "/20.Nagano/20160922/_DSC8694.thumb.webp.jpg",
     date: "2016-09-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -578,7 +506,6 @@ export default [
   {
     imageId: 108,
     path: "/20.Nagano/20160922/_DSC8668.webp.jpg",
-    thumbPath: "/20.Nagano/20160922/_DSC8668.thumb.webp.jpg",
     date: "2016-09-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -586,7 +513,6 @@ export default [
   {
     imageId: 52,
     path: "/11.Saitama/20160503/_DSC8613.webp.jpg",
-    thumbPath: "/11.Saitama/20160503/_DSC8613.thumb.webp.jpg",
     date: "2016-05-03T00:00:00.000Z",
     prefCode: "11",
     tags: [],
@@ -594,7 +520,6 @@ export default [
   {
     imageId: 51,
     path: "/11.Saitama/20160503/_DSC8609.webp.jpg",
-    thumbPath: "/11.Saitama/20160503/_DSC8609.thumb.webp.jpg",
     date: "2016-05-03T00:00:00.000Z",
     prefCode: "11",
     tags: [],
@@ -602,7 +527,6 @@ export default [
   {
     imageId: 50,
     path: "/11.Saitama/20160503/_DSC8602.webp.jpg",
-    thumbPath: "/11.Saitama/20160503/_DSC8602.thumb.webp.jpg",
     date: "2016-05-03T00:00:00.000Z",
     prefCode: "11",
     tags: [],
@@ -610,7 +534,6 @@ export default [
   {
     imageId: 49,
     path: "/11.Saitama/20160503/_DSC8601.webp.jpg",
-    thumbPath: "/11.Saitama/20160503/_DSC8601.thumb.webp.jpg",
     date: "2016-05-03T00:00:00.000Z",
     prefCode: "11",
     tags: [],
@@ -618,7 +541,6 @@ export default [
   {
     imageId: 88,
     path: "/17.Ishikawa/20151125/_DSC8529.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8529.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -626,7 +548,6 @@ export default [
   {
     imageId: 87,
     path: "/17.Ishikawa/20151125/_DSC8513.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8513.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -634,7 +555,6 @@ export default [
   {
     imageId: 86,
     path: "/17.Ishikawa/20151125/_DSC8504.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8504.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -642,7 +562,6 @@ export default [
   {
     imageId: 85,
     path: "/17.Ishikawa/20151125/_DSC8502.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8502.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -650,7 +569,6 @@ export default [
   {
     imageId: 84,
     path: "/17.Ishikawa/20151125/_DSC8493.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8493.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -658,7 +576,6 @@ export default [
   {
     imageId: 83,
     path: "/17.Ishikawa/20151125/_DSC8485.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8485.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -666,7 +583,6 @@ export default [
   {
     imageId: 82,
     path: "/17.Ishikawa/20151125/_DSC8292.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8292.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -674,7 +590,6 @@ export default [
   {
     imageId: 81,
     path: "/17.Ishikawa/20151125/_DSC8190.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8190.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -682,7 +597,6 @@ export default [
   {
     imageId: 80,
     path: "/17.Ishikawa/20151125/_DSC8169.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8169.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -690,7 +604,6 @@ export default [
   {
     imageId: 79,
     path: "/17.Ishikawa/20151125/_DSC8144.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8144.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -698,7 +611,6 @@ export default [
   {
     imageId: 78,
     path: "/17.Ishikawa/20151125/_DSC8108.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8108.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -706,7 +618,6 @@ export default [
   {
     imageId: 77,
     path: "/17.Ishikawa/20151125/_DSC8098.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8098.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -714,7 +625,6 @@ export default [
   {
     imageId: 76,
     path: "/17.Ishikawa/20151125/_DSC8092.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8092.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -722,7 +632,6 @@ export default [
   {
     imageId: 75,
     path: "/17.Ishikawa/20151125/_DSC8084.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8084.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -730,7 +639,6 @@ export default [
   {
     imageId: 74,
     path: "/17.Ishikawa/20151125/_DSC8066.webp.jpg",
-    thumbPath: "/17.Ishikawa/20151125/_DSC8066.thumb.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
     tags: [],
@@ -738,7 +646,6 @@ export default [
   {
     imageId: 133,
     path: "/21.Gifu/20151124/_DSC8031.webp.jpg",
-    thumbPath: "/21.Gifu/20151124/_DSC8031.thumb.webp.jpg",
     date: "2015-11-24T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -746,7 +653,6 @@ export default [
   {
     imageId: 132,
     path: "/21.Gifu/20151124/_DSC8026.webp.jpg",
-    thumbPath: "/21.Gifu/20151124/_DSC8026.thumb.webp.jpg",
     date: "2015-11-24T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -754,7 +660,6 @@ export default [
   {
     imageId: 131,
     path: "/21.Gifu/20151124/_DSC8014.webp.jpg",
-    thumbPath: "/21.Gifu/20151124/_DSC8014.thumb.webp.jpg",
     date: "2015-11-24T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -762,7 +667,6 @@ export default [
   {
     imageId: 130,
     path: "/21.Gifu/20151124/_DSC7992.webp.jpg",
-    thumbPath: "/21.Gifu/20151124/_DSC7992.thumb.webp.jpg",
     date: "2015-11-24T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -770,7 +674,6 @@ export default [
   {
     imageId: 129,
     path: "/21.Gifu/20151123/_DSC7981.webp.jpg",
-    thumbPath: "/21.Gifu/20151123/_DSC7981.thumb.webp.jpg",
     date: "2015-11-23T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -778,7 +681,6 @@ export default [
   {
     imageId: 128,
     path: "/21.Gifu/20151123/_DSC7961.webp.jpg",
-    thumbPath: "/21.Gifu/20151123/_DSC7961.thumb.webp.jpg",
     date: "2015-11-23T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -786,7 +688,6 @@ export default [
   {
     imageId: 127,
     path: "/21.Gifu/20151123/_DSC7952.webp.jpg",
-    thumbPath: "/21.Gifu/20151123/_DSC7952.thumb.webp.jpg",
     date: "2015-11-23T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -794,7 +695,6 @@ export default [
   {
     imageId: 126,
     path: "/21.Gifu/20151123/_DSC7940.webp.jpg",
-    thumbPath: "/21.Gifu/20151123/_DSC7940.thumb.webp.jpg",
     date: "2015-11-23T00:00:00.000Z",
     prefCode: "21",
     tags: [],
@@ -802,7 +702,6 @@ export default [
   {
     imageId: 107,
     path: "/20.Nagano/20151122/_DSC7672.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7672.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -810,7 +709,6 @@ export default [
   {
     imageId: 106,
     path: "/20.Nagano/20151122/_DSC7603.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7603.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -818,7 +716,6 @@ export default [
   {
     imageId: 105,
     path: "/20.Nagano/20151122/_DSC7566.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7566.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -826,7 +723,6 @@ export default [
   {
     imageId: 104,
     path: "/20.Nagano/20151122/_DSC7522.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7522.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -834,7 +730,6 @@ export default [
   {
     imageId: 103,
     path: "/20.Nagano/20151122/_DSC7478.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7478.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -842,7 +737,6 @@ export default [
   {
     imageId: 102,
     path: "/20.Nagano/20151122/_DSC7449.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7449.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -850,7 +744,6 @@ export default [
   {
     imageId: 101,
     path: "/20.Nagano/20151122/_DSC7430.webp.jpg",
-    thumbPath: "/20.Nagano/20151122/_DSC7430.thumb.webp.jpg",
     date: "2015-11-22T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -858,7 +751,6 @@ export default [
   {
     imageId: 100,
     path: "/20.Nagano/20151121/_DSC7400.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7400.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -866,7 +758,6 @@ export default [
   {
     imageId: 99,
     path: "/20.Nagano/20151121/_DSC7340.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7340.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -874,7 +765,6 @@ export default [
   {
     imageId: 98,
     path: "/20.Nagano/20151121/_DSC7325.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7325.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -882,7 +772,6 @@ export default [
   {
     imageId: 97,
     path: "/20.Nagano/20151121/_DSC7319.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7319.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -890,7 +779,6 @@ export default [
   {
     imageId: 96,
     path: "/20.Nagano/20151121/_DSC7293.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7293.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -898,7 +786,6 @@ export default [
   {
     imageId: 95,
     path: "/20.Nagano/20151121/_DSC7274.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7274.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -906,7 +793,6 @@ export default [
   {
     imageId: 94,
     path: "/20.Nagano/20151121/_DSC7197.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7197.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -914,7 +800,6 @@ export default [
   {
     imageId: 93,
     path: "/20.Nagano/20151121/_DSC7171.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7171.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -922,7 +807,6 @@ export default [
   {
     imageId: 92,
     path: "/20.Nagano/20151121/_DSC7166.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7166.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -930,7 +814,6 @@ export default [
   {
     imageId: 91,
     path: "/20.Nagano/20151121/_DSC7162.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7162.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -938,7 +821,6 @@ export default [
   {
     imageId: 90,
     path: "/20.Nagano/20151121/_DSC7156.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7156.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -946,7 +828,6 @@ export default [
   {
     imageId: 89,
     path: "/20.Nagano/20151121/_DSC7148.webp.jpg",
-    thumbPath: "/20.Nagano/20151121/_DSC7148.thumb.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
     tags: [],
@@ -954,7 +835,6 @@ export default [
   {
     imageId: 155,
     path: "/26.Kyoto/20141122/_DSC4996.webp.jpg",
-    thumbPath: "/26.Kyoto/20141122/_DSC4996.thumb.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -962,7 +842,6 @@ export default [
   {
     imageId: 154,
     path: "/26.Kyoto/20141122/_DSC4936.webp.jpg",
-    thumbPath: "/26.Kyoto/20141122/_DSC4936.thumb.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -970,7 +849,6 @@ export default [
   {
     imageId: 153,
     path: "/26.Kyoto/20141122/_DSC4918.webp.jpg",
-    thumbPath: "/26.Kyoto/20141122/_DSC4918.thumb.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -978,7 +856,6 @@ export default [
   {
     imageId: 152,
     path: "/26.Kyoto/20141122/_DSC4878.webp.jpg",
-    thumbPath: "/26.Kyoto/20141122/_DSC4878.thumb.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -986,7 +863,6 @@ export default [
   {
     imageId: 151,
     path: "/26.Kyoto/20141122/_DSC4868.webp.jpg",
-    thumbPath: "/26.Kyoto/20141122/_DSC4868.thumb.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -994,7 +870,6 @@ export default [
   {
     imageId: 150,
     path: "/26.Kyoto/20141122/_DSC4850.webp.jpg",
-    thumbPath: "/26.Kyoto/20141122/_DSC4850.thumb.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1002,7 +877,6 @@ export default [
   {
     imageId: 149,
     path: "/26.Kyoto/20141121/_DSC4691.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4691.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1010,7 +884,6 @@ export default [
   {
     imageId: 148,
     path: "/26.Kyoto/20141121/_DSC4515.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4515.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1018,7 +891,6 @@ export default [
   {
     imageId: 147,
     path: "/26.Kyoto/20141121/_DSC4496.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4496.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1026,7 +898,6 @@ export default [
   {
     imageId: 146,
     path: "/26.Kyoto/20141121/_DSC4488.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4488.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1034,7 +905,6 @@ export default [
   {
     imageId: 145,
     path: "/26.Kyoto/20141121/_DSC4396.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4396.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1042,7 +912,6 @@ export default [
   {
     imageId: 144,
     path: "/26.Kyoto/20141121/_DSC4292.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4292.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1050,7 +919,6 @@ export default [
   {
     imageId: 143,
     path: "/26.Kyoto/20141121/_DSC4191.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4191.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1058,7 +926,6 @@ export default [
   {
     imageId: 142,
     path: "/26.Kyoto/20141121/_DSC4103.webp.jpg",
-    thumbPath: "/26.Kyoto/20141121/_DSC4103.thumb.webp.jpg",
     date: "2014-11-21T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1066,7 +933,6 @@ export default [
   {
     imageId: 141,
     path: "/26.Kyoto/20141120/_DSC4007.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC4007.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1074,7 +940,6 @@ export default [
   {
     imageId: 140,
     path: "/26.Kyoto/20141120/_DSC3982.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3982.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1082,7 +947,6 @@ export default [
   {
     imageId: 139,
     path: "/26.Kyoto/20141120/_DSC3925.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3925.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1090,7 +954,6 @@ export default [
   {
     imageId: 138,
     path: "/26.Kyoto/20141120/_DSC3886.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3886.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1098,7 +961,6 @@ export default [
   {
     imageId: 137,
     path: "/26.Kyoto/20141120/_DSC3821.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3821.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1106,7 +968,6 @@ export default [
   {
     imageId: 136,
     path: "/26.Kyoto/20141120/_DSC3753.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3753.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1114,7 +975,6 @@ export default [
   {
     imageId: 135,
     path: "/26.Kyoto/20141120/_DSC3651.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3651.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1122,7 +982,6 @@ export default [
   {
     imageId: 134,
     path: "/26.Kyoto/20141120/_DSC3582.webp.jpg",
-    thumbPath: "/26.Kyoto/20141120/_DSC3582.thumb.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
     tags: [],
@@ -1130,7 +989,6 @@ export default [
   {
     imageId: 48,
     path: "/09.Tochigi/20140909/_DSC3312.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3312.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["植物", "通り"],
@@ -1138,7 +996,6 @@ export default [
   {
     imageId: 47,
     path: "/09.Tochigi/20140909/_DSC3238.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3238.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["植物", "通り"],
@@ -1146,7 +1003,6 @@ export default [
   {
     imageId: 46,
     path: "/09.Tochigi/20140909/_DSC3233.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3233.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["マクロ", "植物"],
@@ -1154,7 +1010,6 @@ export default [
   {
     imageId: 45,
     path: "/09.Tochigi/20140909/_DSC3228.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3228.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["壁", "植物", "通り"],
@@ -1162,7 +1017,6 @@ export default [
   {
     imageId: 44,
     path: "/09.Tochigi/20140909/_DSC3172.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3172.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["山", "空"],
@@ -1170,7 +1024,6 @@ export default [
   {
     imageId: 43,
     path: "/09.Tochigi/20140909/_DSC3164.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3164.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["マクロ", "植物"],
@@ -1178,7 +1031,6 @@ export default [
   {
     imageId: 42,
     path: "/09.Tochigi/20140909/_DSC3154.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC3154.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["山", "空"],
@@ -1186,7 +1038,6 @@ export default [
   {
     imageId: 41,
     path: "/09.Tochigi/20140909/_DSC2977.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC2977.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["山", "湖", "滝"],
@@ -1194,7 +1045,6 @@ export default [
   {
     imageId: 40,
     path: "/09.Tochigi/20140909/_DSC2937.webp.jpg",
-    thumbPath: "/09.Tochigi/20140909/_DSC2937.thumb.webp.jpg",
     date: "2014-09-09T00:00:00.000Z",
     prefCode: "09",
     tags: ["建物"],
@@ -1202,7 +1052,6 @@ export default [
   {
     imageId: 57,
     path: "/14.Kanagawa/20140628/_DSC2802.webp.jpg",
-    thumbPath: "/14.Kanagawa/20140628/_DSC2802.thumb.webp.jpg",
     date: "2014-06-28T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -1210,7 +1059,6 @@ export default [
   {
     imageId: 56,
     path: "/14.Kanagawa/20140628/_DSC2788.webp.jpg",
-    thumbPath: "/14.Kanagawa/20140628/_DSC2788.thumb.webp.jpg",
     date: "2014-06-28T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -1218,7 +1066,6 @@ export default [
   {
     imageId: 55,
     path: "/14.Kanagawa/20140628/_DSC2773.webp.jpg",
-    thumbPath: "/14.Kanagawa/20140628/_DSC2773.thumb.webp.jpg",
     date: "2014-06-28T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -1226,7 +1073,6 @@ export default [
   {
     imageId: 54,
     path: "/14.Kanagawa/20140628/_DSC2749.webp.jpg",
-    thumbPath: "/14.Kanagawa/20140628/_DSC2749.thumb.webp.jpg",
     date: "2014-06-28T00:00:00.000Z",
     prefCode: "14",
     tags: [],
@@ -1234,9 +1080,8 @@ export default [
   {
     imageId: 53,
     path: "/14.Kanagawa/20140628/_DSC2734.webp.jpg",
-    thumbPath: "/14.Kanagawa/20140628/_DSC2734.thumb.webp.jpg",
     date: "2014-06-28T00:00:00.000Z",
     prefCode: "14",
     tags: [],
   },
-] as const
+]
