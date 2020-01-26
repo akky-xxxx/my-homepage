@@ -11,6 +11,7 @@ import { Grid, Divider, createMuiTheme } from "@material-ui/core"
 import GalleryBody from "../galleryBody"
 import GalleryLength from "../galleryLength"
 import PrefSelect from "../prefSelect"
+import TagSelect from "../tagSelect"
 
 /**
  * import others
@@ -26,6 +27,8 @@ export interface MainContentProps
   extends Pick<State, "selectedViewPref" | "selectedViewTags">,
     Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref" | "handleSelectViewTag"> {
   galleryItem: GalleryItem[]
+  selectedViewTags: string[]
+  tags: string[]
 }
 
 const { palette, spacing } = createMuiTheme()
@@ -38,6 +41,7 @@ const MainContent: FC<MainContentProps> = props => {
     handleSelectViewTag,
     selectedViewPref,
     selectedViewTags,
+    tags,
   } = props
 
   return (
@@ -60,7 +64,10 @@ const MainContent: FC<MainContentProps> = props => {
             <Divider />
           </DividerWrapper>
 
-          <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
+          <ConditionItems>
+            <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
+            <TagSelect tags={tags} selectedViewTags={selectedViewTags} handleSelectViewTag={handleSelectViewTag} />
+          </ConditionItems>
         </RightColInner>
       </RightCol>
     </Grid>
@@ -103,6 +110,12 @@ const GalleryLengthWrapper = styled.div`
 
 const DividerWrapper = styled.div`
   margin-bottom: ${spacing(2)}px;
+`
+
+const ConditionItems = styled.div`
+  div + div {
+    margin-top: ${spacing(2)}px;
+  }
 `
 
 export default MainContent

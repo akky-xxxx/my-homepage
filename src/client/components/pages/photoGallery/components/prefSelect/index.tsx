@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import React, { Fragment } from "react"
+import React from "react"
 import { NextPage } from "next"
 import { InputLabel, Select, MenuItem } from "@material-ui/core"
 
@@ -48,7 +48,7 @@ const PrefSelect: NextPage<PrefSelectProps> = props => {
   const { handleSelectViewPref, selectedViewPref } = props
 
   return (
-    <Fragment>
+    <div>
       <InputLabel id="pref-select">地域</InputLabel>
       <Select
         labelId="pref-select"
@@ -64,7 +64,7 @@ const PrefSelect: NextPage<PrefSelectProps> = props => {
           )
         })}
       </Select>
-    </Fragment>
+    </div>
   )
 }
 

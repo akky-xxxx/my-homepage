@@ -4,6 +4,7 @@
 import React from "react"
 import { NextPage } from "next"
 import styled from "styled-components"
+import { uniq } from "remeda"
 
 /**
  * import components
@@ -47,6 +48,8 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
       return selectedViewTags.every(tag => galleryInfo.tags.includes(tag))
     })
 
+  const tags: string[] = uniq(galleryInfoList.map(galleryInfo => galleryInfo.tags).flat()).sort()
+
   return (
     <Wrapper>
       <CustomHead title="Photo Gallery" />
@@ -54,6 +57,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
       <MainContentWrapper>
         <MainContent
           galleryItem={filteredList}
+          tags={tags}
           selectedViewPref={selectedViewPref}
           selectedViewTags={selectedViewTags}
           handleOpenModal={handleOpenModal}
