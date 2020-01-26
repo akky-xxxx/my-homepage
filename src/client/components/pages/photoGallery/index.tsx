@@ -21,6 +21,7 @@ import GalleryModal from "./components/galleryModal"
 import { State, HandleActions } from "../../../store/modules/pages/photo-gallery/types"
 import galleryInfoList from "../../../shared/const/galleryInfoList"
 import { GalleryItem } from "../../../shared/types/pages/galleryList"
+import useFilteredList from "./useFilteredList"
 
 /**
  * main
@@ -40,15 +41,11 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     modal: { isOpen, currentImageId },
   } = props
 
-  const filteredList: GalleryItem[] = galleryInfoList
-    .filter(galleryInfo => {
-      if (selectedViewPref === "00") return true
-      return galleryInfo.prefCode === selectedViewPref
-    })
-    .filter(galleryInfo => {
-      if (selectedViewTags.length === 0) return true
-      return selectedViewTags.every(tag => galleryInfo.tags.includes(tag))
-    })
+  const filteredList: GalleryItem[] = useFilteredList({
+    galleryInfoList,
+    selectedViewPref,
+    selectedViewTags,
+  })
 
   const tags: string[] = uniq(galleryInfoList.map(galleryInfo => galleryInfo.tags).flat()).sort()
 
