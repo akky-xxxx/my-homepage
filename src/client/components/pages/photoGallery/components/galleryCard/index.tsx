@@ -67,8 +67,8 @@ const GalleryCard: FC<GalleryCardProps> = props => {
       ) : (
         <BeforeLoad />
       )}
-      <CardContent>
-        {Boolean(tags.length) && (
+      {Boolean(tags.length) && (
+        <CardContent>
           <TagWrapper>
             {tags.map(tag => (
               <Chip
@@ -81,8 +81,8 @@ const GalleryCard: FC<GalleryCardProps> = props => {
               />
             ))}
           </TagWrapper>
-        )}
-      </CardContent>
+        </CardContent>
+      )}
     </Card>
   )
 }
