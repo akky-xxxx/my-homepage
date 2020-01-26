@@ -8,7 +8,9 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: blue[700],
   },
-  offset: theme.mixins.toolbar,
+  offset: {
+    ...theme.mixins.toolbar,
+  },
 }))
 
 export default useStyles
