@@ -16,7 +16,6 @@ import PrefSelect from "../PrefSelect"
  * import others
  */
 import { State, HandleActions } from "../../../../../store/modules/pages/photo-gallery/types"
-import galleryInfoList from "../../../../../shared/const/galleryInfoList"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { APP_BREAKPOINTS, APP_MARGINS } from "../../../../../shared/const/styles"
 
@@ -25,23 +24,27 @@ import { APP_BREAKPOINTS, APP_MARGINS } from "../../../../../shared/const/styles
  */
 export interface MainContentProps
   extends Pick<State, "selectedViewPref" | "selectedViewTags">,
-    Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref" | "handleSelectViewTag"> {}
+    Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref" | "handleSelectViewTag"> {
+  galleryItem: GalleryItem[]
+}
 
 const { palette, spacing } = createMuiTheme()
 
 const MainContent: FC<MainContentProps> = props => {
-  const { handleOpenModal, handleSelectViewPref, handleSelectViewTag, selectedViewPref, selectedViewTags } = props
-
-  const filteredList: GalleryItem[] = galleryInfoList.filter(galleryInfo => {
-    if (selectedViewPref === "00") return true
-    return galleryInfo.prefCode === selectedViewPref
-  })
+  const {
+    galleryItem,
+    handleOpenModal,
+    handleSelectViewPref,
+    handleSelectViewTag,
+    selectedViewPref,
+    selectedViewTags,
+  } = props
 
   return (
     <Grid container>
       <LeftCol>
         <GalleryBody
-          galleryInfoList={filteredList}
+          galleryInfoList={galleryItem}
           selectedViewTags={selectedViewTags}
           handleOpenModal={handleOpenModal}
           handleSelectViewTag={handleSelectViewTag}
@@ -50,7 +53,7 @@ const MainContent: FC<MainContentProps> = props => {
       <RightCol>
         <RightColInner>
           <GalleryLengthWrapper>
-            <GalleryLength resultLength={filteredList.length} />
+            <GalleryLength resultLength={galleryItem.length} />
           </GalleryLengthWrapper>
 
           <DividerWrapper>

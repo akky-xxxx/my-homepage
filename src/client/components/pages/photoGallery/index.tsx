@@ -48,6 +48,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
       <PageAbove title="Photo Gallery" />
       <MainContentWrapper>
         <MainContent
+          galleryItem={filteredList}
           selectedViewPref={selectedViewPref}
           selectedViewTags={selectedViewTags}
           handleOpenModal={handleOpenModal}
