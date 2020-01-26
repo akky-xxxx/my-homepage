@@ -328,7 +328,7 @@ export default [
     path: "/01.Hokkaido/20171125/_DSC9471.webp.jpg",
     date: "2017-11-25T00:00:00.000Z",
     prefCode: "01",
-    tags: [" 空", "冬", "雪"],
+    tags: ["冬", "空", "雪"],
   },
   {
     imageId: 8,
