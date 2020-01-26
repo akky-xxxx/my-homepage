@@ -27,16 +27,18 @@ const getColNum = (width: number) => {
 
 interface FixedSizeGridWrapperProps extends Size {
   galleryInfoList: GalleryItem[]
+  selectedViewTags: string[]
   handleOpenModal: HandleOpenModalAction
   handleSelectViewTag: HandleSelectViewTag
 }
 
 const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
-  const { width, height, galleryInfoList, handleOpenModal, handleSelectViewTag } = props
+  const { width, height, galleryInfoList, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
   const windowGalleryInfoList = galleryInfoList.map(galleryInfo => ({
     ...galleryInfo,
     handleOpenModal,
     handleSelectViewTag,
+    selectedViewTags,
   }))
   const colNum = useMemo(() => getColNum(width), [width])
   const PhotoGalleryCell = useMemo(() => createPhotoGalleryCell(colNum), [colNum])

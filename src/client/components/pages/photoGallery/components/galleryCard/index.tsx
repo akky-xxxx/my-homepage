@@ -18,6 +18,7 @@ import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-ga
  * main
  */
 interface GalleryCardProps extends Omit<GalleryItem, "imageId"> {
+  selectedViewTags: string[]
   handleOpenModal: () => void
   handleSelectViewTag: HandleSelectViewTag
 }
@@ -45,7 +46,7 @@ const BeforeLoad = () => {
 }
 
 const GalleryCard: FC<GalleryCardProps> = props => {
-  const { path, date, prefCode, tags, handleOpenModal, handleSelectViewTag } = props
+  const { path, date, prefCode, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
   const classes = useStyles()
   const [ref, inView] = useInView()
 
@@ -73,6 +74,7 @@ const GalleryCard: FC<GalleryCardProps> = props => {
               <Chip
                 key={tag}
                 className={classes.tag}
+                color={selectedViewTags.includes(tag) ? "secondary" : "default"}
                 size="small"
                 label={tag}
                 onClick={() => handleSelectViewTag({ targetTag: tag })}

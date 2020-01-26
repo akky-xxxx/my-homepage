@@ -20,6 +20,7 @@ import { HandleSelectViewTag } from "../../../store/modules/pages/photo-gallery/
  * main
  */
 interface ExtendedGalleryItem extends GalleryItem {
+  selectedViewTags: string[]
   handleOpenModal: HandleOpenModalAction
   handleSelectViewTag: HandleSelectViewTag
 }
@@ -33,7 +34,7 @@ const createPhotoGalleryCell = (colNum: number) => {
     const { style, rowIndex, columnIndex, data } = props
     const index = rowIndex * colNum + columnIndex
     if (!data[index]) return null
-    const { imageId, prefCode, path, date, tags, handleOpenModal, handleSelectViewTag } = data[index]
+    const { imageId, prefCode, path, date, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = data[index]
     const handleThisOpenModal = () => handleOpenModal({ targetId: imageId })
 
     return (
@@ -44,6 +45,7 @@ const createPhotoGalleryCell = (colNum: number) => {
           path={path}
           date={date}
           tags={tags}
+          selectedViewTags={selectedViewTags}
           handleOpenModal={handleThisOpenModal}
           handleSelectViewTag={handleSelectViewTag}
         />
