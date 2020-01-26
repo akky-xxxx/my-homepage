@@ -32,7 +32,7 @@ const createPhotoGalleryCell = (colNum: number) => {
     const index = rowIndex * colNum + columnIndex
     if (!data[index]) return null
     const { imageId, prefCode, path, date, tags, handleOpenModal } = data[index]
-    const handleClick = () => handleOpenModal({ targetId: imageId })
+    const handleThisOpenModal = () => handleOpenModal({ targetId: imageId })
 
     return (
       <div style={style}>
@@ -42,7 +42,7 @@ const createPhotoGalleryCell = (colNum: number) => {
           path={path}
           date={date}
           tags={tags}
-          handleClick={handleClick}
+          handleOpenModal={handleThisOpenModal}
         />
       </div>
     )

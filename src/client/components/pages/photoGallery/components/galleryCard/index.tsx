@@ -17,7 +17,7 @@ import PREF_MAP from "../../../../../shared/const/prefMap"
  * main
  */
 interface GalleryCardProps extends Omit<GalleryItem, "imageId"> {
-  handleClick: () => void
+  handleOpenModal: () => void
 }
 
 const useStyles = makeStyles(theme => ({
@@ -43,16 +43,20 @@ const BeforeLoad = () => {
 }
 
 const GalleryCard: FC<GalleryCardProps> = props => {
-  const { path, date, prefCode, tags, handleClick } = props
+  const { path, date, prefCode, tags, handleOpenModal } = props
   const classes = useStyles()
   const [ref, inView] = useInView()
 
   return (
     <Card className={classes.card} ref={ref}>
-      <CardHeader onClick={handleClick} title={PREF_MAP[prefCode]} subheader={format(new Date(date), "yyyy年M月d日")} />
+      <CardHeader
+        onClick={handleOpenModal}
+        title={PREF_MAP[prefCode]}
+        subheader={format(new Date(date), "yyyy年M月d日")}
+      />
       {inView ? (
         <CardMedia
-          onClick={handleClick}
+          onClick={handleOpenModal}
           className={classes.media}
           image={`/images/gallery${path}`}
           title={PREF_MAP[prefCode]}

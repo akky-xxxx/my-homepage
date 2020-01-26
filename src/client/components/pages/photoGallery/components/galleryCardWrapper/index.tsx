@@ -20,17 +20,17 @@ import { IsNoReRender } from "../../../../../shared/types/common"
  * main
  */
 interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId"> {
-  handleClick: () => void
+  handleOpenModal: () => void
 }
 
 const { spacing, breakpoints } = createMuiTheme()
 
 const GalleryCardWrapper: FC<GalleryCardWrapperProps> = props => {
-  const { path, date, prefCode, tags, handleClick } = props
+  const { path, date, prefCode, tags, handleOpenModal } = props
 
   return (
     <StyledGalleryCardWrapper>
-      <GalleryCard path={path} date={date} prefCode={prefCode} handleClick={handleClick} tags={tags} />
+      <GalleryCard path={path} date={date} prefCode={prefCode} handleOpenModal={handleOpenModal} tags={tags} />
     </StyledGalleryCardWrapper>
   )
 }
