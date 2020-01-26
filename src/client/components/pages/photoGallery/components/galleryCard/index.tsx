@@ -48,10 +48,15 @@ const GalleryCard: FC<GalleryCardProps> = props => {
   const [ref, inView] = useInView()
 
   return (
-    <Card onClick={handleClick} className={classes.card} ref={ref}>
-      <CardHeader title={PREF_MAP[prefCode]} subheader={format(new Date(date), "yyyy年M月d日")} />
+    <Card className={classes.card} ref={ref}>
+      <CardHeader onClick={handleClick} title={PREF_MAP[prefCode]} subheader={format(new Date(date), "yyyy年M月d日")} />
       {inView ? (
-        <CardMedia className={classes.media} image={`/images/gallery${path}`} title={PREF_MAP[prefCode]} />
+        <CardMedia
+          onClick={handleClick}
+          className={classes.media}
+          image={`/images/gallery${path}`}
+          title={PREF_MAP[prefCode]}
+        />
       ) : (
         <BeforeLoad />
       )}
