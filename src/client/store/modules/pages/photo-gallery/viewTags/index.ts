@@ -26,6 +26,8 @@ const viewPrefModule = createSlice({
 
       return [...state, targetTag].sort()
     },
+
+    resetViewTag: () => initialState,
   },
 })
 

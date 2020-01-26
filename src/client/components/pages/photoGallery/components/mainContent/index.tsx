@@ -10,6 +10,7 @@ import { Grid, Divider, createMuiTheme } from "@material-ui/core"
  */
 import GalleryBody from "../galleryBody"
 import GalleryLength from "../galleryLength"
+import ResetFilter from "../resetFilter"
 import PrefSelect from "../prefSelect"
 import TagSelect from "../tagSelect"
 
@@ -23,9 +24,16 @@ import { APP_BREAKPOINTS, APP_MARGINS } from "../../../../../shared/const/styles
 /**
  * main
  */
+type PickProps =
+  | "handleOpenModal"
+  | "handleSelectViewPref"
+  | "handleSelectViewTag"
+  | "handleResetViewPref"
+  | "handleResetViewTag"
+
 export interface MainContentProps
   extends Pick<State, "selectedViewPref" | "selectedViewTags">,
-    Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref" | "handleSelectViewTag"> {
+    Pick<HandleActions, PickProps> {
   galleryItem: GalleryItem[]
   selectedViewTags: string[]
   tags: string[]
@@ -38,11 +46,18 @@ const MainContent: FC<MainContentProps> = props => {
     galleryItem,
     handleOpenModal,
     handleSelectViewPref,
+    handleResetViewPref,
     handleSelectViewTag,
+    handleResetViewTag,
     selectedViewPref,
     selectedViewTags,
     tags,
   } = props
+
+  const handleResetFilter = () => {
+    handleResetViewPref()
+    handleResetViewTag()
+  }
 
   return (
     <Grid container>
@@ -67,6 +82,7 @@ const MainContent: FC<MainContentProps> = props => {
           <ConditionItems>
             <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
             <TagSelect tags={tags} selectedViewTags={selectedViewTags} handleSelectViewTag={handleSelectViewTag} />
+            <ResetFilter handleResetFilter={handleResetFilter} />
           </ConditionItems>
         </RightColInner>
       </RightCol>

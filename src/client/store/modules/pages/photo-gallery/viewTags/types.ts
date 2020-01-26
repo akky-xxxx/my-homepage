@@ -2,6 +2,7 @@
  * import node_modules
  */
 import { Action } from "redux-actions"
+import { HandleAction } from "../../../../../shared/types/common"
 
 /**
  * main
@@ -19,4 +20,5 @@ export type HandleSelectViewTag = (payload: SelectViewTagPayload) => Action<Sele
 
 export interface HandleActions {
   handleSelectViewTag: HandleSelectViewTag
+  handleResetViewTag: HandleAction
 }
