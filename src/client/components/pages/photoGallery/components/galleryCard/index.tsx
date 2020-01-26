@@ -74,7 +74,7 @@ const GalleryCard: FC<GalleryCardProps> = props => {
               <Chip
                 key={tag}
                 className={classes.tag}
-                color={selectedViewTags.includes(tag) ? "secondary" : "default"}
+                color={selectedViewTags.includes(tag) ? "primary" : "default"}
                 size="small"
                 label={tag}
                 onClick={() => handleSelectViewTag({ targetTag: tag })}
