@@ -129,8 +129,14 @@ const DividerWrapper = styled.div`
 `
 
 const ConditionItems = styled.div`
-  div + div {
-    margin-top: ${spacing(2)}px;
+  div {
+    & + div {
+      margin-top: ${spacing(2)}px;
+
+      &:last-child {
+        margin-top: ${spacing(7)}px;
+      }
+    }
   }
 `
 
