@@ -2,9 +2,10 @@
  * import node_modules
  */
 import React, { FC } from "react"
-import { Card, CardHeader, CardMedia, CardContent, CircularProgress, Grid, Chip, makeStyles } from "@material-ui/core"
+import { Card, CardHeader, CardMedia, CircularProgress, Grid, Chip, makeStyles } from "@material-ui/core"
 import { format } from "date-fns"
 import { useInView } from "react-intersection-observer"
+import styled from "styled-components"
 
 /**
  * import others
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     height: 200,
   },
   tag: {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(1),
   },
 }))
 
@@ -54,15 +55,26 @@ const GalleryCard: FC<GalleryCardProps> = props => {
       ) : (
         <BeforeLoad />
       )}
-      {Boolean(tags.length) && (
-        <CardContent>
-          {tags.map(tag => (
-            <Chip key={tag} className={classes.tag} size="small" label={tag} />
-          ))}
-        </CardContent>
-      )}
+      <CardContent>
+        {Boolean(tags.length) && (
+          <TagWrapper>
+            {tags.map(tag => (
+              <Chip key={tag} className={classes.tag} size="small" label={tag} />
+            ))}
+          </TagWrapper>
+        )}
+      </CardContent>
     </Card>
   )
 }
+
+const CardContent = styled.div`
+  padding: 8px;
+`
+
+const TagWrapper = styled.div`
+  height: 50px;
+  overflow: scroll;
+`
 
 export default GalleryCard

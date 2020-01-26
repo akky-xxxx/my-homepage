@@ -44,7 +44,7 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
       columnCount={colNum}
       columnWidth={Math.ceil(width / colNum)}
       rowCount={Math.ceil(galleryInfoList.length / colNum)}
-      rowHeight={500}
+      rowHeight={370}
       height={height}
       width={width}
     >
