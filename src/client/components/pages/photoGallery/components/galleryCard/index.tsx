@@ -12,12 +12,14 @@ import styled from "styled-components"
  */
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import PREF_MAP from "../../../../../shared/const/prefMap"
+import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
  */
 interface GalleryCardProps extends Omit<GalleryItem, "imageId"> {
   handleOpenModal: () => void
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 const useStyles = makeStyles(theme => ({
@@ -43,7 +45,7 @@ const BeforeLoad = () => {
 }
 
 const GalleryCard: FC<GalleryCardProps> = props => {
-  const { path, date, prefCode, tags, handleOpenModal } = props
+  const { path, date, prefCode, tags, handleOpenModal, handleSelectViewTag } = props
   const classes = useStyles()
   const [ref, inView] = useInView()
 
@@ -68,7 +70,13 @@ const GalleryCard: FC<GalleryCardProps> = props => {
         {Boolean(tags.length) && (
           <TagWrapper>
             {tags.map(tag => (
-              <Chip key={tag} className={classes.tag} size="small" label={tag} />
+              <Chip
+                key={tag}
+                className={classes.tag}
+                size="small"
+                label={tag}
+                onClick={() => handleSelectViewTag({ targetTag: tag })}
+              />
             ))}
           </TagWrapper>
         )}

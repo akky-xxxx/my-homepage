@@ -16,6 +16,7 @@ import FixedSizeGridWrapper from "../fixedSizeGridWrapper"
  */
 import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
+import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
@@ -23,12 +24,13 @@ import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 interface GalleryBodyProps {
   galleryInfoList: GalleryItem[]
   handleOpenModal: HandleOpenModalAction
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 const { spacing, breakpoints } = createMuiTheme()
 
 const GalleryBody: FC<GalleryBodyProps> = props => {
-  const { galleryInfoList, handleOpenModal } = props
+  const { galleryInfoList, handleOpenModal, handleSelectViewTag } = props
   const galleryListRef = useRef<HTMLDivElement>(null)
   const [offsetTop, setOffsetTop] = useState(galleryListRef.current?.offsetTop)
 
@@ -48,6 +50,7 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
               height={height}
               galleryInfoList={galleryInfoList}
               handleOpenModal={handleOpenModal}
+              handleSelectViewTag={handleSelectViewTag}
             />
           )
         }}

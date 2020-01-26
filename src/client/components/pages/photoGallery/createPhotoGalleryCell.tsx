@@ -14,12 +14,14 @@ import GalleryCardWrapper from "./components/galleryCardWrapper"
  */
 import { GalleryItem } from "../../../shared/types/pages/galleryList"
 import { HandleOpenModalAction } from "../../../store/modules/pages/photo-gallery/modal/types"
+import { HandleSelectViewTag } from "../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
  */
 interface ExtendedGalleryItem extends GalleryItem {
   handleOpenModal: HandleOpenModalAction
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 interface PhotoGalleryCellProps extends GridChildComponentProps {
@@ -31,7 +33,7 @@ const createPhotoGalleryCell = (colNum: number) => {
     const { style, rowIndex, columnIndex, data } = props
     const index = rowIndex * colNum + columnIndex
     if (!data[index]) return null
-    const { imageId, prefCode, path, date, tags, handleOpenModal } = data[index]
+    const { imageId, prefCode, path, date, tags, handleOpenModal, handleSelectViewTag } = data[index]
     const handleThisOpenModal = () => handleOpenModal({ targetId: imageId })
 
     return (
@@ -43,6 +45,7 @@ const createPhotoGalleryCell = (colNum: number) => {
           date={date}
           tags={tags}
           handleOpenModal={handleThisOpenModal}
+          handleSelectViewTag={handleSelectViewTag}
         />
       </div>
     )

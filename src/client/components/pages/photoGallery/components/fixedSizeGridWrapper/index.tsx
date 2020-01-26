@@ -12,6 +12,7 @@ import { Size } from "react-virtualized-auto-sizer"
 import createPhotoGalleryCell from "../../createPhotoGalleryCell"
 import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
+import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
@@ -27,13 +28,15 @@ const getColNum = (width: number) => {
 interface FixedSizeGridWrapperProps extends Size {
   galleryInfoList: GalleryItem[]
   handleOpenModal: HandleOpenModalAction
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
-  const { width, height, galleryInfoList, handleOpenModal } = props
+  const { width, height, galleryInfoList, handleOpenModal, handleSelectViewTag } = props
   const windowGalleryInfoList = galleryInfoList.map(galleryInfo => ({
     ...galleryInfo,
     handleOpenModal,
+    handleSelectViewTag,
   }))
   const colNum = useMemo(() => getColNum(width), [width])
   const PhotoGalleryCell = useMemo(() => createPhotoGalleryCell(colNum), [colNum])

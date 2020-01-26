@@ -15,22 +15,31 @@ import GalleryCard from "../galleryCard"
  */
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { IsNoReRender } from "../../../../../shared/types/common"
+import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
  */
 interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId"> {
   handleOpenModal: () => void
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 const { spacing, breakpoints } = createMuiTheme()
 
 const GalleryCardWrapper: FC<GalleryCardWrapperProps> = props => {
-  const { path, date, prefCode, tags, handleOpenModal } = props
+  const { path, date, prefCode, tags, handleOpenModal, handleSelectViewTag } = props
 
   return (
     <StyledGalleryCardWrapper>
-      <GalleryCard path={path} date={date} prefCode={prefCode} handleOpenModal={handleOpenModal} tags={tags} />
+      <GalleryCard
+        path={path}
+        date={date}
+        prefCode={prefCode}
+        handleOpenModal={handleOpenModal}
+        handleSelectViewTag={handleSelectViewTag}
+        tags={tags}
+      />
     </StyledGalleryCardWrapper>
   )
 }

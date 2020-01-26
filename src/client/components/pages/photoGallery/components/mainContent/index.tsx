@@ -25,12 +25,12 @@ import { APP_BREAKPOINTS, APP_MARGINS } from "../../../../../shared/const/styles
  */
 export interface MainContentProps
   extends Pick<State, "selectedViewPref">,
-    Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref"> {}
+    Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref" | "handleSelectViewTag"> {}
 
 const { palette, spacing } = createMuiTheme()
 
 const MainContent: FC<MainContentProps> = props => {
-  const { handleOpenModal, handleSelectViewPref, selectedViewPref } = props
+  const { handleOpenModal, handleSelectViewPref, handleSelectViewTag, selectedViewPref } = props
 
   const filteredList: GalleryItem[] = galleryInfoList.filter(galleryInfo => {
     if (selectedViewPref === "00") return true
@@ -40,7 +40,11 @@ const MainContent: FC<MainContentProps> = props => {
   return (
     <Grid container>
       <LeftCol>
-        <GalleryBody galleryInfoList={filteredList} handleOpenModal={handleOpenModal} />
+        <GalleryBody
+          galleryInfoList={filteredList}
+          handleOpenModal={handleOpenModal}
+          handleSelectViewTag={handleSelectViewTag}
+        />
       </LeftCol>
       <RightCol>
         <RightColInner>

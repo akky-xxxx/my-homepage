@@ -31,6 +31,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     handleOpenModal,
     handleCloseModal,
     handleSelectViewPref,
+    handleSelectViewTag,
     selectedViewPref,
     modal: { isOpen, currentImageId },
   } = props
@@ -49,6 +50,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
           selectedViewPref={selectedViewPref}
           handleOpenModal={handleOpenModal}
           handleSelectViewPref={handleSelectViewPref}
+          handleSelectViewTag={handleSelectViewTag}
         />
       </MainContentWrapper>
       <GalleryModal
