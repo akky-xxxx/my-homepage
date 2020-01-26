@@ -10,7 +10,7 @@ import { Grid, Divider, createMuiTheme } from "@material-ui/core"
  */
 import GalleryBody from "../galleryBody"
 import GalleryLength from "../galleryLength"
-import PrefSelect from "../PrefSelect"
+import PrefSelect from "../prefSelect"
 
 /**
  * import others
