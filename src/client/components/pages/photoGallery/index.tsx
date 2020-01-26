@@ -37,10 +37,15 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     modal: { isOpen, currentImageId },
   } = props
 
-  const filteredList: GalleryItem[] = galleryInfoList.filter(galleryInfo => {
-    if (selectedViewPref === "00") return true
-    return galleryInfo.prefCode === selectedViewPref
-  })
+  const filteredList: GalleryItem[] = galleryInfoList
+    .filter(galleryInfo => {
+      if (selectedViewPref === "00") return true
+      return galleryInfo.prefCode === selectedViewPref
+    })
+    .filter(galleryInfo => {
+      if (selectedViewTags.length === 0) return true
+      return selectedViewTags.every(tag => galleryInfo.tags.includes(tag))
+    })
 
   return (
     <Wrapper>
