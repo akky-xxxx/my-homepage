@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import React, { ChangeEvent } from "react"
+import React, { ChangeEvent, memo } from "react"
 import { NextPage } from "next"
 import { InputLabel, Select, MenuItem, Checkbox, ListItemText, FormControl, makeStyles } from "@material-ui/core"
 
@@ -9,6 +9,7 @@ import { InputLabel, Select, MenuItem, Checkbox, ListItemText, FormControl, make
  * import others
  */
 import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
+import { IsNoReRender } from "../../../../../shared/types/common"
 
 /**
  * main
@@ -64,4 +65,7 @@ const TagSelect: NextPage<TagSelectProps> = props => {
   )
 }
 
-export default TagSelect
+const isNoReRender: IsNoReRender<TagSelectProps> = (beforeProps, afterProps) =>
+  beforeProps.selectedViewTags.join("") === afterProps.selectedViewTags.join("")
+
+export default memo(TagSelect, isNoReRender)

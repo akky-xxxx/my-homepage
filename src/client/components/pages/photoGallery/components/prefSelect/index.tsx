@@ -1,7 +1,7 @@
 /**
  * import node_modules
  */
-import React from "react"
+import React, { memo } from "react"
 import { NextPage } from "next"
 import { InputLabel, Select, MenuItem, FormControl, makeStyles } from "@material-ui/core"
 
@@ -10,6 +10,7 @@ import { InputLabel, Select, MenuItem, FormControl, makeStyles } from "@material
  */
 import { HandleSelectViewPref, ViewPref } from "../../../../../store/modules/pages/photo-gallery/viewPref/types"
 import PREF_MAP from "../../../../../shared/const/prefMap"
+import { IsNoReRender } from "../../../../../shared/types/common"
 
 /**
  * main
@@ -76,4 +77,7 @@ const PrefSelect: NextPage<PrefSelectProps> = props => {
   )
 }
 
-export default PrefSelect
+const isNoReRender: IsNoReRender<PrefSelectProps> = (beforeProps, afterProps) =>
+  beforeProps.selectedViewPref === afterProps.selectedViewPref
+
+export default memo(PrefSelect, isNoReRender)
