@@ -12,12 +12,12 @@ import chalk from "chalk"
 import nextConfig from "../../next.config"
 import router from "./serverMiddleWares/router"
 import getNextRoutes from "./serverMiddleWares/getNextRoutes"
+import isDev from "./shared/utils/isDev"
 
 /**
  * main
  */
 const PORT: number = parseInt(process.env.PORT as string, 10) || 3000
-const isDev = process.env.NODE_ENV !== "production"
 const ROOT_DIR = path.resolve(__dirname, "../")
 const CLIENT_DIR = path.resolve(ROOT_DIR, "src/client")
 const app = next({
