@@ -11,7 +11,7 @@ import chalk from "chalk"
  */
 import nextConfig from "../../next.config"
 import router from "./serverMiddleWares/router"
-import setNextRoutes from "./serverMiddleWares/setNextRoutes"
+import getNextRoutes from "./serverMiddleWares/getNextRoutes"
 
 /**
  * main
@@ -25,7 +25,7 @@ const app = next({
   conf: nextConfig,
   dev: isDev,
 })
-const nextRoutes = setNextRoutes(app)
+const nextRoutes = getNextRoutes(app)
 const server = express()
 
 app
