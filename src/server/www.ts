@@ -25,14 +25,14 @@ const app = next({
   conf: nextConfig,
   dev: isDev,
 })
-const handle = setNextRoutes(app)
+const nextRoutes = setNextRoutes(app)
 const server = express()
 
 app
   .prepare()
   .then(() => {
     server.use(router)
-    server.use(handle)
+    server.use(nextRoutes)
 
     server.listen(PORT, (err: Error) => {
       if (err) throw err
