@@ -10,7 +10,7 @@ import chalk from "chalk"
  * import others
  */
 import nextConfig from "../../next.config"
-import replaceToWebpMiddleWare from "./serverMiddleWares/replaceToWebp"
+import router from "./serverMiddleWares/router"
 import setNextRoutes from "./serverMiddleWares/setNextRoutes"
 
 /**
@@ -31,8 +31,7 @@ const server = express()
 app
   .prepare()
   .then(() => {
-    server.get("*.webp.*", replaceToWebpMiddleWare)
-
+    server.use(router)
     server.use(handle)
 
     server.listen(PORT, (err: Error) => {
