@@ -9,8 +9,8 @@ import chalk from "chalk"
 /**
  * import middleware
  */
-import router from "./serverMiddleWares/router"
-import getNextRoutes from "./serverMiddleWares/getNextRoutes"
+import router from "./serverMiddleWare/router"
+import getNextRoutes from "./serverMiddleWare/getNextRoutes"
 
 /**
  * import others
