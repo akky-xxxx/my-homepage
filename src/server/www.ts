@@ -7,11 +7,15 @@ import path from "path"
 import chalk from "chalk"
 
 /**
+ * import middleware
+ */
+import router from "./serverMiddleWares/router"
+import getNextRoutes from "./serverMiddleWares/getNextRoutes"
+
+/**
  * import others
  */
 import nextConfig from "../../next.config"
-import router from "./serverMiddleWares/router"
-import getNextRoutes from "./serverMiddleWares/getNextRoutes"
 import isDev from "./shared/utils/isDev"
 
 /**
