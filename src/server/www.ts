@@ -10,7 +10,7 @@ import chalk from "chalk"
  * import middleware
  */
 import router from "./serverMiddleWare/router"
-import getNextRoutes from "./serverMiddleWare/getNextRoutes"
+import getRequestHandler from "./serverMiddleWare/getRequestHandler"
 
 /**
  * import others
@@ -29,14 +29,14 @@ const app = next({
   conf: nextConfig,
   dev: isDev,
 })
-const nextRoutes = getNextRoutes(app)
+const requestHandler = getRequestHandler(app)
 const server = express()
 
 app
   .prepare()
   .then(() => {
     server.use(router)
-    server.use(nextRoutes)
+    server.use(requestHandler)
 
     server.listen(PORT, (err: Error) => {
       if (err) throw err
