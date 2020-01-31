@@ -37,7 +37,18 @@ const convertGalleryTask = async () => {
     DIST_DIR,
   })
 
-  await Promise.all(fileNames.map(fileName => convertToWebp(fileName, ORIGIN_DIR, DIST_DIR)))
+  const fileLength = fileNames.length
+  console.log(`[CONVERTED] 0 / ${fileLength} ( 0 % )`)
+  await Promise.all(
+    fileNames.map(fileName =>
+      convertToWebp({
+        imagePath: fileName,
+        ORIGIN_DIR,
+        DIST_DIR,
+        allLength: fileLength,
+      }),
+    ),
+  )
   console.log(`${DONE} ${successMessage("All task success")}`)
 }
 
