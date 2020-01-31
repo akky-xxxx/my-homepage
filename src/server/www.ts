@@ -7,17 +7,21 @@ import path from "path"
 import chalk from "chalk"
 
 /**
+ * import middleware
+ */
+import router from "./serverMiddleWare/router"
+import getRequestHandler from "./serverMiddleWare/getRequestHandler"
+
+/**
  * import others
  */
 import nextConfig from "../../next.config"
-import replaceToWebpMiddleWare from "./serverMiddleWares/replaceToWebp"
-import setNextRoutes from "./serverMiddleWares/setNextRoutes"
+import isDev from "./shared/utils/isDev"
 
 /**
  * main
  */
 const PORT: number = parseInt(process.env.PORT as string, 10) || 3000
-const isDev = process.env.NODE_ENV !== "production"
 const ROOT_DIR = path.resolve(__dirname, "../")
 const CLIENT_DIR = path.resolve(ROOT_DIR, "src/client")
 const app = next({
@@ -25,15 +29,14 @@ const app = next({
   conf: nextConfig,
   dev: isDev,
 })
-const handle = setNextRoutes(app)
+const requestHandler = getRequestHandler(app)
 const server = express()
 
 app
   .prepare()
   .then(() => {
-    server.get("*.webp.*", replaceToWebpMiddleWare)
-
-    server.use(handle)
+    server.use(router)
+    server.use(requestHandler)
 
     server.listen(PORT, (err: Error) => {
       if (err) throw err

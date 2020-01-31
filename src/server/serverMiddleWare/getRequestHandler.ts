@@ -9,8 +9,8 @@ import { ServerConstructor } from "next/dist/next-server/server/next-server"
  */
 const routes = new Routes()
 
-const setNextRoutes = (app: ServerConstructor) => {
+const getRequestHandler = (app: ServerConstructor) => {
   return routes.getRequestHandler(app)
 }
 
-export default setNextRoutes
+export default getRequestHandler
