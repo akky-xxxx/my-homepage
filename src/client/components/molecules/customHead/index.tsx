@@ -21,7 +21,7 @@ const CustomHead: FC<CustomHeadProps> = props => {
 
   return (
     <NextHead>
-      <title>Portfolio - {title}</title>
+      <title>Homepage - {title}</title>
       <meta name="description" content={`${title.toLowerCase()} page`} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" key="viewport" />
     </NextHead>
