@@ -34,6 +34,17 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
     }, [])
     .sort((a: ImagesInfo, b: ImagesInfo): number => {
       if (a.date < b.date) return 1
+      if (a.date > b.date) return -1
+
+      const { path: pathOfA } = a
+      const { path: pathOfB } = b
+      const lastSlashIndexOfA = pathOfA.lastIndexOf("/")
+      const lastSlashIndexOfB = pathOfB.lastIndexOf("/")
+      const fileNameOfA = pathOfA.slice(lastSlashIndexOfA, pathOfA.length)
+      const fileNameOfB = pathOfB.slice(lastSlashIndexOfB, pathOfB.length)
+
+      if (fileNameOfA > fileNameOfB) return 1
+
       return -1
     })
 
