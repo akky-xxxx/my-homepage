@@ -5,7 +5,7 @@ import React, { FC, useMemo } from "react"
 import { createMuiTheme } from "@material-ui/core"
 import { FixedSizeGrid } from "react-window"
 import { Size } from "react-virtualized-auto-sizer"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 /**
  * import others
@@ -62,10 +62,20 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
   )
 }
 
+const fadein = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const StyledFixedSizeGrid = styled(FixedSizeGrid)`
   & .${galleryItemClassName} {
     transition: transform 300ms 300ms;
     will-change: transform;
+    animation: ${fadein} 300ms linear 0s;
   }
 `
 
