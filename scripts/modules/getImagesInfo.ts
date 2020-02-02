@@ -70,7 +70,7 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
         return resultByFileName
       }
 
-      return -1
+      return 0
     })
 
 export default imagesInfo
