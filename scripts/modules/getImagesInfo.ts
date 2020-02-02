@@ -8,6 +8,22 @@ interface ImagesInfo {
 
 const tagRegExp = /\[([^\]]+)]/g
 
+/**
+ * ファイル名を ASC で比較した sort 戻り値用の数値を返す
+ * @param pathOfA
+ * @param pathOfB
+ */
+const compareByFileName = (pathOfA: string, pathOfB: string): (1 | -1 | 0) => {
+  const lastSlashIndexOfA = pathOfA.lastIndexOf("/")
+  const lastSlashIndexOfB = pathOfB.lastIndexOf("/")
+  const fileNameOfA = pathOfA.slice(lastSlashIndexOfA, pathOfA.length)
+  const fileNameOfB = pathOfB.slice(lastSlashIndexOfB, pathOfB.length)
+
+  if (fileNameOfA > fileNameOfB) return 1
+  if (fileNameOfA < fileNameOfB) return 1
+  return 0
+}
+
 const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
   fileNames
     .reduce((arr: ImagesInfo[], path: string, index: number) => {
@@ -36,14 +52,10 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
       if (a.date < b.date) return 1
       if (a.date > b.date) return -1
 
-      const { path: pathOfA } = a
-      const { path: pathOfB } = b
-      const lastSlashIndexOfA = pathOfA.lastIndexOf("/")
-      const lastSlashIndexOfB = pathOfB.lastIndexOf("/")
-      const fileNameOfA = pathOfA.slice(lastSlashIndexOfA, pathOfA.length)
-      const fileNameOfB = pathOfB.slice(lastSlashIndexOfB, pathOfB.length)
-
-      if (fileNameOfA > fileNameOfB) return 1
+      const resultByFileName = compareByFileName(a.path, b.path)
+      if (resultByFileName !== 0) {
+        return resultByFileName
+      }
 
       return -1
     })
