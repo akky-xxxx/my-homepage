@@ -6,6 +6,8 @@ interface ImagesInfo {
   tags: string[]
 }
 
+type CompareReturn = 1 | -1 | 0
+
 const tagRegExp = /\[([^\]]+)]/g
 
 /**
@@ -13,7 +15,7 @@ const tagRegExp = /\[([^\]]+)]/g
  * @param dateOfA
  * @param dateOfB
  */
-const compareByDate = (dateOfA: Date, dateOfB: Date): (1 | -1 | 0) => {
+const compareByDate = (dateOfA: Date, dateOfB: Date): CompareReturn => {
   if (dateOfA < dateOfB) return 1
   if (dateOfA > dateOfB) return -1
   return 0
@@ -24,7 +26,7 @@ const compareByDate = (dateOfA: Date, dateOfB: Date): (1 | -1 | 0) => {
  * @param pathOfA
  * @param pathOfB
  */
-const compareByFileName = (pathOfA: string, pathOfB: string): (1 | -1 | 0) => {
+const compareByFileName = (pathOfA: string, pathOfB: string): CompareReturn => {
   const lastSlashIndexOfA = pathOfA.lastIndexOf("/")
   const lastSlashIndexOfB = pathOfB.lastIndexOf("/")
   const fileNameOfA = pathOfA.slice(lastSlashIndexOfA, pathOfA.length)

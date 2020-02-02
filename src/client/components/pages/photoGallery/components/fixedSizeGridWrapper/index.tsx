@@ -62,10 +62,11 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
   )
 }
 
-const fadein = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -73,9 +74,8 @@ const fadein = keyframes`
 
 const StyledFixedSizeGrid = styled(FixedSizeGrid)`
   & .${galleryItemClassName} {
+    animation: ${fadeIn} 300ms linear 0s;
     transition: transform 300ms 300ms;
-    will-change: transform;
-    animation: ${fadein} 300ms linear 0s;
   }
 `
 

@@ -31,11 +31,7 @@ interface PhotoGalleryCellProps extends GridChildComponentProps {
   data: ExtendedGalleryItem[]
 }
 
-type GetIndex = (args: {
-  rowIndex: number
-  columnIndex: number
-  colNum: number
-}) => number
+type GetIndex = (args: { rowIndex: number; columnIndex: number; colNum: number }) => number
 
 export const galleryItemClassName = "galleryItemWrapper"
 const getIndex: GetIndex = args => {

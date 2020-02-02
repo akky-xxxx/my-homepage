@@ -3,7 +3,6 @@ import uuid from "uuid"
 
 type GetItemKey = (colNum: number) => GridItemKeySelector
 
-
 const getItemKey: GetItemKey = colNum => {
   return props => {
     const { columnIndex, rowIndex, data } = props

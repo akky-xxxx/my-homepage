@@ -106,8 +106,8 @@ const navigationBase = css`
 `
 
 const NavigationPrev = styled.div`
-  ${navigationBase};
   left: 10px;
+  ${navigationBase};
 `
 
 const NavigationNext = styled.div`
