@@ -35,13 +35,14 @@ const GlobalStyle = createGlobalStyle`
 
 class MyApp extends App<NextPageContext> {
   render() {
-    const { Component, reduxStore } = this.props
+    const { Component, reduxStore, router } = this.props
+    const { route } = router
 
     return (
       <Fragment>
         <Provider store={reduxStore}>
-          <Layout>
-            <GlobalStyle />
+          <GlobalStyle />
+          <Layout route={route}>
             <Component />
           </Layout>
         </Provider>

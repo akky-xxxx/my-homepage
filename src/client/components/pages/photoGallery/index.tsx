@@ -77,7 +77,10 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  position: relative;
+  width: 100vw;
 `
 
 export default PhotoGallery
