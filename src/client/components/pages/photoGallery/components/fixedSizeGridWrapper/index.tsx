@@ -13,6 +13,7 @@ import createPhotoGalleryCell from "../../createPhotoGalleryCell"
 import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
+import getItemKey from "./getItemKey"
 
 /**
  * main
@@ -41,6 +42,7 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
     selectedViewTags,
   }))
   const colNum = useMemo(() => getColNum(width), [width])
+  const itemKey = useMemo(() => getItemKey(colNum), [colNum])
   const PhotoGalleryCell = useMemo(() => createPhotoGalleryCell(colNum), [colNum])
 
   return (
@@ -52,6 +54,7 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
       rowHeight={370}
       height={height}
       width={width}
+      itemKey={itemKey}
     >
       {PhotoGalleryCell}
     </FixedSizeGrid>
