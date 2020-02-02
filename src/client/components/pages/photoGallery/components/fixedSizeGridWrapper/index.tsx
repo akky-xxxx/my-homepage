@@ -76,7 +76,6 @@ const StyledFixedSizeGrid = styled(FixedSizeGrid)`
   & .${galleryItemClassName} {
     animation: ${fadein} 300ms linear 0s;
     transition: transform 300ms 300ms;
-    will-change: transform;
   }
 `
 

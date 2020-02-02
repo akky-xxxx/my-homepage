@@ -115,7 +115,6 @@ const RightCol = styled.div`
 
 const RightColInner = styled.div`
   ${APP_BREAKPOINTS.PC} {
-    position: sticky;
     top: ${64 - APP_MARGINS.PC.VERTICAL}px;
   }
 `
