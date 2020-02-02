@@ -55,7 +55,7 @@ export default [
     path: "/14.Kanagawa/20190502/_DSC0826.webp.jpg",
     date: "2019-05-02T00:00:00.000Z",
     prefCode: "14",
-    tags: ["ツツジ空", "植物"],
+    tags: ["ツツジ", "植物", "空"],
   },
   {
     imageId: 65,
@@ -573,7 +573,7 @@ export default [
     path: "/17.Ishikawa/20151125/_DSC8292.webp.jpg",
     date: "2015-11-25T00:00:00.000Z",
     prefCode: "17",
-    tags: ["", "兼六園", "庭園", "池", "秋", "紅葉"],
+    tags: ["兼六園", "庭園", "池", "秋", "紅葉"],
   },
   {
     imageId: 81,
@@ -741,7 +741,7 @@ export default [
     path: "/20.Nagano/20151121/_DSC7400.webp.jpg",
     date: "2015-11-21T00:00:00.000Z",
     prefCode: "20",
-    tags: ["クァ", "岩", "秋"],
+    tags: ["岩", "川", "秋"],
   },
   {
     imageId: 99,
@@ -839,7 +839,7 @@ export default [
     path: "/26.Kyoto/20141122/_DSC4918.webp.jpg",
     date: "2014-11-22T00:00:00.000Z",
     prefCode: "26",
-    tags: ["て庭園", "山", "池", "秋", "空", "紅葉"],
+    tags: ["山", "庭園", "池", "秋", "空", "紅葉"],
   },
   {
     imageId: 150,
@@ -937,7 +937,7 @@ export default [
     path: "/26.Kyoto/20141120/_DSC3925.webp.jpg",
     date: "2014-11-20T00:00:00.000Z",
     prefCode: "26",
-    tags: ["ライトアップ", "好悪用", "建物、庭園", "秋"],
+    tags: ["ライトアップ", "庭園", "建物", "秋", "紅葉"],
   },
   {
     imageId: 136,
