@@ -10,11 +10,7 @@ import styled from "styled-components"
 const ContentWrapper: FC = props => {
   const { children } = props
 
-  return (
-    <StyledContentWrapper>
-      {children}
-    </StyledContentWrapper>
-  )
+  return <StyledContentWrapper>{children}</StyledContentWrapper>
 }
 
 const StyledContentWrapper = styled.div`
