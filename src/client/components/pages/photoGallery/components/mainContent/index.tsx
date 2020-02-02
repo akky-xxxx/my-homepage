@@ -3,57 +3,98 @@
  */
 import React, { FC } from "react"
 import styled from "styled-components"
-import { Grid, createMuiTheme } from "@material-ui/core"
+import { Grid, Divider, createMuiTheme } from "@material-ui/core"
 
 /**
  * import components
  */
 import GalleryBody from "../galleryBody"
-import PrefSelect from "../PrefSelect"
+import GalleryLength from "../galleryLength"
+import ResetFilter from "../resetFilter"
+import PrefSelect from "../prefSelect"
+import TagSelect from "../tagSelect"
 
 /**
  * import others
  */
 import { State, HandleActions } from "../../../../../store/modules/pages/photo-gallery/types"
-import galleryInfoList from "../../../../../shared/const/galleryInfoList"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { APP_BREAKPOINTS, APP_MARGINS } from "../../../../../shared/const/styles"
 
 /**
  * main
  */
-export interface MainContentProps
-  extends Pick<State, "selectedViewPref">,
-    Pick<HandleActions, "handleOpenModal" | "handleSelectViewPref"> {}
+type PickProps =
+  | "handleOpenModal"
+  | "handleSelectViewPref"
+  | "handleSelectViewTag"
+  | "handleResetViewPref"
+  | "handleResetViewTag"
 
-const { palette } = createMuiTheme()
+export interface MainContentProps
+  extends Pick<State, "selectedViewPref" | "selectedViewTags">,
+    Pick<HandleActions, PickProps> {
+  galleryItem: GalleryItem[]
+  selectedViewTags: string[]
+  tags: string[]
+}
+
+const { palette, spacing } = createMuiTheme()
 
 const MainContent: FC<MainContentProps> = props => {
-  const { handleOpenModal, handleSelectViewPref, selectedViewPref } = props
+  const {
+    galleryItem,
+    handleOpenModal,
+    handleSelectViewPref,
+    handleResetViewPref,
+    handleSelectViewTag,
+    handleResetViewTag,
+    selectedViewPref,
+    selectedViewTags,
+    tags,
+  } = props
 
-  const filteredList: GalleryItem[] = galleryInfoList.filter(galleryInfo => {
-    if (selectedViewPref === "00") return true
-    return galleryInfo.prefCode === selectedViewPref
-  })
+  const handleResetFilter = () => {
+    handleResetViewPref()
+    handleResetViewTag()
+  }
 
   return (
     <Grid container>
       <LeftCol>
-        <GalleryBody galleryInfoList={filteredList} handleOpenModal={handleOpenModal} />
+        <GalleryBody
+          galleryInfoList={galleryItem}
+          selectedViewTags={selectedViewTags}
+          handleOpenModal={handleOpenModal}
+          handleSelectViewTag={handleSelectViewTag}
+        />
       </LeftCol>
       <RightCol>
         <RightColInner>
-          <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
+          <GalleryLengthWrapper>
+            <GalleryLength resultLength={galleryItem.length} />
+          </GalleryLengthWrapper>
+
+          <DividerWrapper>
+            <Divider />
+          </DividerWrapper>
+
+          <ConditionItems>
+            <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
+            <TagSelect tags={tags} selectedViewTags={selectedViewTags} handleSelectViewTag={handleSelectViewTag} />
+            <ResetFilter handleResetFilter={handleResetFilter} />
+          </ConditionItems>
         </RightColInner>
       </RightCol>
     </Grid>
   )
 }
 
+const RIGHT_COL_WIDTH = 200
 const LeftCol = styled.div`
   ${APP_BREAKPOINTS.PC} {
     padding-top: ${APP_MARGINS.PC.VERTICAL}px;
-    width: calc(100% - 200px);
+    width: calc(100% - ${RIGHT_COL_WIDTH}px);
   }
 `
 
@@ -64,7 +105,7 @@ const RightCol = styled.div`
     margin-left: ${APP_MARGINS.PC.HORIZON}px;
     padding-left: ${APP_MARGINS.PC.HORIZON}px;
     padding-top: ${APP_MARGINS.PC.VERTICAL}px;
-    width: (200px - ${APP_MARGINS.PC.HORIZON}px);
+    width: ${RIGHT_COL_WIDTH - APP_MARGINS.PC.HORIZON}px;
   }
 
   ${APP_BREAKPOINTS.SP} {
@@ -75,7 +116,27 @@ const RightCol = styled.div`
 const RightColInner = styled.div`
   ${APP_BREAKPOINTS.PC} {
     position: sticky;
-    top: calc(64px + ${APP_MARGINS.PC.VERTICAL}px);
+    top: ${64 - APP_MARGINS.PC.VERTICAL}px;
+  }
+`
+
+const GalleryLengthWrapper = styled.div`
+  margin-bottom: ${spacing(1)}px;
+`
+
+const DividerWrapper = styled.div`
+  margin-bottom: ${spacing(2)}px;
+`
+
+const ConditionItems = styled.div`
+  div {
+    & + div {
+      margin-top: ${spacing(2)}px;
+
+      &:last-child {
+        margin-top: ${spacing(7)}px;
+      }
+    }
   }
 `
 

@@ -12,6 +12,7 @@ import { Size } from "react-virtualized-auto-sizer"
 import createPhotoGalleryCell from "../../createPhotoGalleryCell"
 import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
+import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
@@ -26,14 +27,18 @@ const getColNum = (width: number) => {
 
 interface FixedSizeGridWrapperProps extends Size {
   galleryInfoList: GalleryItem[]
+  selectedViewTags: string[]
   handleOpenModal: HandleOpenModalAction
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
-  const { width, height, galleryInfoList, handleOpenModal } = props
+  const { width, height, galleryInfoList, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
   const windowGalleryInfoList = galleryInfoList.map(galleryInfo => ({
     ...galleryInfo,
     handleOpenModal,
+    handleSelectViewTag,
+    selectedViewTags,
   }))
   const colNum = useMemo(() => getColNum(width), [width])
   const PhotoGalleryCell = useMemo(() => createPhotoGalleryCell(colNum), [colNum])
@@ -44,7 +49,7 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
       columnCount={colNum}
       columnWidth={Math.ceil(width / colNum)}
       rowCount={Math.ceil(galleryInfoList.length / colNum)}
-      rowHeight={300}
+      rowHeight={370}
       height={height}
       width={width}
     >

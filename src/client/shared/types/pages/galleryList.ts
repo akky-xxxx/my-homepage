@@ -11,4 +11,5 @@ export interface GalleryItem {
   path: string
   date: string
   prefCode: PrefCode
+  tags: string[]
 }

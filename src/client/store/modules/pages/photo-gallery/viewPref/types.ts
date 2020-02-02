@@ -6,7 +6,7 @@ import { Action } from "redux-actions"
 /**
  * import others
  */
-import { PrefCode } from "../../../../../shared/types/common"
+import { HandleAction, PrefCode } from "../../../../../shared/types/common"
 
 /**
  * main
@@ -27,4 +27,5 @@ export type HandleSelectViewPref = (payload: SelectViewPrefPayload) => Action<Se
 
 export interface HandleActions {
   handleSelectViewPref: HandleSelectViewPref
+  handleResetViewPref: HandleAction
 }

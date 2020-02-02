@@ -23,6 +23,7 @@ type ConvertToWebp = (args: {
 }) => Promise<void>
 
 const WEBP_FLAG = ".webp."
+const tagRegExp = /\[([^\]]+)]/g
 let counter = 0
 const convertToWebp: ConvertToWebp = async args => {
   const { imagePath, ORIGIN_DIR, DIST_DIR, allLength } = args
@@ -30,7 +31,7 @@ const convertToWebp: ConvertToWebp = async args => {
     console.log(`${WARNING} ${target(imagePath)} ${warningMessage("is not hoped webp")}`)
     return
   }
-  const flagRemovedPath = imagePath.replace(WEBP_FLAG, ".")
+  const flagRemovedPath = imagePath.replace(WEBP_FLAG, ".").replace(tagRegExp, "")
   const lastSlashPosition = flagRemovedPath.lastIndexOf("/")
   const directory = flagRemovedPath.slice(0, lastSlashPosition).replace(ORIGIN_DIR, DIST_DIR)
   const fileName = flagRemovedPath.slice(lastSlashPosition + 1)

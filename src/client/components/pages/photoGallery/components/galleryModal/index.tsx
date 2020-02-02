@@ -25,13 +25,9 @@ interface GalleryModalProps {
 
 const GalleryModal: FC<GalleryModalProps> = props => {
   const { isOpen, handleCloseModal, currentImageId, galleryInfoList } = props
-
   const slider = useRef<Slider>(null)
-
   const showPrev = () => slider.current?.slickPrev()
-
   const showNext = () => slider.current?.slickNext()
-
   const handleKeyDown = (event: KeyboardEvent) => {
     const { code } = event
     if (code === "ArrowRight") {
@@ -118,11 +114,6 @@ const NavigationNext = styled.div`
   ${navigationBase};
   right: 10px;
 `
-
-// const StyledImage = styled.img`
-//   max-height: calc(100vh - 218px);
-//   max-width: calc(100vw - 228px);
-// `
 
 const StyledSlider = styled(Slider)`
   height: calc(100vh - 218px);

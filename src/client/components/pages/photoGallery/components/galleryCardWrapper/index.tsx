@@ -4,6 +4,7 @@
 import React, { FC, memo } from "react"
 import styled from "styled-components"
 import { createMuiTheme } from "@material-ui/core"
+import { equals } from "remeda"
 
 /**
  * import components
@@ -15,22 +16,33 @@ import GalleryCard from "../galleryCard"
  */
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { IsNoReRender } from "../../../../../shared/types/common"
+import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
  */
 interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId"> {
-  handleClick: () => void
+  selectedViewTags: string[]
+  handleOpenModal: () => void
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 const { spacing, breakpoints } = createMuiTheme()
 
 const GalleryCardWrapper: FC<GalleryCardWrapperProps> = props => {
-  const { path, date, prefCode, handleClick } = props
+  const { path, date, prefCode, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
 
   return (
     <StyledGalleryCardWrapper>
-      <GalleryCard path={path} date={date} prefCode={prefCode} handleClick={handleClick} />
+      <GalleryCard
+        path={path}
+        date={date}
+        prefCode={prefCode}
+        handleOpenModal={handleOpenModal}
+        handleSelectViewTag={handleSelectViewTag}
+        tags={tags}
+        selectedViewTags={selectedViewTags}
+      />
     </StyledGalleryCardWrapper>
   )
 }
@@ -53,6 +65,6 @@ const StyledGalleryCardWrapper = styled.div`
 `
 
 const isNoReRender: IsNoReRender<GalleryCardWrapperProps> = (beforeProps, afterProps) =>
-  beforeProps.path === afterProps.path
+  beforeProps.path === afterProps.path && equals(beforeProps.selectedViewTags, afterProps.selectedViewTags)
 
 export default memo(GalleryCardWrapper, isNoReRender)

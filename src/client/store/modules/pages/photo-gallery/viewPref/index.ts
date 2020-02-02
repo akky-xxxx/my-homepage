@@ -22,6 +22,7 @@ const viewPrefModule = createSlice({
 
       return targetPref
     },
+    resetViewPref: () => initialState,
   },
 })
 

@@ -4,6 +4,7 @@
 import { PrefCode } from "../../../../shared/types/common"
 import { State as ModalState, HandleActions as ModalHandleActions } from "./modal/types"
 import { State as ViewPrefState, HandleActions as ViewPrefHandleActions } from "./viewPref/types"
+import { State as ViewTagsState, HandleActions as ViewTagsHandleActions } from "./viewTags/types"
 
 /**
  * main
@@ -15,7 +16,8 @@ export type ViewPref = PrefCode | "00"
 export interface State {
   modal: ModalState
   selectedViewPref: ViewPrefState
+  selectedViewTags: ViewTagsState
 }
 
 // handle actions
-export interface HandleActions extends ModalHandleActions, ViewPrefHandleActions {}
+export interface HandleActions extends ModalHandleActions, ViewPrefHandleActions, ViewTagsHandleActions {}

@@ -4,6 +4,7 @@
 import React from "react"
 import { NextPage } from "next"
 import styled from "styled-components"
+import { uniq } from "remeda"
 
 /**
  * import components
@@ -20,6 +21,7 @@ import GalleryModal from "./components/galleryModal"
 import { State, HandleActions } from "../../../store/modules/pages/photo-gallery/types"
 import galleryInfoList from "../../../shared/const/galleryInfoList"
 import { GalleryItem } from "../../../shared/types/pages/galleryList"
+import useFilteredList from "./useFilteredList"
 
 /**
  * main
@@ -31,14 +33,21 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     handleOpenModal,
     handleCloseModal,
     handleSelectViewPref,
+    handleResetViewPref,
+    handleSelectViewTag,
     selectedViewPref,
+    handleResetViewTag,
+    selectedViewTags,
     modal: { isOpen, currentImageId },
   } = props
 
-  const filteredList: GalleryItem[] = galleryInfoList.filter(galleryInfo => {
-    if (selectedViewPref === "00") return true
-    return galleryInfo.prefCode === selectedViewPref
+  const filteredList: GalleryItem[] = useFilteredList({
+    galleryInfoList,
+    selectedViewPref,
+    selectedViewTags,
   })
+
+  const tags: string[] = uniq(galleryInfoList.map(galleryInfo => galleryInfo.tags).flat()).sort()
 
   return (
     <Wrapper>
@@ -46,9 +55,15 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
       <PageAbove title="Photo Gallery" />
       <MainContentWrapper>
         <MainContent
+          galleryItem={filteredList}
+          tags={tags}
           selectedViewPref={selectedViewPref}
+          selectedViewTags={selectedViewTags}
           handleOpenModal={handleOpenModal}
           handleSelectViewPref={handleSelectViewPref}
+          handleResetViewPref={handleResetViewPref}
+          handleSelectViewTag={handleSelectViewTag}
+          handleResetViewTag={handleResetViewTag}
         />
       </MainContentWrapper>
       <GalleryModal

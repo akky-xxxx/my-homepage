@@ -14,12 +14,15 @@ import GalleryCardWrapper from "./components/galleryCardWrapper"
  */
 import { GalleryItem } from "../../../shared/types/pages/galleryList"
 import { HandleOpenModalAction } from "../../../store/modules/pages/photo-gallery/modal/types"
+import { HandleSelectViewTag } from "../../../store/modules/pages/photo-gallery/viewTags/types"
 
 /**
  * main
  */
 interface ExtendedGalleryItem extends GalleryItem {
+  selectedViewTags: string[]
   handleOpenModal: HandleOpenModalAction
+  handleSelectViewTag: HandleSelectViewTag
 }
 
 interface PhotoGalleryCellProps extends GridChildComponentProps {
@@ -31,12 +34,21 @@ const createPhotoGalleryCell = (colNum: number) => {
     const { style, rowIndex, columnIndex, data } = props
     const index = rowIndex * colNum + columnIndex
     if (!data[index]) return null
-    const { imageId, prefCode, path, date, handleOpenModal } = data[index]
-    const handleClick = () => handleOpenModal({ targetId: imageId })
+    const { imageId, prefCode, path, date, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = data[index]
+    const handleThisOpenModal = () => handleOpenModal({ targetId: imageId })
 
     return (
       <div style={style}>
-        <GalleryCardWrapper key={imageId} prefCode={prefCode} path={path} date={date} handleClick={handleClick} />
+        <GalleryCardWrapper
+          key={imageId}
+          prefCode={prefCode}
+          path={path}
+          date={date}
+          tags={tags}
+          selectedViewTags={selectedViewTags}
+          handleOpenModal={handleThisOpenModal}
+          handleSelectViewTag={handleSelectViewTag}
+        />
       </div>
     )
   }
