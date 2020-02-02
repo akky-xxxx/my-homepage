@@ -9,6 +9,17 @@ interface ImagesInfo {
 const tagRegExp = /\[([^\]]+)]/g
 
 /**
+ * 日付を DESC で比較した sort 戻り値用の数値を返す
+ * @param dateOfA
+ * @param dateOfB
+ */
+const compareByDate = (dateOfA: Date, dateOfB: Date): (1 | -1 | 0) => {
+  if (dateOfA < dateOfB) return 1
+  if (dateOfA > dateOfB) return -1
+  return 0
+}
+
+/**
  * ファイル名を ASC で比較した sort 戻り値用の数値を返す
  * @param pathOfA
  * @param pathOfB
@@ -49,8 +60,10 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
       return arr
     }, [])
     .sort((a: ImagesInfo, b: ImagesInfo): number => {
-      if (a.date < b.date) return 1
-      if (a.date > b.date) return -1
+      const resultByDate = compareByDate(a.date, b.date)
+      if (resultByDate !== 0) {
+        return resultByDate
+      }
 
       const resultByFileName = compareByFileName(a.path, b.path)
       if (resultByFileName !== 0) {
