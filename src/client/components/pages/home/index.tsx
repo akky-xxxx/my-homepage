@@ -7,6 +7,7 @@ import { NextPage } from "next"
 /**
  * import components
  */
+import ContentWrapper from "../../molecules/contentWrapper"
 import CustomHead from "../../molecules/customHead"
 import PageAbove from "../../molecules/pageAbove"
 import MainContentWrapper from "../../molecules/mainContentWrapper"
@@ -16,11 +17,11 @@ import MainContentWrapper from "../../molecules/mainContentWrapper"
  */
 const Home: NextPage = () => {
   return (
-    <div>
+    <ContentWrapper>
       <CustomHead title="Home" />
       <PageAbove title="Home" />
       <MainContentWrapper />
-    </div>
+    </ContentWrapper>
   )
 }
 

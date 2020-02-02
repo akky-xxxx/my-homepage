@@ -3,12 +3,12 @@
  */
 import React from "react"
 import { NextPage } from "next"
-import styled from "styled-components"
 import { uniq } from "remeda"
 
 /**
  * import components
  */
+import ContentWrapper from "../../molecules/contentWrapper"
 import CustomHead from "../../molecules/customHead"
 import PageAbove from "../../molecules/pageAbove"
 import MainContentWrapper from "../../molecules/mainContentWrapper"
@@ -50,7 +50,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
   const tags: string[] = uniq(galleryInfoList.map(galleryInfo => galleryInfo.tags).flat()).sort()
 
   return (
-    <Wrapper>
+    <ContentWrapper>
       <CustomHead title="Photo Gallery" />
       <PageAbove title="Photo Gallery" />
       <MainContentWrapper>
@@ -72,12 +72,8 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
         isOpen={isOpen}
         handleCloseModal={handleCloseModal}
       />
-    </Wrapper>
+    </ContentWrapper>
   )
 }
-
-const Wrapper = styled.div`
-  width: 100%;
-`
 
 export default PhotoGallery

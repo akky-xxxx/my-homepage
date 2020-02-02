@@ -5,11 +5,12 @@ import React, { FC, useMemo } from "react"
 import { createMuiTheme } from "@material-ui/core"
 import { FixedSizeGrid } from "react-window"
 import { Size } from "react-virtualized-auto-sizer"
+import styled, { keyframes } from "styled-components"
 
 /**
  * import others
  */
-import createPhotoGalleryCell from "../../createPhotoGalleryCell"
+import createPhotoGalleryCell, { galleryItemClassName } from "../../createPhotoGalleryCell"
 import { HandleOpenModalAction } from "../../../../../store/modules/pages/photo-gallery/modal/types"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-gallery/viewTags/types"
@@ -46,7 +47,7 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
   const PhotoGalleryCell = useMemo(() => createPhotoGalleryCell(colNum), [colNum])
 
   return (
-    <FixedSizeGrid
+    <StyledFixedSizeGrid
       itemData={windowGalleryInfoList}
       columnCount={colNum}
       columnWidth={Math.ceil(width / colNum)}
@@ -57,8 +58,25 @@ const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
       itemKey={itemKey}
     >
       {PhotoGalleryCell}
-    </FixedSizeGrid>
+    </StyledFixedSizeGrid>
   )
 }
+
+const fadein = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+const StyledFixedSizeGrid = styled(FixedSizeGrid)`
+  & .${galleryItemClassName} {
+    transition: transform 300ms 300ms;
+    will-change: transform;
+    animation: ${fadein} 300ms linear 0s;
+  }
+`
 
 export default FixedSizeGridWrapper
