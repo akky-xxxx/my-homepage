@@ -46,23 +46,26 @@ const Layout: FC<LayoutProps> = props => {
 const StyledTransitionGroup = styled(TransitionGroup)`
   display: flex;
   flex-wrap: nowrap;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   position: relative;
   width: 100vw;
 
   & .${transitionClassName}-enter {
     opacity: 0;
   }
+
   & .${transitionClassName}-enter-active {
     opacity: 1;
     transition: opacity ${duration}ms;
   }
+
   & .${transitionClassName}-exit {
     opacity: 1;
   }
+
   & .${transitionClassName}-exit-active {
-    opacity: 0;
     left: -100vw;
+    opacity: 0;
     transition: opacity ${duration}ms;
   }
 `
