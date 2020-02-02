@@ -27,6 +27,7 @@
     "lint": "run-p lint:*",
     "lint:client": "eslint -c src/client/.eslintrc.js --ext .ts,.tsx ./src/client",
     "lint:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts",
+    "lint:style": "stylelint './src/client/**/*.{ts,tsx}'",
     "serve": "run-p serve:*",
     "serve:bff": "cross-env DEBUG=app:server:* node bin/www.js",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
