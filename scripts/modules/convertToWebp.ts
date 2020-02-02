@@ -2,6 +2,7 @@
  * import node_modules
  */
 import sharp from "sharp" // eslint-disable-line import/no-extraneous-dependencies
+import readline from "readline"
 
 /**
  * import others
@@ -14,10 +15,18 @@ import getImageSizes from "./getImageSizes"
 /**
  * main
  */
+type ConvertToWebp = (args: {
+  imagePath: string
+  ORIGIN_DIR: string
+  DIST_DIR: string
+  allLength?: number
+}) => Promise<void>
+
 const WEBP_FLAG = ".webp."
 const tagRegExp = /\[([^\]]+)]/g
-
-const convertToWebp = async (imagePath: string, ORIGIN_DIR: string, DIST_DIR: string) => {
+let counter = 0
+const convertToWebp: ConvertToWebp = async args => {
+  const { imagePath, ORIGIN_DIR, DIST_DIR, allLength } = args
   if (!imagePath.includes(WEBP_FLAG)) {
     console.log(`${WARNING} ${target(imagePath)} ${warningMessage("is not hoped webp")}`)
     return
@@ -44,7 +53,13 @@ const convertToWebp = async (imagePath: string, ORIGIN_DIR: string, DIST_DIR: st
       .resize(newImageWidth, newImageHeight, { fit: "inside" })
       .toFile(jpgPath),
   ])
-  console.log(`${DONE} ${target(imagePath)} ${successMessage("is converted")}`)
+  if (!allLength) {
+    console.log(`${DONE} ${target(imagePath)} ${successMessage("is converted")}`)
+    return
+  }
+  counter += 1
+  readline.moveCursor(process.stdout, 0, -1)
+  console.log(`${DONE} [CONVERTED] ${counter} / ${allLength} ( ${Math.round((counter / allLength) * 100)} % )`)
 }
 
 export default convertToWebp
