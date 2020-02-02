@@ -3,11 +3,11 @@
  */
 import React from "react"
 import { NextPage } from "next"
-import styled from "styled-components"
 
 /**
  * import components
  */
+import ContentWrapper from "../../molecules/contentWrapper"
 import CustomHead from "../../molecules/customHead"
 import PageAbove from "../../molecules/pageAbove"
 import MainContentWrapper from "../../molecules/mainContentWrapper"
@@ -17,19 +17,12 @@ import MainContentWrapper from "../../molecules/mainContentWrapper"
  */
 const Home: NextPage = () => {
   return (
-    <Wrapper>
+    <ContentWrapper>
       <CustomHead title="Home" />
       <PageAbove title="Home" />
       <MainContentWrapper />
-    </Wrapper>
+    </ContentWrapper>
   )
 }
-
-const Wrapper = styled.div`
-  flex-grow: 1;
-  flex-shrink: 0;
-  position: relative;
-  width: 100vw;
-`
 
 export default Home
