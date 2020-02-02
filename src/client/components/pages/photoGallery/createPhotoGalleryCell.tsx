@@ -29,6 +29,8 @@ interface PhotoGalleryCellProps extends GridChildComponentProps {
   data: ExtendedGalleryItem[]
 }
 
+export const galleryItemClassName = "galleryItemWrapper"
+
 const createPhotoGalleryCell = (colNum: number) => {
   const PhotoGalleryCell: FC<PhotoGalleryCellProps> = props => {
     const { style, rowIndex, columnIndex, data } = props
@@ -36,9 +38,15 @@ const createPhotoGalleryCell = (colNum: number) => {
     if (!data[index]) return null
     const { imageId, prefCode, path, date, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = data[index]
     const handleThisOpenModal = () => handleOpenModal({ targetId: imageId })
+    const newStyle = {
+      ...style,
+      transform: `translateX(${style.left}px) translateY(${style.top}px)`,
+    }
+    delete newStyle.top
+    delete newStyle.left
 
     return (
-      <div style={style}>
+      <div style={newStyle} className={galleryItemClassName}>
         <GalleryCardWrapper
           key={imageId}
           prefCode={prefCode}
