@@ -10,5 +10,6 @@ module.exports = {
     "plugin/declaration-block-no-ignored-properties": true,
     "plugin/no-unsupported-browser-features": true,
     "order/properties-alphabetical-order": true,
+    "value-keyword-case": ["lower", { ignoreKeywords: ['dummyValue'] }],
   },
 }
