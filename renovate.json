@@ -12,17 +12,14 @@
     ]
   },
   "minor": {
-    "groupName": "all dependencies",
-    "automerge": true
+    "groupName": "all dependencies"
   },
   "patch": {
-    "groupName": "all dependencies",
-    "automerge": true
+    "groupName": "all dependencies"
   },
   "packageRules": [
     {
-      "packagePatterns": ["date-fns"],
-      "automerge": false
+      "packagePatterns": ["date-fns"]
     }
   ]
 }
