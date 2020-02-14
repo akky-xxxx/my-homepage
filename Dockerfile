@@ -1,4 +1,4 @@
-FROM node:12.15.0-alpine as base
+FROM node:12.16.0-alpine as base
 WORKDIR ./build
 COPY . .
 
@@ -7,7 +7,7 @@ ENV NODE_ENV=production
 RUN yarn install && yarn build && rm -rf dist/cache
 
 # 最終イメージ
-FROM node:12.15.0-alpine as app
+FROM node:12.16.0-alpine as app
 WORKDIR ./app
 COPY --from=base ./build/bin ./bin
 COPY --from=base ./build/dist ./dist
