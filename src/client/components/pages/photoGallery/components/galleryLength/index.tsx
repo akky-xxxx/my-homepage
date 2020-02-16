@@ -1,13 +1,18 @@
 /**
  * import node_modules
  */
-import React, { FC, memo } from "react"
+import React, { FC, memo, useMemo } from "react"
 import { Typography } from "@material-ui/core"
 
 /**
  * import others
  */
 import { IsNoReRender } from "../../../../../shared/types/common"
+
+/**
+ * import components
+ */
+import getNumberTransition from "../../../../molecules/geyNumberTransition"
 
 /**
  * main
@@ -18,11 +23,12 @@ export interface GalleryLengthProps {
 
 const GalleryLength: FC<GalleryLengthProps> = props => {
   const { resultLength } = props
+  const NumberTransition = useMemo(() => getNumberTransition(), [])
 
   return (
     <div>
       <Typography variant="h6" component="span">
-        {resultLength}
+        <NumberTransition toNumber={resultLength} />
       </Typography>
       <Typography variant="body2" component="span">
         件
