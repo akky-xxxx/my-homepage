@@ -11,3 +11,4 @@ remeda
 nprogress
 stylelint
 subheader
+gsap
