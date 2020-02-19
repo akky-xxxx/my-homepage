@@ -8,6 +8,9 @@
   "scripts": {
     "analyze": "NODE_ENV=analyze yarn build",
     "build:dev": "cross-env DEBUG=app:server:* nodemon src/server/www.ts",
+    "build:prod": "run-s build:prod:client build:prod:server",
+    "build:prod:client": "next build ./src/client",
+    "build:prod:server": "NODE_ENV=production ts-node src/server/www.ts",
     "check-all": "run-p lint type-check spell-check",
     "convert-gallery": "ts-node scripts/convertGalleryTask.ts",
     "dev": "npm-run-all build:dev",
@@ -27,6 +30,7 @@
     "lint:scripts": "eslint -c ./scripts/.eslintrc.js --ext .ts,.tsx ./scripts",
     "lint:style": "stylelint './src/client/**/*.{ts,tsx}'",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
+    "start": "npm-run-all build:prod",
     "type-check": "run-p type-check:*",
     "type-check:client": "tsc -p ./src/client",
     "type-check:scripts": "tsc -p ./scripts",
