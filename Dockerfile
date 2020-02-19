@@ -12,7 +12,7 @@ WORKDIR ./app
 COPY --from=base ./build/dist ./dist
 COPY --from=base ./build/node_modules ./node_modules
 COPY package.json package.json
-COPY src/client/public src/client/public
+COPY src/public src/public
 COPY server server
 COPY next.config.js next.config.js
 COPY tsconfig.json tsconfig.json

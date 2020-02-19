@@ -3,7 +3,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
-  distDir: "../../dist",
+  distDir: "../dist",
   webpack: (config, props) => {
     config.mode = props.dev ? "development" : "production"
 
