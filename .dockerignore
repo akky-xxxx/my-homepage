@@ -1,4 +1,3 @@
-.cache
 .idea
 .git
 .DS_Store
@@ -15,6 +14,5 @@ cspell.txt
 Dockerfile
 stylelint.config.js
 yarn-error.log
-bin
 scripts
 galleryOrigin

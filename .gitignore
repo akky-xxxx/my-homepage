@@ -1,10 +1,7 @@
 # ツール依存ファイル
 .idea
-.cache
-
 # ビルドファイル
 dist
-bin
 
 # node_modules
 node_modules
