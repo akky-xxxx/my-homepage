@@ -15,7 +15,7 @@ import getRequestHandler from "./serverMiddleWare/getRequestHandler"
 /**
  * import others
  */
-import nextConfig from "../../next.config"
+import nextConfig from "../next.config"
 import isDev from "./shared/utils/isDev"
 
 /**
@@ -23,7 +23,7 @@ import isDev from "./shared/utils/isDev"
  */
 const PORT: number = parseInt(process.env.PORT as string, 10) || 3000
 const ROOT_DIR = path.resolve(__dirname, "../")
-const CLIENT_DIR = path.resolve(ROOT_DIR, "client")
+const CLIENT_DIR = path.resolve(ROOT_DIR, "src/client")
 const app = next({
   dir: CLIENT_DIR,
   conf: nextConfig,
