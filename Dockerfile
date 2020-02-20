@@ -18,4 +18,4 @@ COPY next.config.js next.config.js
 COPY tsconfig.json tsconfig.json
 ENV NODE_ENV=production
 ENV PORT=3000
-CMD ["yarn", "build:prod:server"]
+CMD ["yarn", "serve:propd"]
