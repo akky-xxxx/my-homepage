@@ -58,7 +58,7 @@
     "@types/react-window": "^1.8.1",
     "@types/react-window-infinite-loader": "^1.0.2",
     "@types/redux-actions": "^2.6.1",
-    "@types/styled-components": "^4.4.3",
+    "@types/styled-components": "^5.0.0",
     "@types/uuid": "^3.4.7",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
