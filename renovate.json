@@ -3,7 +3,7 @@
   "ignorePresets": [":prHourlyLimit2"],
   "labels": ["renovate"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["on friday"],
+  "schedule": ["on saturday"],
   "minor": {
     "groupName": "all dependencies"
   },
