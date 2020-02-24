@@ -2,6 +2,7 @@
  * import node_modules
  */
 import { createMuiTheme } from "@material-ui/core"
+import * as MUI_COLORS from "@material-ui/core/colors"
 
 /**
  * main
@@ -29,3 +30,12 @@ export const APP_MARGINS = {
     VERTICAL: spacing(1),
   },
 } as const
+
+/**
+ * mui colors
+ */
+type MUI_COLOR_KEYS = keyof typeof MUI_COLORS
+
+export const COLORS = (Object.keys(MUI_COLORS) as MUI_COLOR_KEYS[])
+  .filter(key => key !== "common")
+  .map(key => MUI_COLORS[key as Exclude<MUI_COLOR_KEYS, "common">][500])
