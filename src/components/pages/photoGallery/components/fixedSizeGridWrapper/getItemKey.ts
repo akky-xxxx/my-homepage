@@ -1,5 +1,5 @@
 import { GridItemKeySelector } from "react-window"
-import uuid from "uuid"
+import { v4 as uuid } from "uuid"
 
 type GetItemKey = (colNum: number) => GridItemKeySelector
 
