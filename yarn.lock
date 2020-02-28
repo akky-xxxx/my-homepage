@@ -2628,7 +2628,7 @@
   resolved "https://registry.yarnpkg.com/@types/recharts-scale/-/recharts-scale-1.0.0.tgz#348c9220d6d9062c44a9d585d686644a97f7e25d"
   integrity sha512-HR/PrCcxYb2YHviTqH7CMdL1TUhUZLTUKzfrkMhxm1HTa5mg/QtP8XMiuSPz6dZ6wecazAOu8aYZ5DqkNlgHHQ==
 
-"@types/recharts@^1.8.5":
+"@types/recharts@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@types/recharts/-/recharts-1.8.5.tgz#5436ae742485cd033910c611eeb9e4c13cbf55f7"
   integrity sha512-3h/hVNnyOxDyAGhzRpa5y/QBp30vqDw7mUyV0JNoxWnjKM1h8SdgoYru3robamxsXkVa18rz/SVJ+MWDQw8GLg==
@@ -12858,7 +12858,7 @@ recharts-scale@^0.4.2:
   dependencies:
     decimal.js-light "^2.4.1"
 
-recharts@^2.0.0-beta.1:
+recharts@2.0.0-beta.1:
   version "2.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/recharts/-/recharts-2.0.0-beta.1.tgz#dc0aa89b94233941c5af86b43db585312c45140d"
   integrity sha512-awJH2DE6JRgp5ymzmH5dKh2Pu6prqZJCr3NRaYCcyub1fBa+fIG3ZlpLyl9hWizHPGEvfZLvcjIM+qgTsr9aSQ==
