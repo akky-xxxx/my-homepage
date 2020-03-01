@@ -11,6 +11,7 @@ import chalk from "chalk"
  */
 import router from "./serverMiddleWare/router"
 import getRequestHandler from "./serverMiddleWare/getRequestHandler"
+import winstonLogger from "./shared/utils/winstonLogger"
 
 /**
  * import others
@@ -31,18 +32,23 @@ const app = next({
 })
 const requestHandler = getRequestHandler(app)
 const server = express()
+const startedMessage = `Start server
+=======================================================================================
+${chalk.cyan("> ")}URL:           ${chalk.blue(`http://localhost:${PORT}`)}
+${chalk.cyan("> ")}Serving files: ${chalk.blue(CLIENT_DIR)}
+=======================================================================================`
 
-app
-  .prepare()
-  .then(() => {
-    server.use(router)
-    server.use(requestHandler)
+winstonLogger.silly("Preparing server")
+app.prepare().then(() => {
+  server.use(router)
+  server.use(requestHandler)
 
-    server.listen(PORT, (err: Error) => {
-      if (err) throw err
-      console.log(chalk.cyan("======================================================================================="))
-      console.log(`${chalk.cyan("■  ")}${chalk.green(`Ready on http://localhost:${PORT}`)}`)
-      console.log(`${chalk.cyan("■  ")}Serving files from: ${CLIENT_DIR}`)
-      console.log(chalk.cyan("======================================================================================="))
-    })
+  server.listen(PORT, (err: Error) => {
+    if (err) {
+      winstonLogger.error(JSON.stringify(err))
+      throw err
+    }
+
+    winstonLogger.silly(startedMessage)
   })
+})
