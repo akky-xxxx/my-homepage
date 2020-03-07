@@ -23,8 +23,6 @@ import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 /**
  * main
  */
-// afterEach(cleanup)
-
 const props: PhotoGalleryProps = {
   modal: {
     isOpen: false,
