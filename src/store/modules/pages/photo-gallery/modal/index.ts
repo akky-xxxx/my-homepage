@@ -11,7 +11,7 @@ import { State, ModalAction } from "./types"
 /**
  * main
  */
-const initialState: State = {
+export const initialState: State = {
   isOpen: false,
   currentImageId: null,
 }

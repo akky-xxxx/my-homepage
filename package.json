@@ -9,7 +9,7 @@
     "analyze": "NODE_ENV=analyze yarn build",
     "build:prod": "run-s build:prod:client",
     "build:prod:client": "next build ./src",
-    "check-all": "run-p lint type-check spell-check",
+    "check-all": "npm-run-all -p lint type-check spell-check -s test",
     "convert-gallery": "ts-node scripts/convertGalleryTask.ts",
     "dev": "npm-run-all serve:dev",
     "docker": "run-s docker:build docker:run",

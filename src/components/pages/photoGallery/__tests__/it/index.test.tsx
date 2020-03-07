@@ -23,8 +23,6 @@ import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 /**
  * main
  */
-// afterEach(cleanup)
-
 const props: PhotoGalleryProps = {
   modal: {
     isOpen: false,
@@ -47,7 +45,7 @@ const filterByTag = (galleryInfo: GalleryItem) => testTags.every(targetTag => ga
 
 describe("Photo Gallery", () => {
   describe("右カラム", () => {
-    it(`条件未選択時が件数が「${galleryInfoList.length}件」であること`, () => {
+    it(`条件未選択時が件数が「${galleryInfoList.length}件」であり、地域・タグが「未選択」であること`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
 
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${galleryInfoList.length}件`)
@@ -61,7 +59,7 @@ describe("Photo Gallery", () => {
     })
 
     const filteredByKanagawa = galleryInfoList.filter(filterByPref)
-    it(`神奈川選択時の件数が「${filteredByKanagawa.length}件」であること`, () => {
+    it(`神奈川選択時の件数が「${filteredByKanagawa.length}件」であり、地域は「神奈川県」が選択されて、タグが「未選択」であること`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
       photoGallery.setProps({ selectedViewPref: kanagawaPrefCode })
 
@@ -76,7 +74,7 @@ describe("Photo Gallery", () => {
     })
 
     const filteredByTags = galleryInfoList.filter(filterByTag)
-    it(`池, 紅葉選択時の件数が「${filteredByTags.length}件」であること`, () => {
+    it(`池, 紅葉選択時の件数が「${filteredByTags.length}件」であり、地域が「未選択」、タグが「池、紅葉」が選択されていること`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
       photoGallery.setProps({ selectedViewTags: testTags })
 
@@ -86,7 +84,7 @@ describe("Photo Gallery", () => {
     })
 
     const filterByPrefTags = galleryInfoList.filter(filterByPref).filter(filterByTag)
-    it(`神奈川県, 池, 紅葉選択時の件数が「${filterByPrefTags.length}件」であること`, () => {
+    it(`神奈川県, 池, 紅葉選択時の件数が「${filterByPrefTags.length}件」であり、地域が「神奈川県」、タグが「池、紅葉」が選択されていること`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
       photoGallery.setProps({
         selectedViewPref: kanagawaPrefCode,
