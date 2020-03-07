@@ -27,16 +27,16 @@ describe("Photo Gallery Reducer", () => {
     expect(closeModalState.modal).toMatchObject({ currentImageId: null, isOpen: false })
   })
 
-  it("都道府県の指定・解除", () => {
-    // 都道府県の指定
+  it("地域の指定・解除", () => {
+    // 地域の指定
     const selectPrefState = test(initialState, selectViewPref({ targetPref: "01" }))
     expect(selectPrefState.selectedViewPref).toEqual("01")
 
-    // 都道府県の変更
+    // 地域の変更
     const changePrefState = test(selectPrefState, selectViewPref({ targetPref: "02" }))
     expect(changePrefState.selectedViewPref).toEqual("02")
 
-    // 都道府県の解除
+    // 地域の解除
     const resetPrefState = test(changePrefState, resetViewPref())
     expect(resetPrefState.selectedViewPref).toEqual("00")
   })
