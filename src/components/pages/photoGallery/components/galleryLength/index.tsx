@@ -8,6 +8,7 @@ import { Typography } from "@material-ui/core"
  * import others
  */
 import { IsNoReRender } from "../../../../../shared/types/common"
+import isTest from "../../../../../shared/utils/isTest"
 
 /**
  * import components
@@ -28,7 +29,7 @@ const GalleryLength: FC<GalleryLengthProps> = props => {
   return (
     <div>
       <Typography variant="h6" component="span">
-        <NumberTransition toNumber={resultLength} />
+        {!isTest ? <NumberTransition toNumber={resultLength} /> : resultLength}
       </Typography>
       <Typography variant="body2" component="span">
         件

@@ -27,3 +27,8 @@ steps:
     image: node:12.16.1-alpine
     commands:
       - yarn lint
+
+  - name: integration test
+    image: node:12.16.1-alpine
+    commands:
+      - yarn test:it
