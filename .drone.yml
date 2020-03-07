@@ -13,12 +13,12 @@ steps:
     commands:
       - yarn
 
-  - name: spell-check
+  - name: spell check
     image: node:12.16.1-alpine
     commands:
       - yarn spell-check
 
-  - name: type-check
+  - name: type check
     image: node:12.16.1-alpine
     commands:
       - yarn type-check
