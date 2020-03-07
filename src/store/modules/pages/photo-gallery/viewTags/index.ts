@@ -8,7 +8,7 @@ import { State } from "./types"
 /**
  * main
  */
-const initialState: State = []
+export const initialState: State = []
 
 // reducer
 const viewPrefModule = createSlice({
