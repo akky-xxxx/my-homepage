@@ -20,8 +20,8 @@ import getImagesInfo from "./modules/getImagesInfo"
 const convertGalleryTask = async () => {
   const BASE_ROOT = __dirname.replace("/scripts", "")
   const ORIGIN_DIR = "/galleryOrigin"
-  const DIST_DIR = "/src/client/public/images/gallery"
-  const INFO_FILE = "/src/client/shared/const/galleryInfoList.ts"
+  const DIST_DIR = "/src/public/images/gallery"
+  const INFO_FILE = "/src/shared/const/galleryInfoList.ts"
   const ORIGIN_ROOT = `${BASE_ROOT}${ORIGIN_DIR}`
 
   fs.removeSync(`${BASE_ROOT}/${DIST_DIR}`)
