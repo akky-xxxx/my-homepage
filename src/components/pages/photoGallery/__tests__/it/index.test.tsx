@@ -5,6 +5,7 @@
 import React from "react"
 import { mount } from "enzyme"
 import "matchmedia-polyfill"
+import { Button } from "@material-ui/core"
 
 /**
  * import components
@@ -56,6 +57,7 @@ describe("Photo Gallery", () => {
           .text()
           .includes("タグ"),
       ).toBe(true)
+      expect(photoGallery.find(Button).prop("disabled")).toBe(true)
     })
 
     const filteredByKanagawa = galleryInfoList.filter(filterByPref)
@@ -71,6 +73,7 @@ describe("Photo Gallery", () => {
           .text()
           .includes("タグ"),
       ).toBe(true)
+      expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
 
     const filteredByTags = galleryInfoList.filter(filterByTag)
@@ -81,6 +84,7 @@ describe("Photo Gallery", () => {
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${filteredByTags.length}件`)
       expect(photoGallery.find(PrefSelect).text()).toEqual("地域全て")
       expect(photoGallery.find(TagSelect).text()).toEqual("タグ池, 紅葉")
+      expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
 
     const filterByPrefTags = galleryInfoList.filter(filterByPref).filter(filterByTag)
@@ -94,6 +98,7 @@ describe("Photo Gallery", () => {
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${filterByPrefTags.length}件`)
       expect(photoGallery.find(PrefSelect).text()).toEqual("地域神奈川県")
       expect(photoGallery.find(TagSelect).text()).toEqual("タグ池, 紅葉")
+      expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
   })
 })
