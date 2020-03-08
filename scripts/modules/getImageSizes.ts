@@ -1,9 +1,8 @@
 /**
  * main
  */
-type Size = {
-  [K in "newImageWidth" | "newImageHeight"]: null | number
-}
+type Prop = "newImageWidth" | "newImageHeight" | "newThumbWidth" | "newThumbHeight"
+type Size = Record<Prop, null | number>
 
 const MAX_SIZE = 2000
 

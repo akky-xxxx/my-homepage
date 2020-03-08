@@ -1,6 +1,7 @@
 interface ImagesInfo {
   imageId: number
   path: string
+  thumbPath: string
   date: Date
   prefCode: string
   tags: string[]
