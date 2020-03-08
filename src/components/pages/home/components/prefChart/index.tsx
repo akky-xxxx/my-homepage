@@ -25,7 +25,7 @@ const PrefChart: FC<PrefChartProps> = props => {
   const prefData = getPrefData(startMonth, endMonth)
 
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer id="PrefChart">
       <PieChart>
         <Pie data={prefData} labelLine label fill="#8884d8" dataKey="count">
           {prefData.map((entry, index) => (

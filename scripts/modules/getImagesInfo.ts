@@ -1,6 +1,7 @@
 interface ImagesInfo {
   imageId: number
   path: string
+  thumbPath: string
   date: Date
   prefCode: string
   tags: string[]
@@ -55,6 +56,7 @@ const imagesInfo = (fileNames: string[], ORIGIN_ROOT: string) =>
       arr.push({
         imageId: index + 1,
         path: relatedPath.replace(tagRegExp, ""),
+        thumbPath: relatedPath.replace(tagRegExp, ".thumb"),
         date: new Date(`${year}-${month}-${day}`),
         prefCode,
         tags,

@@ -8,6 +8,11 @@ import styled, { css } from "styled-components"
 import Slider from "react-slick"
 
 /**
+ * import components
+ */
+import SliderImage from "../sliderImage"
+
+/**
  * import others
  */
 import { HandleAction } from "../../../../../shared/types/common"
@@ -70,7 +75,7 @@ const GalleryModal: FC<GalleryModalProps> = props => {
         <StyledSlider ref={slider} arrows={false} initialSlide={currentIndex}>
           {galleryInfoList.map(galleryInfo => {
             const { path, imageId } = galleryInfo
-            return <img key={imageId} src={`/images/gallery${path}`} alt="" />
+            return <SliderImage key={imageId} path={path} />
           })}
         </StyledSlider>
         {/* <StyledImage src={`/images/gallery${path}`} alt={PREF_MAP[prefCode]} ref={fullScreenRef} /> */}
@@ -135,6 +140,12 @@ const StyledSlider = styled(Slider)`
       display: flex;
       height: 100%;
       justify-content: center;
+
+      span {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+      }
 
       img {
         max-height: 100%;
