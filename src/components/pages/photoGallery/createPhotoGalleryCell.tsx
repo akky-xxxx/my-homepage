@@ -21,7 +21,7 @@ import { IsNoReRender } from "../../../shared/types/common"
 /**
  * main
  */
-interface ExtendedGalleryItem extends GalleryItem {
+interface ExtendedGalleryItem extends Omit<GalleryItem, "path"> {
   selectedViewTags: string[]
   handleOpenModal: HandleOpenModalAction
   handleSelectViewTag: HandleSelectViewTag
@@ -48,7 +48,9 @@ const createPhotoGalleryCell = (colNum: number) => {
       colNum,
     })
     if (!data[index]) return null
-    const { imageId, prefCode, path, date, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = data[index]
+    const { imageId, prefCode, thumbPath, date, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = data[
+      index
+    ]
     const handleThisOpenModal = () => handleOpenModal({ targetId: imageId })
     const newStyle = {
       ...style,
@@ -62,7 +64,7 @@ const createPhotoGalleryCell = (colNum: number) => {
         <GalleryCardWrapper
           key={imageId}
           prefCode={prefCode}
-          path={path}
+          thumbPath={thumbPath}
           date={date}
           tags={tags}
           selectedViewTags={selectedViewTags}

@@ -21,7 +21,7 @@ import { HandleSelectViewTag } from "../../../../../store/modules/pages/photo-ga
 /**
  * main
  */
-interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId"> {
+interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId" | "path"> {
   selectedViewTags: string[]
   handleOpenModal: () => void
   handleSelectViewTag: HandleSelectViewTag
@@ -30,12 +30,12 @@ interface GalleryCardWrapperProps extends Omit<GalleryItem, "imageId"> {
 const { spacing, breakpoints } = createMuiTheme()
 
 const GalleryCardWrapper: FC<GalleryCardWrapperProps> = props => {
-  const { path, date, prefCode, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
+  const { thumbPath, date, prefCode, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
 
   return (
     <StyledGalleryCardWrapper>
       <GalleryCard
-        path={path}
+        thumbPath={thumbPath}
         date={date}
         prefCode={prefCode}
         handleOpenModal={handleOpenModal}
@@ -65,6 +65,6 @@ const StyledGalleryCardWrapper = styled.div`
 `
 
 const isNoReRender: IsNoReRender<GalleryCardWrapperProps> = (beforeProps, afterProps) =>
-  beforeProps.path === afterProps.path && equals(beforeProps.selectedViewTags, afterProps.selectedViewTags)
+  beforeProps.thumbPath === afterProps.thumbPath && equals(beforeProps.selectedViewTags, afterProps.selectedViewTags)
 
 export default memo(GalleryCardWrapper, isNoReRender)
