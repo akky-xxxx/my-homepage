@@ -6,18 +6,24 @@ import { Button } from "@material-ui/core"
 import styled from "styled-components"
 
 /**
+ * import others
+ */
+import { IsNoReRender } from "../../../../../shared/types/common"
+
+/**
  * main
  */
 interface ResetFilterProps {
+  isDisable: boolean
   handleResetFilter: () => void
 }
 
 const ResetFilter: FC<ResetFilterProps> = props => {
-  const { handleResetFilter } = props
+  const { isDisable, handleResetFilter } = props
 
   return (
     <div>
-      <StyledButton variant="contained" color="secondary" onClick={handleResetFilter}>
+      <StyledButton disabled={isDisable} variant="contained" color="secondary" onClick={handleResetFilter}>
         リセット
       </StyledButton>
     </div>
@@ -28,4 +34,7 @@ const StyledButton = styled(Button)`
   width: 100%;
 `
 
-export default memo(ResetFilter, () => true)
+const isNoReRender: IsNoReRender<ResetFilterProps> = (beforeProps, afterProps) =>
+  beforeProps.isDisable === afterProps.isDisable
+
+export default memo(ResetFilter, isNoReRender)
