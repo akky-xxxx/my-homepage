@@ -28,7 +28,7 @@ const TagChart: FC<TagChartProps> = props => {
   const { startMonth, endMonth } = props
   const tagData = getTagData(startMonth, endMonth)
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer id="TagChart">
       <BarChart data={tagData}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />

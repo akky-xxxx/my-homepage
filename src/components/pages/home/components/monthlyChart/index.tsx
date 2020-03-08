@@ -29,7 +29,7 @@ const MonthlyChart: FC<MonthlyChartProps> = props => {
   const { startMonth, endMonth, isIgnoreBlank } = props
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer id="LineChart">
       <LineChart data={getMonthlyData(startMonth, endMonth, isIgnoreBlank)}>
         <CartesianGrid />
         <Tooltip formatter={value => [`${value} 枚`, "枚数"]} />
