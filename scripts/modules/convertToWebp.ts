@@ -40,7 +40,10 @@ const convertToWebp: ConvertToWebp = async args => {
 
   if (!originImageWidth || !originImageHeight) return
 
-  const { newImageWidth, newImageHeight, newThumbWidth, newThumbHeight } = getImageSizes(originImageWidth, originImageHeight)
+  const { newImageWidth, newImageHeight, newThumbWidth, newThumbHeight } = getImageSizes(
+    originImageWidth,
+    originImageHeight,
+  )
   const { webpPath, webpThumbPath, jpgPath, jpgThumbPath } = getEachPaths(directory, fileName)
 
   await Promise.all([
