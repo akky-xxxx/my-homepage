@@ -40,18 +40,26 @@ const convertToWebp: ConvertToWebp = async args => {
 
   if (!originImageWidth || !originImageHeight) return
 
-  const { newImageWidth, newImageHeight } = getImageSizes(originImageWidth, originImageHeight)
-  const { webpPath, jpgPath } = getEachPaths(directory, fileName)
+  const { newImageWidth, newImageHeight, newThumbWidth, newThumbHeight } = getImageSizes(originImageWidth, originImageHeight)
+  const { webpPath, webpThumbPath, jpgPath, jpgThumbPath } = getEachPaths(directory, fileName)
 
   await Promise.all([
     // webp 大
     sharp(imagePath)
       .resize(newImageWidth, newImageHeight, { fit: "inside" })
       .toFile(webpPath),
+    // webp サムネ
+    sharp(imagePath)
+      .resize(newThumbWidth, newThumbHeight, { fit: "inside" })
+      .toFile(webpThumbPath),
     // jpg 大
     sharp(imagePath)
       .resize(newImageWidth, newImageHeight, { fit: "inside" })
       .toFile(jpgPath),
+    // jpg サムネ
+    sharp(imagePath)
+      .resize(newThumbWidth, newThumbHeight, { fit: "inside" })
+      .toFile(jpgThumbPath),
   ])
   if (!allLength) {
     console.log(`${DONE} ${target(imagePath)} ${successMessage("is converted")}`)
