@@ -20,6 +20,7 @@ import TagSelect from "../tagSelect"
 import { State, HandleActions } from "../../../../../store/modules/pages/photo-gallery/types"
 import { GalleryItem } from "../../../../../shared/types/pages/galleryList"
 import { APP_BREAKPOINTS, APP_MARGINS } from "../../../../../shared/const/styles"
+import { initialState } from "../../../../../store/modules/pages/photo-gallery"
 
 /**
  * main
@@ -53,6 +54,7 @@ const MainContent: FC<MainContentProps> = props => {
     selectedViewTags,
     tags,
   } = props
+  const enableReset = selectedViewPref !== initialState.selectedViewPref || selectedViewTags.length !== 0
 
   const handleResetFilter = () => {
     handleResetViewPref()
@@ -82,7 +84,7 @@ const MainContent: FC<MainContentProps> = props => {
           <ConditionItems>
             <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
             <TagSelect tags={tags} selectedViewTags={selectedViewTags} handleSelectViewTag={handleSelectViewTag} />
-            <ResetFilter handleResetFilter={handleResetFilter} />
+            <ResetFilter isDisable={!enableReset} handleResetFilter={handleResetFilter} />
           </ConditionItems>
         </RightColInner>
       </RightCol>

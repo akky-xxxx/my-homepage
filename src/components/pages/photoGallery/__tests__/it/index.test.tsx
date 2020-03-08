@@ -5,6 +5,7 @@
 import React from "react"
 import { mount } from "enzyme"
 import "matchmedia-polyfill"
+import { Button } from "@material-ui/core"
 
 /**
  * import components
@@ -45,7 +46,7 @@ const filterByTag = (galleryInfo: GalleryItem) => testTags.every(targetTag => ga
 
 describe("Photo Gallery", () => {
   describe("右カラム", () => {
-    it(`条件未選択時が件数が「${galleryInfoList.length}件」であり、地域・タグが「未選択」であること`, () => {
+    it(`条件未選択時が件数が「${galleryInfoList.length}件」であり、地域・タグが「未選択」であり、リセットボタンは非活性`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
 
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${galleryInfoList.length}件`)
@@ -56,10 +57,11 @@ describe("Photo Gallery", () => {
           .text()
           .includes("タグ"),
       ).toBe(true)
+      expect(photoGallery.find(Button).prop("disabled")).toBe(true)
     })
 
     const filteredByKanagawa = galleryInfoList.filter(filterByPref)
-    it(`神奈川選択時の件数が「${filteredByKanagawa.length}件」であり、地域は「神奈川県」が選択されて、タグが「未選択」であること`, () => {
+    it(`神奈川選択時の件数が「${filteredByKanagawa.length}件」であり、地域は「神奈川県」が選択されて、タグが「未選択」であり、リセットボタンは活性`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
       photoGallery.setProps({ selectedViewPref: kanagawaPrefCode })
 
@@ -71,20 +73,22 @@ describe("Photo Gallery", () => {
           .text()
           .includes("タグ"),
       ).toBe(true)
+      expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
 
     const filteredByTags = galleryInfoList.filter(filterByTag)
-    it(`池, 紅葉選択時の件数が「${filteredByTags.length}件」であり、地域が「未選択」、タグが「池、紅葉」が選択されていること`, () => {
+    it(`池, 紅葉選択時の件数が「${filteredByTags.length}件」であり、地域が「未選択」、タグが「池、紅葉」が選択されていて、リセットボタンは活性`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
       photoGallery.setProps({ selectedViewTags: testTags })
 
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${filteredByTags.length}件`)
       expect(photoGallery.find(PrefSelect).text()).toEqual("地域全て")
       expect(photoGallery.find(TagSelect).text()).toEqual("タグ池, 紅葉")
+      expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
 
     const filterByPrefTags = galleryInfoList.filter(filterByPref).filter(filterByTag)
-    it(`神奈川県, 池, 紅葉選択時の件数が「${filterByPrefTags.length}件」であり、地域が「神奈川県」、タグが「池、紅葉」が選択されていること`, () => {
+    it(`神奈川県, 池, 紅葉選択時の件数が「${filterByPrefTags.length}件」であり、地域が「神奈川県」、タグが「池、紅葉」が選択されていて、リセットボタンは活性`, () => {
       const photoGallery = mount(<PhotoGallery {...props} />)
       photoGallery.setProps({
         selectedViewPref: kanagawaPrefCode,
@@ -94,6 +98,7 @@ describe("Photo Gallery", () => {
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${filterByPrefTags.length}件`)
       expect(photoGallery.find(PrefSelect).text()).toEqual("地域神奈川県")
       expect(photoGallery.find(TagSelect).text()).toEqual("タグ池, 紅葉")
+      expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
   })
 })
