@@ -124,7 +124,7 @@
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "2.5.1",
     "fixpack": "3.0.6",
-    "fs-extra": "8.1.0",
+    "fs-extra": "9.0.0",
     "husky": "4.2.3",
     "jest": "25.1.0",
     "jest-enzyme": "7.1.2",
