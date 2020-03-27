@@ -17,7 +17,7 @@ import isDev from "./isDev"
 dotenv.config()
 
 type FormatParams = (info: TransformableInfo) => string
-const formatParams: FormatParams = info => {
+const formatParams: FormatParams = (info) => {
   const { level, message, timestamp } = info
   const datetime = dateFormat(new Date(timestamp.toString()), "yyyy-MM-dd HH:mm:ss")
   return `winston: [ ${level} ] [BFF] ${datetime} ${message}`
