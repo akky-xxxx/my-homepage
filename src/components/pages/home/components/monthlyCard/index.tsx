@@ -29,7 +29,7 @@ interface MonthlyCardProps {
 
 const { spacing } = createMuiTheme()
 
-const MonthlyCard: FC<MonthlyCardProps> = props => {
+const MonthlyCard: FC<MonthlyCardProps> = (props) => {
   const { startMonth, endMonth, isIgnoreBlank } = props
 
   return (

@@ -25,14 +25,14 @@ const {
   },
 } = createMuiTheme()
 
-const MonthlyChart: FC<MonthlyChartProps> = props => {
+const MonthlyChart: FC<MonthlyChartProps> = (props) => {
   const { startMonth, endMonth, isIgnoreBlank } = props
 
   return (
     <ResponsiveContainer id="LineChart">
       <LineChart data={getMonthlyData(startMonth, endMonth, isIgnoreBlank)}>
         <CartesianGrid />
-        <Tooltip formatter={value => [`${value} 枚`, "枚数"]} />
+        <Tooltip formatter={(value) => [`${value} 枚`, "枚数"]} />
         <XAxis dataKey="date" />
         <YAxis type="number" />
         <Line dataKey="count" fill={mainColor} stroke={mainColor} />

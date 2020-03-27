@@ -42,7 +42,7 @@ export interface MainContentProps
 
 const { palette, spacing } = createMuiTheme()
 
-const MainContent: FC<MainContentProps> = props => {
+const MainContent: FC<MainContentProps> = (props) => {
   const {
     galleryItem,
     handleOpenModal,

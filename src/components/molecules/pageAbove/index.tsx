@@ -18,7 +18,7 @@ interface PageAboveProps {
   title: string
 }
 
-const PageAbove: FC<PageAboveProps> = props => {
+const PageAbove: FC<PageAboveProps> = (props) => {
   const { title, children } = props
 
   return (

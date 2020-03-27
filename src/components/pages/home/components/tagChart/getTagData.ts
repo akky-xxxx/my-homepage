@@ -23,21 +23,21 @@ const today = new Date()
 
 const getTagData: GetTagData = (startMonth, endMonth) => {
   const tagDataOrigin = galleryInfoList
-    .filter(galleryInfo => {
+    .filter((galleryInfo) => {
       const diff = differenceInMonths(today, new Date(galleryInfo.date))
       return diff <= startMonth && diff >= endMonth
     }) // 日付 filter
-    .map(galleryInfo => pick(galleryInfo, ["date", "tags"])) // 日付とタグだけに絞り込み
+    .map((galleryInfo) => pick(galleryInfo, ["date", "tags"])) // 日付とタグだけに絞り込み
     .reduce<Record<string, number>>((obj, tagData) => {
       const newObj = clone(obj)
-      tagData.tags.forEach(tag => {
+      tagData.tags.forEach((tag) => {
         newObj[tag] = newObj[tag] !== undefined ? newObj[tag] + 1 : 1
       })
       return newObj
     }, {}) // tagName : count の配列を生成
 
   const tagData: TagData[] = Object.keys(tagDataOrigin)
-    .map(key => ({
+    .map((key) => ({
       name: key,
       count: tagDataOrigin[key],
     })) // 表示用の形式に変更

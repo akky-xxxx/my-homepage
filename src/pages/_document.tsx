@@ -12,7 +12,7 @@ export default class Document extends NextDocument {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => {
+          enhanceApp: (App) => (props) => {
             const { Component, router, pageProps } = props
             return styledComponentSheet.collectStyles(
               materialUiSheets.collect(<App Component={Component} router={router} pageProps={pageProps} />),

@@ -18,7 +18,7 @@ interface ResetFilterProps {
   handleResetFilter: () => void
 }
 
-const ResetFilter: FC<ResetFilterProps> = props => {
+const ResetFilter: FC<ResetFilterProps> = (props) => {
   const { isDisable, handleResetFilter } = props
 
   return (

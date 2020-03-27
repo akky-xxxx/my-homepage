@@ -41,7 +41,7 @@ interface ViewPrefOption {
 }
 
 const viewPrefOptions: ViewPrefOption[] = (Object.keys(viewPrefOptionsBase) as ViewPref[])
-  .map(key => ({
+  .map((key) => ({
     code: key,
     label: viewPrefOptionsBase[key],
   }))
@@ -50,7 +50,7 @@ const viewPrefOptions: ViewPrefOption[] = (Object.keys(viewPrefOptionsBase) as V
     return -1
   })
 
-const PrefSelect: NextPage<PrefSelectProps> = props => {
+const PrefSelect: NextPage<PrefSelectProps> = (props) => {
   const { handleSelectViewPref, selectedViewPref } = props
   const classes = useStyles()
 
@@ -61,9 +61,9 @@ const PrefSelect: NextPage<PrefSelectProps> = props => {
         <Select
           labelId="pref-select"
           value={selectedViewPref}
-          onChange={event => handleSelectViewPref({ targetPref: event.target.value as ViewPref })}
+          onChange={(event) => handleSelectViewPref({ targetPref: event.target.value as ViewPref })}
         >
-          {viewPrefOptions.map(prefData => {
+          {viewPrefOptions.map((prefData) => {
             const { code, label } = prefData
             return (
               <MenuItem key={code} value={code}>

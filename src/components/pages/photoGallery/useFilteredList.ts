@@ -20,21 +20,21 @@ interface UseFilteredListArgs {
 
 type UseFilteredList = (args: UseFilteredListArgs) => GalleryItem[]
 
-const useFilteredList: UseFilteredList = args => {
+const useFilteredList: UseFilteredList = (args) => {
   const { galleryInfoList, selectedViewPref, selectedViewTags } = args
   const selectedViewTagsStr = selectedViewTags.join("")
 
   const filteredByPref = useMemo(() => {
-    return galleryInfoList.filter(galleryInfo => {
+    return galleryInfoList.filter((galleryInfo) => {
       if (selectedViewPref === "00") return true
       return galleryInfo.prefCode === selectedViewPref
     })
   }, [selectedViewPref])
 
   return useMemo(() => {
-    return filteredByPref.filter(galleryInfo => {
+    return filteredByPref.filter((galleryInfo) => {
       if (selectedViewTags.length === 0) return true
-      return selectedViewTags.every(tag => galleryInfo.tags.includes(tag))
+      return selectedViewTags.every((tag) => galleryInfo.tags.includes(tag))
     })
   }, [selectedViewTagsStr, filteredByPref])
 }

@@ -25,7 +25,7 @@ type ConvertToWebp = (args: {
 const WEBP_FLAG = ".webp."
 const tagRegExp = /\[([^\]]+)]/g
 let counter = 0
-const convertToWebp: ConvertToWebp = async args => {
+const convertToWebp: ConvertToWebp = async (args) => {
   const { imagePath, ORIGIN_DIR, DIST_DIR, allLength } = args
   if (!imagePath.includes(WEBP_FLAG)) {
     console.log(`${WARNING} ${target(imagePath)} ${warningMessage("is not hoped webp")}`)
@@ -48,21 +48,13 @@ const convertToWebp: ConvertToWebp = async args => {
 
   await Promise.all([
     // webp 大
-    sharp(imagePath)
-      .resize(newImageWidth, newImageHeight, { fit: "inside" })
-      .toFile(webpPath),
+    sharp(imagePath).resize(newImageWidth, newImageHeight, { fit: "inside" }).toFile(webpPath),
     // webp サムネ
-    sharp(imagePath)
-      .resize(newThumbWidth, newThumbHeight, { fit: "inside" })
-      .toFile(webpThumbPath),
+    sharp(imagePath).resize(newThumbWidth, newThumbHeight, { fit: "inside" }).toFile(webpThumbPath),
     // jpg 大
-    sharp(imagePath)
-      .resize(newImageWidth, newImageHeight, { fit: "inside" })
-      .toFile(jpgPath),
+    sharp(imagePath).resize(newImageWidth, newImageHeight, { fit: "inside" }).toFile(jpgPath),
     // jpg サムネ
-    sharp(imagePath)
-      .resize(newThumbWidth, newThumbHeight, { fit: "inside" })
-      .toFile(jpgThumbPath),
+    sharp(imagePath).resize(newThumbWidth, newThumbHeight, { fit: "inside" }).toFile(jpgThumbPath),
   ])
   if (!allLength) {
     console.log(`${DONE} ${target(imagePath)} ${successMessage("is converted")}`)

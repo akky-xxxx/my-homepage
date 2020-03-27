@@ -24,7 +24,7 @@ const {
   },
 } = createMuiTheme()
 
-const TagChart: FC<TagChartProps> = props => {
+const TagChart: FC<TagChartProps> = (props) => {
   const { startMonth, endMonth } = props
   const tagData = getTagData(startMonth, endMonth)
   return (
@@ -33,7 +33,7 @@ const TagChart: FC<TagChartProps> = props => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip formatter={value => [`${value} 枚`, "枚数"]} />
+        <Tooltip formatter={(value) => [`${value} 枚`, "枚数"]} />
         <Bar dataKey="count" fill={mainColor} />
       </BarChart>
     </ResponsiveContainer>

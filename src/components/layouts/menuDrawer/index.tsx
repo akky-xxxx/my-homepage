@@ -22,13 +22,13 @@ interface MenuDrawerProps {
   handleCloseMenu: () => void
 }
 
-const MenuDrawer: FC<MenuDrawerProps> = props => {
+const MenuDrawer: FC<MenuDrawerProps> = (props) => {
   const { isMenuOpen, handleCloseMenu } = props
 
   return (
     <Drawer open={isMenuOpen} onClose={handleCloseMenu}>
       <List>
-        {menuData.map(menuItem => {
+        {menuData.map((menuItem) => {
           const { href, linkLabel } = menuItem
 
           return <MenuItem key={href} href={href} linkLabel={linkLabel} handleCloseMenu={handleCloseMenu} />

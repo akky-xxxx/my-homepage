@@ -30,7 +30,7 @@ interface GalleryBodyProps {
 
 const { spacing, breakpoints } = createMuiTheme()
 
-const GalleryBody: FC<GalleryBodyProps> = props => {
+const GalleryBody: FC<GalleryBodyProps> = (props) => {
   const { galleryInfoList, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
   const galleryListRef = useRef<HTMLDivElement>(null)
   const [offsetTop, setOffsetTop] = useState(galleryListRef.current?.offsetTop)
@@ -42,7 +42,7 @@ const GalleryBody: FC<GalleryBodyProps> = props => {
   return (
     <GalleryList ref={galleryListRef} offsetTop={offsetTop}>
       <AutoSizer>
-        {sizes => {
+        {(sizes) => {
           const { width, height } = sizes
 
           return (

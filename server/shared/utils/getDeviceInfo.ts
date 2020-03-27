@@ -15,7 +15,7 @@ type GetDeviceInfo = (ua?: string) => DeviceInfo
 
 const pickProps: PickChildProp[] = ["name", "version"]
 
-const getDeviceInfo: GetDeviceInfo = ua => {
+const getDeviceInfo: GetDeviceInfo = (ua) => {
   const deviceInfoOrigin = new UAParser(ua)
   const { browser, engine, os } = deviceInfoOrigin.getResult()
 

@@ -34,9 +34,9 @@ interface FixedSizeGridWrapperProps extends Size {
   handleSelectViewTag: HandleSelectViewTag
 }
 
-const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = props => {
+const FixedSizeGridWrapper: FC<FixedSizeGridWrapperProps> = (props) => {
   const { width, height, galleryInfoList, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
-  const windowGalleryInfoList = galleryInfoList.map(galleryInfo => ({
+  const windowGalleryInfoList = galleryInfoList.map((galleryInfo) => ({
     ...galleryInfo,
     handleOpenModal,
     handleSelectViewTag,

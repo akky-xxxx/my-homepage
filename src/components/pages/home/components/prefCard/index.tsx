@@ -26,7 +26,7 @@ interface PrefCardProps {
   endMonth: number
 }
 
-const PrefCard: FC<PrefCardProps> = props => {
+const PrefCard: FC<PrefCardProps> = (props) => {
   const { startMonth, endMonth } = props
 
   return (

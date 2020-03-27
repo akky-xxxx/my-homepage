@@ -34,13 +34,13 @@ interface PhotoGalleryCellProps extends GridChildComponentProps {
 type GetIndex = (args: { rowIndex: number; columnIndex: number; colNum: number }) => number
 
 export const galleryItemClassName = "galleryItemWrapper"
-const getIndex: GetIndex = args => {
+const getIndex: GetIndex = (args) => {
   const { columnIndex, rowIndex, colNum } = args
   return rowIndex * colNum + columnIndex
 }
 
 const createPhotoGalleryCell = (colNum: number) => {
-  const PhotoGalleryCell: FC<PhotoGalleryCellProps> = props => {
+  const PhotoGalleryCell: FC<PhotoGalleryCellProps> = (props) => {
     const { style, rowIndex, columnIndex, data } = props
     const index = getIndex({
       rowIndex,

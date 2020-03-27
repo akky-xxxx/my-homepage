@@ -31,7 +31,7 @@ const modalModule = createSlice({
         currentImageId: targetId,
       }
     },
-    closeModal: state => {
+    closeModal: (state) => {
       return {
         ...state,
         isOpen: false,

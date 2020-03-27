@@ -20,7 +20,7 @@ interface PrefChartProps {
   endMonth: number
 }
 
-const PrefChart: FC<PrefChartProps> = props => {
+const PrefChart: FC<PrefChartProps> = (props) => {
   const { startMonth, endMonth } = props
   const prefData = getPrefData(startMonth, endMonth)
 

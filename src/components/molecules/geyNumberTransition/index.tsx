@@ -19,7 +19,7 @@ interface NumberTransitionProps {
 const getNumberTransition = () => {
   let beforeNumber = 0
 
-  const NumberTransition: FC<NumberTransitionProps> = props => {
+  const NumberTransition: FC<NumberTransitionProps> = (props) => {
     const { toNumber } = props
     const [currentNumber, setNumber] = useState(0)
     const target = { count: beforeNumber }

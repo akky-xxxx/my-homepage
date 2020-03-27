@@ -15,7 +15,7 @@ interface MenuItemProps {
   linkLabel: string
 }
 
-const MenuItem: FC<MenuItemProps> = props => {
+const MenuItem: FC<MenuItemProps> = (props) => {
   const { handleCloseMenu, href, linkLabel } = props
 
   return (

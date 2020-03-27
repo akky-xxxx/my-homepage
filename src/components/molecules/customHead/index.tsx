@@ -16,7 +16,7 @@ interface CustomHeadProps {
   title: string
 }
 
-const CustomHead: FC<CustomHeadProps> = props => {
+const CustomHead: FC<CustomHeadProps> = (props) => {
   const { title } = props
 
   return (
