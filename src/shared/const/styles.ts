@@ -37,5 +37,5 @@ export const APP_MARGINS = {
 type MUI_COLOR_KEYS = keyof typeof MUI_COLORS
 
 export const COLORS = (Object.keys(MUI_COLORS) as MUI_COLOR_KEYS[])
-  .filter(key => key !== "common")
-  .map(key => MUI_COLORS[key as Exclude<MUI_COLOR_KEYS, "common">][500])
+  .filter((key) => key !== "common")
+  .map((key) => MUI_COLORS[key as Exclude<MUI_COLOR_KEYS, "common">][500])

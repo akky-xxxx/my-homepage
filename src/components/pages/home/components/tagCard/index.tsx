@@ -24,7 +24,7 @@ interface TagCardProps {
   endMonth: number
 }
 
-const TagCard: FC<TagCardProps> = props => {
+const TagCard: FC<TagCardProps> = (props) => {
   const { startMonth, endMonth } = props
 
   return (

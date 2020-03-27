@@ -12,7 +12,7 @@ interface SliderImageProps {
   path: string
 }
 
-const SliderImage: FC<SliderImageProps> = props => {
+const SliderImage: FC<SliderImageProps> = (props) => {
   const { path } = props
   const [ref, inView] = useInView()
 

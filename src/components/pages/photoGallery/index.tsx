@@ -28,7 +28,7 @@ import useFilteredList from "./useFilteredList"
  */
 export interface PhotoGalleryProps extends State, HandleActions {}
 
-const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
+const PhotoGallery: NextPage<PhotoGalleryProps> = (props) => {
   const {
     handleOpenModal,
     handleCloseModal,
@@ -47,7 +47,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = props => {
     selectedViewTags,
   })
 
-  const tags: string[] = uniq(galleryInfoList.map(galleryInfo => galleryInfo.tags).flat()).sort()
+  const tags: string[] = uniq(galleryInfoList.map((galleryInfo) => galleryInfo.tags).flat()).sort()
 
   return (
     <ContentWrapper>

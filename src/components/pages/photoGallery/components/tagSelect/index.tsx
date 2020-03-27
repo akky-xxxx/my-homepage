@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   },
 })
 
-const TagSelect: NextPage<TagSelectProps> = props => {
+const TagSelect: NextPage<TagSelectProps> = (props) => {
   const { selectedViewTags, tags, handleSelectViewTag } = props
   const classes = useStyles()
 
@@ -34,8 +34,8 @@ const TagSelect: NextPage<TagSelectProps> = props => {
     const selectedTags = event.target.value as string[]
     const [targetTag] =
       selectedTags.length > selectedViewTags.length
-        ? selectedTags.filter(selectedTag => !selectedViewTags.includes(selectedTag))
-        : selectedViewTags.filter(selectedViewTag => !selectedTags.includes(selectedViewTag))
+        ? selectedTags.filter((selectedTag) => !selectedViewTags.includes(selectedTag))
+        : selectedViewTags.filter((selectedViewTag) => !selectedTags.includes(selectedViewTag))
 
     handleSelectViewTag({ targetTag })
   }
@@ -51,7 +51,7 @@ const TagSelect: NextPage<TagSelectProps> = props => {
           onChange={handleOnChange}
           renderValue={() => selectedViewTags.join(", ")}
         >
-          {tags.map(tag => {
+          {tags.map((tag) => {
             return (
               <MenuItem key={tag} value={tag}>
                 <Checkbox checked={selectedViewTags.includes(tag)} />

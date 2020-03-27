@@ -7,7 +7,7 @@ import styled from "styled-components"
 /**
  * main
  */
-const ContentWrapper: FC = props => {
+const ContentWrapper: FC = (props) => {
   const { children } = props
 
   return <StyledContentWrapper>{children}</StyledContentWrapper>

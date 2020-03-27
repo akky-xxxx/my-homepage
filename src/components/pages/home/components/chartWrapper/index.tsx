@@ -23,7 +23,7 @@ const PIE_SIZE = {
 const ChartWrapper = styled.div<ChartWrapperProps>`
   ${APP_BREAKPOINTS.PC} {
     height: ${PIE_SIZE.PC}px;
-    width: ${props => (props.isFitWidth ? "100%" : `${PIE_SIZE.PC}px`)};
+    width: ${(props) => (props.isFitWidth ? "100%" : `${PIE_SIZE.PC}px`)};
   }
 
   ${APP_BREAKPOINTS.SP} {

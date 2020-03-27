@@ -17,7 +17,7 @@ interface HeaderBarProps {
   handleOpenMenu: () => void
 }
 
-const HeaderBar: FC<HeaderBarProps> = props => {
+const HeaderBar: FC<HeaderBarProps> = (props) => {
   const { handleOpenMenu } = props
   const classes = useStyles()
 

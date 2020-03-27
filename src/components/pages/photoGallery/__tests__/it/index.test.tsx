@@ -42,7 +42,7 @@ const props: PhotoGalleryProps = {
 const kanagawaPrefCode = "14"
 const testTags = ["池", "紅葉"]
 const filterByPref = (galleryInfo: GalleryItem) => galleryInfo.prefCode === kanagawaPrefCode
-const filterByTag = (galleryInfo: GalleryItem) => testTags.every(targetTag => galleryInfo.tags.includes(targetTag))
+const filterByTag = (galleryInfo: GalleryItem) => testTags.every((targetTag) => galleryInfo.tags.includes(targetTag))
 
 describe("Photo Gallery", () => {
   describe("右カラム", () => {
@@ -51,12 +51,7 @@ describe("Photo Gallery", () => {
 
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${galleryInfoList.length}件`)
       expect(photoGallery.find(PrefSelect).text()).toEqual("地域全て")
-      expect(
-        photoGallery
-          .find(TagSelect)
-          .text()
-          .includes("タグ"),
-      ).toBe(true)
+      expect(photoGallery.find(TagSelect).text().includes("タグ")).toBe(true)
       expect(photoGallery.find(Button).prop("disabled")).toBe(true)
     })
 
@@ -67,12 +62,7 @@ describe("Photo Gallery", () => {
 
       expect(photoGallery.find(GalleryLength).text()).toEqual(`${filteredByKanagawa.length}件`)
       expect(photoGallery.find(PrefSelect).text()).toEqual("地域神奈川県")
-      expect(
-        photoGallery
-          .find(TagSelect)
-          .text()
-          .includes("タグ"),
-      ).toBe(true)
+      expect(photoGallery.find(TagSelect).text().includes("タグ")).toBe(true)
       expect(photoGallery.find(Button).prop("disabled")).toBe(false)
     })
 

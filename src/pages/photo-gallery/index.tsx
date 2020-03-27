@@ -24,13 +24,13 @@ const {
 } = actions
 
 export default connect<{}, HandleActions, {}, State>(
-  state => state.pages.photoGallery,
-  dispatch => ({
-    handleOpenModal: payload => dispatch(openModal(payload)),
+  (state) => state.pages.photoGallery,
+  (dispatch) => ({
+    handleOpenModal: (payload) => dispatch(openModal(payload)),
     handleCloseModal: () => dispatch(closeModal()),
-    handleSelectViewPref: payload => dispatch(selectViewPref(payload)),
+    handleSelectViewPref: (payload) => dispatch(selectViewPref(payload)),
     handleResetViewPref: () => dispatch(resetViewPref()),
-    handleSelectViewTag: payload => dispatch(selectViewTag(payload)),
+    handleSelectViewTag: (payload) => dispatch(selectViewTag(payload)),
     handleResetViewTag: () => dispatch(resetViewTag()),
   }),
 )(PhotoGallery)

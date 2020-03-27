@@ -28,7 +28,7 @@ interface GalleryModalProps {
   handleCloseModal: HandleAction
 }
 
-const GalleryModal: FC<GalleryModalProps> = props => {
+const GalleryModal: FC<GalleryModalProps> = (props) => {
   const { isOpen, handleCloseModal, currentImageId, galleryInfoList } = props
   const slider = useRef<Slider>(null)
   const showPrev = () => slider.current?.slickPrev()
@@ -51,7 +51,7 @@ const GalleryModal: FC<GalleryModalProps> = props => {
 
   if (!currentImageId) return null
 
-  const currentIndex = galleryInfoList.findIndex(galleryInfo => galleryInfo.imageId === currentImageId)
+  const currentIndex = galleryInfoList.findIndex((galleryInfo) => galleryInfo.imageId === currentImageId)
 
   return (
     <StyledDialog
@@ -73,7 +73,7 @@ const GalleryModal: FC<GalleryModalProps> = props => {
           </Fab>
         </NavigationNext>
         <StyledSlider ref={slider} arrows={false} initialSlide={currentIndex}>
-          {galleryInfoList.map(galleryInfo => {
+          {galleryInfoList.map((galleryInfo) => {
             const { path, imageId } = galleryInfo
             return <SliderImage key={imageId} path={path} />
           })}

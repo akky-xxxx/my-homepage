@@ -22,7 +22,7 @@ export interface GalleryLengthProps {
   resultLength: number
 }
 
-const GalleryLength: FC<GalleryLengthProps> = props => {
+const GalleryLength: FC<GalleryLengthProps> = (props) => {
   const { resultLength } = props
   const NumberTransition = useMemo(() => getNumberTransition(), [])
 

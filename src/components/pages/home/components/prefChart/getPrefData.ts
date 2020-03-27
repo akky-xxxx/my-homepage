@@ -28,18 +28,18 @@ const today = new Date()
 
 const getPrefData: GetPrefData = (startMonth, endMonth) => {
   return galleryInfoList
-    .filter(galleryInfo => {
+    .filter((galleryInfo) => {
       const diff = differenceInMonths(today, new Date(galleryInfo.date))
       return diff <= startMonth && diff >= endMonth
     }) // 日付 filter
     .reduce<ReducePrefData[]>((reducingData, galleryInfo, _index, originArr) => {
       const { prefCode } = galleryInfo
 
-      if (reducingData.find(reducing => reducing.prefCode === galleryInfo.prefCode)) return reducingData
+      if (reducingData.find((reducing) => reducing.prefCode === galleryInfo.prefCode)) return reducingData
 
       reducingData.push({
         prefCode,
-        count: originArr.filter(_galleryInfo => _galleryInfo.prefCode === prefCode).length,
+        count: originArr.filter((_galleryInfo) => _galleryInfo.prefCode === prefCode).length,
       })
 
       return reducingData

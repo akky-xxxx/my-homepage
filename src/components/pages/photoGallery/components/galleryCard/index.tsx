@@ -23,7 +23,7 @@ interface GalleryCardProps extends Omit<GalleryItem, "imageId" | "path"> {
   handleSelectViewTag: HandleSelectViewTag
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     cursor: "pointer",
   },
@@ -45,7 +45,7 @@ const BeforeLoad = () => {
   )
 }
 
-const GalleryCard: FC<GalleryCardProps> = props => {
+const GalleryCard: FC<GalleryCardProps> = (props) => {
   const { thumbPath, date, prefCode, tags, selectedViewTags, handleOpenModal, handleSelectViewTag } = props
   const classes = useStyles()
   const [ref, inView] = useInView()
@@ -70,7 +70,7 @@ const GalleryCard: FC<GalleryCardProps> = props => {
       {Boolean(tags.length) && (
         <CardContent>
           <TagWrapper>
-            {tags.map(tag => (
+            {tags.map((tag) => (
               <Chip
                 key={tag}
                 className={classes.tag}

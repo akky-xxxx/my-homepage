@@ -19,7 +19,7 @@ interface LayoutProps {
 }
 const duration = 300
 const transitionClassName = "content"
-const Layout: FC<LayoutProps> = props => {
+const Layout: FC<LayoutProps> = (props) => {
   const { children, route } = props
   // TODO: redux に差し替える
   const [isMenuOpen, setMenuOpen] = useState(false)

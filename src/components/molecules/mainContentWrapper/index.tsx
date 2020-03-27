@@ -12,7 +12,7 @@ import { APP_BREAKPOINTS, APP_MARGINS } from "../../../shared/const/styles"
 /**
  * main
  */
-const MainContentWrapper: FC = props => {
+const MainContentWrapper: FC = (props) => {
   const { children } = props
 
   return <StyledMainContentWrapper>{children}</StyledMainContentWrapper>

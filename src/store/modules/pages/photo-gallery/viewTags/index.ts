@@ -21,7 +21,7 @@ const viewPrefModule = createSlice({
       } = action
 
       if (state.includes(targetTag)) {
-        return state.filter(tag => tag !== targetTag)
+        return state.filter((tag) => tag !== targetTag)
       }
 
       return [...state, targetTag].sort()
