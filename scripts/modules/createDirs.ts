@@ -21,11 +21,11 @@ const createDirs = async (fileNames: string[], PATH: Path) => {
   const ORIGIN_ROOT = `${BASE_ROOT}${ORIGIN_DIR}`
   const DIST_ROOT = `${BASE_ROOT}${DIST_DIR}`
 
-  const distDirs = fileNames.map(fileName => {
+  const distDirs = fileNames.map((fileName) => {
     return fileName.slice(0, fileName.lastIndexOf("/")).replace(ORIGIN_ROOT, "")
   })
 
-  await Promise.all(distDirs.map(distDir => fs.mkdirs(`${DIST_ROOT}${distDir}`)))
+  await Promise.all(distDirs.map((distDir) => fs.mkdirs(`${DIST_ROOT}${distDir}`)))
   console.log(`${DONE} ${target("directories")} ${successMessage("is created")}`)
 }
 

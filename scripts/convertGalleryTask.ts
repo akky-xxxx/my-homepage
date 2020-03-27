@@ -26,7 +26,7 @@ const convertGalleryTask = async () => {
 
   fs.removeSync(`${BASE_ROOT}/${DIST_DIR}`)
 
-  const fileNames = glob.sync(`${ORIGIN_ROOT}/**/*.jpg`).filter(fileName => fileName.includes(".webp."))
+  const fileNames = glob.sync(`${ORIGIN_ROOT}/**/*.jpg`).filter((fileName) => fileName.includes(".webp."))
 
   const imagesInfo = getImagesInfo(fileNames, ORIGIN_ROOT)
   fs.outputFileSync(`${BASE_ROOT}${INFO_FILE}`, `export default ${JSON.stringify(imagesInfo)}\n`)
@@ -40,7 +40,7 @@ const convertGalleryTask = async () => {
   const fileLength = fileNames.length
   console.log(`[CONVERTED] 0 / ${fileLength} ( 0 % )`)
   await Promise.all(
-    fileNames.map(fileName =>
+    fileNames.map((fileName) =>
       convertToWebp({
         imagePath: fileName,
         ORIGIN_DIR,
