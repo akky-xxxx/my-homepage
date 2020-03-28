@@ -1,29 +1,19 @@
 /**
  * import node_modules
  */
-import { createStore, compose } from "redux"
+import { configureStore } from "@reduxjs/toolkit"
 
 /**
  * import others
  */
-import reducer, { State } from "./modules"
+import reducer from "./modules"
 
 /**
  * main
  */
-const isServer = typeof window !== "undefined"
-
-export type StoreState = State
-
-export function initializeStore<State>(initialState: State) {
-  const composeEnhancers = (isServer && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
-  const enhancer = composeEnhancers()
-
-  return createStore(
-    reducer,
-    {
-      ...initialState,
-    },
-    enhancer,
-  )
+export function initializeStore() {
+  return configureStore({ reducer })
 }
+
+const store = initializeStore
+export default store()
