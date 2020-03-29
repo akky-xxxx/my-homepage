@@ -1,5 +1,6 @@
 .idea
 .git
+.github
 .DS_Store
 .gcloudignore
 dist
@@ -15,3 +16,8 @@ stylelint.config.js
 yarn-error.log
 scripts
 galleryOrigin
+jest.config.e2e.js
+jest.config.it.js
+jest.setup.e2e.js
+jest-puppeteer.config.js
+__tests__
