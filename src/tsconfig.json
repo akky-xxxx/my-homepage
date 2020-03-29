@@ -8,13 +8,6 @@
     "isolatedModules": true,
     "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "exclude": [
-    "node_modules",
-    "**/e2e/*"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules", "**/e2e/*"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
