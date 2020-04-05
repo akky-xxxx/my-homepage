@@ -8,7 +8,7 @@ import { Request, Response, NextFunction } from "express"
  */
 import getDeviceInfo from "../shared/utils/getDeviceInfo"
 import getShorterFilePath from "../shared/utils/getShorterFIlePath"
-import winstonLogger from "../shared/utils/winstonLogger"
+import winstonLogger from "../shared/utils/createLogger/winstonLogger"
 
 /**
  * main

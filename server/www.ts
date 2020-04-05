@@ -11,7 +11,7 @@ import chalk from "chalk"
  */
 import router from "./serverMiddleWare/router"
 import getRequestHandler from "./serverMiddleWare/getRequestHandler"
-import winstonLogger from "./shared/utils/winstonLogger"
+import winstonLogger from "./shared/utils/createLogger/winstonLogger"
 
 /**
  * import others

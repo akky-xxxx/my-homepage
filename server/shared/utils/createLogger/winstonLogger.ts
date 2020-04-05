@@ -8,7 +8,7 @@ import dotenv from "dotenv"
 /**
  * import others
  */
-import isLocal from "./isLocal"
+import isLocal from "../isLocal"
 
 /**
  * main

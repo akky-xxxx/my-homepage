@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from "express"
  * import
  */
 import getDeviceInfo from "../shared/utils/getDeviceInfo"
-import winstonLogger from "../shared/utils/winstonLogger"
+import winstonLogger from "../shared/utils/createLogger/winstonLogger"
 
 /**
  * main
