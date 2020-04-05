@@ -3,13 +3,12 @@
  */
 import { createLogger, format, Logger, transports } from "winston"
 import { TransformableInfo, Format } from "logform"
-import { format as dateFormat } from "date-fns"
 import dotenv from "dotenv"
 
 /**
  * import others
  */
-import isDev from "./isDev"
+import isLocal from "../isLocal"
 
 /**
  * main
@@ -18,13 +17,12 @@ dotenv.config()
 
 type FormatParams = (info: TransformableInfo) => string
 const formatParams: FormatParams = (info) => {
-  const { level, message, timestamp } = info
-  const datetime = dateFormat(new Date(timestamp.toString()), "yyyy-MM-dd HH:mm:ss")
-  return `winston: [ ${level} ] [BFF] ${datetime} ${message}`
+  const { level, message } = info
+  return `[${level}] ${message}`
 }
 
 const formats: Format[] = [format.timestamp(), format.align(), format.printf(formatParams)]
-if (isDev) {
+if (isLocal) {
   formats.unshift(format.colorize())
 }
 
