@@ -7,8 +7,7 @@ import { Request, Response, NextFunction } from "express"
  * import others
  */
 import getDeviceInfo from "../shared/utils/getDeviceInfo"
-import getShorterFilePath from "../shared/utils/getShorterFIlePath"
-import winstonLogger from "../shared/utils/createLogger/winstonLogger"
+import createLogger from "../shared/utils/createLogger"
 
 /**
  * main
@@ -16,6 +15,7 @@ import winstonLogger from "../shared/utils/createLogger/winstonLogger"
 /**
  * webp が使える環境で ファイル名にjpg, png を webp に差し替える
  */
+const { infoLogger } = createLogger("replaceToWebpMiddleWare")
 const replaceToWebpMiddleWare = (req: Request, _res: Response, next: NextFunction) => {
   const { headers, url } = req
   const { accept, "user-agent": userAgent } = headers
@@ -24,14 +24,15 @@ const replaceToWebpMiddleWare = (req: Request, _res: Response, next: NextFunctio
     const responseUrl = url.replace(/\.(jpg)/, "")
     const device = getDeviceInfo(userAgent)
     const loggerData = {
-      device,
-      filePath: getShorterFilePath(__filename),
+      user: {
+        device,
+      },
       data: {
         requestUrl: req.url,
         responseUrl,
       },
     }
-    winstonLogger.info(JSON.stringify(loggerData))
+    infoLogger(loggerData)
     req.url = responseUrl
   }
 
