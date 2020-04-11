@@ -13,6 +13,7 @@ import GalleryLength from "../galleryLength"
 import ResetFilter from "../resetFilter"
 import PrefSelect from "../prefSelect"
 import TagSelect from "../tagSelect"
+import DateSelect from "../dateSelect"
 
 /**
  * import others
@@ -84,6 +85,7 @@ const MainContent: FC<MainContentProps> = (props) => {
           <ConditionItems>
             <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
             <TagSelect tags={tags} selectedViewTags={selectedViewTags} handleSelectViewTag={handleSelectViewTag} />
+            <DateSelect />
             <ResetFilter isDisable={!enableReset} handleResetFilter={handleResetFilter} />
           </ConditionItems>
         </RightColInner>
