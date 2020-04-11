@@ -6,6 +6,11 @@ import Router from "next/router"
 import React from "react"
 import { createGlobalStyle } from "styled-components"
 import { Provider } from "react-redux"
+// TODO: 日本語化すると mask が壊れるため、直ったら日本語に変える
+// import jaLocale from "date-fns/locale/ja"
+import enLocal from "date-fns/locale/en-US"
+import DateFnsUtils from "@date-io/date-fns"
+import { LocalizationProvider } from "@material-ui/pickers"
 import NProgress from "nprogress"
 
 /**
@@ -40,7 +45,9 @@ const MyApp = (props: AppProps) => {
     <Provider store={store}>
       <GlobalStyle />
       <Layout route={route}>
-        <Component />
+        <LocalizationProvider dateAdapter={DateFnsUtils} locale={enLocal}>
+          <Component />
+        </LocalizationProvider>
       </Layout>
     </Provider>
   )
