@@ -30,6 +30,7 @@ export interface PhotoGalleryProps extends State, HandleActions {}
 
 const PhotoGallery: NextPage<PhotoGalleryProps> = (props) => {
   const {
+    selectedViewDate,
     handleOpenModal,
     handleCloseModal,
     handleSelectViewPref,
@@ -38,6 +39,8 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = (props) => {
     selectedViewPref,
     handleResetViewTag,
     selectedViewTags,
+    handleSelectViewDate,
+    handleResetViewDate,
     modal: { isOpen, currentImageId },
   } = props
 
@@ -59,11 +62,14 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = (props) => {
           tags={tags}
           selectedViewPref={selectedViewPref}
           selectedViewTags={selectedViewTags}
+          selectedViewDate={selectedViewDate}
           handleOpenModal={handleOpenModal}
           handleSelectViewPref={handleSelectViewPref}
           handleResetViewPref={handleResetViewPref}
           handleSelectViewTag={handleSelectViewTag}
           handleResetViewTag={handleResetViewTag}
+          handleSelectViewDate={handleSelectViewDate}
+          handleResetViewDate={handleResetViewDate}
         />
       </MainContentWrapper>
       <GalleryModal

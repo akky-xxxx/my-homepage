@@ -30,11 +30,13 @@ type PickProps =
   | "handleOpenModal"
   | "handleSelectViewPref"
   | "handleSelectViewTag"
+  | "handleSelectViewDate"
   | "handleResetViewPref"
   | "handleResetViewTag"
+  | "handleResetViewDate"
 
 export interface MainContentProps
-  extends Pick<State, "selectedViewPref" | "selectedViewTags">,
+  extends Pick<State, "selectedViewPref" | "selectedViewTags" | "selectedViewDate">,
     Pick<HandleActions, PickProps> {
   galleryItem: GalleryItem[]
   selectedViewTags: string[]
@@ -51,8 +53,11 @@ const MainContent: FC<MainContentProps> = (props) => {
     handleResetViewPref,
     handleSelectViewTag,
     handleResetViewTag,
+    handleSelectViewDate,
+    handleResetViewDate,
     selectedViewPref,
     selectedViewTags,
+    selectedViewDate,
     tags,
   } = props
   const enableReset = selectedViewPref !== initialState.selectedViewPref || selectedViewTags.length !== 0
@@ -60,6 +65,7 @@ const MainContent: FC<MainContentProps> = (props) => {
   const handleResetFilter = () => {
     handleResetViewPref()
     handleResetViewTag()
+    handleResetViewDate()
   }
 
   return (
@@ -85,7 +91,7 @@ const MainContent: FC<MainContentProps> = (props) => {
           <ConditionItems>
             <PrefSelect handleSelectViewPref={handleSelectViewPref} selectedViewPref={selectedViewPref} />
             <TagSelect tags={tags} selectedViewTags={selectedViewTags} handleSelectViewTag={handleSelectViewTag} />
-            <DateSelect />
+            <DateSelect selectedViewDate={selectedViewDate} handleSelectViewDate={handleSelectViewDate} />
             <ResetFilter isDisable={!enableReset} handleResetFilter={handleResetFilter} />
           </ConditionItems>
         </RightColInner>
