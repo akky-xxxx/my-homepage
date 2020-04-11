@@ -60,7 +60,7 @@ const MainContent: FC<MainContentProps> = (props) => {
     selectedViewDate,
     tags,
   } = props
-  const enableReset = selectedViewPref !== initialState.selectedViewPref || selectedViewTags.length !== 0
+  const enableReset = selectedViewPref !== initialState.selectedViewPref || selectedViewTags.length !== 0 || selectedViewDate.some((date) => date)
 
   const handleResetFilter = () => {
     handleResetViewPref()
