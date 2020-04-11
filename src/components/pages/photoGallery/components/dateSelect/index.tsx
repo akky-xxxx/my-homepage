@@ -12,6 +12,7 @@ import { DateRangePicker, DateRange } from "@material-ui/pickers"
 import { State, HandleActions } from "../../../../../store/modules/pages/photo-gallery/types"
 import store2value from "./modules/store2value"
 import value2store from "./modules/value2store"
+import { minDate, maxDate } from "./const"
 
 /**
  * main
@@ -40,7 +41,8 @@ const DateSelect: FunctionComponent<DateSelectProps> = (props) => {
         className={classes.picker}
         startText="開始"
         endText="終了"
-        maxDate={new Date()}
+        minDate={minDate}
+        maxDate={maxDate}
         calendars={2}
         value={value}
         onChange={handleChange}
