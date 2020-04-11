@@ -19,7 +19,7 @@ import { HandleActions } from "../../store/modules/pages/photo-gallery/types"
  */
 const {
   pages: {
-    photoGallery: { openModal, closeModal, selectViewPref, resetViewPref, selectViewTag, resetViewTag },
+    photoGallery: { openModal, closeModal, selectViewPref, resetViewPref, selectViewTag, resetViewTag, selectViewDate, resetViewDate },
   },
 } = actions
 
@@ -32,5 +32,7 @@ export default connect<{}, HandleActions, {}, State>(
     handleResetViewPref: () => dispatch(resetViewPref()),
     handleSelectViewTag: (payload) => dispatch(selectViewTag(payload)),
     handleResetViewTag: () => dispatch(resetViewTag()),
+    handleSelectViewDate: (payload) => dispatch(selectViewDate(payload)),
+    handleResetViewDate: () => dispatch(resetViewDate())
   }),
 )(PhotoGallery)
