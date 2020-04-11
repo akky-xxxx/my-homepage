@@ -48,6 +48,7 @@ const PhotoGallery: NextPage<PhotoGalleryProps> = (props) => {
     galleryInfoList,
     selectedViewPref,
     selectedViewTags,
+    selectedViewDate,
   })
 
   const tags: string[] = uniq(galleryInfoList.map((galleryInfo) => galleryInfo.tags).flat()).sort()
