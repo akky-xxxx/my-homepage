@@ -46,6 +46,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": ERROR,
     "@typescript-eslint/explicit-member-accessibility": OFF,
     "@typescript-eslint/explicit-function-return-type": OFF,
+    "@typescript-eslint/explicit-module-boundary-types": OFF,
     "prettier/prettier": [
       ERROR,
       {
