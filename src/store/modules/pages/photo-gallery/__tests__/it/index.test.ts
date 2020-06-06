@@ -12,7 +12,7 @@ const { openModal, closeModal, selectViewPref, resetViewPref, selectViewTag, res
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Test = (state: State, action: any) => State
 // TODO: pref の State と ViewPref の違いによるともの思われる肩エラーの解消
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const test: Test = (state, action) => reducer(state, action)
 

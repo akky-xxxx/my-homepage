@@ -23,7 +23,7 @@ const {
   },
 } = actions
 
-export default connect<{}, HandleActions, {}, State>(
+export default connect<unknown, HandleActions, unknown, State>(
   (state) => state.pages.photoGallery,
   (dispatch) => ({
     handleOpenModal: (payload) => dispatch(openModal(payload)),
