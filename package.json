@@ -93,7 +93,7 @@
     "remeda": "0.0.22",
     "screenfull": "5.0.2",
     "styled-components": "5.2.0",
-    "ts-node": "8.10.2",
+    "ts-node": "9.0.0",
     "typescript": "3.9.7",
     "ua-parser-js": "0.7.22",
     "uuid": "8.3.0",
