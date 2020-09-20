@@ -142,8 +142,10 @@ const StyledSlider = styled(Slider)`
       justify-content: center;
 
       span {
-        display: inline-block;
+        align-items: center;
+        display: inline-flex;
         height: 100%;
+        justify-content: center;
         width: 100%;
       }
 
