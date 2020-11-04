@@ -75,7 +75,7 @@
     "express": "4.17.1",
     "gsap": "3.5.1",
     "logform": "2.2.0",
-    "next": "9.5.3",
+    "next": "9.5.4",
     "next-routes": "1.4.2",
     "nprogress": "0.2.0",
     "react": "16.13.1",
