@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "baseUrl": "./src",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["esnext"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@root/*": ["./*"],
+      "@modules/*": ["modules/*"],
+      "@middleware/*": ["middleware/*"],
+      "@models/*": ["models/*"],
+      "@controllers/*": ["controllers/*"],
+      "@shared/*": ["shared/*"]
+    },
+    "removeComments": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"]
+}
