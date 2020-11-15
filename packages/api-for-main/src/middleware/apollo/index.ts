@@ -2,9 +2,9 @@
 import { ApolloServer } from "apollo-server-fastify"
 
 // import others
-import { resolvers } from "@root/controllers"
-import { typeDefs } from "@middleware/apollo/typeDefs"
-import { mocks } from "@middleware/apollo/mocks"
+import { resolvers } from "@@/controllers"
+import { typeDefs } from "@@/middleware/apollo/typeDefs"
+import { mocks } from "@@/middleware/apollo/mocks"
 
 // main
 const apolloServer = new ApolloServer({
