@@ -2,7 +2,7 @@
 import supertest from "supertest"
 
 // import others
-import { server } from "@modules/server"
+import { server } from "@@/modules/server"
 
 // main
 const request = supertest(server)

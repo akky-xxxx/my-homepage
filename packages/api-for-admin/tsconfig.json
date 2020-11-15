@@ -13,12 +13,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@root/*": ["src/*"],
-      "@modules/*": ["src/modules/*"],
-      "@middleware/*": ["src/middleware/*"],
-      "@models/*": ["src/models/*"],
-      "@controllers/*": ["src/controllers/*"],
-      "@shared/*": ["src/shared/*"]
+      "@@/*": ["src/*"]
     },
     "removeComments": true,
     "skipLibCheck": true,

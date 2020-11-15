@@ -1,5 +1,5 @@
 // import
-import { ResponseData } from "@shared/types/api"
+import { ResponseData } from "@@/shared/types/api"
 
 // main
 export type SampleGetRequestQuery = Partial<{

@@ -2,12 +2,12 @@
 import { RequestHandler } from "express"
 
 // import others
-import { createLogger } from "@shared/utils/createLogger"
-import { ThisError } from "@shared/utils/ThisError"
+import { createLogger } from "@@/shared/utils/createLogger"
+import { ThisError } from "@@/shared/utils/ThisError"
 import {
   SampleGetRequestQuery,
   SampleGetReturnBody,
-} from "@shared/types/api/v1/sample"
+} from "@@/shared/types/api/v1/sample"
 
 // main
 const logger = createLogger(__filename)
