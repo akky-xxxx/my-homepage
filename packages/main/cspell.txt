@@ -1,0 +1,4 @@
+reduxjs
+remeda
+fastify
+nextjs
