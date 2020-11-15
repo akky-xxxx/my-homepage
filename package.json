@@ -9,13 +9,13 @@
   ],
   "scripts": {
     "all-install": "lerna bootstrap",
-    "check-all": "lerna exec yarn check-all",
+    "check-all": "lerna exec yarn check-all --stream",
+    "dev": "lerna exec yarn dev --stream",
     "fix": "run-p fix:*",
     "fix:json": "prettier ./*.json --write",
     "fix:pack": "fixpack",
     "update": "lerna publish"
   },
-  "dependencies": {},
   "devDependencies": {
     "fixpack": "^3.0.6",
     "lerna": "^3.22.1",
