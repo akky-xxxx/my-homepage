@@ -16,7 +16,6 @@
     "fix:pack": "fixpack",
     "update": "lerna publish"
   },
-  "dependencies": {},
   "devDependencies": {
     "fixpack": "^3.0.6",
     "lerna": "^3.22.1",
