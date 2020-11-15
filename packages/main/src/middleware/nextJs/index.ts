@@ -3,8 +3,8 @@ import { FastifyPluginAsync } from "fastify"
 import fastifyReact from "fastify-nextjs"
 
 // import others
-import { Common } from "@shared/const/Common"
-import { Endpoints } from "@shared/const/Endpoints"
+import { Common } from "@@/shared/const/Common"
+import { Endpoints } from "@@/shared/const/Endpoints"
 
 // main
 const { IS_DEV } = Common

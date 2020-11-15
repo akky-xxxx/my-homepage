@@ -2,8 +2,8 @@
 import styled from "styled-components"
 
 // import others
-import { SampleComponentProps } from "@components/atoms/SampleComponent/types"
-import { getSampleComponentColor } from "@components/atoms/SampleComponent/modules/getSampleComponentColor"
+import { SampleComponentProps } from "@@/components/atoms/SampleComponent/types"
+import { getSampleComponentColor } from "@@/components/atoms/SampleComponent/modules/getSampleComponentColor"
 
 // main
 /**

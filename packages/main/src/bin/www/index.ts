@@ -1,6 +1,6 @@
 // import
-import { createServer } from "@modules/createServer"
-import { Server } from "@shared/const/Server"
+import { createServer } from "@@/modules/createServer"
+import { Server } from "@@/shared/const/Server"
 
 // main
 const { PORT } = Server

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowUnreachableCode": false,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,14 +15,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@root/*": ["./*"],
-      "@middleware/*": ["middleware/*"],
-      "@modules/*": ["modules/*"],
-      "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"],
-      "@services/*": ["services/*"],
-      "@shared/*": ["shared/*"],
-      "@store/*": ["store/*"]
+      "@@/*": ["src/*"]
     },
     "removeComments": true,
     "resolveJsonModule": true,

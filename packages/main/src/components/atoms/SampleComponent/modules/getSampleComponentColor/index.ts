@@ -2,7 +2,7 @@
 import { css, FlattenSimpleInterpolation } from "styled-components"
 
 // import others
-import { SampleComponentProps } from "@components/atoms/SampleComponent/types"
+import { SampleComponentProps } from "@@/components/atoms/SampleComponent/types"
 
 // main
 type GetSampleComponentColor = (
