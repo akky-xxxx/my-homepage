@@ -19,7 +19,7 @@
     "lint:agreed": "eslint './spec/**/*.ts'",
     "lint:ts": "eslint './src/**/*.ts'",
     "serve:api": "nodemon",
-    "serve:mock": "agreed-server --path ./spec/agreed/index.ts --port 4101",
+    "serve:mock": "agreed-server --path ./spec/agreed/index.ts --port 4101 -l",
     "spell-check": "cspell './src/**/*.ts'",
     "test": "IS_TEST=true jest",
     "type-check": "tsc"
