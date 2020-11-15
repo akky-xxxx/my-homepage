@@ -8,6 +8,7 @@
     "check-all": "run-s check-code test",
     "check-code": "run-p spell-check lint type-check",
     "dev": "run-p serve:*",
+    "doc": "run-p doc:*",
     "doc:api": "agreed-ui --path ./spec/agreed/index.ts --port 4102",
     "fix": "run-p fix:*",
     "fix:agreed": "eslint './spec/**/*.ts' --fix",

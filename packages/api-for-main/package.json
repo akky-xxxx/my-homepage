@@ -8,6 +8,7 @@
     "check-all": "run-s check-code test",
     "check-code": "run-p spell-check lint type-check",
     "dev": "nodemon",
+    "doc": "echo 'nothing task'",
     "fix": "run-p fix:*",
     "fix:config": "prettier .eslintrc.js ./*.js --write",
     "fix:json": "prettier ./*.json --write",

@@ -8,6 +8,8 @@
     "build:prod": "next build",
     "check-all": "run-p lint spell-check type-check test",
     "dev": "NODE_ENV=development run-p server:dev",
+    "doc": "run-p doc:*",
+    "doc:ui": "start-storybook -p 3001 --no-dll",
     "fix": "run-p fix:*",
     "fix:config": "prettier .eslintrc.js ./*.js ./.storybook/*.js --write",
     "fix:json": "prettier ./*.json --write",
@@ -20,7 +22,6 @@
     "server:prod": "ts-node --files ./src/bin/www/index.ts",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
     "start": "NODE_ENV=production run-s build:prod server:prod",
-    "storybook": "start-storybook -p 3001 --no-dll",
     "test": "jest",
     "type-check": "tsc"
   },
