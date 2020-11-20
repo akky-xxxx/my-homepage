@@ -5,6 +5,7 @@ import compression from "compression"
 
 // import middleware
 import { apiRouter } from "@@/middleware/api"
+import { errorHandler } from "@@/middleware/errorHandler"
 
 // import others
 import { Endpoints } from "@@/shared/const/Endpoints"
@@ -17,5 +18,7 @@ server.use(helmet())
 server.use(compression())
 
 server.use(API, apiRouter)
+
+server.use(errorHandler)
 
 export { server }
