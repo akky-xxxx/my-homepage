@@ -17,7 +17,7 @@ export const sampleController: RequestHandler<
   SampleGetReturnBody,
   unknown,
   SampleGetRequestQuery
-> = async (req, res): Promise<void> => {
+> = async (req, res, next): Promise<void> => {
   logger.info("start")
   const {
     query: { reqQueryTest },
@@ -38,8 +38,7 @@ export const sampleController: RequestHandler<
       filePath: __filename,
       error,
     })
-    logger.error(thisError)
-    res.status(thisError.status)
-    return Promise.reject(thisError)
+    next(thisError)
+    return Promise.reject()
   }
 }
