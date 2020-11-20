@@ -1,8 +1,8 @@
 // import
-import { server } from "@modules/server"
-import { Server } from "@shared/const/Server"
-import { showEndpoints } from "@root/bin/www/modules/showEndpoints"
-import { createLogger } from "@shared/utils/createLogger"
+import { server } from "@@/modules/server"
+import { Server } from "@@/shared/const/Server"
+import { showEndpoints } from "@@/bin/www/modules/showEndpoints"
+import { createLogger } from "@@/shared/utils/createLogger"
 
 // main
 const { PORT } = Server

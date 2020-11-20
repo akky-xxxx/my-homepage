@@ -4,10 +4,10 @@ import helmet from "fastify-helmet"
 import compress from "fastify-compress"
 
 // import middleware
-import { apollo } from "@middleware/apollo"
+import { apollo } from "@@/middleware/apollo"
 
 // import others
-import { Common } from "@shared/const/Common"
+import { Common } from "@@/shared/const/Common"
 
 // main
 const { IS_DEV, SEPARATOR } = Common

@@ -4,7 +4,7 @@ import { Express } from "express"
 import Table from "cli-table"
 
 // import others
-import { createLogger } from "@shared/utils/createLogger"
+import { createLogger } from "@@/shared/utils/createLogger"
 
 // main
 const logger = createLogger(__filename)

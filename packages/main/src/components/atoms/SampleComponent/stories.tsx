@@ -3,8 +3,8 @@ import React, { PropsWithChildren } from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { SampleComponent } from "@components/atoms/SampleComponent/index"
-import { SampleComponentProps } from "@components/atoms/SampleComponent/types"
+import { SampleComponent } from "@@/components/atoms/SampleComponent/index"
+import { SampleComponentProps } from "@@/components/atoms/SampleComponent/types"
 
 // main
 const config: Meta<PropsWithChildren<SampleComponentProps>> = {

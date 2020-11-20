@@ -2,7 +2,7 @@
 import log4js, { Logger } from "log4js"
 
 // import others
-import { Common } from "@shared/const/Common"
+import { Common } from "@@/shared/const/Common"
 
 // main
 const { IS_TEST } = Common

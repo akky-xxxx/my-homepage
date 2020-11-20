@@ -2,12 +2,12 @@
 import { RequestHandler } from "express"
 
 // import others
-import { createLogger } from "@shared/utils/createLogger"
-import { ThisError } from "@shared/utils/ThisError"
+import { createLogger } from "@@/shared/utils/createLogger"
+import { ThisError } from "@@/shared/utils/ThisError"
 import {
   SampleGetRequestQuery,
   SampleGetReturnBody,
-} from "@shared/types/api/v1/sample"
+} from "@@/shared/types/api/v1/sample"
 
 // main
 const logger = createLogger(__filename)
@@ -17,7 +17,7 @@ export const sampleController: RequestHandler<
   SampleGetReturnBody,
   unknown,
   SampleGetRequestQuery
-> = async (req, res): Promise<void> => {
+> = async (req, res, next): Promise<void> => {
   logger.info("start")
   const {
     query: { reqQueryTest },
@@ -38,8 +38,7 @@ export const sampleController: RequestHandler<
       filePath: __filename,
       error,
     })
-    logger.error(thisError)
-    res.status(thisError.status)
-    return Promise.reject(thisError)
+    next(thisError)
+    return Promise.reject()
   }
 }

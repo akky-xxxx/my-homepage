@@ -4,10 +4,11 @@ import helmet from "helmet"
 import compression from "compression"
 
 // import middleware
-import { apiRouter } from "@middleware/api"
+import { apiRouter } from "@@/middleware/api"
+import { errorHandler } from "@@/middleware/errorHandler"
 
 // import others
-import { Endpoints } from "@shared/const/Endpoints"
+import { Endpoints } from "@@/shared/const/Endpoints"
 
 // main
 const { API } = Endpoints
@@ -17,5 +18,7 @@ server.use(helmet())
 server.use(compression())
 
 server.use(API, apiRouter)
+
+server.use(errorHandler)
 
 export { server }

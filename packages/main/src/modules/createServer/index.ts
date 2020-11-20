@@ -4,11 +4,11 @@ import helmet from "fastify-helmet"
 import compress from "fastify-compress"
 
 // import middleware
-import { nextJs } from "@middleware/nextJs"
+import { nextJs } from "@@/middleware/nextJs"
 
 // import others
-import { Common } from "@shared/const/Common"
-import { HelmetOptions } from "@modules/createServer/const/Config"
+import { Common } from "@@/shared/const/Common"
+import { HelmetOptions } from "@@/modules/createServer/const/Config"
 
 // main
 const { IS_DEV, SEPARATOR } = Common

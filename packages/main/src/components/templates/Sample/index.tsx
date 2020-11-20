@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { gql, useQuery, useLazyQuery } from "@apollo/client"
 
 // import components
-import { SampleComponent } from "@components/atoms/SampleComponent"
+import { SampleComponent } from "@@/components/atoms/SampleComponent"
 
 // main
 const QUERY = gql`

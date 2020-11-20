@@ -2,10 +2,10 @@
 import { Router } from "express"
 
 // import
-import { sampleController } from "@controllers/v1/sampleController"
+import { sampleController } from "@@/controllers/v1/sampleController"
 
 // import
-import { Endpoints } from "@shared/const/Endpoints"
+import { Endpoints } from "@@/shared/const/Endpoints"
 
 // main
 const {

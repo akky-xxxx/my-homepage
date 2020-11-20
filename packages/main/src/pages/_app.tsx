@@ -5,7 +5,7 @@ import React from "react"
 import { ApolloProvider } from "@apollo/client"
 
 // import other
-import { apolloClient } from "@modules/apolloClient"
+import { apolloClient } from "@@/modules/apolloClient"
 
 // main
 class MyApp extends App<AppInitialProps> {
