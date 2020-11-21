@@ -20,7 +20,7 @@ module.exports = {
       `cspell ${getReplacedFilePaths(filenames)}`,
       `eslint --fix ${joinedHalfSpace}`,
       "tsc",
-      `stylelint '${joinedHalfSpace}'`,
+      `stylelint ${joinedHalfSpace}`,
       "test IS_TEST=true jest",
       "git add .",
     ]
