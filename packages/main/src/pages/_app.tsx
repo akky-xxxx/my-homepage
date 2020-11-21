@@ -6,6 +6,7 @@ import { ApolloProvider } from "@apollo/client"
 
 // import other
 import { apolloClient } from "@@/modules/apolloClient"
+import { GlobalStyle } from "@@/styles/GlobalStyle"
 
 // main
 class MyApp extends App<AppInitialProps> {
@@ -21,6 +22,7 @@ class MyApp extends App<AppInitialProps> {
           />
           <title>fastify site with next.js</title>
         </Head>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ApolloProvider>
     )
