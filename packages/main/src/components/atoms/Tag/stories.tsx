@@ -47,16 +47,6 @@ SecondaryActive.args = {
   isActive: true,
 }
 
-export const Tertiary = Template.bind({})
-Tertiary.args = {
-  colorType: "tertiary",
-}
-export const TertiaryActive = Template.bind({})
-TertiaryActive.args = {
-  colorType: "tertiary",
-  isActive: true,
-}
-
 export const Accent = Template.bind({})
 Accent.args = {
   colorType: "accent",
