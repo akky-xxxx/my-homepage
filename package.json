@@ -100,7 +100,7 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "9.5.3",
+    "@next/bundle-analyzer": "10.0.3",
     "@storybook/react": "6.0.21",
     "@types/enzyme": "3.10.6",
     "@types/enzyme-adapter-react-16": "1.0.6",
