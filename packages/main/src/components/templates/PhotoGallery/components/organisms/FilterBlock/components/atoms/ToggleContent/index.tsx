@@ -9,15 +9,15 @@ import { Color } from "@@/shared/const/styles/Color"
 const { DURATION, TIMING_FUNCTION } = Transition
 const { COLOR_FFFFFF } = Color
 
-export type FilterUlProps = {
+export type ToggleContentProps = {
   isOpen: boolean
 }
 
-const getMaxHeight = ({ isOpen }: FilterUlProps) => (isOpen ? "200px" : "0")
-const getPadding = ({ isOpen }: FilterUlProps) => (isOpen ? "8px" : "0")
-const getOpacity = ({ isOpen }: FilterUlProps) => (isOpen ? 1 : 0)
+const getMaxHeight = ({ isOpen }: ToggleContentProps) => (isOpen ? "200px" : "0")
+const getPadding = ({ isOpen }: ToggleContentProps) => (isOpen ? "8px" : "0")
+const getOpacity = ({ isOpen }: ToggleContentProps) => (isOpen ? 1 : 0)
 
-export const FilterUl = styled.ul<FilterUlProps>`
+export const ToggleContent = styled.div<ToggleContentProps>`
   height: auto;
   max-height: ${getMaxHeight};
   opacity: ${getOpacity};

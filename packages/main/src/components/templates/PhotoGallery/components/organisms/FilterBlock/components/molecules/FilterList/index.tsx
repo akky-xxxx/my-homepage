@@ -4,9 +4,9 @@ import styled from "styled-components"
 
 // import components
 import {
-  FilterUl,
-  FilterUlProps,
-} from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/FilterUl"
+  ToggleContent,
+  ToggleContentProps,
+} from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/ToggleContent"
 import { FilterTag } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/FilterTag"
 
 // import others
@@ -17,7 +17,7 @@ type TagData = {
   id: string
   label: string
 }
-type FilterListProps = FilterUlProps & {
+type FilterListProps = ToggleContentProps & {
   tags: TagData[]
   handleClickTag: EmptyFunction
 }
@@ -26,25 +26,27 @@ export const FilterList: FC<FilterListProps> = (props) => {
   const { isOpen, tags, handleClickTag } = props
 
   return (
-    <StyledFilterUl isOpen={isOpen}>
-      {tags.map((tagData) => {
-        const { id, label } = tagData
-        return (
-          <StyledFilterTag
-            key={id}
-            id={id}
-            label={label}
-            handleClickTag={handleClickTag}
-          />
-        )
-      })}
-    </StyledFilterUl>
+    <ToggleContent isOpen={isOpen}>
+      <StyledUl>
+        {tags.map((tagData) => {
+          const { id, label } = tagData
+          return (
+            <StyledFilterTag
+              key={id}
+              id={id}
+              label={label}
+              handleClickTag={handleClickTag}
+            />
+          )
+        })}
+      </StyledUl>
+    </ToggleContent>
   )
 }
 
 const MARGIN = 8
 
-const StyledFilterUl = styled(FilterUl)`
+const StyledUl = styled.ul`
   margin-left: ${MARGIN * -1}px;
 `
 
