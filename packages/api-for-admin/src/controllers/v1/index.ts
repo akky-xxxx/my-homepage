@@ -2,8 +2,7 @@
 import { Router } from "express"
 
 // import controllers
-import { postTagsController } from "@@/controllers/v1/postTagsController"
-import { getTagsController } from "@@/controllers/v1/getTagsController"
+import { tagsControllers } from "@@/controllers/v1/tagsControllers"
 
 // import others
 import { Endpoints } from "@@/shared/const/Endpoints"
@@ -15,7 +14,6 @@ const {
 const v1Router = Router()
 
 // tags request handlers
-v1Router.post(TAGS, postTagsController)
-v1Router.get(TAGS, getTagsController)
+v1Router.use(TAGS, tagsControllers)
 
 export { v1Router }
