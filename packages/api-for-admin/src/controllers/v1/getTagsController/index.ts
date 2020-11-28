@@ -1,17 +1,19 @@
 // import node_modules
 import { RequestHandler } from "express"
 
+// import model
+import { getTagsModel } from "@@/models/v1/getTagsModel"
+
 // import others
-import { Tag } from "@@/shared/types/api/v1/tags"
+import { ThisError } from "@@/shared/utils/ThisError"
 
 // main
-export const getTagsController: RequestHandler = (_req, res) => {
-  const tag: Tag = {
-    tagId: "1",
-    tagName: "tag1",
-    isRelease: true,
-    createdAt: "2020-01-01",
-    updatedAt: "2020-01-01",
+export const getTagsController: RequestHandler = async (_req, res, next) => {
+  try {
+    const responseData = await getTagsModel()
+    res.status(200).send(responseData)
+  } catch (error) {
+    const thisError = new ThisError({ error })
+    next(thisError)
   }
-  res.status(200).send({ data: { tags: [tag] } })
 }
