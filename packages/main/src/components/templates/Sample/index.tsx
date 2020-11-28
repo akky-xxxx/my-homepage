@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { gql, useQuery, useLazyQuery } from "@apollo/client"
 
 // import components
-import { SampleComponent } from "@@/components/atoms/SampleComponent"
+import { Button } from "@@/components/atoms/Button"
 
 // main
 const QUERY = gql`
@@ -59,11 +59,15 @@ export const Sample = () => {
       <h1>Sample</h1>
       <Wrapper>
         <Item>
-          <SampleComponent>SampleComponent 1</SampleComponent>
+          <Button colorType="primary" type="button">
+            SampleComponent 1
+          </Button>
         </Item>
 
         <Item>
-          <SampleComponent>SampleComponent 2</SampleComponent>
+          <Button colorType="primary" type="button">
+            SampleComponent 2
+          </Button>
         </Item>
       </Wrapper>
 

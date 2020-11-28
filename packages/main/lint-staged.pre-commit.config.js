@@ -18,7 +18,7 @@ module.exports = {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
       `cspell ${getReplacedFilePaths(filenames)}`,
-      `stylelint '${joinedHalfSpace}'`,
+      `stylelint ${joinedHalfSpace}`,
     ]
   },
   "!(src/)**/*.{ts,tsx}": (filenames) => {
