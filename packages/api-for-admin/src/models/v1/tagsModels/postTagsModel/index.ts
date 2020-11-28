@@ -16,7 +16,7 @@ type PostTagsModel = (
   body: Request<PostTagsRequestBody>["body"],
 ) => Promise<PostTagsResponse>
 export const postTagsModel: PostTagsModel = async (body) => {
-  if (!body.tagName) {
+  if (!body.tagNames) {
     const error = new ThisError({
       ...createErrorData(__filename, 400),
     })

@@ -5,7 +5,9 @@ import { Tag as DataStoreTag } from "@@/shared/types/gcp/dataStore"
 
 // main
 // create (post)
-export type PostTagsRequestBody = Pick<DataStoreTag, "tagName">
+export type PostTagsRequestBody = {
+  tagNames: DataStoreTag["tagName"] | DataStoreTag["tagName"][]
+}
 
 export type PostTagsResponse = ResponseData<{
   result: "success"

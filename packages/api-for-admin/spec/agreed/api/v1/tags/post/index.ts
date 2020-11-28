@@ -10,7 +10,7 @@ export const postTags: ApiType[] = [
       path: ["api", "v1", "tags"],
       method: "POST",
       body: {
-        tagName: "500",
+        tagNames: "500",
       },
     },
     response: {
@@ -27,7 +27,7 @@ export const postTags: ApiType[] = [
       path: ["api", "v1", "tags"],
       method: "POST",
       body: {
-        tagName: "{:tagName}",
+        tagNames: "{:tagName}",
       },
     },
     response: {
