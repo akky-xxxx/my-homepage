@@ -6,3 +6,7 @@ export type Convert2agreed<T> = {
 export type ErrorResponse = {
   message: string
 }
+
+export type ApiTitle<S extends string, T extends string> = {
+  title: `${S}：${T}`
+}
