@@ -7,11 +7,9 @@ import {
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
 import { ThisError } from "@@/shared/utils/ThisError"
-import { createErrorData } from "@@/shared/utils/createErrorData"
-import { Server } from "@@/shared/const/Server"
+import { postTagsModel } from "@@/models/v1/postTagsModel"
 
 // main
-const { SUCCESS_RESPONSE } = Server
 type PostTagsController = RequestHandler<
   never,
   PostTagsResponse,
@@ -24,16 +22,9 @@ export const postTagsController: PostTagsController = async (
 ) => {
   const { body } = req
 
-  if (!body.tagName) {
-    const error = new ThisError({
-      ...createErrorData(__filename, 400),
-    })
-    next(error)
-    return
-  }
-
   try {
-    res.status(201).send(SUCCESS_RESPONSE)
+    const result = await postTagsModel(body)
+    res.status(201).send(result)
   } catch (error) {
     const thisError = new ThisError({ error })
     next(thisError)
