@@ -6,13 +6,12 @@ import { server } from "@@/modules/server"
 import { PostTagsResponse } from "@@/shared/types/api/v1/tags"
 
 // main
+const responseData: PostTagsResponse["data"] = {
+  result: "success",
+}
 const request = supertest(server)
 describe("app test `POST:/api/v1/tags`", () => {
   it("return 201 and correct property when tagName is string", async () => {
-    const responseData: PostTagsResponse["data"] = {
-      result: "success",
-    }
-
     await request
       .post("/api/v1/tags")
       .send({ tagNames: "test" })
@@ -25,10 +24,6 @@ describe("app test `POST:/api/v1/tags`", () => {
   })
 
   it("return 201 and correct property when tagName is array of string", async () => {
-    const responseData: PostTagsResponse["data"] = {
-      result: "success",
-    }
-
     await request
       .post("/api/v1/tags")
       .send({ tagNames: ["test", `test`] })
