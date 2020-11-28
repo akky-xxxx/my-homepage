@@ -1,15 +1,19 @@
 // import node_modules
 import { Request } from "express"
 
+// import shared/utils
+import { ThisError } from "@@/shared/utils/ThisError"
+import { createErrorData } from "@@/shared/utils/createErrorData"
+
+// import shared/const
+import { Server } from "@@/shared/const/Server"
+import { dataStore } from "@@/shared/utils/gcp"
+
 // import others
 import {
   PostTagsRequestBody,
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { ThisError } from "@@/shared/utils/ThisError"
-import { createErrorData } from "@@/shared/utils/createErrorData"
-import { Server } from "@@/shared/const/Server"
-import { dataStore } from "@@/shared/utils/gcp"
 import { getInsertData } from "@@/models/v1/tagsModels/postTagsModel/modules/getInsertData"
 
 // main
