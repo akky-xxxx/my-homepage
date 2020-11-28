@@ -7,6 +7,7 @@ import {
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
 import { ThisError } from "@@/shared/utils/ThisError"
+import { createErrorData } from "@@/shared/utils/createErrorData"
 
 // main
 type PostTagsController = RequestHandler<
@@ -23,9 +24,7 @@ export const postTagsController: PostTagsController = async (
 
   if (!body.tagName) {
     const error = new ThisError({
-      status: 400,
-      message: "パラメータが不正です",
-      filePath: __filename,
+      ...createErrorData(__filename, 400),
     })
     next(error)
     return
