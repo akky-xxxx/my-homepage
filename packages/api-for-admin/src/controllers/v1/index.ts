@@ -1,10 +1,10 @@
 // import node_modules
 import { Router } from "express"
 
-// import
+// import controllers
 import { sampleController } from "@@/controllers/v1/sampleController"
 
-// import
+// import others
 import { Endpoints } from "@@/shared/const/Endpoints"
 import { Tag } from "@@/shared/types/api/v1/tags"
 
