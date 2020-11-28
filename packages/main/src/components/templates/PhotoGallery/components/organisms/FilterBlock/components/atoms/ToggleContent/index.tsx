@@ -13,7 +13,8 @@ export type ToggleContentProps = {
   isOpen: boolean
 }
 
-const getMaxHeight = ({ isOpen }: ToggleContentProps) => (isOpen ? "200px" : "0")
+const getMaxHeight = ({ isOpen }: ToggleContentProps) =>
+  isOpen ? "200px" : "0"
 const getPadding = ({ isOpen }: ToggleContentProps) => (isOpen ? "8px" : "0")
 const getOpacity = ({ isOpen }: ToggleContentProps) => (isOpen ? 1 : 0)
 
