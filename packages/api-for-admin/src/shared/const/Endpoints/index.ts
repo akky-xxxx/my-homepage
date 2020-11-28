@@ -3,5 +3,6 @@ export const Endpoints = {
   V1: {
     ROOT: "/v1",
     SAMPLE: "/sample",
+    TAGS: "/tags",
   },
 } as const

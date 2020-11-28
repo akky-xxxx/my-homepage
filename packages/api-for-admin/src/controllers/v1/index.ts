@@ -10,12 +10,12 @@ import { Tag } from "@@/shared/types/api/v1/tags"
 
 // main
 const {
-  V1: { SAMPLE },
+  V1: { SAMPLE, TAGS },
 } = Endpoints
 const v1Router = Router()
 
 v1Router.get(SAMPLE, sampleController)
-v1Router.get("/tags", (_req, res) => {
+v1Router.get(TAGS, (_req, res) => {
   const tag: Tag = {
     tagId: "1",
     tagName: "tag1",
