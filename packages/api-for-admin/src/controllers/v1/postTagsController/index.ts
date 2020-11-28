@@ -8,8 +8,10 @@ import {
 } from "@@/shared/types/api/v1/tags"
 import { ThisError } from "@@/shared/utils/ThisError"
 import { createErrorData } from "@@/shared/utils/createErrorData"
+import { Server } from "@@/shared/const/Server"
 
 // main
+const { SUCCESS_RESPONSE } = Server
 type PostTagsController = RequestHandler<
   never,
   PostTagsResponse,
@@ -31,12 +33,7 @@ export const postTagsController: PostTagsController = async (
   }
 
   try {
-    const responseData = {
-      data: {
-        result: "success",
-      },
-    } as const
-    res.status(201).send(responseData)
+    res.status(201).send(SUCCESS_RESPONSE)
   } catch (error) {
     const thisError = new ThisError({ error })
     next(thisError)
