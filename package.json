@@ -10,6 +10,7 @@
   "scripts": {
     "all-install": "lerna bootstrap",
     "check-all": "lerna run check-all --stream",
+    "dev": "lerna run dev --stream",
     "doc": "lerna run doc --stream",
     "fix": "run-p fix:*",
     "fix:json": "prettier ./*.json --write",
