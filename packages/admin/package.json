@@ -9,7 +9,7 @@
     "check-all": "run-p lint spell-check type-check test",
     "dev": "NODE_ENV=development run-p server:dev",
     "doc": "run-p doc:*",
-    "doc:ui": "start-storybook -p 3001 --no-dll",
+    "doc:ui": "start-storybook -p 4001 --no-dll",
     "fix": "run-p fix:*",
     "fix:config": "prettier .eslintrc.js ./*.js ./.storybook/*.js --write",
     "fix:json": "prettier ./*.json --write",
