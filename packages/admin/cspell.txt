@@ -1,0 +1,5 @@
+reduxjs
+remeda
+fastify
+nextjs
+fixpack
