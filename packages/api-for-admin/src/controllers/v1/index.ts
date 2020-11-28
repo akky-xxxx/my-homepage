@@ -3,10 +3,10 @@ import { Router } from "express"
 
 // import controllers
 import { sampleController } from "@@/controllers/v1/sampleController"
+import { getTagsController } from "@@/controllers/v1/getTagsController"
 
 // import others
 import { Endpoints } from "@@/shared/const/Endpoints"
-import { Tag } from "@@/shared/types/api/v1/tags"
 
 // main
 const {
@@ -15,15 +15,6 @@ const {
 const v1Router = Router()
 
 v1Router.get(SAMPLE, sampleController)
-v1Router.get(TAGS, (_req, res) => {
-  const tag: Tag = {
-    tagId: "1",
-    tagName: "tag1",
-    isRelease: true,
-    createdAt: "2020-01-01",
-    updatedAt: "2020-01-01",
-  }
-  res.status(200).send({ data: { tags: [tag] } })
-})
+v1Router.get(TAGS, getTagsController)
 
 export { v1Router }
