@@ -1,20 +1,14 @@
 // import node_modules
 import React, { useState } from "react"
 import styled from "styled-components"
-import { rgba } from "polished"
 
 // import components
-import { Button } from "@@/components/atoms/Button"
 import { IconCalendar } from "@@/components/icons/IconCalendar"
 import { IconTag } from "@@/components/icons/IconTag"
+import { StyledButton } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/StyledButton"
 import { FilterList } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/molecules/FilterList"
 
-// import others
-import { Radius } from "@@/shared/const/styles/Radius"
-import { Color } from "@@/shared/const/styles/Color"
-
 // main
-const { COLOR_FEFEFE, COLOR_212121 } = Color
 export const FilterBlock = () => {
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const [isTagOpen, setTagOpen] = useState(false)
@@ -102,22 +96,4 @@ const ButtonContent = styled.div`
 
 const IconWrapper = styled.div`
   margin-right: 8px;
-`
-
-const StyledButton = styled(Button)`
-  &:first-child {
-    border-radius: ${Radius.UNIT_LEFT};
-  }
-
-  &:last-child {
-    border-radius: ${Radius.UNIT_RIGHT};
-  }
-
-  &:not(:last-child) {
-    border-right: 1px solid ${rgba(COLOR_212121, 0.1)};
-  }
-
-  & + & {
-    border-left: 1px solid ${rgba(COLOR_FEFEFE, 0.1)};
-  }
 `
