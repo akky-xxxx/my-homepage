@@ -9,6 +9,8 @@ import {
 import { ThisError } from "@@/shared/utils/ThisError"
 import { createErrorData } from "@@/shared/utils/createErrorData"
 import { Server } from "@@/shared/const/Server"
+import { dataStore } from "@@/shared/utils/gcp"
+import { getInsertData } from "@@/models/v1/tagsModels/postTagsModel/modules/getInsertData"
 
 // main
 const { SUCCESS_RESPONSE } = Server
@@ -24,7 +26,11 @@ export const postTagsModel: PostTagsModel = async (body) => {
     return Promise.reject(error)
   }
 
+  const registerTagNames =
+    typeof body.tagNames === "string" ? [body.tagNames] : [...body.tagNames]
+
   try {
+    await dataStore.insert(registerTagNames.map(getInsertData))
     return Promise.resolve(SUCCESS_RESPONSE)
   } catch (error) {
     const thisError = new ThisError({ error })
