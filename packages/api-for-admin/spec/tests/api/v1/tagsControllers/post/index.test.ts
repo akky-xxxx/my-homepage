@@ -15,9 +15,7 @@ describe("app test `POST:/api/v1/tags`", () => {
 
     await request
       .post("/api/v1/tags")
-      .send({
-        tagNames: `test1：${new Date().toString()}`,
-      })
+      .send({ tagNames: "test" })
       .expect(201)
       .then((res) => {
         const { data } = res.body
@@ -33,12 +31,7 @@ describe("app test `POST:/api/v1/tags`", () => {
 
     await request
       .post("/api/v1/tags")
-      .send({
-        tagNames: [
-          `test2：${new Date().toString()}`,
-          `test3：${new Date().toString()}`,
-        ],
-      })
+      .send({ tagNames: ["test", `test`] })
       .expect(201)
       .then((res) => {
         const { data } = res.body
