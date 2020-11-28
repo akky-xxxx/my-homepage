@@ -1,9 +1,8 @@
 // import node_modules
 import express from "express"
-import helmet from "helmet"
-import compression from "compression"
 
 // import middleware
+import { commonMiddleware } from "@@/middleware/commonMiddleware"
 import { apiRouter } from "@@/middleware/api"
 import { errorHandler } from "@@/middleware/errorHandler"
 
@@ -14,8 +13,7 @@ import { Endpoints } from "@@/shared/const/Endpoints"
 const { API } = Endpoints
 const server = express()
 
-server.use(helmet())
-server.use(compression())
+server.use(commonMiddleware)
 
 server.use(API, apiRouter)
 
