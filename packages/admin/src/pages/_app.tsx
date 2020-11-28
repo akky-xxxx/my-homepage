@@ -1,11 +1,9 @@
 // import node_modules
 import App, { AppInitialProps } from "next/app"
 import Head from "next/head"
-import React from "react"
-import { ApolloProvider } from "@apollo/client"
+import React, { Fragment } from "react"
 
 // import other
-import { apolloClient } from "@@/modules/apolloClient"
 import { GlobalStyle } from "@@/styles/GlobalStyle"
 
 // main
@@ -14,7 +12,7 @@ class MyApp extends App<AppInitialProps> {
     const { Component, pageProps } = this.props
 
     return (
-      <ApolloProvider client={apolloClient}>
+      <Fragment>
         <Head>
           <meta
             name="viewport"
@@ -24,7 +22,7 @@ class MyApp extends App<AppInitialProps> {
         </Head>
         <GlobalStyle />
         <Component {...pageProps} />
-      </ApolloProvider>
+      </Fragment>
     )
   }
 }

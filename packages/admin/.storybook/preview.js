@@ -5,7 +5,6 @@ import Router from "next/router"
 import { ApolloProvider } from "@apollo/client"
 
 // import others
-import { apolloClient } from "../src/modules/apolloClient"
 import { GlobalStyle } from "../src/styles/GlobalStyle"
 
 export const parameters = {
@@ -25,6 +24,6 @@ Router.router = {
 addDecorator((storyFn) => (
   <Fragment>
     <GlobalStyle />
-    <ApolloProvider client={apolloClient}>{storyFn()}</ApolloProvider>
+    {storyFn()}
   </Fragment>
 ))
