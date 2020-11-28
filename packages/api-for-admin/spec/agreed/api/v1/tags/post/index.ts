@@ -4,7 +4,7 @@ import { ApiType } from "./types"
 // main
 export const postTags: ApiType[] = [
   {
-    title: "タグ：登録",
+    title: "タグ一覧：追加",
     description: "失敗",
     request: {
       path: ["api", "v1", "tags"],
@@ -21,7 +21,7 @@ export const postTags: ApiType[] = [
     },
   },
   {
-    title: "タグ：登録",
+    title: "タグ一覧：追加",
     description: "正常",
     request: {
       path: ["api", "v1", "tags"],

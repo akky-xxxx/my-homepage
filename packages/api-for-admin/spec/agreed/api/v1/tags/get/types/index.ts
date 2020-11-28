@@ -18,4 +18,4 @@ export type ApiType = APIDef<
   | ResponseDef<Success200, Convert2agreed<GetTagsResponse>>
   | ResponseDef<Error500, Convert2agreed<ErrorResponse>>
 > &
-  TagsTitle<"一覧取得">
+  TagsTitle<"取得">

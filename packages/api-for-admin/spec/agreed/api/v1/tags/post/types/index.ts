@@ -21,4 +21,4 @@ export type ApiType = APIDef<
   | ResponseDef<Success201, Convert2agreed<PostTagsResponse>>
   | ResponseDef<Error500, Convert2agreed<ErrorResponse>>
 > &
-  TagsTitle<"登録">
+  TagsTitle<"追加">
