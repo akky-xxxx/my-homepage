@@ -4,6 +4,7 @@ import { ThisError } from "@@/shared/utils/ThisError"
 import { createLogger } from "@@/shared/utils/createLogger"
 import { dataStore } from "@@/shared/utils/gcp"
 import { DataStore } from "@@/shared/const/DataStore"
+import { formatTags } from "@@/models/v1/getTagsModel/modules/formatTags"
 
 // main
 const {
@@ -17,7 +18,9 @@ export const getTagsModel: GetTagsModel = async () => {
   const query = dataStore.createQuery(TAGS)
 
   try {
-    const [tags] = await dataStore.runQuery(query)
+    const [entities] = await dataStore.runQuery(query)
+    const tags = entities.map(formatTags)
+
     const responseData: GetTagsResponse = {
       data: {
         tags,
