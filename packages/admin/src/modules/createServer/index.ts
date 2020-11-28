@@ -1,37 +1,20 @@
 // import node_modules
-import _fastify, { FastifyInstance } from "fastify"
-import helmet from "fastify-helmet"
-import compress from "fastify-compress"
+import express, { Express } from "express"
+import Server from "next/dist/next-server/server/next-server"
 
 // import middleware
-import { nextJs } from "@@/middleware/nextJs"
-
-// import others
-import { Common } from "@@/shared/const/Common"
-import { HelmetOptions } from "@@/modules/createServer/const/Config"
+import { commonMiddleware } from "@@/middleware/commonMiddleware"
+import { nextRoutes } from "@@/middleware/nextRoutes"
 
 // main
-const { IS_DEV, SEPARATOR } = Common
-const fastify = _fastify({
-  logger: IS_DEV,
-})
+const expressServer = express()
 
-type CreateServer = () => Promise<FastifyInstance>
-export const createServer: CreateServer = async () => {
-  fastify.register(helmet, HelmetOptions)
-  fastify.register(compress)
+type CreateServer = (nextServer: Server) => Express
+export const createServer: CreateServer = (nextServer) => {
+  const nextHandler = nextRoutes.getRequestHandler(nextServer)
+  expressServer.use(commonMiddleware)
 
-  fastify.register(nextJs)
+  expressServer.use(nextHandler)
 
-  fastify.ready(() => {
-    if (IS_DEV) {
-      /* eslint-disable no-console */
-      console.log(SEPARATOR)
-      console.log(fastify.printRoutes())
-      console.log(SEPARATOR)
-      /* eslint-enable no-console */
-    }
-  })
-
-  return fastify
+  return expressServer
 }
