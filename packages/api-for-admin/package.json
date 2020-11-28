@@ -28,6 +28,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@google-cloud/datastore": "^6.3.0",
     "cli-table": "^0.3.1",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
