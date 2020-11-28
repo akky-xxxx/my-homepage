@@ -2,7 +2,7 @@
 import { RequestHandler } from "express"
 
 // import model
-import { getTagsModel } from "@@/models/v1/getTagsModel"
+import { getTagsModel } from "@@/models/v1/tagsModels/getTagsModel"
 
 // import others
 import { ThisError } from "@@/shared/utils/ThisError"

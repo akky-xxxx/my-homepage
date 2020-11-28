@@ -4,7 +4,7 @@ import { ThisError } from "@@/shared/utils/ThisError"
 import { createLogger } from "@@/shared/utils/createLogger"
 import { dataStore } from "@@/shared/utils/gcp"
 import { DataStore } from "@@/shared/const/DataStore"
-import { formatTags } from "@@/models/v1/getTagsModel/modules/formatTags"
+import { formatTags } from "@@/models/v1/tagsModels/getTagsModel/modules/formatTags"
 
 // main
 const {

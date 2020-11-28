@@ -7,7 +7,7 @@ import {
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
 import { ThisError } from "@@/shared/utils/ThisError"
-import { postTagsModel } from "@@/models/v1/postTagsModel"
+import { postTagsModel } from "@@/models/v1/tagsModels/postTagsModel"
 
 // main
 type PostTagsController = RequestHandler<
