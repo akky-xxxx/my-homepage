@@ -12,10 +12,11 @@ const responseData: PostTagsResponse["data"] = {
 }
 const TAG_NAME = "put-test"
 const request = supertest(server)
+
 describe("app test `PUT:/api/v1/tags`", () => {
-  it("return 200 when correct request body", async () => {
+  it("return 200 when correct request body has tagId, tagName, isRelease", async () => {
     const idList = await insertTestRecord(TAG_NAME)
-    const tagName = `${TAG_NAME}-2`
+    const tagName = `${TAG_NAME}-1`
     const tags = idList.map((tagId) => ({
       tagId,
       tagName,
@@ -32,7 +33,46 @@ describe("app test `PUT:/api/v1/tags`", () => {
         expect(data).toEqual(responseData)
       })
     await removeTestRecords(tagName)
-    await removeTestRecords(TAG_NAME)
+  })
+
+  it("return 200 when correct request body has tagId, tagName", async () => {
+    const idList = await insertTestRecord(TAG_NAME)
+    const tagName = `${TAG_NAME}-2`
+    const tags = idList.map((tagId) => ({
+      tagId,
+      tagName,
+    }))
+
+    await request
+      .put("/api/v1/tags")
+      .send({ tags })
+      .expect(200)
+      .then((res) => {
+        const { data } = res.body
+        expect(typeof data).toEqual("object")
+        expect(data).toEqual(responseData)
+      })
+    await removeTestRecords(tagName)
+  })
+
+  it("return 200 when correct request body has tagId, isRelease", async () => {
+    const idList = await insertTestRecord(TAG_NAME)
+    const tagName = `${TAG_NAME}-3`
+    const tags = idList.map((tagId) => ({
+      tagId,
+      isRelease: true,
+    }))
+
+    await request
+      .put("/api/v1/tags")
+      .send({ tags })
+      .expect(200)
+      .then((res) => {
+        const { data } = res.body
+        expect(typeof data).toEqual("object")
+        expect(data).toEqual(responseData)
+      })
+    await removeTestRecords(tagName)
   })
 
   it("return 400 when not have request body", async () => {
@@ -40,7 +80,7 @@ describe("app test `PUT:/api/v1/tags`", () => {
   })
 
   it("return 400 when not have tagId in request body", async () => {
-    const tagName = `${TAG_NAME}-3`
+    const tagName = `${TAG_NAME}-4`
     const idList = await insertTestRecord(TAG_NAME)
     const tags = idList.map(() => ({
       tagName,
@@ -49,6 +89,5 @@ describe("app test `PUT:/api/v1/tags`", () => {
 
     await request.put("/api/v1/tags").send({ tags }).expect(400)
     await removeTestRecords(tagName)
-    await removeTestRecords(TAG_NAME)
   })
 })
