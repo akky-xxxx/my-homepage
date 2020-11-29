@@ -14,97 +14,101 @@ const TAG_NAME = "put-test"
 const request = supertest(server)
 
 describe("app test `PUT:/api/v1/tags`", () => {
-  it("return 200 when correct request body has tagId, tagName, isRelease", async () => {
-    const idList = await insertTestRecord(TAG_NAME)
-    const tagName = `${TAG_NAME}-1`
-    const tags = idList.map((tagId) => ({
-      tagId,
-      tagName,
-      isRelease: true,
-    }))
+  describe("success patterns", () => {
+    it("correct request body has tagId, tagName, isRelease", async () => {
+      const idList = await insertTestRecord(TAG_NAME)
+      const tagName = `${TAG_NAME}-1`
+      const tags = idList.map((tagId) => ({
+        tagId,
+        tagName,
+        isRelease: true,
+      }))
 
-    await request
-      .put("/api/v1/tags")
-      .send({ tags })
-      .expect(200)
-      .then((res) => {
-        const { data } = res.body
-        expect(typeof data).toEqual("object")
-        expect(data).toEqual(responseData)
-      })
-    await removeTestRecords(tagName)
+      await request
+        .put("/api/v1/tags")
+        .send({ tags })
+        .expect(200)
+        .then((res) => {
+          const { data } = res.body
+          expect(typeof data).toEqual("object")
+          expect(data).toEqual(responseData)
+        })
+      await removeTestRecords(tagName)
+    })
+
+    it("correct request body has tagId, tagName", async () => {
+      const idList = await insertTestRecord(TAG_NAME)
+      const tagName = `${TAG_NAME}-2`
+      const tags = idList.map((tagId) => ({
+        tagId,
+        tagName,
+      }))
+
+      await request
+        .put("/api/v1/tags")
+        .send({ tags })
+        .expect(200)
+        .then((res) => {
+          const { data } = res.body
+          expect(typeof data).toEqual("object")
+          expect(data).toEqual(responseData)
+        })
+      await removeTestRecords(tagName)
+    })
+
+    it("correct request body has tagId, isRelease", async () => {
+      const idList = await insertTestRecord(TAG_NAME)
+      const tags = idList.map((tagId) => ({
+        tagId,
+        isRelease: true,
+      }))
+
+      await request
+        .put("/api/v1/tags")
+        .send({ tags })
+        .expect(200)
+        .then((res) => {
+          const { data } = res.body
+          expect(typeof data).toEqual("object")
+          expect(data).toEqual(responseData)
+        })
+      await removeTestRecords(TAG_NAME)
+    })
+
+    it("no updating record", async () => {
+      const idList = await insertTestRecord(TAG_NAME)
+      const tags = idList.map((tagId) => ({
+        tagId,
+      }))
+
+      await request
+        .put("/api/v1/tags")
+        .send({ tags })
+        .expect(200)
+        .then((res) => {
+          const { data } = res.body
+          expect(typeof data).toEqual("object")
+          expect(data).toEqual(responseData)
+        })
+      await removeTestRecords(TAG_NAME)
+    })
   })
 
-  it("return 200 when correct request body has tagId, tagName", async () => {
-    const idList = await insertTestRecord(TAG_NAME)
-    const tagName = `${TAG_NAME}-2`
-    const tags = idList.map((tagId) => ({
-      tagId,
-      tagName,
-    }))
+  describe("failure 400 patterns", () => {
+    it("not have request body", async () => {
+      await request.put("/api/v1/tags").expect(400)
+    })
 
-    await request
-      .put("/api/v1/tags")
-      .send({ tags })
-      .expect(200)
-      .then((res) => {
-        const { data } = res.body
-        expect(typeof data).toEqual("object")
-        expect(data).toEqual(responseData)
-      })
-    await removeTestRecords(tagName)
-  })
+    it("not have tagId in request body", async () => {
+      const tagName = `${TAG_NAME}-4`
+      const idList = await insertTestRecord(TAG_NAME)
+      const tags = idList.map(() => ({
+        tagName,
+        isRelease: true,
+      }))
 
-  it("return 200 when correct request body has tagId, isRelease", async () => {
-    const idList = await insertTestRecord(TAG_NAME)
-    const tags = idList.map((tagId) => ({
-      tagId,
-      isRelease: true,
-    }))
-
-    await request
-      .put("/api/v1/tags")
-      .send({ tags })
-      .expect(200)
-      .then((res) => {
-        const { data } = res.body
-        expect(typeof data).toEqual("object")
-        expect(data).toEqual(responseData)
-      })
-    await removeTestRecords(TAG_NAME)
-  })
-
-  it("return 200 when no updating record", async () => {
-    const idList = await insertTestRecord(TAG_NAME)
-    const tags = idList.map((tagId) => ({
-      tagId,
-    }))
-
-    await request
-      .put("/api/v1/tags")
-      .send({ tags })
-      .expect(200)
-      .then((res) => {
-        const { data } = res.body
-        expect(typeof data).toEqual("object")
-        expect(data).toEqual(responseData)
-      })
-    await removeTestRecords(TAG_NAME)
-  })
-
-  it("return 400 when not have request body", async () => {
-    await request.put("/api/v1/tags").expect(400)
-  })
-
-  it("return 400 when not have tagId in request body", async () => {
-    const tagName = `${TAG_NAME}-4`
-    const idList = await insertTestRecord(TAG_NAME)
-    const tags = idList.map(() => ({
-      tagName,
-      isRelease: true,
-    }))
-
-    await request.put("/api/v1/tags").send({ tags }).expect(400)
-    await removeTestRecords(TAG_NAME)
+      await request.put("/api/v1/tags").send({ tags }).expect(400)
+      await removeTestRecords(TAG_NAME)
+    })
   })
 })
