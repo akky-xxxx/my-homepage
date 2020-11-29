@@ -24,7 +24,7 @@ export type GetTagsResponse = ResponseData<{
 }>
 
 // update (put)
-type PutTag = Pick<DataStoreTag, "tagId"> &
+export type PutTag = Pick<DataStoreTag, "tagId"> &
   Partial<Pick<DataStoreTag, "tagName" | "isRelease">>
 export type PutTagsRequestBody = {
   tags: PutTag[]
