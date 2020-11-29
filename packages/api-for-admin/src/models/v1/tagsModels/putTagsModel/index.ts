@@ -1,18 +1,22 @@
 // import node_modules
 import { Request } from "express"
 
-// import others
+// import shared/utils
+import { ThisError } from "@@/shared/utils/ThisError"
+import { createErrorData } from "@@/shared/utils/createErrorData"
+import { dataStore } from "@@/shared/utils/gcp"
+import { createLogger } from "@@/shared/utils/createLogger"
+
+// import other shared
 import {
   PutTagsRequestBody,
   PutTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { ThisError } from "@@/shared/utils/ThisError"
-import { createErrorData } from "@@/shared/utils/createErrorData"
-import { isPutTagsRequestBody } from "@@/models/v1/tagsModels/putTagsModel/modules/isPutTagsRequestBody"
 import { Server } from "@@/shared/const/Server"
-import { dataStore } from "@@/shared/utils/gcp"
+
+// import others
+import { isPutTagsRequestBody } from "@@/models/v1/tagsModels/putTagsModel/modules/isPutTagsRequestBody"
 import { getUpdateData } from "@@/models/v1/tagsModels/putTagsModel/modules/getUpdateData"
-import { createLogger } from "@@/shared/utils/createLogger"
 
 // main
 const logger = createLogger(__filename)
