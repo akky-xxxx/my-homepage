@@ -6,7 +6,7 @@ import { server } from "@@/modules/server"
 
 // main
 const request = supertest(server)
-describe("app test `/api/v1/tags`", () => {
+describe("app test `GET:/api/v1/tags`", () => {
   it("return 200 and correct property", async () => {
     await request
       .get("/api/v1/tags")
