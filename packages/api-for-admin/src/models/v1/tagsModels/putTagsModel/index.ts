@@ -12,8 +12,10 @@ import { isPutTagsRequestBody } from "@@/models/v1/tagsModels/putTagsModel/modul
 import { Server } from "@@/shared/const/Server"
 import { dataStore } from "@@/shared/utils/gcp"
 import { getUpdateData } from "@@/models/v1/tagsModels/putTagsModel/modules/getUpdateData"
+import { createLogger } from "@@/shared/utils/createLogger"
 
 // main
+const logger = createLogger(__filename)
 const { SUCCESS_RESPONSE } = Server
 const error400 = new ThisError({ ...createErrorData(__filename, 400) })
 
@@ -22,6 +24,8 @@ type PutTagsModel = (
 ) => Promise<PutTagsResponse>
 
 export const putTagsModel: PutTagsModel = async (body) => {
+  logger.info("start")
+  logger.debug({ body })
   if (!isPutTagsRequestBody(body)) {
     return Promise.reject(error400)
   }
@@ -34,6 +38,7 @@ export const putTagsModel: PutTagsModel = async (body) => {
     await transaction.run()
     const nullableUpdateData = await Promise.all(tags.map(getUpdateDataMain))
     const updateData = nullableUpdateData.filter(Boolean)
+    logger.debug({ updateData })
 
     if (!updateData.length) {
       await transaction.commit()
@@ -42,6 +47,7 @@ export const putTagsModel: PutTagsModel = async (body) => {
 
     await transaction.save(updateData)
     await transaction.commit()
+    logger.info("success")
     return Promise.resolve(SUCCESS_RESPONSE)
   } catch (error) {
     const thisError = new ThisError({ error })
