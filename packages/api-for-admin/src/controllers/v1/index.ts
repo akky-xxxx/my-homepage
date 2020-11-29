@@ -1,18 +1,19 @@
 // import node_modules
 import { Router } from "express"
 
-// import
-import { sampleController } from "@@/controllers/v1/sampleController"
+// import controllers
+import { tagsControllers } from "@@/controllers/v1/tagsControllers"
 
-// import
+// import others
 import { Endpoints } from "@@/shared/const/Endpoints"
 
 // main
 const {
-  V1: { SAMPLE },
+  V1: { TAGS },
 } = Endpoints
 const v1Router = Router()
 
-v1Router.get(SAMPLE, sampleController)
+// tags request handlers
+v1Router.use(TAGS, tagsControllers)
 
 export { v1Router }

@@ -2,9 +2,9 @@
 import { convert } from "@agreed/typed"
 
 // import modules
-import { sampleGet } from "./api/v1/sample/get"
+import { v1 } from "./api/v1"
 
 // main
-const agrees = [...sampleGet]
+const agrees = [...v1]
 
 module.exports = convert(...agrees)
