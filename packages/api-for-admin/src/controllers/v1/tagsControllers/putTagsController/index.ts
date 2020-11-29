@@ -4,7 +4,7 @@ import { RequestHandler } from "express"
 // import others
 import {
   PutTagsRequestBody,
-  PuttTagsResponse,
+  PutTagsResponse,
 } from "@@/shared/types/api/v1/tags"
 import { ThisError } from "@@/shared/utils/ThisError"
 import { createErrorData } from "@@/shared/utils/createErrorData"
@@ -12,7 +12,7 @@ import { createErrorData } from "@@/shared/utils/createErrorData"
 // main
 type PutTagsController = RequestHandler<
   never,
-  PuttTagsResponse,
+  PutTagsResponse,
   PutTagsRequestBody
 >
 export const putTagsController: PutTagsController = async (req, res, next) => {

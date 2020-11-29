@@ -30,6 +30,6 @@ export type PutTagsRequestBody = {
   tags: PutTag[]
 }
 
-export type PuttTagsResponse = ResponseData<{
+export type PutTagsResponse = ResponseData<{
   result: "success"
 }>

@@ -5,7 +5,7 @@ import { PUT, APIDef, ResponseDef, Success201, Error500 } from "@agreed/typed"
 import { EmptyObject } from "@@/shared/types/common"
 import {
   PutTagsRequestBody,
-  PuttTagsResponse,
+  PutTagsResponse,
 } from "@@/shared/types/api/v1/tags"
 import { Convert2agreed, ErrorResponse } from "../../../../../types"
 import { TagsTitle, TagsEndpoint } from "../../types"
@@ -18,7 +18,7 @@ export type ApiType = APIDef<
   EmptyObject,
   Convert2agreed<PutTagsRequestBody>,
   EmptyObject,
-  | ResponseDef<Success201, Convert2agreed<PuttTagsResponse>>
+  | ResponseDef<Success201, Convert2agreed<PutTagsResponse>>
   | ResponseDef<Error500, Convert2agreed<ErrorResponse>>
 > &
   TagsTitle<"更新">
