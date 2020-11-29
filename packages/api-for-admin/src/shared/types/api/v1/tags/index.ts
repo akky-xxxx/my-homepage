@@ -33,3 +33,12 @@ export type PutTagsRequestBody = {
 export type PutTagsResponse = ResponseData<{
   result: "success"
 }>
+
+// delete (delete)
+export type DeleteTagsQuery = {
+  tagIds: (keyof Pick<DataStoreTag, "tagId">)[]
+}
+
+export type DeleteTagsResponse = ResponseData<{
+  result: "success"
+}>
