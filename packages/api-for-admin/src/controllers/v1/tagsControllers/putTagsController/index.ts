@@ -6,8 +6,7 @@ import {
   PutTagsRequestBody,
   PutTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { ThisError } from "@@/shared/utils/ThisError"
-import { createErrorData } from "@@/shared/utils/createErrorData"
+import { putTagsModel } from "@@/models/v1/tagsModels/putTagsModel"
 
 // main
 type PutTagsController = RequestHandler<
@@ -16,23 +15,9 @@ type PutTagsController = RequestHandler<
   PutTagsRequestBody
 >
 export const putTagsController: PutTagsController = async (req, res, next) => {
-  if (!req.body.tags) {
-    const error = new ThisError({ ...createErrorData(__filename, 400) })
-    next(error)
-    return
-  }
-
-  const hasTagId = req.body.tags.some((tag) => {
-    return tag.tagId
-  })
-  if (!hasTagId) {
-    const error = new ThisError({ ...createErrorData(__filename, 400) })
-    next(error)
-    return
-  }
-
   try {
-    res.status(200).send({ data: { result: "success" } })
+    const result = await putTagsModel(req.body)
+    res.status(200).send(result)
   } catch (error) {
     next(error)
   }
