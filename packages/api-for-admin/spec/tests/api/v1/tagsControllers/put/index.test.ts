@@ -74,6 +74,24 @@ describe("app test `PUT:/api/v1/tags`", () => {
     await removeTestRecords(TAG_NAME)
   })
 
+  it("return 200 when no updating record", async () => {
+    const idList = await insertTestRecord(TAG_NAME)
+    const tags = idList.map((tagId) => ({
+      tagId,
+    }))
+
+    await request
+      .put("/api/v1/tags")
+      .send({ tags })
+      .expect(200)
+      .then((res) => {
+        const { data } = res.body
+        expect(typeof data).toEqual("object")
+        expect(data).toEqual(responseData)
+      })
+    await removeTestRecords(TAG_NAME)
+  })
+
   it("return 400 when not have request body", async () => {
     await request.put("/api/v1/tags").expect(400)
   })
