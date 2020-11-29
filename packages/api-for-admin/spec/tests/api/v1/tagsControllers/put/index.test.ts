@@ -57,7 +57,6 @@ describe("app test `PUT:/api/v1/tags`", () => {
 
   it("return 200 when correct request body has tagId, isRelease", async () => {
     const idList = await insertTestRecord(TAG_NAME)
-    const tagName = `${TAG_NAME}-3`
     const tags = idList.map((tagId) => ({
       tagId,
       isRelease: true,
@@ -72,7 +71,7 @@ describe("app test `PUT:/api/v1/tags`", () => {
         expect(typeof data).toEqual("object")
         expect(data).toEqual(responseData)
       })
-    await removeTestRecords(tagName)
+    await removeTestRecords(TAG_NAME)
   })
 
   it("return 400 when not have request body", async () => {
@@ -88,6 +87,6 @@ describe("app test `PUT:/api/v1/tags`", () => {
     }))
 
     await request.put("/api/v1/tags").send({ tags }).expect(400)
-    await removeTestRecords(tagName)
+    await removeTestRecords(TAG_NAME)
   })
 })
