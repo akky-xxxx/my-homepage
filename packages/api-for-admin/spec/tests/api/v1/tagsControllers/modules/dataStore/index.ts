@@ -7,11 +7,9 @@ const {
   TYPES: { TAGS },
 } = DataStore
 
-export const TAG_NAME = "test"
-
-type RemoveTestRecords = () => Promise<void>
-export const removeTestRecords: RemoveTestRecords = async () => {
-  const query = dataStore.createQuery(TAGS).filter("tagName", TAG_NAME)
+type RemoveTestRecords = (tagName: string) => Promise<void>
+export const removeTestRecords: RemoveTestRecords = async (tagName) => {
+  const query = dataStore.createQuery(TAGS).filter("tagName", tagName)
   const [targetEntities] = await dataStore.runQuery(query)
   const targetKeys = targetEntities
     .map((tag) => tag.tagId)

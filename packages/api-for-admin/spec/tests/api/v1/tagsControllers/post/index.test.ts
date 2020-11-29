@@ -4,12 +4,13 @@ import supertest from "supertest"
 // import others
 import { server } from "@@/modules/server"
 import { PostTagsResponse } from "@@/shared/types/api/v1/tags"
-import { removeTestRecords, TAG_NAME } from "../modules/dataStore"
+import { removeTestRecords } from "../modules/dataStore"
 
 // main
 const responseData: PostTagsResponse["data"] = {
   result: "success",
 }
+const TAG_NAME = "post-test"
 const request = supertest(server)
 describe("app test `POST:/api/v1/tags`", () => {
   it("return 201 and correct property when tagName is string", async () => {
@@ -22,7 +23,7 @@ describe("app test `POST:/api/v1/tags`", () => {
         expect(typeof data).toEqual("object")
         expect(data).toEqual(responseData)
       })
-    await removeTestRecords()
+    await removeTestRecords(TAG_NAME)
   })
 
   it("return 201 and correct property when tagName is array of string", async () => {
@@ -35,7 +36,7 @@ describe("app test `POST:/api/v1/tags`", () => {
         expect(typeof data).toEqual("object")
         expect(data).toEqual(responseData)
       })
-    await removeTestRecords()
+    await removeTestRecords(TAG_NAME)
   })
 
   it("return 400 when not have request body", async () => {
