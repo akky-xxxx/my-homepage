@@ -33,6 +33,7 @@
     "@specter/redux-effects-specter": "^0.6.5",
     "@specter/specter": "^0.6.5",
     "cli-table": "^0.3.1",
+    "common-types": "link:../common-types",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-list-endpoints": "^5.0.0",
