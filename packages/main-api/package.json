@@ -24,13 +24,13 @@
   },
   "dependencies": {
     "apollo-server-fastify": "^2.19.0",
-    "common-types": "link:../common-types",
     "dotenv": "^8.2.0",
     "faker": "^5.1.0",
     "fastify": "^3.8.0",
     "fastify-compress": "^3.4.0",
     "fastify-helmet": "^5.0.3",
     "remeda": "^0.0.27",
+    "shared-items": "link:../shared-items",
     "uuid": "^8.3.1"
   },
   "devDependencies": {
