@@ -22,7 +22,6 @@ module.exports = {
       "tsc",
       `stylelint ${joinedHalfSpace}`,
       "test IS_TEST=true jest",
-      "git add .",
     ]
   },
   "!(src/)**/*.{ts,tsx}": (filenames) => {
@@ -30,7 +29,6 @@ module.exports = {
     return [
       `cspell ${getReplacedFilePaths(filenames)}`,
       `eslint --fix ${joinedHalfSpace}`,
-      "git add .",
     ]
   },
   "*.js": (filenames) => {
@@ -38,7 +36,6 @@ module.exports = {
     return [
       `cspell ${getReplacedFilePaths(filenames)}`,
       `eslint ${joinedHalfSpace} --fix`,
-      "git add .",
     ]
   },
   "package.json": () => ["fixpack", "git add ."],
