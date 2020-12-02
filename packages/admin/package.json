@@ -33,7 +33,6 @@
     "@specter/redux-effects-specter": "^0.6.5",
     "@specter/specter": "^0.6.5",
     "cli-table": "^0.3.1",
-    "common-types": "link:../common-types",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-list-endpoints": "^5.0.0",
@@ -49,6 +48,7 @@
     "redux-effects-formdata-uploader": "^1.4.1",
     "redux-effects-steps": "^1.0.3",
     "remeda": "^0.0.27",
+    "shared-items": "link:../shared-items",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.1"
   },
