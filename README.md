@@ -6,7 +6,7 @@ Monorepo for homepage.
 ### Each packages
 - main
   - homepage
-- api-for-main
+- main-api
   - api server for homepage
 - admin
   - data control screen
