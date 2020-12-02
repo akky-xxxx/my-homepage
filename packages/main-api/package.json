@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "apollo-server-fastify": "^2.19.0",
+    "common-types": "link:../common-types",
     "dotenv": "^8.2.0",
     "faker": "^5.1.0",
     "fastify": "^3.8.0",
