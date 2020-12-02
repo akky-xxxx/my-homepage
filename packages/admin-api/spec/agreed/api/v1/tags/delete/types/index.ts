@@ -6,9 +6,9 @@ import {
   Success200,
   Error500,
 } from "@agreed/typed"
+import { EmptyObject } from "common-types"
 
 // import others
-import { EmptyObject } from "@@/shared/types/common"
 import {
   DeleteTagsQuery,
   DeleteTagsResponse,

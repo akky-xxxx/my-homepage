@@ -1,6 +1,8 @@
+// import node_modules
+import { StringDatetime } from "common-types"
+
 // import
 import { ResponseData } from "@@/shared/types/api"
-import { StringDatetime } from "@@/shared/types/common"
 import { Tag as DataStoreTag } from "@@/shared/types/gcp/dataStore"
 
 // main

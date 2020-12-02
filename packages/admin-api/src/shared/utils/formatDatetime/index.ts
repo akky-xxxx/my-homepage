@@ -1,8 +1,8 @@
 // import node_modules
 import { format } from "date-fns"
+import { StringDatetime } from "common-types"
 
 // import others
-import { StringDatetime } from "@@/shared/types/common"
 import { DateFns } from "@@/shared/const/DateFns"
 
 // main

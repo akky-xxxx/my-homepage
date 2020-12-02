@@ -1,8 +1,8 @@
 // import node_modules
 import { POST, APIDef, ResponseDef, Success201, Error500 } from "@agreed/typed"
+import { EmptyObject } from "common-types"
 
 // import others
-import { EmptyObject } from "@@/shared/types/common"
 import {
   PostTagsRequestBody,
   PostTagsResponse,
