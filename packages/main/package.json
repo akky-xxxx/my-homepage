@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.9",
+    "common-types": "link:../common-types",
     "dotenv": "^8.2.0",
     "fastify": "^3.8.0",
     "fastify-compress": "^3.4.0",
