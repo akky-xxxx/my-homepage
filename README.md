@@ -12,6 +12,8 @@ Monorepo for homepage.
   - data control screen
 - admin-api
   - api server for admin
+- common-types
+  - common type of all packages
 
 ## Node version
 Refer the node-version.
