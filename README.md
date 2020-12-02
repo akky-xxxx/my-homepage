@@ -10,7 +10,7 @@ Monorepo for homepage.
   - api server for homepage
 - admin
   - data control screen
-- api-for-admin
+- admin-api
   - api server for admin
 
 ## Node version
