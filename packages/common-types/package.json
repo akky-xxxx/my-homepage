@@ -1,0 +1,42 @@
+{
+  "name": "common-types",
+  "version": "0.0.0",
+  "author": "akky-xxxx <114.s.aki@gmail.com>",
+  "private": true,
+  "repository": "https://github.com/akky-xxxx/my-homepage.git",
+  "scripts": {
+    "check-all": "run-p spell-check lint type-check",
+    "doc": "echo 'nothing task'",
+    "fix": "run-p fix:*",
+    "fix:config": "prettier .eslintrc.js ./*.js --write",
+    "fix:json": "prettier ./*.json --write",
+    "fix:pack": "fixpack",
+    "fix:ts": "eslint './src/**/*.ts' --fix",
+    "lint": "run-p lint:*",
+    "lint:ts": "eslint './src/**/*.ts'",
+    "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
+    "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
+    "spell-check": "cspell './src/**/*.ts'",
+    "type-check": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "cspell": "^4.2.2",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fixpack": "^3.0.6",
+    "lint-staged": "^10.5.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.0.0",
+    "ts-node-paths": "^1.0.1",
+    "typescript": "^4.1.2"
+  },
+  "main": "./src/index.ts"
+}
