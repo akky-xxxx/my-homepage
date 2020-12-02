@@ -1,6 +1,6 @@
 // import node_modules
 import { useCallback } from "react"
-import { EmptyFunction } from "common-types"
+import { EmptyFunction } from "shared-items"
 
 // import others
 import { MenuButtonProps } from "@@/components/atoms/MenuButton/types"

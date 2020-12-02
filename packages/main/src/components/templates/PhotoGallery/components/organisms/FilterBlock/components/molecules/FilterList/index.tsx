@@ -1,7 +1,7 @@
 // import node_modules
 import React, { FC } from "react"
 import styled from "styled-components"
-import { EmptyFunction } from "common-types"
+import { EmptyFunction } from "shared-items"
 
 // import components
 import {
