@@ -1,6 +1,8 @@
+// import node_modules
+import { EmptyFunction } from "common-types"
+
 // import
 import { SizeType } from "@@/shared/types/ui"
-import { EmptyFunction } from "@@/shared/types/common"
 
 // main
 /**

@@ -1,9 +1,9 @@
 // import node_modules
 import { useCallback, useMemo } from "react"
+import { EmptyFunction } from "common-types"
 
 // import others
 import { SizeType } from "@@/shared/types/ui"
-import { EmptyFunction } from "@@/shared/types/common"
 import { IconCalendarProps } from "@@/components/icons/IconCalendar/types"
 
 // main
