@@ -29,3 +29,9 @@ export type AnyObject = Record<string, unknown>
  * @param T - null でない時の型
  */
 export type Nullable<T> = T | null
+
+/**
+ * @typedef StringDatetime
+ * @description 日付形式を指す type alias
+ */
+export type StringDatetime = string
