@@ -6,7 +6,7 @@ import {
   Success200,
   Error500,
 } from "@agreed/typed"
-import { EmptyObject } from "common-types"
+import { EmptyObject } from "shared-items"
 
 // import others
 import {

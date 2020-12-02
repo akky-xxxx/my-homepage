@@ -1,5 +1,5 @@
 // import node_modules
-import { StringDatetime } from "common-types"
+import { StringDatetime } from "shared-items"
 
 // import
 import { ResponseData } from "@@/shared/types/api"
