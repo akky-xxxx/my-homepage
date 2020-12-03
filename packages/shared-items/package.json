@@ -7,6 +7,7 @@
   "scripts": {
     "check-all": "run-p spell-check lint type-check",
     "doc": "echo 'nothing task'",
+    "doc:ui": "start-storybook -p 3001 --no-dll",
     "fix": "run-p fix:*",
     "fix:config": "prettier .eslintrc.js ./*.js --write",
     "fix:json": "prettier ./*.json --write",

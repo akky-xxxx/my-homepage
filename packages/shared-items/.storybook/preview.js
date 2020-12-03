@@ -1,0 +1,28 @@
+// import node_modules
+import React, { Fragment } from "react"
+import { addDecorator } from "@storybook/react"
+import Router from "next/router"
+
+// import others
+import { GlobalStyle } from "../src/client/styles/GlobalStyle"
+
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+}
+
+Router.useRouter = () => ({
+  route: "/",
+  pathname: "/",
+})
+
+Router.router = {
+  push: () => {},
+  prefetch: () => new Promise(() => {}),
+}
+
+addDecorator((storyFn) => (
+  <Fragment>
+    <GlobalStyle />
+    {storyFn()}
+  </Fragment>
+))
