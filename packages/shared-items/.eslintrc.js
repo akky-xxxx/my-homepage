@@ -9,29 +9,45 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   extends: [
-    "airbnb-base",
+    "airbnb",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/@typescript-eslint",
+    "prettier/react",
   ],
-  plugins: ["@typescript-eslint", "prettier", "import"],
+  plugins: ["react-hooks", "@typescript-eslint", "prettier", "import"],
   rules: {
-    camelcase: WARN,
+    camelcase: ERROR,
+    "no-use-before-define": OFF,
+    "@typescript-eslint/no-unused-vars": [ERROR],
     "import/prefer-default-export": OFF,
+    "import/no-extraneous-dependencies": [
+      ERROR,
+      {
+        devDependencies: ["**/stories.tsx", "**/*.stories.tsx"],
+      },
+    ],
     "import/extensions": [
       "error",
       {
-        js: "never",
-        ts: "never",
+        jsx: "never",
+        tsx: "never",
       },
     ],
+    "react/jsx-props-no-spreading": OFF,
+    "react/prop-types": OFF,
+    "react/jsx-fragments": [ERROR, "element"],
+    "react-hooks/rules-of-hooks": ERROR,
     "prettier/prettier": ERROR,
+    "react/jsx-filename-extension": [OFF, { extensions: [".tsx"] }],
+    "@typescript-eslint/explicit-module-boundary-types": OFF,
     "@typescript-eslint/explicit-member-accessibility": OFF,
+    "@typescript-eslint/explicit-function-return-type": OFF,
   },
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".ts"],
+        extensions: [".ts", ".tsx"],
       },
       typescript: {},
     },
