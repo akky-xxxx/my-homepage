@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowUnreachableCode": false,
     "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "lib": ["esnext"],
-    "module": "CommonJS",
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
     "noUnusedLocals": true,
@@ -16,10 +18,11 @@
       "@@/*": ["src/*"]
     },
     "removeComments": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
