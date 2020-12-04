@@ -5,6 +5,7 @@
   "private": true,
   "repository": "https://github.com/akky-xxxx/my-homepage.git",
   "scripts": {
+    "build": "tsc",
     "check-all": "run-p spell-check lint type-check",
     "doc": "echo 'nothing task'",
     "doc:ui": "start-storybook -p 3001 --no-dll",
@@ -18,7 +19,7 @@
     "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "spell-check": "cspell './src/**/*.ts'",
-    "type-check": "tsc"
+    "type-check": "tsc --noEmit true"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
