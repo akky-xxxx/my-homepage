@@ -3,8 +3,8 @@ import React from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { IconMap } from "@@/client/components/icons/IconMap/index"
-import { IconMapProps } from "@@/client/components/icons/IconMap/types"
+import { IconMap } from "./index"
+import { IconMapProps } from "./types"
 
 // main
 const config: Meta<IconMapProps> = {

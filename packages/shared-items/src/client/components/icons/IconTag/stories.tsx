@@ -3,8 +3,8 @@ import React from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { IconTag } from "@@/client/components/icons/IconTag/index"
-import { IconTagProps } from "@@/client/components/icons/IconTag/types"
+import { IconTag } from "./index"
+import { IconTagProps } from "./types"
 
 // main
 const config: Meta<IconTagProps> = {

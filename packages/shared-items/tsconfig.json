@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "allowUnreachableCode": false,
-    "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,9 +13,6 @@
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "@@/*": ["src/*"]
-    },
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,

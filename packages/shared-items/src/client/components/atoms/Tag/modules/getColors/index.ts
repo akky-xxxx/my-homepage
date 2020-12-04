@@ -2,8 +2,8 @@
 import { css, FlattenSimpleInterpolation } from "styled-components"
 
 // import others
-import { Color } from "@@/client/const/styles/Color"
-import { TagProps } from "@@/client/components/atoms/Tag/types"
+import { Color } from "../../../../../const/styles/Color"
+import { TagProps } from "../../types"
 
 // main
 const { PRIMARY, SECONDARY, ACCENT, COLOR_212121, COLOR_FEFEFE } = Color

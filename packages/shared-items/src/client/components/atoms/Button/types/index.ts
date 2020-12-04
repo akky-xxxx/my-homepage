@@ -1,5 +1,5 @@
 // import
-import { ColorType, SizeType } from "@@/client/types/ui"
+import { ColorType, SizeType } from "../../../../types/ui"
 
 // main
 export type ButtonProps = {

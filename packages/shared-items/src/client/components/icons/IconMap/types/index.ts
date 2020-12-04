@@ -1,6 +1,6 @@
 // import others
-import { EmptyFunction } from "@@/common/types"
-import { SizeType } from "@@/client/types/ui"
+import { EmptyFunction } from "../../../../../common"
+import { SizeType } from "../../../../types/ui"
 
 // main
 /**

@@ -1,5 +1,5 @@
 // import
-import { StyledSvgProps } from "@@/client/components/atoms/MenuButton/types"
+import { StyledSvgProps } from "../../types"
 
 // main
 type getRotate = (args: StyledSvgProps) => number

@@ -3,9 +3,9 @@ import React, { memo, FC } from "react"
 import styled from "styled-components"
 
 // import others
-import { IconTagProps } from "@@/client/components/icons/IconTag/types"
-import { useIconTag } from "@@/client/components/icons/IconTag/modules/useIconTag"
-import { Transition } from "@@/client/const/styles/Transition"
+import { IconTagProps } from "./types"
+import { useIconTag } from "./modules/useIconTag"
+import { Transition } from "../../../const/styles/Transition"
 
 // main
 export const IconTag: FC<IconTagProps> = memo((props) => {

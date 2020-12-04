@@ -3,8 +3,8 @@ import React from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { IconCalendar } from "@@/client/components/icons/IconCalendar/index"
-import { IconCalendarProps } from "@@/client/components/icons/IconCalendar/types"
+import { IconCalendar } from "./index"
+import { IconCalendarProps } from "./types"
 
 // main
 const config: Meta<IconCalendarProps> = {

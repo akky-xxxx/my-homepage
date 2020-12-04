@@ -3,8 +3,8 @@ import React from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { IconClose } from "@@/client/components/icons/IconClose/index"
-import { IconCloseProps } from "@@/client/components/icons/IconClose/types"
+import { IconClose } from "./index"
+import { IconCloseProps } from "./types"
 
 // main
 const config: Meta<IconCloseProps> = {

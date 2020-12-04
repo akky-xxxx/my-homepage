@@ -1,6 +1,6 @@
 // import
-import { ButtonProps } from "@@/client/components/atoms/Button/types"
-import { Font } from "@@/client/const/styles/Font"
+import { ButtonProps } from "../../types"
+import { Font } from "../../../../../const/styles/Font"
 
 // main
 const {

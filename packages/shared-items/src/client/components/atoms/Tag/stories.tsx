@@ -3,8 +3,8 @@ import React, { PropsWithChildren } from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { Tag } from "@@/client/components/atoms/Tag"
-import { TagProps } from "@@/client/components/atoms/Tag/types"
+import { Tag } from "./index"
+import { TagProps } from "./types"
 
 // main
 const config: Meta = {

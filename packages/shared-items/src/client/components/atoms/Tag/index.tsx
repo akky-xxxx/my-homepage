@@ -2,12 +2,12 @@
 import styled from "styled-components"
 
 // import others
-import { Radius } from "@@/client/const/styles/Radius"
-import { Color } from "@@/client/const/styles/Color"
-import { Font } from "@@/client/const/styles/Font"
-import { Transition } from "@@/client/const/styles/Transition"
-import { TagProps } from "@@/client/components/atoms/Tag/types"
-import { getColors } from "@@/client/components/atoms/Tag/modules/getColors"
+import { Radius } from "../../../const/styles/Radius"
+import { Color } from "../../../const/styles/Color"
+import { Font } from "../../../const/styles/Font"
+import { Transition } from "../../../const/styles/Transition"
+import { TagProps } from "./types"
+import { getColors } from "./modules/getColors"
 
 // main
 const { DURATION, TIMING_FUNCTION } = Transition

@@ -3,8 +3,8 @@ import React from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { MenuButton } from "@@/client/components/atoms/MenuButton/index"
-import { MenuButtonProps } from "@@/client/components/atoms/MenuButton/types"
+import { MenuButton } from "./index"
+import { MenuButtonProps } from "./types"
 
 // main
 const config: Meta<MenuButtonProps> = {

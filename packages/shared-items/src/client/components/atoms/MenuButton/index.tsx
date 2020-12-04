@@ -3,10 +3,10 @@ import React, { memo, FC } from "react"
 import styled from "styled-components"
 
 // import others
-import { MenuButtonProps, StyledSvgProps } from "@@/client/components/atoms/MenuButton/types"
-import { useMenuButton } from "@@/client/components/atoms/MenuButton/modules/useMenuButton"
-import { getRotate } from "@@/client/components/atoms/MenuButton/modules/getRotate"
-import { Transition } from "@@/client/const/styles/Transition"
+import { MenuButtonProps, StyledSvgProps } from "./types"
+import { useMenuButton } from "./modules/useMenuButton"
+import { getRotate } from "./modules/getRotate"
+import { Transition } from "../../../const/styles/Transition"
 
 // main
 export const MenuButton: FC<MenuButtonProps> = memo((props) => {

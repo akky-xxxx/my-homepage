@@ -2,9 +2,9 @@
 import { useMemo, useCallback } from "react"
 
 // import others
-import { EmptyFunction } from "@@/common/types"
-import { SizeType } from "@@/client/types/ui"
-import { IconTagProps } from "@@/client/components/icons/IconTag/types"
+import { EmptyFunction } from "../../../../../../common"
+import { SizeType } from "../../../../../types/ui"
+import { IconTagProps } from "../../types"
 
 // main
 const SIZE: Record<SizeType, number> = {

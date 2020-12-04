@@ -2,8 +2,8 @@
 import { css } from "styled-components"
 
 // import others
-import { Color } from "@@/client/const/styles/Color"
-import { Font } from "@@/client/const/styles/Font"
+import { Color } from "../../../../const/styles/Color"
+import { Font } from "../../../../const/styles/Font"
 
 // main
 const { BACKGROUND, PRIMARY_TEXT } = Color

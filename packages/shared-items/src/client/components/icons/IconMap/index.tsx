@@ -3,9 +3,9 @@ import React, { memo, FC } from "react"
 import styled from "styled-components"
 
 // import others
-import { IconMapProps } from "@@/client/components/icons/IconMap/types"
-import { useIconMap } from "@@/client/components/icons/IconMap/modules/useIconMap"
-import { Transition } from "@@/client/const/styles/Transition"
+import { IconMapProps } from "./types"
+import { useIconMap } from "./modules/useIconMap"
+import { Transition } from "../../../const/styles/Transition"
 
 // main
 export const IconMap: FC<IconMapProps> = memo((props) => {

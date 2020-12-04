@@ -1,5 +1,5 @@
 // import
-import { ColorType } from "@@/client/types/ui"
+import { ColorType } from "../../../../types/ui"
 
 // main
 export type TagProps = {

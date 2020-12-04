@@ -1,5 +1,5 @@
 // import node_modules
-import { EmptyFunction } from "@@/common/types"
+import { EmptyFunction } from "../../../../../common"
 
 // main
 /**

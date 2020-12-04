@@ -2,8 +2,8 @@
 import { createGlobalStyle } from "styled-components"
 
 // import css
-import { reset } from "@@/client/styles/GlobalStyle/css/reset"
-import { common } from "@@/client/styles/GlobalStyle/css/common"
+import { reset } from "./css/reset"
+import { common } from "./css/common"
 
 // main
 export const GlobalStyle = createGlobalStyle`

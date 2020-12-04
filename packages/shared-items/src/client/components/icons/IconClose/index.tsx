@@ -3,9 +3,9 @@ import React, { memo, FC } from "react"
 import styled from "styled-components"
 
 // import others
-import { IconCloseProps } from "@@/client/components/icons/IconClose/types"
-import { useIconClose } from "@@/client/components/icons/IconClose/modules/useIconClose"
-import { Transition } from "@@/client/const/styles/Transition"
+import { IconCloseProps } from "./types"
+import { useIconClose } from "./modules/useIconClose"
+import { Transition } from "../../../const/styles/Transition"
 
 // main
 export const IconClose: FC<IconCloseProps> = memo((props) => {

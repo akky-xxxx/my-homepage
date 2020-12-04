@@ -2,8 +2,8 @@
 import { useCallback } from "react"
 
 // import others
-import { EmptyFunction } from "@@/common/types"
-import { MenuButtonProps } from "@@/client/components/atoms/MenuButton/types"
+import { EmptyFunction } from "../../../../../../common"
+import { MenuButtonProps } from "../../types"
 
 // main
 /**

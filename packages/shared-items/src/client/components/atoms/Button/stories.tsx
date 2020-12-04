@@ -3,8 +3,8 @@ import React, { PropsWithChildren } from "react"
 import { Story, Meta } from "@storybook/react"
 
 // import components
-import { Button } from "@@/client/components/atoms/Button/index"
-import { ButtonProps } from "@@/client/components/atoms/Button/types"
+import { Button } from "./index"
+import { ButtonProps } from "./types"
 
 // main
 const config: Meta = {

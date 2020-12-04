@@ -3,9 +3,9 @@ import React, { memo, FC } from "react"
 import styled from "styled-components"
 
 // import others
-import { IconCalendarProps } from "@@/client/components/icons/IconCalendar/types"
-import { useIconCalendar } from "@@/client/components/icons/IconCalendar/modules/useIconCalendar"
-import { Transition } from "@@/client/const/styles/Transition"
+import { IconCalendarProps } from "./types"
+import { useIconCalendar } from "./modules/useIconCalendar"
+import { Transition } from "../../../const/styles/Transition"
 
 // main
 export const IconCalendar: FC<IconCalendarProps> = memo((props) => {
