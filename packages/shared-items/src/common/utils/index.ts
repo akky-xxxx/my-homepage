@@ -1,6 +1,4 @@
 export { createErrorData } from "./createErrorData"
 export { createLoggerBase } from "./createLoggerBase"
-export { formatDatetime } from "./formatDatetime"
-export { getSeparatedNumbers } from "./getSeparatedNumber"
 export { removeUndefinedKeys } from "./removeUndefinedKeys"
 export { ThisError } from "./ThisError"
