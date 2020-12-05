@@ -22,6 +22,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "server:dev": "nodemon",
     "server:prod": "ts-node --files ./src/bin/www/index.ts",
+    "shared-items": "yarn remove shared-items; yarn add ../shared-items",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
     "start": "NODE_ENV=production run-s build:prod server:prod",
     "test": "jest",

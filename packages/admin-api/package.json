@@ -23,6 +23,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "serve:api": "nodemon",
     "serve:mock": "agreed-server --path ./spec/agreed/index.ts --port 4101 -l",
+    "shared-items": "yarn remove shared-items; yarn add ../shared-items",
     "spell-check": "cspell './src/**/*.ts'",
     "test": "IS_TEST=true jest",
     "type-check": "tsc"
