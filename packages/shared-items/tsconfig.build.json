@@ -3,6 +3,11 @@
   "compilerOptions": {
     "noEmit": false
   },
-  "exclude": ["node_modules", "**/*.stories.tsx"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules",
+    "**/*.stories.tsx",
+    "**/stories.tsx",
+    "**/*.test.tsx",
+    "**/test.tsx"
+  ]
 }
