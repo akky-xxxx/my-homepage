@@ -39,7 +39,6 @@
     "express-list-endpoints": "^5.0.0",
     "faker": "^5.1.0",
     "helmet": "^4.2.0",
-    "log4js": "^6.3.0",
     "next": "^10.0.3",
     "next-routes": "^1.4.2",
     "polished": "^4.0.4",
