@@ -9,16 +9,11 @@ describe("createErrorData", () => {
       expect(createErrorData(filePath, 400)?.filePath).toEqual(filePath)
     })
 
-    it("400 時のエラーメッセージは「パラメータが不正です」", () => {
-      expect(createErrorData(__filename, 400)?.message).toEqual(
-        "パラメータが不正です",
-      )
-    })
-
-    it("404 時のエラーメッセージは「資材が見つかりません」", () => {
-      expect(createErrorData(__filename, 404)?.message).toEqual(
-        "資材が見つかりません",
-      )
+    it.each([
+      [400, "パラメータが不正です"],
+      [404, "資材が見つかりません"],
+    ] as const)("%i 時のエラーメッセージは `%s`", (input, output) => {
+      expect(createErrorData(__filename, input)?.message).toEqual(output)
     })
   })
 
