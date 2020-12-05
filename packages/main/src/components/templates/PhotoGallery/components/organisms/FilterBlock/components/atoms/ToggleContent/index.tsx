@@ -1,9 +1,6 @@
 // import node_modules
 import styled from "styled-components"
-
-// import others
-import { Transition } from "@@/shared/const/styles/Transition"
-import { Color } from "@@/shared/const/styles/Color"
+import { Transition, Color } from "shared-items/dist/client"
 
 // main
 const { DURATION, TIMING_FUNCTION } = Transition

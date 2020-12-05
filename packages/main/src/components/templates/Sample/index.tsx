@@ -2,9 +2,7 @@
 import React, { Fragment, useState, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import { gql, useQuery, useLazyQuery } from "@apollo/client"
-
-// import components
-import { Button } from "@@/components/atoms/Button"
+import { Button } from "shared-items/dist/client"
 
 // main
 const QUERY = gql`

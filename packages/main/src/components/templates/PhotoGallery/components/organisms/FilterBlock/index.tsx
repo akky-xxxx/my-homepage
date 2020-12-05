@@ -1,10 +1,9 @@
 // import node_modules
 import React, { useState } from "react"
 import styled from "styled-components"
+import { IconCalendar, IconTag } from "shared-items/dist/client"
 
 // import components
-import { IconCalendar } from "@@/components/icons/IconCalendar"
-import { IconTag } from "@@/components/icons/IconTag"
 import { StyledButton } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/StyledButton"
 import { FilterList } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/molecules/FilterList"
 

@@ -3,10 +3,10 @@ import App, { AppInitialProps } from "next/app"
 import Head from "next/head"
 import React from "react"
 import { ApolloProvider } from "@apollo/client"
+import { GlobalStyle } from "shared-items/dist/client"
 
 // import other
 import { apolloClient } from "@@/modules/apolloClient"
-import { GlobalStyle } from "@@/styles/GlobalStyle"
 
 // main
 class MyApp extends App<AppInitialProps> {
