@@ -39,6 +39,7 @@
     "faker": "^5.1.0",
     "helmet": "^4.2.0",
     "remeda": "^0.0.27",
+    "shared-items": "^0.0.0",
     "uuid": "^8.3.1"
   },
   "devDependencies": {
