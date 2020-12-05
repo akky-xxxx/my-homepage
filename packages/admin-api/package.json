@@ -38,7 +38,6 @@
     "express-list-endpoints": "^5.0.0",
     "faker": "^5.1.0",
     "helmet": "^4.2.0",
-    "log4js": "^6.3.0",
     "remeda": "^0.0.27",
     "shared-items": "../shared-items",
     "uuid": "^8.3.1"
