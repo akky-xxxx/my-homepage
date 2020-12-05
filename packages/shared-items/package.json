@@ -26,6 +26,7 @@
   },
   "peerDependencies": {
     "date-fns": "^2.16.1",
+    "log4js": "^6.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
