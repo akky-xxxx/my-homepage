@@ -7,7 +7,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "yarn clean && tsc -P ./tsconfig.build.json",
+    "build": "yarn check-all && yarn clean && tsc -P ./tsconfig.build.json",
     "check-all": "npm-run-all -p spell-check lint type-check -s test",
     "clean": "rimraf ./dist",
     "doc": "echo 'nothing task'",
