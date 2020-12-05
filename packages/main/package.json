@@ -41,7 +41,6 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "remeda": "^0.0.27",
-    "shared-items": "../shared-items",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

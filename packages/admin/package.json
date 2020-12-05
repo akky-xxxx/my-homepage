@@ -48,7 +48,6 @@
     "redux-effects-formdata-uploader": "^1.4.1",
     "redux-effects-steps": "^1.0.3",
     "remeda": "^0.0.27",
-    "shared-items": "../shared-items",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.1"
   },
