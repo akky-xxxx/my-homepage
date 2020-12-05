@@ -1,11 +1,7 @@
 // import node_modules
 import { Datastore } from "@google-cloud/datastore"
 import dotenv from "dotenv"
-
-/**
- * import others
- */
-import { ThisError } from "@@/shared/utils/ThisError"
+import { ThisError } from "shared-items"
 
 /**
  * main

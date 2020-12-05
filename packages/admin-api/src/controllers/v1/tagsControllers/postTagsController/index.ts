@@ -1,12 +1,12 @@
 // import node_modules
 import { RequestHandler } from "express"
+import { ThisError } from "shared-items"
 
 // import others
 import {
   PostTagsRequestBody,
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { ThisError } from "@@/shared/utils/ThisError"
 import { postTagsModel } from "@@/models/v1/tagsModels/postTagsModel"
 
 // main

@@ -1,6 +1,8 @@
+// import node_modules
+import { formatDatetime } from "shared-items/dist/server"
+
 // import
 import { Tag } from "@@/shared/types/api/v1/tags"
-import { formatDatetime } from "@@/shared/utils/formatDatetime"
 
 // main
 type FormatTags = (entity: Tag) => Tag

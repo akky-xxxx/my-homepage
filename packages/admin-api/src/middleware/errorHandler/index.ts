@@ -1,9 +1,9 @@
 // import node_modules
 import { ErrorRequestHandler } from "express"
+import { ThisError } from "shared-items"
 
 // import others
 import { createLogger } from "@@/shared/utils/createLogger"
-import { ThisError } from "@@/shared/utils/ThisError"
 
 // main
 const logger = createLogger(__filename)

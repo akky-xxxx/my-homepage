@@ -1,11 +1,9 @@
 // import node_modules
 import { RequestHandler } from "express"
+import { ThisError } from "shared-items"
 
 // import model
 import { getTagsModel } from "@@/models/v1/tagsModels/getTagsModel"
-
-// import others
-import { ThisError } from "@@/shared/utils/ThisError"
 
 // main
 export const getTagsController: RequestHandler = async (_req, res, next) => {
