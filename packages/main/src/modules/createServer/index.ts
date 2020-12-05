@@ -2,6 +2,7 @@
 import _fastify, { FastifyInstance } from "fastify"
 import helmet from "fastify-helmet"
 import compress from "fastify-compress"
+import { Common as SharedCommon } from "shared-items"
 
 // import middleware
 import { nextJs } from "@@/middleware/nextJs"
@@ -11,7 +12,8 @@ import { Common } from "@@/shared/const/Common"
 import { HelmetOptions } from "@@/modules/createServer/const/Config"
 
 // main
-const { IS_DEV, SEPARATOR } = Common
+const { IS_DEV } = Common
+const { SEPARATOR } = SharedCommon
 const fastify = _fastify({
   logger: IS_DEV,
 })
