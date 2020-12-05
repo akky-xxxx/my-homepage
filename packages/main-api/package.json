@@ -31,7 +31,7 @@
     "fastify-compress": "^3.4.0",
     "fastify-helmet": "^5.0.3",
     "remeda": "^0.0.27",
-    "shared-items": "link:../shared-items",
+    "shared-items": "../shared-items",
     "uuid": "^8.3.1"
   },
   "devDependencies": {
