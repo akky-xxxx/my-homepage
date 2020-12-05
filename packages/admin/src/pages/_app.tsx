@@ -2,9 +2,7 @@
 import App, { AppInitialProps } from "next/app"
 import Head from "next/head"
 import React, { Fragment } from "react"
-
-// import other
-import { GlobalStyle } from "@@/styles/GlobalStyle"
+import { GlobalStyle } from "shared-items/dist/client"
 
 // main
 class MyApp extends App<AppInitialProps> {
