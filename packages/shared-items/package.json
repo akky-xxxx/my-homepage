@@ -7,7 +7,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -P ./tsconfig.build.json",
     "check-all": "npm-run-all -p spell-check lint type-check -s test",
     "doc": "echo 'nothing task'",
     "doc:ui": "start-storybook -p 9999 --no-dll",
@@ -22,7 +22,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "spell-check": "cspell './src/**/*.ts'",
     "test": "jest",
-    "type-check": "tsc --noEmit true"
+    "type-check": "tsc"
   },
   "peerDependencies": {
     "date-fns": "^2.16.1",
