@@ -26,8 +26,8 @@ export const MenuBackground = styled.div<MenuBackgroundProps>`
   padding: ${MARGIN10}px;
   position: fixed;
   top: ${HEADER_HEIGHT}px;
-  width: ${getWidth};
   transition: width ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
     left ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
+  width: ${getWidth};
   z-index: ${MENU_BACKGROUND};
 `

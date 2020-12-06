@@ -56,6 +56,6 @@ export const Layout: FC<LayoutProps> = (props) => {
 const StyledMain = styled.main<Pick<LayoutProps, "isShow">>`
   background-color: ${BACKGROUND};
   height: 100vh;
-  padding-top: ${HEADER_HEIGHT}px;
   overflow: ${getOverflow};
+  padding-top: ${HEADER_HEIGHT}px;
 `
