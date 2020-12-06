@@ -6,6 +6,7 @@ import styled from "styled-components"
 import { MenuButtonProps, IconBarProps } from "./types"
 import { useMenuButton } from "./modules/useMenuButton"
 import { getValueByShowStatus } from "./modules/getValueByShowStatus"
+import { transform } from "./modules/transform"
 import { Transition } from "../../../const"
 
 // main
@@ -53,10 +54,8 @@ const IconBar = styled.div<IconBarProps>`
   display: block;
   height: ${BAR_HEIGHT}px;
   position: absolute;
+  ${transform};
   transform-origin: center;
-  transition: transform ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
-    top ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
-    opacity ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
   width: ${ICON_WIDTH}px;
 
   &:nth-child(1) {
@@ -66,7 +65,7 @@ const IconBar = styled.div<IconBarProps>`
 
   &:nth-child(2) {
     opacity: ${getValueByShowStatus(0, 1)};
-    top: 13px;
+    top: 14px;
   }
 
   &:nth-child(3) {
