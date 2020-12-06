@@ -14,5 +14,6 @@ export const common = css`
     background-color: ${BACKGROUND};
     color: ${PRIMARY_TEXT};
     font-size: ${SIZE.MIDDLE};
+    padding: 0 !important /* storybook 用に important 指定 */;
   }
 `
