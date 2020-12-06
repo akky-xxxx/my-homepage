@@ -14,12 +14,16 @@ const getReplacedFilePaths = (filenames) =>
   filenames.map((filename) => filename.replace(`${__dirname}/`, ""))
 
 module.exports = {
-  "src/**/*.ts": (filenames) => {
-    return [`cspell ${getReplacedFilePaths(filenames)}`]
+  "src/**/*.{ts,tsx}": (filenames) => {
+    const joinedHalfSpace = getJoinedPaths(filenames)
+    return [
+      `cspell ${getReplacedFilePaths(filenames)}`,
+      `stylelint ${joinedHalfSpace}`,
+    ]
   },
-  "!(src/)**/*.ts": (filenames) => {
-    return [`cspell ${getReplacedFilePaths(filenames)}`]
-  },
+  "!(src/)**/*.{ts,tsx}": (filenames) => [
+    `cspell ${getReplacedFilePaths(filenames)}`,
+  ],
   "*.js": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
@@ -27,5 +31,5 @@ module.exports = {
       `eslint  ${joinedHalfSpace} --fix`,
     ]
   },
-  "package.json": () => ["fixpack", "git add ."],
+  "package.json": () => ["fixpack"],
 }

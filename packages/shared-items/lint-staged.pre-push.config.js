@@ -14,16 +14,17 @@ const getReplacedFilePaths = (filenames) =>
   filenames.map((filename) => filename.replace(`${__dirname}/`, ""))
 
 module.exports = {
-  "src/**/*.ts": (filenames) => {
+  "src/**/*.{ts,tsx}": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
       `cspell ${getReplacedFilePaths(filenames)}`,
       `eslint --fix ${joinedHalfSpace}`,
       "tsc",
-      `stylelint '${joinedHalfSpace}'`,
+      `stylelint ${joinedHalfSpace}`,
+      "test IS_TEST=true jest",
     ]
   },
-  "!(src/)**/*.ts": (filenames) => {
+  "!(src/)**/*.{ts,tsx}": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
       `cspell ${getReplacedFilePaths(filenames)}`,
