@@ -13,9 +13,7 @@ const config: Meta<IconTagProps> = {
 }
 export default config
 
-const Template: Story<IconTagProps> = (props) => {
-  return <IconTag {...props} />
-}
+const Template: Story<IconTagProps> = (props) => <IconTag {...props} />
 
 export const Default = Template.bind({})
 export const Middle = Template.bind({})

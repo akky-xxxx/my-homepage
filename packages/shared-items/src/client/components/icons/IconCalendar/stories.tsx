@@ -13,9 +13,9 @@ const config: Meta<IconCalendarProps> = {
 }
 export default config
 
-const Template: Story<IconCalendarProps> = (props) => {
-  return <IconCalendar {...props} />
-}
+const Template: Story<IconCalendarProps> = (props) => (
+  <IconCalendar {...props} />
+)
 
 export const Default = Template.bind({})
 export const Middle = Template.bind({})

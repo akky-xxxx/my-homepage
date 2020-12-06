@@ -8,14 +8,12 @@ import { MenuButtonProps } from "./types"
 
 // main
 const config: Meta<MenuButtonProps> = {
-  title: "atoms/MenuButton",
+  title: "layouts/MenuButton",
   component: MenuButton,
 }
 export default config
 
-const Template: Story<MenuButtonProps> = (props) => {
-  return <MenuButton {...props} />
-}
+const Template: Story<MenuButtonProps> = (props) => <MenuButton {...props} />
 
 export const Default = Template.bind({})
 

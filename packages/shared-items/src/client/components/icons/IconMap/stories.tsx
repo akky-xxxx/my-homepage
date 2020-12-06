@@ -13,9 +13,7 @@ const config: Meta<IconMapProps> = {
 }
 export default config
 
-const Template: Story<IconMapProps> = (props) => {
-  return <IconMap {...props} />
-}
+const Template: Story<IconMapProps> = (props) => <IconMap {...props} />
 
 export const Default = Template.bind({})
 export const Middle = Template.bind({})

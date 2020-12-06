@@ -13,9 +13,7 @@ const config: Meta<IconCloseProps> = {
 }
 export default config
 
-const Template: Story<IconCloseProps> = (props) => {
-  return <IconClose {...props} />
-}
+const Template: Story<IconCloseProps> = (props) => <IconClose {...props} />
 
 export const Default = Template.bind({})
 export const Middle = Template.bind({})

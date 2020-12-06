@@ -16,9 +16,9 @@ const config: Meta = {
 }
 export default config
 
-const Template: Story<PropsWithChildren<TagProps>> = (props) => {
-  return <Tag {...props} />
-}
+const Template: Story<PropsWithChildren<TagProps>> = (props) => (
+  <Tag {...props} />
+)
 
 export const Default = Template.bind({})
 export const DefaultActive = Template.bind({})
