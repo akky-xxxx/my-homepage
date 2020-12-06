@@ -3,9 +3,9 @@ import React, { memo, FC } from "react"
 import styled from "styled-components"
 
 // import others
-import { MenuButtonProps, StyledSvgProps } from "./types"
+import { MenuButtonProps, IconBarProps } from "./types"
 import { useMenuButton } from "./modules/useMenuButton"
-import { getRotate } from "./modules/getRotate"
+import { getValueByShowStatus } from "./modules/getValueByShowStatus"
 import { Transition } from "../../../const"
 
 // main
@@ -14,24 +14,17 @@ export const MenuButton: FC<MenuButtonProps> = memo((props) => {
 
   return (
     <StyledButton type="button">
-      <StyledSvg
-        width={32}
-        height={32}
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        onClick={handleClick}
-        isOpen={isOpen}
-      >
-        <g>
-          <path
-            d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"
-            fill="currentColor"
-          />
-        </g>
-      </StyledSvg>
+      <IconWrapper onClick={handleClick}>
+        <IconBar isOpen={isOpen} />
+        <IconBar isOpen={isOpen} />
+        <IconBar isOpen={isOpen} />
+      </IconWrapper>
     </StyledButton>
   )
 })
+
+const ICON_WIDTH = 32
+const BAR_HEIGHT = 4
 
 const StyledButton = styled.button`
   background-color: transparent;
@@ -42,13 +35,42 @@ const StyledButton = styled.button`
   width: 32px;
 `
 
-const StyledSvg = styled.svg<StyledSvgProps>`
-  cursor: pointer;
-  transform: rotate(${getRotate}deg);
-  transition: opacity ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
-    transform ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
+const IconWrapper = styled.div`
+  height: ${ICON_WIDTH}px;
+  position: relative;
+  transition: opacity ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
+  width: ${ICON_WIDTH}px;
 
   &:hover {
     opacity: 0.5;
+  }
+`
+
+const IconBar = styled.div<IconBarProps>`
+  background-color: currentColor;
+  border-radius: ${BAR_HEIGHT / 2}px;
+  cursor: pointer;
+  display: block;
+  height: ${BAR_HEIGHT}px;
+  position: absolute;
+  transform-origin: center;
+  transition: transform ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
+    top ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
+    opacity ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
+  width: ${ICON_WIDTH}px;
+
+  &:nth-child(1) {
+    top: ${getValueByShowStatus(14, 3)}px;
+    transform: rotate(${getValueByShowStatus(45, 0)}deg);
+  }
+
+  &:nth-child(2) {
+    opacity: ${getValueByShowStatus(0, 1)};
+    top: 13px;
+  }
+
+  &:nth-child(3) {
+    top: ${getValueByShowStatus(14, 25)}px;
+    transform: rotate(${getValueByShowStatus(-45, 0)}deg);
   }
 `
