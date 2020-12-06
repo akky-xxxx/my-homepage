@@ -5,8 +5,6 @@ import React from "react"
 import { Sample } from "@@/components/templates/Sample"
 
 // main
-const HomeHoc = () => {
-  return <Sample />
-}
+const HomeHoc = () => <Sample />
 
 export default HomeHoc
