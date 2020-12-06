@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { MenuButtonProps, StyledSvgProps } from "./types"
 import { useMenuButton } from "./modules/useMenuButton"
 import { getRotate } from "./modules/getRotate"
-import { Transition } from "../../../const/styles/Transition"
+import { Transition } from "../../../const"
 
 // main
 export const MenuButton: FC<MenuButtonProps> = memo((props) => {
