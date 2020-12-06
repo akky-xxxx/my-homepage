@@ -3,12 +3,14 @@ import styled from "styled-components"
 import { rgba } from "polished"
 
 // import others
+import { LayoutConst } from "../const"
 import { Color, Transition } from "../../../const"
 import { BackgroundProps } from "./types"
 import { getRight } from "./modules/getRight"
 
 // main
 const { COLOR_212121 } = Color
+const { HEADER_HEIGHT } = LayoutConst
 
 export const Background = styled.div<BackgroundProps>`
   background-color: ${rgba(COLOR_212121, 0.3)};
@@ -16,6 +18,6 @@ export const Background = styled.div<BackgroundProps>`
   left: 0;
   position: fixed;
   right: ${getRight};
-  top: 0;
+  top: ${HEADER_HEIGHT}px;
   transition: right ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
 `
