@@ -13,16 +13,12 @@ const config: Meta<HeaderProps> = {
     isShow: false,
     title: "タイトル",
     handleClickMenuButton: () => {},
-  }
+  },
 }
 export default config
 
-const Template: Story<HeaderProps> = (props) => {
-  return (
-    <Header {...props}>
-      {"メニュー。".repeat(100)}
-    </Header>
-  )
-}
+const Template: Story<HeaderProps> = (props) => (
+  <Header {...props}>{"メニュー。".repeat(100)}</Header>
+)
 
 export const Default = Template.bind({})

@@ -19,16 +19,12 @@ const config: Meta<LayoutProps> = {
     menu: <MenuComponent />,
     handleOpenMenu: () => {},
     handleCloseMenu: () => {},
-  }
+  },
 }
 export default config
 
-const Template: Story<LayoutProps> = (props) => {
-  return (
-    <Layout {...props}>
-      {"コンテンツ。".repeat(1000)}
-    </Layout>
-  )
-}
+const Template: Story<LayoutProps> = (props) => (
+  <Layout {...props}>{"コンテンツ。".repeat(1000)}</Layout>
+)
 
 export const Default = Template.bind({})

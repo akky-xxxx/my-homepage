@@ -13,9 +13,7 @@ const config: Meta<MenuButtonProps> = {
 }
 export default config
 
-const Template: Story<MenuButtonProps> = (props) => {
-  return <MenuButton {...props} />
-}
+const Template: Story<MenuButtonProps> = (props) => <MenuButton {...props} />
 
 export const Default = Template.bind({})
 

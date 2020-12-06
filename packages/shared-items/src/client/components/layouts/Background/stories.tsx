@@ -12,19 +12,15 @@ const config: Meta<BackgroundProps> = {
   component: Background,
   args: {
     isShow: true,
-  }
+  },
 }
 export default config
 
-const Template: Story<BackgroundProps> = (props) => {
-  return (
-    <Fragment>
-      <Background {...props} />
-      <div>
-        {"テキスト。".repeat(1000)}
-      </div>
-    </Fragment>
-  )
-}
+const Template: Story<BackgroundProps> = (props) => (
+  <Fragment>
+    <Background {...props} />
+    <div>{"テキスト。".repeat(1000)}</div>
+  </Fragment>
+)
 
 export const Default = Template.bind({})

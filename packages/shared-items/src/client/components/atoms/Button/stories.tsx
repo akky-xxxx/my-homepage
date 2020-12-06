@@ -17,9 +17,9 @@ const config: Meta = {
 }
 export default config
 
-const Template: Story<PropsWithChildren<ButtonProps>> = (props) => {
-  return <Button {...props} />
-}
+const Template: Story<PropsWithChildren<ButtonProps>> = (props) => (
+  <Button {...props} />
+)
 
 export const Default = Template.bind({})
 

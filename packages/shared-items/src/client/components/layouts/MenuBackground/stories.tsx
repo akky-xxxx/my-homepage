@@ -13,16 +13,12 @@ const config: Meta<MenuBackgroundProps> = {
   args: {
     isShow: true,
     width: 300,
-  }
+  },
 }
 export default config
 
-const Template: Story<MenuBackgroundProps> = (props) => {
-  return (
-    <MenuBackground {...props}>
-      {"メニュー。".repeat(100)}
-    </MenuBackground>
-  )
-}
+const Template: Story<MenuBackgroundProps> = (props) => (
+  <MenuBackground {...props}>{"メニュー。".repeat(100)}</MenuBackground>
+)
 
 export const Default = Template.bind({})
