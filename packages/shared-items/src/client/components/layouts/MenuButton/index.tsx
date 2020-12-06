@@ -15,10 +15,10 @@ export const MenuButton: FC<MenuButtonProps> = memo((props) => {
 
   return (
     <StyledButton type="button">
-      <IconWrapper onClick={handleClick}>
-        <IconBar isOpen={isOpen} />
-        <IconBar isOpen={isOpen} />
-        <IconBar isOpen={isOpen} />
+      <IconWrapper onClick={handleClick} isOpen={isOpen}>
+        <div />
+        <div />
+        <div />
       </IconWrapper>
     </StyledButton>
   )
@@ -36,7 +36,7 @@ const StyledButton = styled.button`
   width: 32px;
 `
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.div<IconBarProps>`
   cursor: pointer;
   height: ${ICON_WIDTH}px;
   position: relative;
@@ -46,30 +46,30 @@ const IconWrapper = styled.div`
   &:hover {
     opacity: 0.5;
   }
-`
 
-const IconBar = styled.div<IconBarProps>`
-  background-color: currentColor;
-  border-radius: ${BAR_HEIGHT / 2}px;
-  display: block;
-  height: ${BAR_HEIGHT}px;
-  position: absolute;
-  ${transform};
-  transform-origin: center;
-  width: ${ICON_WIDTH}px;
+  & > div {
+    background-color: currentColor;
+    border-radius: ${BAR_HEIGHT / 2}px;
+    display: block;
+    height: ${BAR_HEIGHT}px;
+    position: absolute;
+    ${transform};
+    transform-origin: center;
+    width: ${ICON_WIDTH}px;
 
-  &:nth-child(1) {
-    top: ${getValueByShowStatus(14, 3)}px;
-    transform: rotate(${getValueByShowStatus(45, 0)}deg);
-  }
+    &:nth-child(1) {
+      top: ${getValueByShowStatus(14, 3)}px;
+      transform: rotate(${getValueByShowStatus(45, 0)}deg);
+    }
 
-  &:nth-child(2) {
-    opacity: ${getValueByShowStatus(0, 1)};
-    top: 14px;
-  }
+    &:nth-child(2) {
+      opacity: ${getValueByShowStatus(0, 1)};
+      top: 14px;
+    }
 
-  &:nth-child(3) {
-    top: ${getValueByShowStatus(14, 25)}px;
-    transform: rotate(${getValueByShowStatus(-45, 0)}deg);
+    &:nth-child(3) {
+      top: ${getValueByShowStatus(14, 25)}px;
+      transform: rotate(${getValueByShowStatus(-45, 0)}deg);
+    }
   }
 `
