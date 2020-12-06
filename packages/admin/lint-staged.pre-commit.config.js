@@ -29,7 +29,6 @@ module.exports = {
     return [
       `cspell ${getReplacedFilePaths(filenames)}`,
       `eslint  ${joinedHalfSpace} --fix`,
-      "git add .",
     ]
   },
   "package.json": () => ["fixpack"],

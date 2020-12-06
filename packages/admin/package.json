@@ -22,6 +22,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "server:dev": "nodemon",
     "server:prod": "ts-node --files ./src/bin/www/index.ts",
+    "shared-items": "yarn remove shared-items; yarn add ../shared-items",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
     "start": "NODE_ENV=production run-s build:prod server:prod",
     "test": "jest",
@@ -38,7 +39,6 @@
     "express-list-endpoints": "^5.0.0",
     "faker": "^5.1.0",
     "helmet": "^4.2.0",
-    "log4js": "^6.3.0",
     "next": "^10.0.3",
     "next-routes": "^1.4.2",
     "polished": "^4.0.4",
@@ -48,6 +48,7 @@
     "redux-effects-formdata-uploader": "^1.4.1",
     "redux-effects-steps": "^1.0.3",
     "remeda": "^0.0.27",
+    "shared-items": "^0.0.0",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.1"
   },

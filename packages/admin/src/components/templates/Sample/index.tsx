@@ -1,9 +1,7 @@
 // import node_modules
 import React, { Fragment } from "react"
 import styled from "styled-components"
-
-// import components
-import { Button } from "@@/components/atoms/Button"
+import { Button } from "shared-items/dist/client"
 
 // main
 export const Sample = () => {

@@ -22,6 +22,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "server:dev": "nodemon",
     "server:prod": "ts-node --files ./src/bin/www/index.ts",
+    "shared-items": "yarn remove shared-items; yarn add ../shared-items",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
     "start": "NODE_ENV=production run-s build:prod server:prod",
     "test": "jest",
@@ -40,6 +41,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "remeda": "^0.0.27",
+    "shared-items": "^0.0.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

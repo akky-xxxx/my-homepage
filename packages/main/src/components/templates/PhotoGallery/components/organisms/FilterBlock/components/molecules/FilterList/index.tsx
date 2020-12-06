@@ -1,6 +1,7 @@
 // import node_modules
 import React, { FC } from "react"
 import styled from "styled-components"
+import { EmptyFunction } from "shared-items"
 
 // import components
 import {
@@ -8,9 +9,6 @@ import {
   ToggleContentProps,
 } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/ToggleContent"
 import { FilterTag } from "@@/components/templates/PhotoGallery/components/organisms/FilterBlock/components/atoms/FilterTag"
-
-// import others
-import { EmptyFunction } from "@@/shared/types/common"
 
 // main
 type TagData = {

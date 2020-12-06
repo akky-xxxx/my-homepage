@@ -1,13 +1,7 @@
 // import node_modules
 import styled from "styled-components"
 import { rgba } from "polished"
-
-// import components
-import { Button } from "@@/components/atoms/Button"
-
-// import others
-import { Radius } from "@@/shared/const/styles/Radius"
-import { Color } from "@@/shared/const/styles/Color"
+import { Button, Radius, Color } from "shared-items/dist/client"
 
 // main
 const { COLOR_FEFEFE, COLOR_212121 } = Color

@@ -1,9 +1,6 @@
 // import node_modules
 import React, { FC, useCallback } from "react"
-
-// import components
-import { Tag } from "@@/components/atoms/Tag"
-import { TagProps } from "@@/components/atoms/Tag/types"
+import { Tag, TagProps } from "shared-items/dist/client"
 
 // main
 type HandleClickTag = (id: string) => void

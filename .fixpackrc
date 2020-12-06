@@ -5,13 +5,14 @@
     "author",
     "private",
     "repository",
-    "workspaces",
+    "main",
+    "types",
     "scripts",
-    "workspaces",
     "dependencies",
+    "peerDependencies",
     "devDependencies",
     "browser",
     "description",
-    "main"
+    "workspaces"
   ]
 }
