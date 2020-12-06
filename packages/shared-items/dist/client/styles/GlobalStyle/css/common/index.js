@@ -10,5 +10,5 @@ var Color_1 = require("../../../../const/styles/Color");
 var Font_1 = require("../../../../const/styles/Font");
 var BACKGROUND = Color_1.Color.BACKGROUND, PRIMARY_TEXT = Color_1.Color.PRIMARY_TEXT;
 var SIZE = Font_1.Font.SIZE;
-exports.common = styled_components_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  body {\n    background-color: ", ";\n    color: ", ";\n    font-size: ", ";\n  }\n"], ["\n  body {\n    background-color: ", ";\n    color: ", ";\n    font-size: ", ";\n  }\n"])), BACKGROUND, PRIMARY_TEXT, SIZE.MIDDLE);
+exports.common = styled_components_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  body {\n    background-color: ", ";\n    color: ", ";\n    font-size: ", ";\n    padding: 0 !important /* storybook \u7528\u306B important \u6307\u5B9A */;\n  }\n"], ["\n  body {\n    background-color: ", ";\n    color: ", ";\n    font-size: ", ";\n    padding: 0 !important /* storybook \u7528\u306B important \u6307\u5B9A */;\n  }\n"])), BACKGROUND, PRIMARY_TEXT, SIZE.MIDDLE);
 var templateObject_1;
