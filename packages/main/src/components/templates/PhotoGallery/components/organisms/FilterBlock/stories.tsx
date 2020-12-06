@@ -12,8 +12,6 @@ const config: Meta = {
 }
 export default config
 
-const Template: Story = (props) => {
-  return <FilterBlock {...props} />
-}
+const Template: Story = (props) => <FilterBlock {...props} />
 
 export const Default = Template.bind({})
