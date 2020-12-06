@@ -12,7 +12,8 @@ const config: Meta<HeaderProps> = {
   args: {
     isShow: false,
     title: "タイトル",
-    handleClickMenuButton: () => {},
+    // eslint-disable-next-line no-console
+    handleClickMenuButton: () => console.log("handleClickMenuButton"),
   },
 }
 export default config

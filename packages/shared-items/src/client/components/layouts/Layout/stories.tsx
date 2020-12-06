@@ -17,8 +17,10 @@ const config: Meta<LayoutProps> = {
     title: "タイトル",
     width: 300,
     menu: <MenuComponent />,
-    handleOpenMenu: () => {},
-    handleCloseMenu: () => {},
+    /* eslint-disable no-console */
+    handleOpenMenu: () => console.log("handleOpenMenu"),
+    handleCloseMenu: () => console.log("handleCloseMenu"),
+    /* eslint-enable no-console */
   },
 }
 export default config
