@@ -8,7 +8,7 @@ import { MenuButtonProps } from "./types"
 
 // main
 const config: Meta<MenuButtonProps> = {
-  title: "atoms/MenuButton",
+  title: "layouts/MenuButton",
   component: MenuButton,
 }
 export default config
