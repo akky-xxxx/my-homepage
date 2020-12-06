@@ -17,17 +17,17 @@ module.exports = {
   "src/**/*.{ts,tsx}": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
-      `cspell ${getReplacedFilePaths(filenames)}`,
+      `cspell ${getJoinedPaths(filenames)}`,
       `stylelint ${joinedHalfSpace}`,
     ]
   },
   "!(src/)**/*.{ts,tsx}": (filenames) => [
-    `cspell ${getReplacedFilePaths(filenames)}`,
+    `cspell ${getJoinedPaths(filenames)}`,
   ],
   "*.js": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
-      `cspell ${getReplacedFilePaths(filenames)}`,
+      `cspell ${getJoinedPaths(filenames)}`,
       `eslint  ${joinedHalfSpace} --fix`,
     ]
   },
