@@ -10,7 +10,10 @@ import { getRight } from "./modules/getRight"
 
 // main
 const { COLOR_212121 } = Color
-const { HEADER_HEIGHT } = LayoutConst
+const {
+  HEADER_HEIGHT,
+  Z_INDEX: { BACKGROUND },
+} = LayoutConst
 
 export const Background = styled.div<BackgroundProps>`
   background-color: ${rgba(COLOR_212121, 0.3)};
@@ -20,4 +23,5 @@ export const Background = styled.div<BackgroundProps>`
   right: ${getRight};
   top: ${HEADER_HEIGHT}px;
   transition: right ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
+  z-index: ${BACKGROUND};
 `

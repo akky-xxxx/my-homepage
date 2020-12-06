@@ -11,7 +11,10 @@ import { Color, Margin } from "../../../const"
 import { EmptyFunction } from "../../../../common"
 
 // main
-const { HEADER_HEIGHT } = LayoutConst
+const {
+  HEADER_HEIGHT,
+  Z_INDEX: { HEADER },
+} = LayoutConst
 const { PRIMARY, COLOR_FFFFFF } = Color
 const { MARGIN10 } = Margin
 
@@ -42,6 +45,7 @@ const HeaderBackGround = styled.header`
   position: fixed;
   right: 0;
   top: 0;
+  z-index: ${HEADER};
 `
 
 const StyledH1 = styled.h1`

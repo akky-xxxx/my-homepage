@@ -12,7 +12,10 @@ import { getBoxShadow } from "./modules/getBoxShadow"
 // main
 const { BACKGROUND } = Color
 const { MARGIN10 } = Margin
-const { HEADER_HEIGHT } = LayoutConst
+const {
+  HEADER_HEIGHT,
+  Z_INDEX: { MENU_BACKGROUND },
+} = LayoutConst
 
 export const MenuBackground = styled.div<MenuBackgroundProps>`
   background-color: ${BACKGROUND};
@@ -26,4 +29,5 @@ export const MenuBackground = styled.div<MenuBackgroundProps>`
   width: ${getWidth};
   transition: width ${Transition.DURATION} ${Transition.TIMING_FUNCTION},
     left ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
+  z-index: ${MENU_BACKGROUND};
 `
