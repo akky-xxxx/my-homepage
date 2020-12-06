@@ -4,11 +4,7 @@
   "author": "akky-xxxx <114.s.aki@gmail.com>",
   "private": true,
   "repository": "https://github.com/akky-xxxx/my-homepage.git",
-  "workspaces": [
-    "./packages/*"
-  ],
   "scripts": {
-    "all-install": "lerna bootstrap",
     "check-all": "lerna run check-all --stream",
     "dev": "lerna run dev --stream",
     "doc": "lerna run doc --stream",
@@ -21,6 +17,12 @@
     "husky": "^4.3.0",
     "lerna": "^3.22.1",
     "npm-run-all": "^4.1.5"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "engines": {
+    "node": "=14.15.0"
   },
   "husky": {
     "hooks": {

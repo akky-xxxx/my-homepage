@@ -3,6 +3,15 @@
 ## About
 Monorepo for homepage.
 
+## Required
+Need to install below tools to global.
+- node
+- yarn
+- lerna
+
+## Node version
+Refer the node-version or root package.json.
+
 ### Each packages
 - main
   - homepage
@@ -15,19 +24,23 @@ Monorepo for homepage.
 - shared-items
   - shared items of all packages
 
-## Node version
-Refer the node-version.
-
 ## Resolve dependencies
-1. `$ yarn`
-2. `$ yarn all-install`
-3. `$ cd packages/main; yarn`
-  - It has error of the next when until step2.
+- `$ lerna bootstrap`
+
+## How to install lib to root
+- `$ yarn add lib -W`
+
+## How to install lib to packages/*
+- `$ lerna add lib --scope pacakges/package-name[ --scope pacakges/package-name]`
+
+## How to remove lib
+1. delete target lib from package.json
+2. `$ lerna clean`
+3. `$ lerna bootstrap`
 
 ## Scripts of root
 | scripts | description |
 | --- | --- |
-| all-install | install the libs on each packages |
 | check-all | check code on each packages |
 | doc | start documentations on each packages |
 | fix | automatic fix of the root materials |
