@@ -37,6 +37,7 @@ const StyledButton = styled.button`
 `
 
 const IconWrapper = styled.div`
+  cursor: pointer;
   height: ${ICON_WIDTH}px;
   position: relative;
   transition: opacity ${Transition.DURATION} ${Transition.TIMING_FUNCTION};
@@ -50,7 +51,6 @@ const IconWrapper = styled.div`
 const IconBar = styled.div<IconBarProps>`
   background-color: currentColor;
   border-radius: ${BAR_HEIGHT / 2}px;
-  cursor: pointer;
   display: block;
   height: ${BAR_HEIGHT}px;
   position: absolute;
