@@ -36,6 +36,7 @@ export const MenuButton: FC<MenuButtonProps> = memo((props) => {
 const StyledButton = styled.button`
   background-color: transparent;
   border: none;
+  color: currentColor;
   height: 32px;
   padding: 0;
   width: 32px;
