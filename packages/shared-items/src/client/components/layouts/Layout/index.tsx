@@ -6,6 +6,7 @@ import styled from "styled-components"
 import { Background } from "../Background"
 import { Header } from "../Header"
 import { MenuBackground } from "../MenuBackground"
+import { Menu } from "../Menu"
 
 // import others
 import { LayoutConst } from "../const"
@@ -22,7 +23,7 @@ export const Layout: FC<LayoutProps> = (props) => {
     isShow,
     title,
     width,
-    menu,
+    menuList,
     handleOpenMenu,
     handleCloseMenu,
     children,
@@ -44,7 +45,7 @@ export const Layout: FC<LayoutProps> = (props) => {
         handleClickMenuButton={handleClickMenuButton}
       />
       <MenuBackground isShow={isShow} width={width}>
-        {menu}
+        <Menu menuList={menuList} />
       </MenuBackground>
       <Background isShow={isShow} onClick={handleCloseMenu} />
 

@@ -6,7 +6,8 @@ import { Story, Meta } from "@storybook/react"
 import { Layout } from "./index"
 import { LayoutProps } from "./types"
 
-const MenuComponent = () => <div>{"メニュー。".repeat(100)}</div>
+// import others
+import { dummyMenuList } from "../../const"
 
 // main
 const config: Meta<LayoutProps> = {
@@ -16,7 +17,7 @@ const config: Meta<LayoutProps> = {
     isShow: true,
     title: "タイトル",
     width: 300,
-    menu: <MenuComponent />,
+    menuList: dummyMenuList,
     /* eslint-disable no-console */
     handleOpenMenu: () => console.log("handleOpenMenu"),
     handleCloseMenu: () => console.log("handleCloseMenu"),
