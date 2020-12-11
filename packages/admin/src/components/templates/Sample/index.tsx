@@ -1,12 +1,26 @@
 // import node_modules
-import React, { FC, Fragment } from "react"
+import React, { FC, Fragment, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import { Button } from "shared-items/dist/client"
 import { SampleProps } from "./types"
 
 // main
 export const Sample: FC<SampleProps> = (props) => {
-  const { counter, handleIncrement, handleDecrement } = props
+  const {
+    counter,
+    text,
+    handleIncrement,
+    handleDecrement,
+    handleChangeText: _handleChangeText,
+  } = props
+
+  const handleChangeText: ChangeEventHandler<HTMLInputElement> = (event) => {
+    const {
+      currentTarget: { value: newText },
+    } = event
+    _handleChangeText({ newText })
+  }
+
   return (
     <Fragment>
       <h1>Sample</h1>
@@ -35,6 +49,9 @@ export const Sample: FC<SampleProps> = (props) => {
             +
           </button>
         </Wrapper>
+        <div>
+          <input type="text" value={text} onChange={handleChangeText} />
+        </div>
       </div>
     </Fragment>
   )
