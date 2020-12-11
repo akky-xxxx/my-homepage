@@ -14,6 +14,6 @@ export type MenuButtonProps = {
 }
 
 /**
- * @typedef StyledSvgProps
+ * @typedef IconBarProps
  */
-export type StyledSvgProps = Pick<MenuButtonProps, "isOpen">
+export type IconBarProps = Pick<MenuButtonProps, "isOpen">

@@ -2,7 +2,7 @@
 import styled from "styled-components"
 
 // import others
-import { Color, Transition, Margin } from "../../../const"
+import { Color, Transition } from "../../../const"
 import { LayoutConst } from "../const"
 import { MenuBackgroundProps } from "./types"
 import { getWidth } from "./modules/getWidth"
@@ -11,7 +11,6 @@ import { getBoxShadow } from "./modules/getBoxShadow"
 
 // main
 const { BACKGROUND } = Color
-const { MARGIN10 } = Margin
 const {
   HEADER_HEIGHT,
   Z_INDEX: { MENU_BACKGROUND },
@@ -23,7 +22,6 @@ export const MenuBackground = styled.div<MenuBackgroundProps>`
   box-shadow: ${getBoxShadow};
   left: ${getLeft};
   overflow: auto;
-  padding: ${MARGIN10}px;
   position: fixed;
   top: ${HEADER_HEIGHT}px;
   transition: width ${Transition.DURATION} ${Transition.TIMING_FUNCTION},

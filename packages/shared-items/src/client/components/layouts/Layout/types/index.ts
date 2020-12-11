@@ -1,15 +1,13 @@
-// import node_modules
-import { ReactNode } from "react"
-
-// import others
+// import
 import { EmptyFunction } from "../../../../../common"
+import { MenuParentProps } from "../../Menu/types"
 
 // main
 export type LayoutProps = {
   isShow: boolean
   title: string
   width: number
-  menu: ReactNode
+  menuList: MenuParentProps[]
   handleOpenMenu: EmptyFunction
   handleCloseMenu: EmptyFunction
 }
