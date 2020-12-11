@@ -10,6 +10,7 @@ const counterSlice = createSlice<SampleState, CaseReducers>({
   name: "sample",
   initialState: {
     counter: 0,
+    text: "",
   },
   reducers,
 })
