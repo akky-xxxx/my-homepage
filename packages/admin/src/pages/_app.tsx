@@ -1,8 +1,12 @@
 // import node_modules
 import App, { AppInitialProps } from "next/app"
 import Head from "next/head"
-import React, { Fragment } from "react"
+import React from "react"
 import { GlobalStyle } from "shared-items/dist/client"
+import { Provider } from "react-redux"
+
+// import others
+import { store } from "@@/store"
 
 // main
 class MyApp extends App<AppInitialProps> {
@@ -10,7 +14,7 @@ class MyApp extends App<AppInitialProps> {
     const { Component, pageProps } = this.props
 
     return (
-      <Fragment>
+      <Provider store={store}>
         <Head>
           <meta
             name="viewport"
@@ -20,7 +24,7 @@ class MyApp extends App<AppInitialProps> {
         </Head>
         <GlobalStyle />
         <Component {...pageProps} />
-      </Fragment>
+      </Provider>
     )
   }
 }
