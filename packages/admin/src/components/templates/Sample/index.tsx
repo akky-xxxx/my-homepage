@@ -41,11 +41,11 @@ export const Sample: FC<SampleProps> = (props) => {
       <div>
         <h2>store</h2>
         <Wrapper>
-          <button onClick={handleIncrement} type="button">
+          <button onClick={handleDecrement} type="button">
             -
           </button>
           {counter}
-          <button onClick={handleDecrement} type="button">
+          <button onClick={handleIncrement} type="button">
             +
           </button>
         </Wrapper>

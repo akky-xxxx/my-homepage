@@ -7,6 +7,6 @@ import { SampleState } from "@@/store/modules/sample/types"
 // main
 export const decrement: CaseReducer<SampleState> = (state) => {
   const newState = { ...state }
-  newState.counter += 1
+  newState.counter -= 1
   return newState
 }

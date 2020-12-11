@@ -6,12 +6,13 @@ import { SampleState } from "@@/store/modules/sample/types"
 import { reducers, CaseReducers } from "./reducers"
 
 // main
+export const initialState: SampleState = {
+  counter: 0,
+  text: "",
+}
 const counterSlice = createSlice<SampleState, CaseReducers>({
   name: "sample",
-  initialState: {
-    counter: 0,
-    text: "",
-  },
+  initialState,
   reducers,
 })
 
