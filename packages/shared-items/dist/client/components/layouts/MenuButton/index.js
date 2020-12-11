@@ -30,15 +30,19 @@ exports.MenuButton = void 0;
 var react_1 = __importStar(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
 var useMenuButton_1 = require("./modules/useMenuButton");
-var getRotate_1 = require("./modules/getRotate");
-var Transition_1 = require("../../../const/styles/Transition");
+var getValueByShowStatus_1 = require("./modules/getValueByShowStatus");
+var transform_1 = require("./modules/transform");
+var const_1 = require("../../../const");
 exports.MenuButton = react_1.memo(function (props) {
     var _a = useMenuButton_1.useMenuButton(props), handleClick = _a.handleClick, isOpen = _a.isOpen;
     return (react_1.default.createElement(StyledButton, { type: "button" },
-        react_1.default.createElement(StyledSvg, { width: 32, height: 32, viewBox: "0 0 32 32", xmlns: "http://www.w3.org/2000/svg", onClick: handleClick, isOpen: isOpen },
-            react_1.default.createElement("g", null,
-                react_1.default.createElement("path", { d: "M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z", fill: "currentColor" })))));
+        react_1.default.createElement(IconWrapper, { onClick: handleClick, isOpen: isOpen },
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null))));
 });
+var ICON_WIDTH = 32;
+var BAR_HEIGHT = 4;
 var StyledButton = styled_components_1.default.button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  background-color: transparent;\n  border: none;\n  color: currentColor;\n  height: 32px;\n  padding: 0;\n  width: 32px;\n"], ["\n  background-color: transparent;\n  border: none;\n  color: currentColor;\n  height: 32px;\n  padding: 0;\n  width: 32px;\n"])));
-var StyledSvg = styled_components_1.default.svg(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  cursor: pointer;\n  transform: rotate(", "deg);\n  transition: opacity ", " ", ",\n    transform ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"], ["\n  cursor: pointer;\n  transform: rotate(", "deg);\n  transition: opacity ", " ", ",\n    transform ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"])), getRotate_1.getRotate, Transition_1.Transition.DURATION, Transition_1.Transition.TIMING_FUNCTION, Transition_1.Transition.DURATION, Transition_1.Transition.TIMING_FUNCTION);
+var IconWrapper = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  cursor: pointer;\n  height: ", "px;\n  position: relative;\n  transition: opacity ", " ", ";\n  width: ", "px;\n\n  &:hover {\n    opacity: 0.5;\n  }\n\n  & > div {\n    background-color: currentColor;\n    border-radius: ", "px;\n    display: block;\n    height: ", "px;\n    position: absolute;\n    ", ";\n    transform-origin: center;\n    width: ", "px;\n\n    &:nth-child(1) {\n      top: ", "px;\n      transform: rotate(", "deg);\n    }\n\n    &:nth-child(2) {\n      opacity: ", ";\n      top: 14px;\n    }\n\n    &:nth-child(3) {\n      top: ", "px;\n      transform: rotate(", "deg);\n    }\n  }\n"], ["\n  cursor: pointer;\n  height: ", "px;\n  position: relative;\n  transition: opacity ", " ", ";\n  width: ", "px;\n\n  &:hover {\n    opacity: 0.5;\n  }\n\n  & > div {\n    background-color: currentColor;\n    border-radius: ", "px;\n    display: block;\n    height: ", "px;\n    position: absolute;\n    ", ";\n    transform-origin: center;\n    width: ", "px;\n\n    &:nth-child(1) {\n      top: ", "px;\n      transform: rotate(", "deg);\n    }\n\n    &:nth-child(2) {\n      opacity: ", ";\n      top: 14px;\n    }\n\n    &:nth-child(3) {\n      top: ", "px;\n      transform: rotate(", "deg);\n    }\n  }\n"])), ICON_WIDTH, const_1.Transition.DURATION, const_1.Transition.TIMING_FUNCTION, ICON_WIDTH, BAR_HEIGHT / 2, BAR_HEIGHT, transform_1.transform, ICON_WIDTH, getValueByShowStatus_1.getValueByShowStatus(14, 3), getValueByShowStatus_1.getValueByShowStatus(45, 0), getValueByShowStatus_1.getValueByShowStatus(0, 1), getValueByShowStatus_1.getValueByShowStatus(14, 25), getValueByShowStatus_1.getValueByShowStatus(-45, 0));
 var templateObject_1, templateObject_2;

@@ -13,13 +13,14 @@ var styled_components_1 = __importDefault(require("styled-components"));
 var Background_1 = require("../Background");
 var Header_1 = require("../Header");
 var MenuBackground_1 = require("../MenuBackground");
+var Menu_1 = require("../Menu");
 var const_1 = require("../const");
 var getOverflow_1 = require("./modules/getOverflow");
 var const_2 = require("../../../const");
 var HEADER_HEIGHT = const_1.LayoutConst.HEADER_HEIGHT;
 var BACKGROUND = const_2.Color.BACKGROUND;
 var Layout = function (props) {
-    var isShow = props.isShow, title = props.title, width = props.width, menu = props.menu, handleOpenMenu = props.handleOpenMenu, handleCloseMenu = props.handleCloseMenu, children = props.children;
+    var isShow = props.isShow, title = props.title, width = props.width, menuList = props.menuList, handleOpenMenu = props.handleOpenMenu, handleCloseMenu = props.handleCloseMenu, children = props.children;
     var handleClickMenuButton = function () {
         if (isShow) {
             handleOpenMenu();
@@ -29,7 +30,8 @@ var Layout = function (props) {
     };
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(Header_1.Header, { isShow: isShow, title: title, handleClickMenuButton: handleClickMenuButton }),
-        react_1.default.createElement(MenuBackground_1.MenuBackground, { isShow: isShow, width: width }, menu),
+        react_1.default.createElement(MenuBackground_1.MenuBackground, { isShow: isShow, width: width },
+            react_1.default.createElement(Menu_1.Menu, { menuList: menuList })),
         react_1.default.createElement(Background_1.Background, { isShow: isShow, onClick: handleCloseMenu }),
         react_1.default.createElement(StyledMain, { isShow: isShow }, children)));
 };
