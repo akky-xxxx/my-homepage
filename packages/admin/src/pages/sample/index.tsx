@@ -11,6 +11,11 @@ import { wrapper, actions } from "@@/store"
 // main
 const {
   sample: { changeText },
+  server: {
+    app: {
+      layout: { changeTitle },
+    },
+  },
 } = actions
 const HomeHoc = () => {
   const props = useSampleHooks()
@@ -23,7 +28,10 @@ export const getServerSideProps = wrapper.getServerSideProps(
       store: { dispatch },
     } = context
 
-    await dispatch(changeText({ newText: "getting at getServerSideProps" }))
+    await Promise.allSettled([
+      dispatch(changeText({ newText: "getting at getServerSideProps" })),
+      dispatch(changeTitle({ newTitle: "サンプル" })),
+    ])
   },
 )
 
