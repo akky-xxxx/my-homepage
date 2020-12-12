@@ -2,6 +2,9 @@
 import React, { FC, Fragment, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import { Button } from "shared-items/dist/client"
+import Link from "next/link"
+
+// import others
 import { SampleProps } from "./types"
 
 // main
@@ -24,6 +27,9 @@ export const Sample: FC<SampleProps> = (props) => {
   return (
     <Fragment>
       <h1>Sample</h1>
+      <div>
+        <Link href="/">トップ</Link>
+      </div>
       <Wrapper>
         <Item>
           <Button colorType="primary" type="button">
