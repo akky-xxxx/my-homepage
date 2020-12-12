@@ -4,6 +4,7 @@ import Server from "next/dist/next-server/server/next-server"
 
 // import middleware
 import { commonMiddleware } from "@@/middleware/commonMiddleware"
+import { authRouter } from "@@/middleware/auth"
 import { nextRoutes } from "@@/middleware/nextRoutes"
 
 // main
@@ -13,6 +14,8 @@ type CreateServer = (nextServer: Server) => Express
 export const createServer: CreateServer = (nextServer) => {
   const nextHandler = nextRoutes.getRequestHandler(nextServer)
   expressServer.use(commonMiddleware)
+
+  expressServer.use(authRouter)
 
   expressServer.use(nextHandler)
 
