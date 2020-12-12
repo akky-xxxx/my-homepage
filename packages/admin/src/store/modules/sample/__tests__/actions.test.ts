@@ -1,5 +1,5 @@
 // import
-import { sampleActions } from "../"
+import { sampleActions } from ".."
 
 // main
 const { increment, decrement, changeText } = sampleActions

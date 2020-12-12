@@ -1,5 +1,5 @@
 // import
-import { sampleReducer, initialState, sampleActions } from "../"
+import { sampleReducer, initialState, sampleActions } from ".."
 
 // main
 const { increment, decrement, changeText } = sampleActions
@@ -28,6 +28,8 @@ describe("store - sample - reducer", () => {
       ...initialState,
       text: "new text",
     }
-    expect(sampleReducer(initialState, changeText(payload))).toEqual(expectedState)
+    expect(sampleReducer(initialState, changeText(payload))).toEqual(
+      expectedState,
+    )
   })
 })

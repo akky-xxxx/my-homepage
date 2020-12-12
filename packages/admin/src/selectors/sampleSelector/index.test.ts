@@ -1,6 +1,6 @@
 // import
-import { sampleSelector } from "./index"
 import { rootInitialState } from "@@/store"
+import { sampleSelector } from "./index"
 
 // main
 describe("sampleSelector", () => {
