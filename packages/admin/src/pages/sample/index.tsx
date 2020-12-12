@@ -7,10 +7,19 @@ import { Sample } from "@@/components/templates/Sample"
 // import others
 import { useSampleHooks } from "@@/pageHooks/useSampleHooks"
 import { wrapper, actions } from "@@/store"
+import { ScreenNames } from "@@/shared/const/ScreenNames"
 
 // main
 const {
+  SAMPLE: { LABEL },
+} = ScreenNames
+const {
   sample: { changeText },
+  server: {
+    app: {
+      layout: { changeTitle },
+    },
+  },
 } = actions
 const HomeHoc = () => {
   const props = useSampleHooks()
@@ -23,7 +32,10 @@ export const getServerSideProps = wrapper.getServerSideProps(
       store: { dispatch },
     } = context
 
-    await dispatch(changeText({ newText: "getting at getServerSideProps" }))
+    await Promise.allSettled([
+      dispatch(changeText({ newText: "getting at getServerSideProps" })),
+      dispatch(changeTitle({ newTitle: LABEL })),
+    ])
   },
 )
 

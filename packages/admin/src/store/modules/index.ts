@@ -8,14 +8,17 @@ import {
   sampleActions,
   initialState as sampleInitialState,
 } from "./sample"
+import { serverInitialState, serverReducer, serverActions } from "./server"
 
 // main
 export const initialState = {
   sample: sampleInitialState,
+  server: serverInitialState,
 } as const
 
 const combineReducer = combineReducers({
   sample: sampleReducer,
+  server: serverReducer,
 })
 
 export type State = ReturnType<typeof combineReducer>
@@ -33,4 +36,5 @@ export const reducer: Reducer = (state = initialState, action) => {
 
 export const actions = {
   sample: sampleActions,
-}
+  server: serverActions,
+} as const
