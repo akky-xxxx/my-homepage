@@ -4,9 +4,10 @@ import { createSelectorHook, createDispatchHook } from "react-redux"
 
 // import others
 import { reducer, actions as actionsOrigins, initialState } from "./modules"
+import { middleware } from "./middleware"
 
 // main
-export const store = configureStore({ reducer })
+export const store = configureStore({ reducer, middleware })
 export type RootState = ReturnType<typeof reducer>
 export const useSelector = createSelectorHook<RootState>()
 export const useDispatch = createDispatchHook<typeof store.dispatch>()
