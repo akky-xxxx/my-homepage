@@ -7,7 +7,7 @@ var useMenuButton = function (args) {
     var handleClick = react_1.useCallback(function () {
         if (onClick)
             onClick();
-    }, []);
+    }, [isOpen]);
     return { handleClick: handleClick, isOpen: isOpen };
 };
 exports.useMenuButton = useMenuButton;
