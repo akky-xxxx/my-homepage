@@ -6,6 +6,7 @@ import { RootState } from "@@/store"
 import { ChangeTextPayload } from "@@/store/modules/sample/types"
 
 // main
+export type SampleStates = RootState["sample"]
 export type HandleIncrement = EmptyFunction
 export type HandleDecrement = EmptyFunction
 export type HandleChangeText = (payload: ChangeTextPayload) => void
@@ -14,4 +15,4 @@ export type SampleHandlers = {
   handleDecrement: HandleDecrement
   handleChangeText: HandleChangeText
 }
-export type SampleProps = SampleHandlers & RootState["sample"]
+export type SampleProps = SampleHandlers & SampleStates

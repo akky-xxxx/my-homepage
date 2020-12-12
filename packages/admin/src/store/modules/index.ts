@@ -2,7 +2,7 @@
 import { combineReducers } from "@reduxjs/toolkit"
 
 // import others
-import { sampleReducer, sampleActions } from "./sample"
+import { sampleReducer, sampleActions, initialState as sampleInitialState } from "./sample"
 
 // main
 export const reducer = combineReducers({
@@ -11,4 +11,8 @@ export const reducer = combineReducers({
 
 export const actions = {
   sample: sampleActions,
+}
+
+export const initialState = {
+  sample: sampleInitialState,
 }

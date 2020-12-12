@@ -4,13 +4,14 @@ import {
   SampleHandlers,
 } from "@@/components/templates/Sample/types"
 import { useSelector, useDispatch, actions } from "@@/store"
+import { sampleSelector } from "@@/selectors/sampleSelector"
 
 // main
 const { sample } = actions
 
 type UseSampleHooks = () => SampleProps
 export const useSampleHooks: UseSampleHooks = () => {
-  const state = useSelector((_state) => _state.sample)
+  const state = useSelector(sampleSelector)
   const dispatch = useDispatch()
   const handlers: SampleHandlers = {
     handleIncrement: () => {
