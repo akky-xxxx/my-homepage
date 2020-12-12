@@ -27,7 +27,7 @@ export const useMenuButton: UseMenuButton = (args) => {
   const { onClick, isOpen = false } = args
   const handleClick = useCallback(() => {
     if (onClick) onClick()
-  }, [])
+  }, [isOpen])
 
   return { handleClick, isOpen }
 }
