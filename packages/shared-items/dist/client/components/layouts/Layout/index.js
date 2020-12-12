@@ -22,7 +22,7 @@ var BACKGROUND = const_2.Color.BACKGROUND;
 var Layout = function (props) {
     var isShow = props.isShow, title = props.title, width = props.width, menuList = props.menuList, handleOpenMenu = props.handleOpenMenu, handleCloseMenu = props.handleCloseMenu, children = props.children;
     var handleClickMenuButton = function () {
-        if (isShow) {
+        if (!isShow) {
             handleOpenMenu();
             return;
         }

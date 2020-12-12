@@ -30,7 +30,7 @@ export const Layout: FC<LayoutProps> = (props) => {
   } = props
 
   const handleClickMenuButton = () => {
-    if (isShow) {
+    if (!isShow) {
       handleOpenMenu()
       return
     }
