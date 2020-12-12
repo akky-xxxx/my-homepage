@@ -17,7 +17,7 @@ import { middleware } from "./middleware"
 const { IS_DEV } = Common
 
 export type RootState = State
-export const store = configureStore<RootState, AnyAction, typeof middleware>({
+const store = configureStore<RootState, AnyAction, typeof middleware>({
   reducer,
   middleware,
 })
