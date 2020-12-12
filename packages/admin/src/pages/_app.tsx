@@ -3,14 +3,20 @@ import { AppProps } from "next/app"
 import Head from "next/head"
 import React, { FC } from "react"
 import { GlobalStyle } from "shared-items/dist/client"
-import { Provider } from "react-redux"
+import { Provider, useStore } from "react-redux"
 
 // import others
-import { store } from "@@/store"
+import { wrapper } from "@@/store"
 
 // main
 const MyApp: FC<AppProps> = (props) => {
   const { Component, pageProps } = props
+  const store = useStore()
+  const state = store.getState()
+  const appProps = {
+    ...pageProps,
+    ...state,
+  }
 
   return (
     <Provider store={store}>
@@ -22,9 +28,9 @@ const MyApp: FC<AppProps> = (props) => {
         <title>fastify site with next.js</title>
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Component {...appProps} />
     </Provider>
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)
