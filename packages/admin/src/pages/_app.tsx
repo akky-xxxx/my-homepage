@@ -5,6 +5,9 @@ import React, { FC } from "react"
 import { GlobalStyle } from "shared-items/dist/client"
 import { Provider, useStore } from "react-redux"
 
+// import components
+import { Layout } from "@@/components/layouts/Layout"
+
 // import others
 import { wrapper } from "@@/store"
 
@@ -27,8 +30,10 @@ const MyApp: FC<AppProps> = (props) => {
         />
         <title>fastify site with next.js</title>
       </Head>
-      <GlobalStyle />
-      <Component {...appProps} />
+      <Layout>
+        <GlobalStyle />
+        <Component {...appProps} />
+      </Layout>
     </Provider>
   )
 }
