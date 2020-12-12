@@ -7,8 +7,12 @@ import { Sample } from "@@/components/templates/Sample"
 // import others
 import { useSampleHooks } from "@@/pageHooks/useSampleHooks"
 import { wrapper, actions } from "@@/store"
+import { ScreenNames } from "@@/shared/const/ScreenNames"
 
 // main
+const {
+  SAMPLE: { LABEL },
+} = ScreenNames
 const {
   sample: { changeText },
   server: {
@@ -30,7 +34,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
     await Promise.allSettled([
       dispatch(changeText({ newText: "getting at getServerSideProps" })),
-      dispatch(changeTitle({ newTitle: "サンプル" })),
+      dispatch(changeTitle({ newTitle: LABEL })),
     ])
   },
 )

@@ -4,8 +4,12 @@ import Link from "next/link"
 
 // import others
 import { wrapper, actions } from "@@/store"
+import { ScreenNames } from "@@/shared/const/ScreenNames"
 
 // main
+const {
+  ADMIN: { LABEL },
+} = ScreenNames
 const {
   server: {
     app: {
@@ -27,7 +31,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const {
       store: { dispatch },
     } = context
-    await dispatch(changeTitle({ newTitle: "管理画面" }))
+    await dispatch(changeTitle({ newTitle: LABEL }))
   },
 )
 
