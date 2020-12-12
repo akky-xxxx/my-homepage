@@ -6,7 +6,8 @@
   "repository": "https://github.com/akky-xxxx/my-homepage.git",
   "scripts": {
     "build:prod": "next build",
-    "check-all": "run-p lint spell-check type-check test",
+    "check-all": "npm-run-all check-code  -p test",
+    "check-code": "run-p lint spell-check type-check",
     "dev": "NODE_ENV=development run-p server:dev",
     "doc": "run-p doc:*",
     "doc:ui": "start-storybook -p 4001 --no-dll",
@@ -40,6 +41,7 @@
     "faker": "^5.1.0",
     "helmet": "^4.2.0",
     "next": "^10.0.3",
+    "next-redux-wrapper": "^6.0.2",
     "next-routes": "^1.4.2",
     "polished": "^4.0.4",
     "react": "^17.0.1",
