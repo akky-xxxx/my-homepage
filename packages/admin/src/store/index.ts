@@ -1,15 +1,30 @@
 // import node_modules
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore, AnyAction } from "@reduxjs/toolkit"
 import { createSelectorHook, createDispatchHook } from "react-redux"
+import { MakeStore, createWrapper } from "next-redux-wrapper"
+import { Common } from "@@/shared/const/Common"
 
 // import others
-import { reducer, actions as actionsOrigins, initialState } from "./modules"
+import {
+  reducer,
+  actions as actionsOrigins,
+  initialState,
+  State,
+} from "./modules"
 import { middleware } from "./middleware"
 
 // main
-export const store = configureStore({ reducer, middleware })
-export type RootState = ReturnType<typeof reducer>
+const { IS_DEV } = Common
+
+export type RootState = State
+export const store = configureStore<RootState, AnyAction, typeof middleware>({
+  reducer,
+  middleware,
+})
 export const useSelector = createSelectorHook<RootState>()
 export const useDispatch = createDispatchHook<typeof store.dispatch>()
 export const actions = actionsOrigins
 export const rootInitialState = initialState
+
+export const makeStore: MakeStore<RootState> = () => store
+export const wrapper = createWrapper<RootState>(makeStore, { debug: IS_DEV })
