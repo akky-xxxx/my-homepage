@@ -20,6 +20,7 @@ export const checkByGoogleId: CheckByGoogleId = async (googleId) => {
   logger.info("start")
 
   try {
+    logger.info("ユーザ情報取得開始")
     const permissionUserKey = dataStore.key([PERMISSION_USERS, googleId])
     const [permissionUser] = await dataStore.get(permissionUserKey)
 
@@ -29,7 +30,16 @@ export const checkByGoogleId: CheckByGoogleId = async (googleId) => {
       return Promise.reject(error)
     }
 
+    logger.info("session id 生成・登録")
     const sessionId = uuid()
+    const updateData = {
+      key: permissionUserKey,
+      data: {
+        ...permissionUser,
+        sessionId,
+      },
+    }
+    await dataStore.update(updateData)
 
     logger.info("success")
     return Promise.resolve(sessionId)
