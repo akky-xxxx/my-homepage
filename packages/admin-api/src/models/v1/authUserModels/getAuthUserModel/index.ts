@@ -4,8 +4,6 @@ import { ThisError, createErrorData } from "shared-items"
 
 // import others
 import { createLogger } from "@@/shared/utils/createLogger"
-import { isGoogleId } from "./modules/isGoogleId"
-import { isSessionId } from "./modules/isSessionId"
 import { checkByGoogleId } from "./modules/checkByGoogleId"
 import { checkBySessionId } from "./modules/checkBySessionId"
 
@@ -18,12 +16,12 @@ export const getAuthUserModel: GetAuthUserModel = async (query) => {
   const { googleId, sessionId } = query
 
   try {
-    if (isGoogleId(googleId)) {
+    if (typeof googleId === "string") {
       const newSessionId = await checkByGoogleId(googleId)
       return Promise.resolve(newSessionId)
     }
 
-    if (isSessionId(sessionId)) {
+    if (typeof sessionId === "string") {
       await checkBySessionId(sessionId)
       return Promise.resolve(sessionId)
     }
