@@ -26,8 +26,8 @@ describe("app test `GET:/api/v1/auth/user`", () => {
       .query({ googleId })
       .expect(200)
       .then((res) => {
-        const { result } = res.body
-        expect(result).toEqual(true)
+        const { data } = res.body
+        expect(data).toEqual({ result: "success" })
       })
   })
 
