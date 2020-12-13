@@ -1,14 +1,11 @@
 // import node_modules
 import { RequestHandler } from "express"
-import dotenv from "dotenv" // TODO: 仮実装
 
 // import others
 import { GetAuthUserResponse } from "@@/shared/types/api/v1/authUser"
 import { getAuthUserModel } from "@@/models/v1/authUserModels/getAuthUserModel"
 
 // main
-dotenv.config() // TODO: 仮実装
-
 export const get: RequestHandler<never, GetAuthUserResponse> = async (
   req,
   res,
