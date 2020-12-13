@@ -5,20 +5,23 @@ import { ThisError, createErrorData } from "shared-items"
 // import others
 import { dataStore } from "@@/shared/utils/gcp"
 import { DataStore } from "@@/shared/const/DataStore"
+import { isGoogleId } from "./modules/isGoogleId"
 
 // main
-const { TYPES: { PERMISSION_USERS } } = DataStore
+const {
+  TYPES: { PERMISSION_USERS },
+} = DataStore
 type GetAuthUserModel = (query: Request["query"]) => Promise<void>
 export const getAuthUserModel: GetAuthUserModel = async (query) => {
   const { googleId } = query
 
-  if (!googleId) {
+  if (!isGoogleId(googleId)) {
     const error = new ThisError(createErrorData(__filename, 400))
     return Promise.reject(error)
   }
 
   try {
-    const permissionUserKey = dataStore.key([PERMISSION_USERS, googleId as string])
+    const permissionUserKey = dataStore.key([PERMISSION_USERS, googleId])
     const [permissionUser] = await dataStore.get(permissionUserKey)
 
     if (!permissionUser) {
