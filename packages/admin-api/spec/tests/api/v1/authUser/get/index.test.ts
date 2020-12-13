@@ -20,7 +20,7 @@ if (!googleId) {
 
 const request = supertest(server)
 describe("app test `GET:/api/v1/auth/user`", () => {
-  it("return 200 when has permission user", async () => {
+  it("return 200 when has google id of permission user", async () => {
     await request
       .get("/api/v1/auth/user")
       .query({ googleId })
