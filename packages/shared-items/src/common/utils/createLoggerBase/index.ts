@@ -9,7 +9,7 @@ export const createLoggerBase: CreateLoggerBase = (isTest) => {
     const logger = log4js.getLogger(
       `[${filePath.slice(filePath.lastIndexOf("src"))}]`,
     )
-    logger.level = isTest ? "all" : "off"
+    logger.level = isTest ? "off" : "all"
     return logger
   }
 

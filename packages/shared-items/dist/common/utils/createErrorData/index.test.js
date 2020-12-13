@@ -10,6 +10,7 @@ describe("createErrorData", function () {
         });
         it.each([
             [400, "パラメータが不正です"],
+            [403, "禁止されています"],
             [404, "資材が見つかりません"],
         ])("%i 時のエラーメッセージは `%s`", function (input, output) {
             var _a;

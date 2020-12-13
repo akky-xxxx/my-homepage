@@ -11,6 +11,7 @@ describe("createErrorData", () => {
 
     it.each([
       [400, "パラメータが不正です"],
+      [403, "禁止されています"],
       [404, "資材が見つかりません"],
     ] as const)("%i 時のエラーメッセージは `%s`", (input, output) => {
       expect(createErrorData(__filename, input)?.message).toEqual(output)

@@ -3,5 +3,6 @@ export const DataStore = {
     TAGS: "tags",
     GALLERY_IMAGES: "gallery_images",
     PREFECTURES: "prefectures",
+    PERMISSION_USERS: "permission_users",
   },
 } as const

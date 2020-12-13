@@ -8,7 +8,7 @@ var log4js_1 = __importDefault(require("log4js"));
 var createLoggerBase = function (isTest) {
     var createLogger = function (filePath) {
         var logger = log4js_1.default.getLogger("[" + filePath.slice(filePath.lastIndexOf("src")) + "]");
-        logger.level = isTest ? "all" : "off";
+        logger.level = isTest ? "off" : "all";
         return logger;
     };
     return createLogger;
