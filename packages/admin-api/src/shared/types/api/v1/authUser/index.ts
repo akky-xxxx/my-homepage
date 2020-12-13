@@ -3,9 +3,10 @@ import { ResponseData } from "@@/shared/types/api"
 
 // main
 // read (get)
-export type GetAuthUserQuery = {
+export type GetAuthUserQuery = Partial<{
   googleId: string
-}
+  sessionId: string
+}>
 
 export type GetAuthUserResponse = ResponseData<{
   result: "success"
