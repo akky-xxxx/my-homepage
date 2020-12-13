@@ -1,7 +1,7 @@
 // import node_modules
 import React, { FC } from "react"
 import styled from "styled-components"
-// import Link from "next/link"
+import Link from "next/link"
 /**
  * Link が使えない問題は以下の issue で議論されている
  * https://github.com/vercel/next.js/issues/16864
@@ -25,7 +25,9 @@ export const MenuChild: FC<MenuChildProps> = (props) => {
 
   return (
     <li>
-      <StyledAnchor href={href}>{childLabel}</StyledAnchor>
+      <Link href={href} passHref>
+        <StyledAnchor>{childLabel}</StyledAnchor>
+      </Link>
     </li>
   )
 }
