@@ -13,7 +13,7 @@ export const get: RequestHandler = async (req, res, next) => {
     const error = new ThisError(createErrorData(__filename, 400))
     res.status(400)
     next(error)
-    return
+    return Promise.reject(error)
   }
 
   try {
@@ -21,10 +21,12 @@ export const get: RequestHandler = async (req, res, next) => {
       const error = new ThisError(createErrorData(__filename, 403))
       res.status(403)
       next(error)
-      return error
+      return Promise.reject(error)
     }
     res.json({ result: true })
+    return Promise.resolve()
   } catch (error) {
     next(error)
+    return Promise.reject(error)
   }
 }
