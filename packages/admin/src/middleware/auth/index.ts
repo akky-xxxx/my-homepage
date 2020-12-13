@@ -4,6 +4,7 @@ import passport from "passport"
 import { Strategy } from "passport-google-oauth20"
 
 // import others
+import { checkSession } from "./modules/checkSession"
 import { loginCallback } from "./modules/loginCallback"
 import { logout } from "./modules/logout"
 import {
@@ -16,13 +17,15 @@ import { verify } from "./modules/verify"
 
 // main
 const authRouter = Router()
-const { LOGIN, CALLBACK, LOGOUT } = Endpoints
+const { ALL, LOGIN, CALLBACK, LOGOUT } = Endpoints
 
 passport.use(new Strategy(StrategyOption, verify))
 passport.serializeUser((user, callback) => callback(null, user))
 passport.deserializeUser((obj, callback) => callback(null, obj))
 
 authRouter.use(passport.initialize())
+
+authRouter.get(ALL, checkSession)
 authRouter.get(LOGIN, passport.authenticate(StrategyName, StrategyAuthOption))
 authRouter.get(CALLBACK, passport.authenticate(StrategyName), loginCallback)
 authRouter.get(LOGOUT, logout)
