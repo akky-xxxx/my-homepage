@@ -23,6 +23,12 @@ describe("app test `GET:/api/v1/auth/user`", () => {
       })
   })
 
+  it("return 400 when not has param", async () => {
+    await request
+      .get("/api/v1/auth/user")
+      .expect(400)
+  })
+
   it("return 403 when not has permission user", async () => {
     await request
       .get("/api/v1/auth/user")
