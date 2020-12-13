@@ -7,6 +7,7 @@ import { Common } from "@@/shared/const/Common"
 import { Endpoints as CommonEndpoints } from "@@/shared/const/Endpoints"
 import { adminApiClient } from "@@/shared/utils/adminApiClient"
 import { Endpoints as AuthEndpoint } from "../../const"
+import { isNotTarget } from "./modules/isNotTarget"
 
 // main
 const logger = createLogger(__filename)
@@ -14,16 +15,11 @@ const { COOKIE } = Common
 const {
   API: { AUTH_USER },
 } = CommonEndpoints
-const { LOGIN, CALLBACK } = AuthEndpoint
-const regExp = /^\/_next/
+const { LOGIN } = AuthEndpoint
 
 export const checkSession: RequestHandler = async (req, res, next) => {
   const { originalUrl } = req
-  if (
-    regExp.test(originalUrl) ||
-    originalUrl.includes(LOGIN) ||
-    originalUrl.includes(CALLBACK)
-  ) {
+  if (isNotTarget(originalUrl)) {
     next()
     return
   }
