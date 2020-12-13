@@ -54,7 +54,7 @@ export const get: ApiType[] = [
       status: 200,
       body: {
         data: {
-          result: "success",
+          sessionId: "sessionId",
         },
       },
     },
@@ -74,7 +74,7 @@ export const get: ApiType[] = [
       status: 200,
       body: {
         data: {
-          result: "success",
+          sessionId: "sessionId",
         },
       },
     },

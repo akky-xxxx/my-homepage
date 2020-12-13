@@ -14,9 +14,9 @@ export const get: RequestHandler<never, GetAuthUserResponse> = async (
   const { query } = req
 
   try {
-    await getAuthUserModel(query)
+    const sessionId = await getAuthUserModel(query)
     const responseBody: GetAuthUserResponse = {
-      data: { result: "success" },
+      data: { sessionId },
     } as const
     res.status(200).send(responseBody)
     return

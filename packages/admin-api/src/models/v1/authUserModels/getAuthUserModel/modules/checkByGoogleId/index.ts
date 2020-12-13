@@ -1,5 +1,6 @@
 // import node_modules
 import { ThisError, createErrorData } from "shared-items"
+import { v4 as uuid } from "uuid"
 
 // import others
 import { dataStore } from "@@/shared/utils/gcp"
@@ -12,7 +13,9 @@ const logger = createLogger(__filename)
 const {
   TYPES: { PERMISSION_USERS },
 } = DataStore
-type CheckByGoogleId = (googleId: Required<GetAuthUserQuery>["googleId"]) => Promise<void>
+type CheckByGoogleId = (
+  googleId: Required<GetAuthUserQuery>["googleId"],
+) => Promise<string>
 export const checkByGoogleId: CheckByGoogleId = async (googleId) => {
   logger.info("start")
 
@@ -26,8 +29,10 @@ export const checkByGoogleId: CheckByGoogleId = async (googleId) => {
       return Promise.reject(error)
     }
 
+    const sessionId = uuid()
+
     logger.info("success")
-    return Promise.resolve()
+    return Promise.resolve(sessionId)
   } catch (error) {
     const thisError = new ThisError({
       filePath: __filename,

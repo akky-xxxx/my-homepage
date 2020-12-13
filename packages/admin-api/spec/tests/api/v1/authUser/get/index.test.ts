@@ -27,7 +27,8 @@ describe("app test `GET:/api/v1/auth/user`", () => {
       .expect(200)
       .then((res) => {
         const { data } = res.body
-        expect(data).toEqual({ result: "success" })
+        expect(typeof data).toEqual("object")
+        expect(typeof data.sessionId).toEqual("string")
       })
   })
 

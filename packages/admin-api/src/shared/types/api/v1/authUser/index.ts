@@ -9,5 +9,5 @@ export type GetAuthUserQuery = Partial<{
 }>
 
 export type GetAuthUserResponse = ResponseData<{
-  result: "success"
+  sessionId: string
 }>

@@ -5,11 +5,11 @@ import { ThisError, createErrorData } from "shared-items"
 // import others
 import { createLogger } from "@@/shared/utils/createLogger"
 import { isGoogleId } from "./modules/isGoogleId"
-import { checkByGoogleId } from "@@/models/v1/authUserModels/getAuthUserModel/modules/checkByGoogleId"
+import { checkByGoogleId } from "./modules/checkByGoogleId"
 
 // main
 const logger = createLogger(__filename)
-type GetAuthUserModel = (query: Request["query"]) => Promise<void>
+type GetAuthUserModel = (query: Request["query"]) => Promise<string>
 export const getAuthUserModel: GetAuthUserModel = async (query) => {
   logger.info("start")
   logger.debug(query)
@@ -17,8 +17,8 @@ export const getAuthUserModel: GetAuthUserModel = async (query) => {
 
   try {
     if (isGoogleId(googleId)) {
-      await checkByGoogleId(googleId)
-      return Promise.resolve()
+      const sessionId = await checkByGoogleId(googleId)
+      return Promise.resolve(sessionId)
     }
 
     const error = new ThisError(createErrorData(__filename, 400))
