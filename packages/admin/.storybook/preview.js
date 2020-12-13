@@ -1,29 +1,24 @@
 // import node_modules
-import React, { Fragment } from "react"
+import React from "react"
 import { addDecorator } from "@storybook/react"
-import Router from "next/router"
-import { ApolloProvider } from "@apollo/client"
+import { RouterContext } from "next/dist/next-server/lib/router-context"
+import { GlobalStyle } from "shared-items/dist/client"
 
-// import others
-import { GlobalStyle } from "../src/styles/GlobalStyle"
-
+// main
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
 }
 
-Router.useRouter = () => ({
-  route: "/",
-  pathname: "/",
-})
-
-Router.router = {
-  push: () => {},
-  prefetch: () => new Promise(() => {}),
+const { Provider } = RouterContext
+const provider = {
+  push: () => Promise.resolve(),
+  replace: () => Promise.resolve(),
+  prefetch: () => Promise.resolve(),
 }
 
 addDecorator((storyFn) => (
-  <Fragment>
+  <Provider value={provider}>
     <GlobalStyle />
     {storyFn()}
-  </Fragment>
+  </Provider>
 ))
