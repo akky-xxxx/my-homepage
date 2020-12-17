@@ -1,5 +1,6 @@
 const COLOR_4285F4 = "#4285F4"
 const COLOR_11CBD7 = "#11cbd7"
+const COLOR_2ECC71 = "#2ecc71"
 const COLOR_DB4437 = "#db4437"
 const COLOR_212121 = "#212121"
 const COLOR_757575 = "#757575"
@@ -17,7 +18,9 @@ const DIVIDER = COLOR_BDBDBD
 
 export const Color = {
   // hex
+  COLOR_4285F4,
   COLOR_11CBD7,
+  COLOR_2ECC71,
   COLOR_DB4437,
   COLOR_212121,
   COLOR_757575,
