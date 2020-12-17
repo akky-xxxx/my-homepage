@@ -1,6 +1,8 @@
 // import
 export { Button } from "./Button"
 export type { ButtonProps } from "./Button/types"
+export { Checkbox } from "./Checkbox"
+export type { CheckboxProps } from "./Checkbox/types"
 export { MenuButton } from "../layouts/MenuButton"
 export type { MenuButtonProps } from "../layouts/MenuButton/types"
 export { Tag } from "./Tag"
