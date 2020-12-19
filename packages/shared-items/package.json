@@ -23,7 +23,7 @@
     "output": "yarn build && git add ./dist/* && git commit -m \"build(shared-items): `date \"+%Y-%m-%d %H:%M:%S\"`\"",
     "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
-    "spell-check": "cspell './src/**/*.ts'",
+    "spell-check": "cspell './src/**/*.ts*'",
     "test": "jest",
     "type-check": "tsc"
   },
