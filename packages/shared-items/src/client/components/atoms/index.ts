@@ -1,4 +1,6 @@
 // import
+export { Background } from "./Background"
+export type { BackgroundProps } from "./Background/types"
 export { Button } from "./Button"
 export type { ButtonProps } from "./Button/types"
 export { Checkbox } from "./Checkbox"
