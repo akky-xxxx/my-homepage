@@ -5,7 +5,7 @@ import styled from "styled-components"
 // import others
 import { IconTagProps } from "./types"
 import { useIconTag } from "./modules/useIconTag"
-import { Transition } from "../../../const/styles/Transition"
+import { Transition } from "../../../const"
 
 // main
 export const IconTag: FC<IconTagProps> = memo((props) => {

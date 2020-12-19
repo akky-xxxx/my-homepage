@@ -5,7 +5,7 @@ import styled from "styled-components"
 // import others
 import { IconCalendarProps } from "./types"
 import { useIconCalendar } from "./modules/useIconCalendar"
-import { Transition } from "../../../const/styles/Transition"
+import { Transition } from "../../../const"
 
 // main
 export const IconCalendar: FC<IconCalendarProps> = memo((props) => {

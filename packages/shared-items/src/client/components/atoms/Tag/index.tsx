@@ -2,10 +2,7 @@
 import styled from "styled-components"
 
 // import others
-import { Radius } from "../../../const/styles/Radius"
-import { Color } from "../../../const/styles/Color"
-import { Font } from "../../../const/styles/Font"
-import { Transition } from "../../../const/styles/Transition"
+import { Radius, Color, Font, Transition } from "../../../const"
 import { TagProps } from "./types"
 import { getColors } from "./modules/getColors"
 
