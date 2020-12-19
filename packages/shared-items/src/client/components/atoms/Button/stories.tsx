@@ -14,6 +14,11 @@ const config: Meta = {
     children: "ボタン",
     disabled: false,
   },
+  argTypes: {
+    onClick: {
+      action: "clicked",
+    },
+  },
 }
 export default config
 

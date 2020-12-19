@@ -13,6 +13,11 @@ const config: Meta = {
   args: {
     children: "tag",
   },
+  argTypes: {
+    onClick: {
+      action: "clicked",
+    },
+  },
 }
 export default config
 

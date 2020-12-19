@@ -13,6 +13,11 @@ const config: Meta<BackgroundProps> = {
   args: {
     isShow: true,
   },
+  argTypes: {
+    onClick: {
+      action: "clicked",
+    },
+  },
 }
 export default config
 
