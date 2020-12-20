@@ -30,7 +30,7 @@ exports.IconCalendar = void 0;
 var react_1 = __importStar(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
 var useIconCalendar_1 = require("./modules/useIconCalendar");
-var Transition_1 = require("../../../const/styles/Transition");
+var const_1 = require("../../../const");
 exports.IconCalendar = react_1.memo(function (props) {
     var _a = useIconCalendar_1.useIconCalendar(props), size = _a.size, handleClick = _a.handleClick;
     return (react_1.default.createElement(StyledSvg, { width: size, height: size, viewBox: "-265 388.9 64 64", xmlns: "http://www.w3.org/2000/svg", onClick: handleClick },
@@ -38,5 +38,5 @@ exports.IconCalendar = react_1.memo(function (props) {
             react_1.default.createElement("path", { d: "M-252.7,443.9h39.4c0.9,0,1.6-0.7,1.6-1.6v-27.6c0-0.2-0.1-0.3-0.3-0.3h-42c-0.2,0-0.3,0.1-0.3,0.3v27.6   C-254.4,443.2-253.6,443.9-252.7,443.9z", fill: "currentColor" }),
             react_1.default.createElement("path", { d: "M-221.5,402.8v-3.3c0-0.9-0.7-1.6-1.6-1.6h-3.3c-0.9,0-1.6,0.7-1.6,1.6v3.3c0,0.9-0.7,1.6-1.6,1.6h-6.6   c-0.9,0-1.6-0.7-1.6-1.6v-3.3c0-0.9-0.7-1.6-1.6-1.6h-3.3c-0.9,0-1.6,0.7-1.6,1.6v3.3c0,0.9-0.7,1.6-1.6,1.6h-6.6   c-0.9,0-1.6,0.7-1.6,1.6v4.6c0,0.2,0.1,0.3,0.3,0.3h41.8c0.2,0,0.3-0.1,0.3-0.3V406c0-0.9-0.7-1.6-1.6-1.6h-6.6   C-220.8,404.5-221.5,403.7-221.5,402.8z", fill: "currentColor" }))));
 });
-var StyledSvg = styled_components_1.default.svg(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"], ["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"])), Transition_1.Transition.DURATION, Transition_1.Transition.TIMING_FUNCTION);
+var StyledSvg = styled_components_1.default.svg(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"], ["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"])), const_1.Transition.DURATION, const_1.Transition.TIMING_FUNCTION);
 var templateObject_1;

@@ -5,7 +5,7 @@ import styled from "styled-components"
 // import others
 import { IconCloseProps } from "./types"
 import { useIconClose } from "./modules/useIconClose"
-import { Transition } from "../../../const/styles/Transition"
+import { Transition } from "../../../const"
 
 // main
 export const IconClose: FC<IconCloseProps> = memo((props) => {

@@ -5,7 +5,7 @@ import styled from "styled-components"
 // import others
 import { IconMapProps } from "./types"
 import { useIconMap } from "./modules/useIconMap"
-import { Transition } from "../../../const/styles/Transition"
+import { Transition } from "../../../const"
 
 // main
 export const IconMap: FC<IconMapProps> = memo((props) => {

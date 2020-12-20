@@ -1,2 +1,4 @@
 fastify
 fixpack
+Hiragino
+Kaku

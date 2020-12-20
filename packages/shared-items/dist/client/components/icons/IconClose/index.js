@@ -30,12 +30,12 @@ exports.IconClose = void 0;
 var react_1 = __importStar(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
 var useIconClose_1 = require("./modules/useIconClose");
-var Transition_1 = require("../../../const/styles/Transition");
+var const_1 = require("../../../const");
 exports.IconClose = react_1.memo(function (props) {
     var _a = useIconClose_1.useIconClose(props), size = _a.size, handleClick = _a.handleClick;
     return (react_1.default.createElement(StyledSvg, { width: size, height: size, viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", onClick: handleClick },
         react_1.default.createElement("g", null,
             react_1.default.createElement("path", { d: "M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z M16.9,15.5l-1.4,1.4L12,13.4l-3.5,3.5   l-1.4-1.4l3.5-3.5L7.1,8.5l1.4-1.4l3.5,3.5l3.5-3.5l1.4,1.4L13.4,12L16.9,15.5z", fill: "currentColor" }))));
 });
-var StyledSvg = styled_components_1.default.svg(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"], ["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"])), Transition_1.Transition.DURATION, Transition_1.Transition.TIMING_FUNCTION);
+var StyledSvg = styled_components_1.default.svg(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"], ["\n  cursor: pointer;\n  transition: opacity ", " ", ";\n\n  &:hover {\n    opacity: 0.5;\n  }\n"])), const_1.Transition.DURATION, const_1.Transition.TIMING_FUNCTION);
 var templateObject_1;

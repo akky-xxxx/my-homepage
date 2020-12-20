@@ -8,7 +8,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "yarn check-all && yarn clean && tsc -P ./tsconfig.build.json",
-    "check-all": "npm-run-all -p spell-check lint type-check -s test",
+    "check-all": "npm-run-all check-code -s test",
+    "check-code": "run-p spell-check lint type-check",
     "clean": "rimraf ./dist",
     "doc": "echo 'nothing task'",
     "doc:ui": "start-storybook -p 9999 --no-dll",
@@ -23,7 +24,7 @@
     "output": "yarn build && git add ./dist/* && git commit -m \"build(shared-items): `date \"+%Y-%m-%d %H:%M:%S\"`\"",
     "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
-    "spell-check": "cspell './src/**/*.ts'",
+    "spell-check": "cspell './src/**/*.ts*'",
     "test": "jest",
     "type-check": "tsc"
   },
