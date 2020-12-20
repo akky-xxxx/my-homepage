@@ -10,11 +10,6 @@ import { ModalProps } from "./types"
 const config: Meta<ModalProps> = {
   title: "molecules/Modal",
   component: Modal,
-  argTypes: {
-    onClick: {
-      action: "clicked",
-    },
-  },
   parameters: {
     backgrounds: {
       default: "dark",
@@ -23,12 +18,16 @@ const config: Meta<ModalProps> = {
 }
 export default config
 
-const Template: Story<ModalProps> = (props) => (
+const Template1: Story<ModalProps> = (props) => (
   <Modal {...props}>{"モーダルコンテンツ".repeat(100)}</Modal>
 )
 
-export const FullMode = Template.bind({})
-FullMode.args = {
+const Template2: Story<ModalProps> = (props) => (
+  <Modal {...props}>{"モーダルコンテンツ".repeat(10)}</Modal>
+)
+
+export const Maximum = Template1.bind({})
+Maximum.args = {
   hasHeader: true,
   title: "モーダルヘッダ",
   hasFooter: true,
@@ -42,3 +41,24 @@ FullMode.args = {
   handleCancelCallback: () => console.log("handleCancelCallback"),
   /* eslint-enable no-console */
 }
+
+export const AutoSize = Template2.bind({})
+AutoSize.args = {
+  hasHeader: true,
+  title: "モーダルヘッダ",
+  hasFooter: true,
+  hasCancelButton: true,
+  okText: "OK テキスト",
+  cancelText: "キャンセルテキスト",
+  /* eslint-disable no-console */
+  handleOkCallback: () => console.log("handleOkCallback"),
+  handleCancelCallback: () => console.log("handleCancelCallback"),
+  /* eslint-enable no-console */
+}
+
+export const SingleFooterButton = Template1.bind({})
+SingleFooterButton.args = {
+  hasFooter: true
+}
+
+export const Minimum = Template1.bind({})
