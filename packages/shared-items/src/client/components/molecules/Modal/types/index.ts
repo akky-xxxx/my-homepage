@@ -6,6 +6,7 @@ import { ModalFooterProps } from "../components/atoms/ModalFooter"
 // TODO: template literal types `${number}${"px" | "%"}` にしたい
 export type UnitString = string
 export type ModalWrapperProps = {
+  isShow?: boolean
   width?: number | UnitString
   height?: number | UnitString
 }

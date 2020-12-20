@@ -9,18 +9,22 @@ import { ModalFooter } from "./components/atoms/ModalFooter"
 
 // import others
 import { ModalProps } from "./types"
-import { Color, Radius, Margin } from "../../../const"
+import { Color, Radius, Margin, Transition } from "../../../const"
 import { rectangle } from "./modules/rectangle"
+import { opacity } from "../../../utils/opacity"
+import { pointerEvents } from "../../../utils/pointerEvents"
 
 // main
 const { COLOR_FFFFFF } = Color
 const { SINGLE } = Radius
 const { MARGIN10 } = Margin
+const { DURATION, TIMING_FUNCTION } = Transition
 
 export const Modal: FC<ModalProps> = (props) => {
   const {
     height,
     width,
+    isShow,
     hasHeader,
     title,
     hasFooter,
@@ -32,7 +36,7 @@ export const Modal: FC<ModalProps> = (props) => {
     children,
   } = props
   return (
-    <ModalWrapper height={height} width={width}>
+    <ModalWrapper height={height} width={width} isShow={isShow}>
       <ModalHeader hasHeader={hasHeader} title={title} />
       <ModalBody>{children}</ModalBody>
       <ModalFooter
@@ -53,6 +57,9 @@ const ModalWrapper = styled.main`
   display: flex;
   flex-direction: column;
   ${rectangle};
+  ${opacity};
   overflow: hidden;
   padding: ${MARGIN10}px 0;
+  ${pointerEvents};
+  transition: opacity ${DURATION} ${TIMING_FUNCTION};
 `

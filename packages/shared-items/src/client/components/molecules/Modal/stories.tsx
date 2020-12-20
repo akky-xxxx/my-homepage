@@ -10,6 +10,9 @@ import { ModalProps } from "./types"
 const config: Meta<ModalProps> = {
   title: "molecules/Modal",
   component: Modal,
+  args: {
+    isShow: true,
+  },
   parameters: {
     backgrounds: {
       default: "dark",
