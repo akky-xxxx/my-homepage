@@ -58,7 +58,7 @@ AutoSize.args = {
 
 export const SingleFooterButton = Template1.bind({})
 SingleFooterButton.args = {
-  hasFooter: true
+  hasFooter: true,
 }
 
 export const Minimum = Template1.bind({})
