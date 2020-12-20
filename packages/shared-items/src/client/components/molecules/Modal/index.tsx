@@ -11,8 +11,7 @@ import { ModalFooter } from "./components/atoms/ModalFooter"
 import { ModalProps } from "./types"
 import { Color, Radius, Margin, Transition } from "../../../const"
 import { rectangle } from "./modules/rectangle"
-import { opacity } from "../../../utils/opacity"
-import { pointerEvents } from "../../../utils/pointerEvents"
+import { opacity, pointerEvents } from "../../../utils"
 
 // main
 const { COLOR_FFFFFF } = Color
