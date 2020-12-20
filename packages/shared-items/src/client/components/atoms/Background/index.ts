@@ -5,8 +5,8 @@ import { rgba } from "polished"
 // import others
 import { Color, Transition } from "../../../const"
 import { BackgroundProps } from "./types"
-import { opacity } from "./modules/opacity"
-import { pointerEvents } from "./modules/pointerEvents"
+import { opacity } from "../../../utils/opacity"
+import { pointerEvents } from "../../../utils/pointerEvents"
 
 // main
 const { COLOR_212121 } = Color
