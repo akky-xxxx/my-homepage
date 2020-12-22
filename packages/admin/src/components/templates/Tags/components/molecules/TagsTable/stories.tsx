@@ -1,0 +1,15 @@
+// import node_modules
+import React from "react"
+import { Meta, Story } from "@storybook/react"
+
+// import components
+import { TagsTable } from "./index"
+
+// main
+const config: Meta = {
+  title: "templates/Tags/molecules/TagsTable",
+  component: TagsTable,
+}
+export default config
+
+export const Default: Story = () => <TagsTable />
