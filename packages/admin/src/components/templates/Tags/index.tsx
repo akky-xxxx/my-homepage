@@ -5,7 +5,7 @@ import { Divider } from "shared-items/dist/client"
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
-import { TagsTable } from "./components/molecules/TagsTable"
+import { TagsTable } from "./components/organisms/TagsTable"
 
 // main
 export const Tags = () => (
@@ -17,7 +17,7 @@ export const Tags = () => (
     <Divider />
 
     <MainContents>
-      <TagsTable />
+      <TagsTable tags={[]} />
     </MainContents>
   </div>
 )
