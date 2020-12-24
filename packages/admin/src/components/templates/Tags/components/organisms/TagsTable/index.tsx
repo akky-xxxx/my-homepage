@@ -1,14 +1,10 @@
 // import node_modules
 import React, { FC } from "react"
-import { Checkbox, CheckMark } from "shared-items/dist/client"
+import { Checkbox } from "shared-items/dist/client"
 
 // import components
-import {
-  StyledTable,
-  StyledTr,
-  StyledTh,
-  StyledTd,
-} from "../../atoms/StyledTable"
+import { StyledTable, StyledTh } from "../../atoms/StyledTable"
+import { TagsTableRecord } from "../../molecules/TagsTableRecord"
 
 // import others
 import { TagsTableProps } from "./types"
@@ -39,35 +35,9 @@ export const TagsTable: FC<TagsTableProps> = (props) => {
 
       <tbody>
         {tags.map((tag) => {
-          const {
-            id,
-            isSelected,
-            tagName,
-            isReleased,
-            settingCount,
-            createdAt,
-            updatedAt,
-          } = tag
+          const { id } = tag
 
-          return (
-            <StyledTr key={id}>
-              <StyledTd>
-                <Checkbox
-                  isChecked={isSelected}
-                  // TODO: 仮実装
-                  // eslint-disable-next-line no-console
-                  handleChange={() => console.log("handleChange")}
-                />
-              </StyledTd>
-              <StyledTd>{tagName}</StyledTd>
-              <StyledTd>
-                <CheckMark isChecked={isReleased} />
-              </StyledTd>
-              <StyledTd>{settingCount}</StyledTd>
-              <StyledTd>{createdAt}</StyledTd>
-              <StyledTd>{updatedAt}</StyledTd>
-            </StyledTr>
-          )
+          return <TagsTableRecord key={id} {...tag} />
         })}
       </tbody>
     </StyledTable>
