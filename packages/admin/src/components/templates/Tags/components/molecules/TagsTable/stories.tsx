@@ -4,6 +4,7 @@ import { Meta, Story } from "@storybook/react"
 
 // import components
 import { TagsTable } from "./index"
+import { tags } from "./stories.data"
 
 // main
 const config: Meta = {
@@ -12,4 +13,4 @@ const config: Meta = {
 }
 export default config
 
-export const Default: Story = () => <TagsTable />
+export const Default: Story = () => <TagsTable tags={tags} />

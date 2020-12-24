@@ -1,5 +1,5 @@
 // import node_modules
-import React from "react"
+import React, { FC } from "react"
 import { Checkbox, CheckMark } from "shared-items/dist/client"
 
 // import components
@@ -10,63 +10,66 @@ import {
   StyledTd,
 } from "../../atoms/StyledTable"
 
+// import others
+import { TagsTableProps } from "./types"
+
 // main
-export const TagsTable = () => (
-  <StyledTable>
-    <thead>
-      <tr>
-        <StyledTh>
-          <Checkbox
-            isChecked={false}
-            // TODO: 仮実装
-            // eslint-disable-next-line no-console
-            handleChange={() => console.log("handleChange")}
-          />
-        </StyledTh>
-        <StyledTh>タグ名</StyledTh>
-        <StyledTh />
-        <StyledTh>設定数</StyledTh>
-        <StyledTh>追加日</StyledTh>
-        <StyledTh>変更日</StyledTh>
-      </tr>
-    </thead>
+export const TagsTable: FC<TagsTableProps> = (props) => {
+  const { tags } = props
 
-    <tbody>
-      <StyledTr>
-        <StyledTd>
-          <Checkbox
-            isChecked={false}
-            // TODO: 仮実装
-            // eslint-disable-next-line no-console
-            handleChange={() => console.log("handleChange")}
-          />
-        </StyledTd>
-        <StyledTd>タグ1</StyledTd>
-        <StyledTd>
-          <CheckMark isChecked />
-        </StyledTd>
-        <StyledTd>1,234</StyledTd>
-        <StyledTd>2020/01/01 12:34:56</StyledTd>
-        <StyledTd>2020/01/01 12:34:56</StyledTd>
-      </StyledTr>
+  return (
+    <StyledTable>
+      <thead>
+        <tr>
+          <StyledTh>
+            <Checkbox
+              isChecked={false}
+              // TODO: 仮実装
+              // eslint-disable-next-line no-console
+              handleChange={() => console.log("handleChange")}
+            />
+          </StyledTh>
+          <StyledTh>タグ名</StyledTh>
+          <StyledTh />
+          <StyledTh>設定数</StyledTh>
+          <StyledTh>追加日</StyledTh>
+          <StyledTh>変更日</StyledTh>
+        </tr>
+      </thead>
 
-      <StyledTr>
-        <StyledTd>
-          <Checkbox
-            isChecked={false}
-            // TODO: 仮実装
-            // eslint-disable-next-line no-console
-            handleChange={() => console.log("handleChange")}
-          />
-        </StyledTd>
-        <StyledTd>タグ2</StyledTd>
-        <StyledTd>
-          <CheckMark />
-        </StyledTd>
-        <StyledTd>1,234</StyledTd>
-        <StyledTd>2020/01/01 12:34:56</StyledTd>
-        <StyledTd>2020/01/01 12:34:56</StyledTd>
-      </StyledTr>
-    </tbody>
-  </StyledTable>
-)
+      <tbody>
+        {tags.map((tag) => {
+          const {
+            id,
+            isSelected,
+            tagName,
+            isReleased,
+            settingCount,
+            createdAt,
+            updatedAt,
+          } = tag
+
+          return (
+            <StyledTr key={id}>
+              <StyledTd>
+                <Checkbox
+                  isChecked={isSelected}
+                  // TODO: 仮実装
+                  // eslint-disable-next-line no-console
+                  handleChange={() => console.log("handleChange")}
+                />
+              </StyledTd>
+              <StyledTd>{tagName}</StyledTd>
+              <StyledTd>
+                <CheckMark isChecked={isReleased} />
+              </StyledTd>
+              <StyledTd>{settingCount}</StyledTd>
+              <StyledTd>{createdAt}</StyledTd>
+              <StyledTd>{updatedAt}</StyledTd>
+            </StyledTr>
+          )
+        })}
+      </tbody>
+    </StyledTable>
+  )
+}
