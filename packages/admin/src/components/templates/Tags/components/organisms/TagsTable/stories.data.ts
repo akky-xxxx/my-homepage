@@ -1,8 +1,8 @@
 // import
-import { TagsTableRecord } from "./types"
+import { TagsTableProps } from "./types"
 
 // main
-export const tags: TagsTableRecord[] = [...Array(20)]
+export const tags: TagsTableProps["tags"] = [...Array(20)]
   .fill(null)
   .map((_, index) => {
     const isSelected = Boolean(index % 2)
