@@ -8,7 +8,7 @@ import { tags } from "./stories.data"
 
 // main
 const config: Meta = {
-  title: "templates/Tags/molecules/TagsTable",
+  title: "templates/Tags/organisms/TagsTable",
   component: TagsTable,
 }
 export default config
