@@ -5,6 +5,7 @@ import { useState } from "react"
 import { TagsTableHeaderProps } from "../../components/molecules/TagsTableHeader/types"
 import { TagsTableRecordProps } from "../../components/molecules/TagsTableRecord/types"
 import { TagsProps } from "../../types"
+import { addIsSelect } from "./modules/addIsSelect"
 
 // main
 type UseTagsReturn = TagsTableHeaderProps & {
@@ -14,11 +15,10 @@ type UseTags = (props: TagsProps) => UseTagsReturn
 
 export const useTags: UseTags = (props) => {
   const { tags: originTags } = props
-  const [tagsState, setTags] = useState(originTags || [])
+  const [tagsState, setTags] = useState(originTags.map(addIsSelect))
 
   const tags = tagsState.map((tag) => ({
     ...tag,
-    isSelect: false,
     handleClickSelect: () => handleClickSelect(tag.tagId),
     handleClickRelease: () => handleClickRelease(tag.tagId),
   }))
