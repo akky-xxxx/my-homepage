@@ -22,7 +22,7 @@ const {
 
 export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
   const {
-    isSelected,
+    isSelect,
     tagName,
     isRelease,
     settingCount,
@@ -35,7 +35,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
   return (
     <StyledTr>
       <StyledTd>
-        <Checkbox isChecked={isSelected} handleChange={handleClickSelect} />
+        <Checkbox isChecked={isSelect} handleChange={handleClickSelect} />
       </StyledTd>
       <StyledTd>{tagName}</StyledTd>
       <StyledTd>

@@ -5,6 +5,6 @@ import { TagsTableRecordProps } from "../components/molecules/TagsTableRecord/ty
 export type TagsProps = {
   tags: Omit<
     TagsTableRecordProps,
-    "isSelected" | "handleClickSelect" | "handleClickRelease"
+    "isSelect" | "handleClickSelect" | "handleClickRelease"
   >[]
 }

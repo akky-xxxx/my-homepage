@@ -18,12 +18,12 @@ export const useTags: UseTags = (props) => {
 
   const tags = tagsState.map((tag) => ({
     ...tag,
-    isSelected: false,
+    isSelect: false,
     handleClickSelect: () => handleClickSelect(tag.tagId),
     handleClickRelease: () => handleClickRelease(tag.tagId),
   }))
 
-  const isSelectAll = tags.every(({ isSelected }) => isSelected)
+  const isSelectAll = tags.every(({ isSelect }) => isSelect)
 
   const handleClickSelect = (tagId: string) => {
     setTags(
@@ -31,7 +31,7 @@ export const useTags: UseTags = (props) => {
         if (tagState.tagId !== tagId) return tagState
         return {
           ...tagState,
-          isSelected: !tagState.isSelected,
+          isSelect: !tagState.isSelect,
         }
       }),
     )
@@ -54,7 +54,7 @@ export const useTags: UseTags = (props) => {
     setTags(
       tags.map((tag) => ({
         ...tag,
-        isSelected: !isSelectAll,
+        isSelect: !isSelectAll,
       })),
     )
 

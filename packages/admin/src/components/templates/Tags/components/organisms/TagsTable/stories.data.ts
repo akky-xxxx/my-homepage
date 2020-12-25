@@ -5,12 +5,12 @@ import { TagsTableProps } from "./types"
 export const tags: TagsTableProps["tags"] = [...Array(20)]
   .fill(null)
   .map((_, index) => {
-    const isSelected = Boolean(index % 2)
+    const isSelect = Boolean(index % 2)
     const isRelease = Boolean(index % 3)
     const tagId = (index + 1).toString()
     return {
       tagId,
-      isSelected,
+      isSelect,
       isRelease,
       tagName: `タグ${tagId}`,
       settingCount: index ** 3,
