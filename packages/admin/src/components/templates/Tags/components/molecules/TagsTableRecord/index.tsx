@@ -2,6 +2,7 @@
 import React, { FC, memo } from "react"
 import { Checkbox, CheckMark } from "shared-items/dist/client"
 import styled from "styled-components"
+import { getSeparatedNumbers } from "shared-items/dist/client"
 
 // import components
 import { StyledTr, StyledTd } from "../../atoms/StyledTable"
@@ -33,7 +34,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
           <CheckMark isChecked={isReleased} onClick={handleClickRelease} />
         </IconWrapper>
       </StyledTd>
-      <StyledTd>{settingCount}</StyledTd>
+      <StyledTd>{getSeparatedNumbers(settingCount)}</StyledTd>
       <StyledTd>{createdAt}</StyledTd>
       <StyledTd>{updatedAt}</StyledTd>
     </StyledTr>
