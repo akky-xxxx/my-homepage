@@ -14,11 +14,11 @@ export const useTags: UseTags = (props) => {
 
   const handleClickSelect = (tagId: string) => {
     setTags(
-      tags.map((tagState) => {
-        if (tagState.tagId !== tagId) return tagState
+      tags.map((tag) => {
+        if (tag.tagId !== tagId) return tag
         return {
-          ...tagState,
-          isSelect: !tagState.isSelect,
+          ...tag,
+          isSelect: !tag.isSelect,
         }
       }),
     )
@@ -27,11 +27,11 @@ export const useTags: UseTags = (props) => {
   const handleClickRelease = (tagId: string) => {
     // TODO: api 叩く処理に変える
     setTags(
-      tags.map((tagState) => {
-        if (tagState.tagId !== tagId) return tagState
+      tags.map((tag) => {
+        if (tag.tagId !== tagId) return tag
         return {
-          ...tagState,
-          isRelease: !tagState.isRelease,
+          ...tag,
+          isRelease: !tag.isRelease,
         }
       }),
     )
