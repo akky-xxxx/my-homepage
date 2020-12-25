@@ -2,7 +2,8 @@
 import React, { FC, memo } from "react"
 import { Checkbox, CheckMark } from "shared-items/dist/client"
 import styled from "styled-components"
-import { getSeparatedNumbers } from "shared-items/dist/client"
+import { format } from "date-fns"
+import { getSeparatedNumbers, DateFns } from "shared-items/dist/client"
 
 // import components
 import { StyledTr, StyledTd } from "../../atoms/StyledTable"
@@ -11,6 +12,10 @@ import { StyledTr, StyledTd } from "../../atoms/StyledTable"
 import { TagsTableRecordProps } from "./types"
 
 // main
+const {
+  FORMAT: { DATETIME_SLASH },
+} = DateFns
+
 export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
   const {
     isSelected,
@@ -35,8 +40,8 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
         </IconWrapper>
       </StyledTd>
       <StyledTd>{getSeparatedNumbers(settingCount)}</StyledTd>
-      <StyledTd>{createdAt}</StyledTd>
-      <StyledTd>{updatedAt}</StyledTd>
+      <StyledTd>{format(new Date(createdAt), DATETIME_SLASH)}</StyledTd>
+      <StyledTd>{format(new Date(updatedAt), DATETIME_SLASH)}</StyledTd>
     </StyledTr>
   )
 })
