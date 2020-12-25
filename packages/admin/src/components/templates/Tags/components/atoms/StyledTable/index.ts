@@ -1,5 +1,5 @@
 // import node_modules
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { rgba } from "polished"
 import { Color, Margin } from "shared-items/dist/client"
 
@@ -22,19 +22,21 @@ export const StyledTr = styled.tr`
   }
 `
 
-export const StyledTh = styled.th<CellProps>`
-  background-color: ${PRIMARY};
-  color: ${BACKGROUND};
-  font-weight: normal;
+const cellCommonStyle = css`
   padding: ${MARGIN10}px;
   text-align: ${getTextAlign} !important;
   vertical-align: middle;
 `
 
+export const StyledTh = styled.th<CellProps>`
+  background-color: ${PRIMARY};
+  color: ${BACKGROUND};
+  font-weight: normal;
+  ${cellCommonStyle};
+`
+
 export const StyledTd = styled.td<CellProps>`
   border-bottom: 1px solid ${DIVIDER};
   border-top: 1px solid ${DIVIDER};
-  padding: ${MARGIN10}px;
-  text-align: ${getTextAlign} !important;
-  vertical-align: middle;
+  ${cellCommonStyle};
 `
