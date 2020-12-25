@@ -1,4 +1,3 @@
-
 // import
 import { TagsTableHeaderProps } from "../../../components/molecules/TagsTableHeader/types"
 import { TagsTableRecordStates } from "../../../components/molecules/TagsTableRecord/types"
