@@ -10,6 +10,14 @@ import { TagsTableRecordProps } from "./types"
 const config: Meta<TagsTableRecordProps> = {
   title: "templates/Tags/molecules/TagsTableRecord",
   component: TagsTableRecord,
+  argTypes: {
+    handleClickSelect: {
+      action: "handleClickSelect",
+    },
+    handleClickRelease: {
+      action: "handleClickRelease",
+    },
+  },
 }
 export default config
 

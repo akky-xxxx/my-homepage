@@ -10,4 +10,6 @@ export type TagsTableRecordProps = {
   settingCount: number
   createdAt: StringDatetime
   updatedAt: StringDatetime
+  handleClickSelect: () => void
+  handleClickRelease: () => void
 }

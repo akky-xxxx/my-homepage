@@ -18,22 +18,19 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = (props) => {
     settingCount,
     createdAt,
     updatedAt,
+    handleClickSelect,
+    handleClickRelease,
   } = props
 
   return (
     <StyledTr>
       <StyledTd>
-        <Checkbox
-          isChecked={isSelected}
-          // TODO: 仮実装
-          // eslint-disable-next-line no-console
-          handleChange={() => console.log("handleChange")}
-        />
+        <Checkbox isChecked={isSelected} handleChange={handleClickSelect} />
       </StyledTd>
       <StyledTd>{tagName}</StyledTd>
       <StyledTd>
         <IconWrapper>
-          <CheckMark isChecked={isReleased} />
+          <CheckMark isChecked={isReleased} onClick={handleClickRelease} />
         </IconWrapper>
       </StyledTd>
       <StyledTd>{settingCount}</StyledTd>
