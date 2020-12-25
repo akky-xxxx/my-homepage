@@ -27,7 +27,8 @@
     "shared-items": "yarn remove shared-items; yarn add ../shared-items",
     "spell-check": "cspell './src/**/*.{ts,tsx}'",
     "start": "NODE_ENV=production run-s build:prod server:prod",
-    "test": "jest",
+    "test": "jest --coverage",
+    "test:report": "git add ./coverage/* && git commit -m \"test(admin): `date \"+%Y-%m-%d %H:%M:%S\"`\"",
     "type-check": "tsc"
   },
   "dependencies": {
