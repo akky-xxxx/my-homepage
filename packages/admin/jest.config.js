@@ -8,5 +8,6 @@ module.exports = {
     "node_modules",
     "./src/shared/const",
     "./src/shared/types",
+    "testData",
   ],
 }
