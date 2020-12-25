@@ -6,7 +6,7 @@ import { tagsSelector } from "./index"
 describe("tagsSelector", () => {
   it("initial state から tags の state だけ返す", () => {
     const expectState = {
-      tags: []
+      tags: [],
     }
     expect(tagsSelector(rootInitialState)).toEqual(expectState)
   })

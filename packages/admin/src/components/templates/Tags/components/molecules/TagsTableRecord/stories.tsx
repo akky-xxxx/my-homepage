@@ -27,22 +27,22 @@ const Default: Story<TagsTableRecordProps> = (props) => (
 
 export const Pattern1 = Default.bind({})
 Pattern1.args = {
-  id: "1",
+  tagId: "1",
   isSelected: true,
   tagName: "タグ1",
   settingCount: 0,
-  isReleased: true,
+  isRelease: true,
   createdAt: "2020-01-01 00:00:00",
   updatedAt: "2020-01-01 00:00:00",
 }
 
 export const Pattern2 = Default.bind({})
 Pattern2.args = {
-  id: "1",
+  tagId: "1",
   isSelected: false,
   tagName: "タグ2",
   settingCount: 1000000,
-  isReleased: false,
+  isRelease: false,
   createdAt: "2020-12-31 23:59:59",
   updatedAt: "2020-12-31 23:59:59",
 }

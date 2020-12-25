@@ -3,10 +3,10 @@ import { StringDatetime } from "shared-items"
 
 // main
 export type TagsTableRecordProps = {
-  id: string
+  tagId: string
   isSelected: boolean
   tagName: string
-  isReleased: boolean
+  isRelease: boolean
   settingCount: number
   createdAt: StringDatetime
   updatedAt: StringDatetime

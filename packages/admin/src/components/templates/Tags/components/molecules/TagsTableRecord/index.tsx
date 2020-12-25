@@ -24,7 +24,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
   const {
     isSelected,
     tagName,
-    isReleased,
+    isRelease,
     settingCount,
     createdAt,
     updatedAt,
@@ -40,7 +40,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
       <StyledTd>{tagName}</StyledTd>
       <StyledTd>
         <IconWrapper>
-          <CheckMark isChecked={isReleased} onClick={handleClickRelease} />
+          <CheckMark isChecked={isRelease} onClick={handleClickRelease} />
         </IconWrapper>
       </StyledTd>
       <StyledTd>{getSeparatedNumbers(settingCount)}</StyledTd>

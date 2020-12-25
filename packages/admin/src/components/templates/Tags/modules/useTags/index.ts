@@ -14,13 +14,13 @@ type UseTags = (props: TagsProps) => UseTagsReturn
 
 export const useTags: UseTags = (props) => {
   const { tags: originTags } = props
-  const [tagsState, setTags] = useState(originTags)
+  const [tagsState, setTags] = useState(originTags || [])
 
   const tags = tagsState.map((tag) => ({
     ...tag,
     isSelected: false,
-    handleClickSelect: () => handleClickSelect(tag.id),
-    handleClickRelease: () => handleClickRelease(tag.id),
+    handleClickSelect: () => handleClickSelect(tag.tagId),
+    handleClickRelease: () => handleClickRelease(tag.tagId),
   }))
 
   const isSelectAll = tags.every(({ isSelected }) => isSelected)
@@ -28,7 +28,7 @@ export const useTags: UseTags = (props) => {
   const handleClickSelect = (tagId: string) => {
     setTags(
       tags.map((tagState) => {
-        if (tagState.id !== tagId) return tagState
+        if (tagState.tagId !== tagId) return tagState
         return {
           ...tagState,
           isSelected: !tagState.isSelected,
@@ -41,10 +41,10 @@ export const useTags: UseTags = (props) => {
     // TODO: api 叩く処理に変える
     setTags(
       tags.map((tagState) => {
-        if (tagState.id !== tagId) return tagState
+        if (tagState.tagId !== tagId) return tagState
         return {
           ...tagState,
-          isReleased: !tagState.isReleased,
+          isReleased: !tagState.isRelease,
         }
       }),
     )

@@ -9,6 +9,7 @@ describe("store/server/pages/tags/reducer", () => {
       {
         tagId: "tagId1",
         tagName: "tag-name",
+        settingCount: 0,
         isRelease: true,
         createdAt: "2020-01-01",
         updatedAt: "2020-12-31",
@@ -16,6 +17,7 @@ describe("store/server/pages/tags/reducer", () => {
       {
         tagId: "tagId2",
         tagName: "tag-name2",
+        settingCount: 0,
         isRelease: false,
         createdAt: "2020-01-01",
         updatedAt: "2020-12-31",
@@ -26,6 +28,7 @@ describe("store/server/pages/tags/reducer", () => {
         {
           tagId: "tagId1",
           tagName: "tag-name",
+          settingCount: 0,
           isRelease: true,
           createdAt: "2020-01-01",
           updatedAt: "2020-12-31",
@@ -33,6 +36,7 @@ describe("store/server/pages/tags/reducer", () => {
         {
           tagId: "tagId2",
           tagName: "tag-name2",
+          settingCount: 0,
           isRelease: false,
           createdAt: "2020-01-01",
           updatedAt: "2020-12-31",

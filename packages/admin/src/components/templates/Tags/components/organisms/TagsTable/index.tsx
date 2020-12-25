@@ -22,9 +22,9 @@ export const TagsTable: FC<TagsTableProps> = (props) => {
 
       <tbody>
         {tags.map((tag) => {
-          const { id } = tag
+          const { tagId } = tag
 
-          return <TagsTableRecord key={id} {...tag} />
+          return <TagsTableRecord key={tagId} {...tag} />
         })}
       </tbody>
     </StyledTable>
