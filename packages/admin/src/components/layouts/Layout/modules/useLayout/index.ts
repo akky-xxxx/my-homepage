@@ -3,7 +3,7 @@ import { LayoutProps } from "shared-items/dist/client"
 
 // import others
 import { actions, useDispatch, useSelector } from "@@/store"
-import { layoutSelector } from "@@/selectors/layoutSelector"
+import { layoutSelector } from "@@/selectors/server/app/layoutSelector"
 import { MenuList } from "../../const"
 
 // main
