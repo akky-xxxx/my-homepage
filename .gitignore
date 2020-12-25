@@ -1,8 +1,9 @@
 # ツール依存ファイル
 .idea
 
-# ビルドファイル
+# 出力ファイル
 dist
+coverage
 
 # node_modules
 node_modules
