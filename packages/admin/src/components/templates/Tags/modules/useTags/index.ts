@@ -44,7 +44,7 @@ export const useTags: UseTags = (props) => {
         if (tagState.tagId !== tagId) return tagState
         return {
           ...tagState,
-          isReleased: !tagState.isRelease,
+          isRelease: !tagState.isRelease,
         }
       }),
     )
