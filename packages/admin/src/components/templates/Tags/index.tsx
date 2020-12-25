@@ -1,5 +1,5 @@
 // import node_modules
-import React from "react"
+import React, { FC } from "react"
 import { Divider } from "shared-items/dist/client"
 
 // import components
@@ -7,17 +7,29 @@ import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
 import { TagsTable } from "./components/organisms/TagsTable"
 
+// import others
+import { TagsProps } from "./types"
+import { useTags } from "./modules/useTags"
+
 // main
-export const Tags = () => (
-  <div>
-    <MainContents>
-      <Heading2>タグ編集</Heading2>
-    </MainContents>
+export const Tags: FC<TagsProps> = (props) => {
+  const { isSelectAll, handleClickSelectAll, tags } = useTags(props)
 
-    <Divider />
+  return (
+    <div>
+      <MainContents>
+        <Heading2>タグ編集</Heading2>
+      </MainContents>
 
-    <MainContents>
-      <TagsTable tags={[]} />
-    </MainContents>
-  </div>
-)
+      <Divider />
+
+      <MainContents>
+        <TagsTable
+          isSelectAll={isSelectAll}
+          handleClickSelectAll={handleClickSelectAll}
+          tags={tags}
+        />
+      </MainContents>
+    </div>
+  )
+}
