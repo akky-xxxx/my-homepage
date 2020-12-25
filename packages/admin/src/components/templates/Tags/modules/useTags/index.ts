@@ -8,8 +8,12 @@ import { TagsProps } from "../../types"
 import { addIsSelect } from "./modules/addIsSelect"
 
 // main
+export type HandleClickSelect = (tagId: string) => void
+export type HandleClickRelease = (tagId: string) => void
 type UseTagsReturn = TagsTableHeaderProps & {
-  tags: TagsTableRecordProps[]
+  tags: Omit<TagsTableRecordProps, "handleClickSelect" | "handleClickRelease">[]
+  handleClickSelect: HandleClickSelect
+  handleClickRelease: HandleClickRelease
 }
 type UseTags = (props: TagsProps) => UseTagsReturn
 
@@ -19,8 +23,6 @@ export const useTags: UseTags = (props) => {
 
   const tags = tagsState.map((tag) => ({
     ...tag,
-    handleClickSelect: () => handleClickSelect(tag.tagId),
-    handleClickRelease: () => handleClickRelease(tag.tagId),
   }))
 
   const isSelectAll = tags.every(({ isSelect }) => isSelect)
@@ -62,5 +64,7 @@ export const useTags: UseTags = (props) => {
     tags,
     isSelectAll,
     handleClickSelectAll,
+    handleClickSelect,
+    handleClickRelease,
   }
 }

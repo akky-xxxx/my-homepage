@@ -11,7 +11,13 @@ import { TagsTableProps } from "./types"
 
 // main
 export const TagsTable: FC<TagsTableProps> = (props) => {
-  const { isSelectAll, tags, handleClickSelectAll } = props
+  const {
+    isSelectAll,
+    tags,
+    handleClickSelectAll,
+    handleClickRelease: _handleClickRelease,
+    handleClickSelect: _handleClickSelect,
+  } = props
 
   return (
     <StyledTable>
@@ -23,8 +29,17 @@ export const TagsTable: FC<TagsTableProps> = (props) => {
       <tbody>
         {tags.map((tag) => {
           const { tagId } = tag
+          const handleClickRelease = () => _handleClickRelease(tagId)
+          const handleClickSelect = () => _handleClickSelect(tagId)
 
-          return <TagsTableRecord key={tagId} {...tag} />
+          return (
+            <TagsTableRecord
+              key={tagId}
+              {...tag}
+              handleClickRelease={handleClickRelease}
+              handleClickSelect={handleClickSelect}
+            />
+          )
         })}
       </tbody>
     </StyledTable>

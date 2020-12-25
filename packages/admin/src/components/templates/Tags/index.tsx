@@ -13,7 +13,13 @@ import { useTags } from "./modules/useTags"
 
 // main
 export const Tags: FC<TagsProps> = (props) => {
-  const { isSelectAll, handleClickSelectAll, tags } = useTags(props)
+  const {
+    isSelectAll,
+    handleClickSelectAll,
+    tags,
+    handleClickSelect,
+    handleClickRelease,
+  } = useTags(props)
 
   return (
     <div>
@@ -28,6 +34,8 @@ export const Tags: FC<TagsProps> = (props) => {
           isSelectAll={isSelectAll}
           handleClickSelectAll={handleClickSelectAll}
           tags={tags}
+          handleClickSelect={handleClickSelect}
+          handleClickRelease={handleClickRelease}
         />
       </MainContents>
     </div>
