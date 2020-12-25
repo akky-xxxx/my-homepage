@@ -3,5 +3,8 @@ import { TagsTableRecordProps } from "../components/molecules/TagsTableRecord/ty
 
 // main
 export type TagsProps = {
-  tags: Omit<TagsTableRecordProps, "handleClickSelect" | "handleClickRelease">[]
+  tags: Omit<
+    TagsTableRecordProps,
+    "isSelected" | "handleClickSelect" | "handleClickRelease"
+  >[]
 }

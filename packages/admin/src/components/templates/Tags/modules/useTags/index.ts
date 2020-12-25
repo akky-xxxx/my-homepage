@@ -15,9 +15,19 @@ type UseTags = (props: TagsProps) => UseTagsReturn
 export const useTags: UseTags = (props) => {
   const { tags: originTags } = props
   const [tagsState, setTags] = useState(originTags)
+
+  const tags = tagsState.map((tag) => ({
+    ...tag,
+    isSelected: false,
+    handleClickSelect: () => handleClickSelect(tag.id),
+    handleClickRelease: () => handleClickRelease(tag.id),
+  }))
+
+  const isSelectAll = tags.every(({ isSelected }) => isSelected)
+
   const handleClickSelect = (tagId: string) => {
     setTags(
-      tagsState.map((tagState) => {
+      tags.map((tagState) => {
         if (tagState.id !== tagId) return tagState
         return {
           ...tagState,
@@ -30,7 +40,7 @@ export const useTags: UseTags = (props) => {
   const handleClickRelease = (tagId: string) => {
     // TODO: api 叩く処理に変える
     setTags(
-      tagsState.map((tagState) => {
+      tags.map((tagState) => {
         if (tagState.id !== tagId) return tagState
         return {
           ...tagState,
@@ -40,16 +50,9 @@ export const useTags: UseTags = (props) => {
     )
   }
 
-  const tags = tagsState.map((tag) => ({
-    ...tag,
-    handleClickSelect: () => handleClickSelect(tag.id),
-    handleClickRelease: () => handleClickRelease(tag.id),
-  }))
-
-  const isSelectAll = tagsState.every(({ isSelected }) => isSelected)
   const handleClickSelectAll = () =>
     setTags(
-      tagsState.map((tag) => ({
+      tags.map((tag) => ({
         ...tag,
         isSelected: !isSelectAll,
       })),
