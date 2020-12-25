@@ -2,7 +2,7 @@
 import { StringDatetime } from "shared-items"
 
 // main
-export type TagsTableRecordProps = {
+export type TagsTableRecordStates = {
   tagId: string
   isSelect: boolean
   tagName: string
@@ -10,6 +10,12 @@ export type TagsTableRecordProps = {
   settingCount: number
   createdAt: StringDatetime
   updatedAt: StringDatetime
+}
+
+export type TagsTableRecordHandlers = {
   handleClickSelect: () => void
   handleClickRelease: () => void
 }
+
+export type TagsTableRecordProps = TagsTableRecordStates &
+  TagsTableRecordHandlers
