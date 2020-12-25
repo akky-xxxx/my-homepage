@@ -1,11 +1,11 @@
 // import node_modules
 import React from "react"
-import {Meta, Story} from "@storybook/react"
+import { Meta, Story } from "@storybook/react"
 
 // import components
-import {TagsTable} from "./index"
-import {TagsTableProps} from "@@/components/templates/Tags/components/organisms/TagsTable/types"
-import {tags} from "./stories.data"
+import { TagsTableProps } from "@@/components/templates/Tags/components/organisms/TagsTable/types"
+import { TagsTable } from "./index"
+import { tags } from "./stories.data"
 
 // main
 const config: Meta<TagsTableProps> = {
@@ -16,12 +16,12 @@ const config: Meta<TagsTableProps> = {
   },
   argTypes: {
     handleClickSelectAll: {
-      action: "handleClickSelectAll"
-    }
-  }
+      action: "handleClickSelectAll",
+    },
+  },
 }
 export default config
 
 export const Default: Story<TagsTableProps> = (props) => (
-  <TagsTable {...props} tags={tags}/>
+  <TagsTable {...props} tags={tags} />
 )
