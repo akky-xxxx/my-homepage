@@ -19,11 +19,7 @@ type UseTags = (props: TagsProps) => UseTagsReturn
 
 export const useTags: UseTags = (props) => {
   const { tags: originTags } = props
-  const [tagsState, setTags] = useState(originTags.map(addIsSelect))
-
-  const tags = tagsState.map((tag) => ({
-    ...tag,
-  }))
+  const [tags, setTags] = useState(originTags.map(addIsSelect))
 
   const isSelectAll = tags.every(({ isSelect }) => isSelect)
 
