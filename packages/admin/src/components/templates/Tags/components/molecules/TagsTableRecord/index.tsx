@@ -1,9 +1,13 @@
 // import node_modules
 import React, { FC, memo } from "react"
-import { Checkbox, CheckMark } from "shared-items/dist/client"
+import {
+  Checkbox,
+  CheckMark,
+  getSeparatedNumbers,
+  DateFns,
+} from "shared-items/dist/client"
 import styled from "styled-components"
 import { format } from "date-fns"
-import { getSeparatedNumbers, DateFns } from "shared-items/dist/client"
 
 // import components
 import { StyledTr, StyledTd } from "../../atoms/StyledTable"
