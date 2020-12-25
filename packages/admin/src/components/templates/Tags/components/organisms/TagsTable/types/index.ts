@@ -1,7 +1,8 @@
 // import
+import { TagsTableHeaderProps } from "@@/components/templates/Tags/components/molecules/TagsTableHeader/types"
 import { TagsTableRecordProps } from "../../../molecules/TagsTableRecord/types"
 
 // main
-export type TagsTableProps = {
+export type TagsTableProps = TagsTableHeaderProps & {
   tags: TagsTableRecordProps[]
 }
