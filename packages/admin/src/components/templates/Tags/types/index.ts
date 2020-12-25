@@ -1,10 +1,7 @@
 // import
-import { TagsTableRecordProps } from "../components/molecules/TagsTableRecord/types"
+import { TagsTableRecordStates } from "../components/molecules/TagsTableRecord/types"
 
 // main
 export type TagsProps = {
-  tags: Omit<
-    TagsTableRecordProps,
-    "isSelect" | "handleClickSelect" | "handleClickRelease"
-  >[]
+  tags: Omit<TagsTableRecordStates, "isSelect">[]
 }

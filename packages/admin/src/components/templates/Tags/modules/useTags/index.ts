@@ -3,7 +3,7 @@ import { useState } from "react"
 
 // import others
 import { TagsTableHeaderProps } from "../../components/molecules/TagsTableHeader/types"
-import { TagsTableRecordProps } from "../../components/molecules/TagsTableRecord/types"
+import { TagsTableRecordStates } from "../../components/molecules/TagsTableRecord/types"
 import { TagsProps } from "../../types"
 import { addIsSelect } from "./modules/addIsSelect"
 
@@ -11,7 +11,7 @@ import { addIsSelect } from "./modules/addIsSelect"
 export type HandleClickSelect = (tagId: string) => void
 export type HandleClickRelease = (tagId: string) => void
 type UseTagsReturn = TagsTableHeaderProps & {
-  tags: Omit<TagsTableRecordProps, "handleClickSelect" | "handleClickRelease">[]
+  tags: TagsTableRecordStates[]
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease
 }

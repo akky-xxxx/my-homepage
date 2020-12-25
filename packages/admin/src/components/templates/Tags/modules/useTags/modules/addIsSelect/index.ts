@@ -1,16 +1,10 @@
 // import
-import { TagsTableRecordProps } from "../../../../components/molecules/TagsTableRecord/types"
+import { TagsTableRecordStates } from "../../../../components/molecules/TagsTableRecord/types"
 
 // main
-type Input = Omit<
-  TagsTableRecordProps,
-  "isSelect" | "handleClickSelect" | "handleClickRelease"
->
+type Input = Omit<TagsTableRecordStates, "isSelect">
 
-type Output = Omit<
-  TagsTableRecordProps,
-  "handleClickSelect" | "handleClickRelease"
->
+type Output = TagsTableRecordStates
 
 type AddIsSelect = (tag: Input) => Output
 

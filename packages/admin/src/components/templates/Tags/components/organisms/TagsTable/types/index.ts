@@ -1,10 +1,10 @@
 // import
 import { TagsTableHeaderProps } from "@@/components/templates/Tags/components/molecules/TagsTableHeader/types"
-import { TagsTableRecordProps } from "../../../molecules/TagsTableRecord/types"
+import { TagsTableRecordStates } from "../../../molecules/TagsTableRecord/types"
 
 // main
 export type TagsTableProps = TagsTableHeaderProps & {
-  tags: Omit<TagsTableRecordProps, "handleClickSelect" | "handleClickRelease">[]
+  tags: TagsTableRecordStates[]
   handleClickSelect: (tagId: string) => void
   handleClickRelease: (tagId: string) => void
 }
