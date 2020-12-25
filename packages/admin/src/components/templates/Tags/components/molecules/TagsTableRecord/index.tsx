@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Checkbox, CheckMark } from "shared-items/dist/client"
 import styled from "styled-components"
 
@@ -10,7 +10,7 @@ import { StyledTr, StyledTd } from "../../atoms/StyledTable"
 import { TagsTableRecordProps } from "./types"
 
 // main
-export const TagsTableRecord: FC<TagsTableRecordProps> = (props) => {
+export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
   const {
     isSelected,
     tagName,
@@ -38,7 +38,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = (props) => {
       <StyledTd>{updatedAt}</StyledTd>
     </StyledTr>
   )
-}
+})
 
 const IconWrapper = styled.div`
   align-items: center;

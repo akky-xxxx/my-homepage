@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Checkbox } from "shared-items/dist/client"
 
 // import components
@@ -9,7 +9,7 @@ import { StyledTh } from "../../atoms/StyledTable"
 import { TagsTableHeaderProps } from "./types"
 
 // main
-export const TagsTableHeader: FC<TagsTableHeaderProps> = (props) => {
+export const TagsTableHeader: FC<TagsTableHeaderProps> = memo((props) => {
   const { isSelectAll, handleClickSelectAll } = props
 
   return (
@@ -29,4 +29,4 @@ export const TagsTableHeader: FC<TagsTableHeaderProps> = (props) => {
       </tr>
     </thead>
   )
-}
+})
