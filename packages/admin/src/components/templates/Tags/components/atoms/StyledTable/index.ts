@@ -28,6 +28,7 @@ export const StyledTh = styled.th<CellProps>`
   font-weight: normal;
   padding: ${MARGIN10}px;
   text-align: ${getTextAlign} !important;
+  vertical-align: middle;
 `
 
 export const StyledTd = styled.td<CellProps>`
@@ -35,4 +36,5 @@ export const StyledTd = styled.td<CellProps>`
   border-top: 1px solid ${DIVIDER};
   padding: ${MARGIN10}px;
   text-align: ${getTextAlign} !important;
+  vertical-align: middle;
 `

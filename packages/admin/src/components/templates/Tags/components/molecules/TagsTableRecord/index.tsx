@@ -1,6 +1,7 @@
 // import node_modules
 import React, { FC } from "react"
 import { Checkbox, CheckMark } from "shared-items/dist/client"
+import styled from "styled-components"
 
 // import components
 import { StyledTr, StyledTd } from "../../atoms/StyledTable"
@@ -31,7 +32,9 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = (props) => {
       </StyledTd>
       <StyledTd>{tagName}</StyledTd>
       <StyledTd>
-        <CheckMark isChecked={isReleased} />
+        <IconWrapper>
+          <CheckMark isChecked={isReleased} />
+        </IconWrapper>
       </StyledTd>
       <StyledTd>{settingCount}</StyledTd>
       <StyledTd>{createdAt}</StyledTd>
@@ -39,3 +42,8 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = (props) => {
     </StyledTr>
   )
 }
+
+const IconWrapper = styled.div`
+  align-items: center;
+  display: flex;
+`
