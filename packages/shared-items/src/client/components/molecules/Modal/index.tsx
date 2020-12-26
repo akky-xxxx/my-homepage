@@ -35,7 +35,12 @@ export const Modal: FC<ModalProps> = (props) => {
     children,
   } = props
   return (
-    <ModalWrapper height={height} width={width} isShow={isShow}>
+    <ModalWrapper
+      height={height}
+      width={width}
+      isShow={isShow}
+      onClick={(event) => event.stopPropagation()}
+    >
       <ModalHeader hasHeader={hasHeader} title={title} />
       <ModalBody>{children}</ModalBody>
       <ModalFooter
