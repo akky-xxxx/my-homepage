@@ -54,9 +54,7 @@ describe("useTagList", () => {
   it("isSelectAll が false の時に handleClickSelectAll を実行すると tags の全ての isSelect は true になる", () => {
     const { result } = renderHook(() => useTagList(props))
     act(() => result.current.handleClickSelectAll())
-    expect(result.current.tags.every(({ isSelect }) => isSelect)).toEqual(
-      true,
-    )
+    expect(result.current.tags.every(({ isSelect }) => isSelect)).toEqual(true)
   })
 
   it("isSelectAll が true の時に handleClickSelectAll を実行すると tags の全ての isSelect は false になる", () => {
@@ -64,8 +62,6 @@ describe("useTagList", () => {
     act(() => result.current.handleClickSelectAll())
     expect(result.current.isSelectAll).toEqual(true)
     act(() => result.current.handleClickSelectAll())
-    expect(result.current.tags.every(({ isSelect }) => !isSelect)).toEqual(
-      true,
-    )
+    expect(result.current.tags.every(({ isSelect }) => !isSelect)).toEqual(true)
   })
 })

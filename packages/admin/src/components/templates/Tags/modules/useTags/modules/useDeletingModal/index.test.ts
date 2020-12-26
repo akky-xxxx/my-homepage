@@ -1,5 +1,5 @@
 // import node_modules
-import {act, renderHook} from "@testing-library/react-hooks"
+import { act, renderHook } from "@testing-library/react-hooks"
 
 // import others
 import { useDeletingModal } from "./index"
