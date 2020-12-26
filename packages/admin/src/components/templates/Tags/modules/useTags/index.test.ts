@@ -95,4 +95,12 @@ describe("useTags", () => {
       expect(result.current.isShowAdditionModal).toEqual(false)
     })
   })
+
+  describe("タグ変更モーダル関連", () => {
+    it.todo("isShowChangingModal の初期値は false")
+
+    it.todo("handleShowChangingModal を実行すると isShowChangingModal は true になる")
+
+    it.todo("handleHideChangingModal を実行すると isShowChangingModal は false になる")
+  })
 })
