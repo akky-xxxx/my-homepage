@@ -9,6 +9,7 @@ import { addIsSelect } from "./modules/addIsSelect"
 export const useTags: UseTags = (props) => {
   const { tags: originTags } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
+  const [isShowAddModal, setShowAddModal] = useState(false)
 
   const isSelectAll = tags.every(({ isSelect }) => isSelect)
 
@@ -45,11 +46,17 @@ export const useTags: UseTags = (props) => {
       })),
     )
 
+  const handleShowAddModal = () => setShowAddModal(true)
+  const handleHideAddModal = () => setShowAddModal(false)
+
   return {
     tags,
     isSelectAll,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
+    isShowAddModal,
+    handleShowAddModal,
+    handleHideAddModal,
   }
 }

@@ -10,5 +10,8 @@ type UseTagsReturn = TagsTableHeaderProps & {
   tags: TagsTableRecordStates[]
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease
+  isShowAddModal: boolean
+  handleShowAddModal: () => void
+  handleHideAddModal: () => void
 }
 export type UseTags = (props: TagsProps) => UseTagsReturn

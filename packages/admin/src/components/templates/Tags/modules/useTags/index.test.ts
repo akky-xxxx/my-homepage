@@ -60,4 +60,29 @@ describe("useTags", () => {
     act(() => result.current.handleClickSelectAll())
     expect(result.current.tags.every(({ isSelect }) => !isSelect)).toEqual(true)
   })
+
+  describe("タグ追加モーダル関連", () => {
+    it("isShowAddModal の初期値は false", () => {
+      const { result } = renderHook(() => useTags({ tags }))
+      expect(result.current.isShowAddModal).toEqual(false)
+    })
+
+    it("handleShowAddModal を実行すると isShowAddModal は true になる", () => {
+      const { result } = renderHook(() => useTags({ tags }))
+      act(() => result.current.handleShowAddModal())
+      expect(result.current.isShowAddModal).toEqual(true)
+      act(() => result.current.handleShowAddModal())
+      expect(result.current.isShowAddModal).toEqual(true)
+    })
+
+    it("handleHideAddModal を実行すると isShowAddModal は false になる", () => {
+      const { result } = renderHook(() => useTags({ tags }))
+      act(() => result.current.handleShowAddModal())
+      expect(result.current.isShowAddModal).toEqual(true)
+      act(() => result.current.handleHideAddModal())
+      expect(result.current.isShowAddModal).toEqual(false)
+      act(() => result.current.handleHideAddModal())
+      expect(result.current.isShowAddModal).toEqual(false)
+    })
+  })
 })
