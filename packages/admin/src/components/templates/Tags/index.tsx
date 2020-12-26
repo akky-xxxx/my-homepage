@@ -2,6 +2,7 @@
 import React, { FC } from "react"
 import { Divider } from "shared-items/dist/client"
 import styled from "styled-components"
+import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
@@ -21,14 +22,33 @@ export const Tags: FC<TagsProps> = (props) => {
     tags,
     handleClickSelect,
     handleClickRelease,
+    isShowAddModal,
+    handleShowAddModal,
+    handleHideAddModal,
   } = useTags(props)
 
   return (
     <div>
+      <RootPortal>
+        <Background onClick={handleHideAddModal} isShow={isShowAddModal}>
+          <Modal
+            title="タグを追加"
+            width={400}
+            isShow={isShowAddModal}
+            hasHeader
+            hasFooter
+            hasCancelButton
+            handleOkCallback={handleHideAddModal}
+            handleCancelCallback={handleHideAddModal}
+          >
+            タグを追加モーダルのコンテンツ
+          </Modal>
+        </Background>
+      </RootPortal>
       <MainContents>
         <HeaderWrapper>
           <Heading2>タグ編集</Heading2>
-          <SubMenu />
+          <SubMenu handleShowAddModal={handleShowAddModal} />
         </HeaderWrapper>
       </MainContents>
 
