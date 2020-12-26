@@ -5,27 +5,11 @@ import { useAddModal } from "./modules/useAddModal"
 
 // main
 export const useTags: UseTags = (props) => {
-  const {
-    tags,
-    isSelectAll,
-    handleClickSelect,
-    handleClickRelease,
-    handleClickSelectAll,
-  } = useTagList(props)
-  const {
-    isShowAddModal,
-    handleShowAddModal,
-    handleHideAddModal,
-  } = useAddModal()
+  const useTagListResult = useTagList(props)
+  const useAddModalResult = useAddModal()
 
   return {
-    tags,
-    isSelectAll,
-    handleClickSelectAll,
-    handleClickSelect,
-    handleClickRelease,
-    isShowAddModal,
-    handleShowAddModal,
-    handleHideAddModal,
+    ...useTagListResult,
+    ...useAddModalResult,
   }
 }
