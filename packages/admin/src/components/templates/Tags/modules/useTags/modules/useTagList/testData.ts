@@ -1,5 +1,5 @@
 // import
-import { TagsTableRecordStates } from "../../components/molecules/TagsTableRecord/types"
+import { TagsTableRecordStates } from "../../../../components/molecules/TagsTableRecord/types"
 
 // main
 export const tags: Omit<TagsTableRecordStates, "isSelect">[] = [
