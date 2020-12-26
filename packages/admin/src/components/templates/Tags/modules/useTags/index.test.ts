@@ -7,7 +7,7 @@ import { tags } from "./testData"
 
 // main
 const props = {
-  tags
+  tags,
 }
 
 describe("useTags", () => {
@@ -55,7 +55,9 @@ describe("useTags", () => {
     it("isSelectAll が false の時に handleClickSelectAll を実行すると tags の全ての isSelect は true になる", () => {
       const { result } = renderHook(() => useTags(props))
       act(() => result.current.handleClickSelectAll())
-      expect(result.current.tags.every(({ isSelect }) => isSelect)).toEqual(true)
+      expect(result.current.tags.every(({ isSelect }) => isSelect)).toEqual(
+        true,
+      )
     })
 
     it("isSelectAll が true の時に handleClickSelectAll を実行すると tags の全ての isSelect は false になる", () => {
@@ -63,7 +65,9 @@ describe("useTags", () => {
       act(() => result.current.handleClickSelectAll())
       expect(result.current.isSelectAll).toEqual(true)
       act(() => result.current.handleClickSelectAll())
-      expect(result.current.tags.every(({ isSelect }) => !isSelect)).toEqual(true)
+      expect(result.current.tags.every(({ isSelect }) => !isSelect)).toEqual(
+        true,
+      )
     })
   })
 

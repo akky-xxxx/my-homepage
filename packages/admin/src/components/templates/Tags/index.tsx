@@ -1,8 +1,12 @@
 // import node_modules
 import React, { FC } from "react"
-import { Divider } from "shared-items/dist/client"
+import {
+  Divider,
+  Background,
+  Modal,
+  RootPortal,
+} from "shared-items/dist/client"
 import styled from "styled-components"
-import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
