@@ -1,11 +1,6 @@
 // import node_modules
 import React, { FC } from "react"
-import {
-  Divider,
-  Background,
-  Modal,
-  RootPortal,
-} from "shared-items/dist/client"
+import { Divider } from "shared-items/dist/client"
 import styled from "styled-components"
 
 // import components
@@ -13,6 +8,7 @@ import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
 import { SubMenu } from "./components/molecules/SubMenu"
 import { TagsTable } from "./components/organisms/TagsTable"
+import { AdditionModal } from "./components/organisms/AdditionModal"
 
 // import others
 import { TagsProps } from "./types"
@@ -33,22 +29,10 @@ export const Tags: FC<TagsProps> = (props) => {
 
   return (
     <div>
-      <RootPortal>
-        <Background onClick={handleHideAddModal} isShow={isShowAddModal}>
-          <Modal
-            title="タグを追加"
-            width={400}
-            isShow={isShowAddModal}
-            hasHeader
-            hasFooter
-            hasCancelButton
-            handleOkCallback={handleHideAddModal}
-            handleCancelCallback={handleHideAddModal}
-          >
-            タグを追加モーダルのコンテンツ
-          </Modal>
-        </Background>
-      </RootPortal>
+      <AdditionModal
+        isShowAddModal={isShowAddModal}
+        handleHideAddModal={handleHideAddModal}
+      />
       <MainContents>
         <HeaderWrapper>
           <Heading2>タグ編集</Heading2>
