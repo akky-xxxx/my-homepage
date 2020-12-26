@@ -22,7 +22,7 @@ var MARGIN10 = const_1.Margin.MARGIN10;
 var DURATION = const_1.Transition.DURATION, TIMING_FUNCTION = const_1.Transition.TIMING_FUNCTION;
 var Modal = function (props) {
     var height = props.height, width = props.width, isShow = props.isShow, hasHeader = props.hasHeader, title = props.title, hasFooter = props.hasFooter, hasCancelButton = props.hasCancelButton, okText = props.okText, cancelText = props.cancelText, handleOkCallback = props.handleOkCallback, handleCancelCallback = props.handleCancelCallback, children = props.children;
-    return (react_1.default.createElement(ModalWrapper, { height: height, width: width, isShow: isShow },
+    return (react_1.default.createElement(ModalWrapper, { height: height, width: width, isShow: isShow, onClick: function (event) { return event.stopPropagation(); } },
         react_1.default.createElement(ModalHeader_1.ModalHeader, { hasHeader: hasHeader, title: title }),
         react_1.default.createElement(ModalBody_1.ModalBody, null, children),
         react_1.default.createElement(ModalFooter_1.ModalFooter, { hasFooter: hasFooter, hasCancelButton: hasCancelButton, okText: okText, cancelText: cancelText, handleOkCallback: handleOkCallback, handleCancelCallback: handleCancelCallback })));
