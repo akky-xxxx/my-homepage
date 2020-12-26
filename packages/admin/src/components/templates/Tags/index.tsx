@@ -1,10 +1,12 @@
 // import node_modules
 import React, { FC } from "react"
 import { Divider } from "shared-items/dist/client"
+import styled from "styled-components"
 
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
+import { SubMenu } from "./components/molecules/SubMenu"
 import { TagsTable } from "./components/organisms/TagsTable"
 
 // import others
@@ -24,7 +26,10 @@ export const Tags: FC<TagsProps> = (props) => {
   return (
     <div>
       <MainContents>
-        <Heading2>タグ編集</Heading2>
+        <HeaderWrapper>
+          <Heading2>タグ編集</Heading2>
+          <SubMenu />
+        </HeaderWrapper>
       </MainContents>
 
       <Divider />
@@ -41,3 +46,8 @@ export const Tags: FC<TagsProps> = (props) => {
     </div>
   )
 }
+
+const HeaderWrapper = styled.div`
+  align-items: center;
+  display: flex;
+`
