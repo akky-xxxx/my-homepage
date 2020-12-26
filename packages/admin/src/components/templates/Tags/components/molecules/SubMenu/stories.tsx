@@ -3,10 +3,10 @@ import React from "react"
 import { Meta, Story } from "@storybook/react"
 
 // import components
-import { SubMenu } from "./index"
+import { SubMenu, SubMenuProps } from "./index"
 
 // main
-const config: Meta = {
+const config: Meta<SubMenuProps> = {
   title: "templates/Tags/molecules/SubMenu",
   component: SubMenu,
   argTypes: {
@@ -17,4 +17,4 @@ const config: Meta = {
 }
 export default config
 
-export const Default: Story = (props) => <SubMenu {...props} />
+export const Default: Story<SubMenuProps> = (props) => <SubMenu {...props} />

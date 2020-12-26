@@ -7,9 +7,10 @@ import { Link, Color, Margin } from "shared-items/dist/client"
 const { DIVIDER } = Color
 const { MARGIN20 } = Margin
 
-type SubMenuProps = {
+export type SubMenuProps = {
   handleShowAddModal: () => void
 }
+
 export const SubMenu: FC<SubMenuProps> = (props) => {
   const { handleShowAddModal } = props
   /* eslint-disable no-console, jsx-a11y/anchor-is-valid */
