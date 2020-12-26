@@ -13,8 +13,10 @@ const { COLOR_212121 } = Color
 export const Background = styled.div<BackgroundProps>`
   background-color: ${rgba(COLOR_212121, 0.3)};
   bottom: 0;
+  display: grid;
   left: 0;
   ${opacity};
+  place-items: center;
   ${pointerEvents};
   position: fixed;
   right: 0;
