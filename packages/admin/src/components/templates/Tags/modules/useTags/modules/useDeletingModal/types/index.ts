@@ -1,7 +1,10 @@
+// import node_modules
+import { EmptyFunction } from "shared-items"
+
 // main
 type UseDeletingModalReturn = {
   isShowDeletingModal: boolean
-  handleShowDeletingModal: () => void
-  handleHideDeletingModal: () => void
+  handleShowDeletingModal: EmptyFunction
+  handleHideDeletingModal: EmptyFunction
 }
 export type UseDeletingModal = () => UseDeletingModalReturn

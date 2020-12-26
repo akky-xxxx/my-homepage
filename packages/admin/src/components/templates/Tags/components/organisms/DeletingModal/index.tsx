@@ -1,11 +1,12 @@
 // import node_modules
 import React, { FC } from "react"
+import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // main
 type DeletingModalProps = {
   isShowDeletingModal: boolean
-  handleHideDeletingModal: () => void
+  handleHideDeletingModal: EmptyFunction
 }
 
 export const DeletingModal: FC<DeletingModalProps> = (props) => {

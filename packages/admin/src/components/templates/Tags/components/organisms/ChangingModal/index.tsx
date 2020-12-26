@@ -1,11 +1,12 @@
 // import node_modules
 import React, { FC } from "react"
+import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // main
 type ChangingModalProps = {
   isShowChangingModal: boolean
-  handleHideChangingModal: () => void
+  handleHideChangingModal: EmptyFunction
 }
 
 export const ChangingModal: FC<ChangingModalProps> = (props) => {

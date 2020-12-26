@@ -1,11 +1,12 @@
 // import node_modules
 import React, { FC } from "react"
+import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // main
 type AdditionModalProps = {
   isShowAdditionModal: boolean
-  handleHideAdditionModal: () => void
+  handleHideAdditionModal: EmptyFunction
 }
 export const AdditionModal: FC<AdditionModalProps> = (props) => {
   const { isShowAdditionModal, handleHideAdditionModal } = props

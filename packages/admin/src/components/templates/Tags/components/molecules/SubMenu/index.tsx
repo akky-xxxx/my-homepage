@@ -1,6 +1,7 @@
 // import node_modules
 import React, { FC } from "react"
 import styled from "styled-components"
+import { EmptyFunction } from "shared-items"
 import { Link, Color, Margin } from "shared-items/dist/client"
 
 // main
@@ -8,9 +9,9 @@ const { DIVIDER } = Color
 const { MARGIN20 } = Margin
 
 export type SubMenuProps = {
-  handleShowAdditionModal: () => void
-  handleShowChangingModal: () => void
-  handleShowDeletingModal: () => void
+  handleShowAdditionModal: EmptyFunction
+  handleShowChangingModal: EmptyFunction
+  handleShowDeletingModal: EmptyFunction
 }
 
 export const SubMenu: FC<SubMenuProps> = (props) => {

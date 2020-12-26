@@ -1,7 +1,10 @@
+// import node_modules
+import { EmptyFunction } from "shared-items"
+
 // main
 type UseAdditionModalReturn = {
   isShowAdditionModal: boolean
-  handleShowAdditionModal: () => void
-  handleHideAdditionModal: () => void
+  handleShowAdditionModal: EmptyFunction
+  handleHideAdditionModal: EmptyFunction
 }
 export type UseAdditionModal = () => UseAdditionModalReturn
