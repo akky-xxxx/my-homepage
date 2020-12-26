@@ -9,10 +9,11 @@ const { MARGIN20 } = Margin
 
 export type SubMenuProps = {
   handleShowAdditionModal: () => void
+  handleShowChangingModal: () => void
 }
 
 export const SubMenu: FC<SubMenuProps> = (props) => {
-  const { handleShowAdditionModal } = props
+  const { handleShowAdditionModal, handleShowChangingModal } = props
   /* eslint-disable no-console, jsx-a11y/anchor-is-valid */
   return (
     <StyledUl>
@@ -21,7 +22,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
       </StyledLi>
 
       <StyledLi>
-        <Link handleClick={() => console.log("click")}>変更</Link>
+        <Link handleClick={handleShowChangingModal}>変更</Link>
       </StyledLi>
 
       <StyledLi>

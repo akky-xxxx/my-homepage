@@ -9,6 +9,7 @@ import { Heading2 } from "@@/components/atoms/Heading2"
 import { SubMenu } from "./components/molecules/SubMenu"
 import { TagsTable } from "./components/organisms/TagsTable"
 import { AdditionModal } from "./components/organisms/AdditionModal"
+import { ChangingModal } from "./components/organisms/ChangingModal"
 
 // import others
 import { TagsProps } from "./types"
@@ -25,6 +26,9 @@ export const Tags: FC<TagsProps> = (props) => {
     isShowAdditionModal,
     handleShowAdditionModal,
     handleHideAdditionModal,
+    isShowChangingModal,
+    handleShowChangingModal,
+    handleHideChangingModal,
   } = useTags(props)
 
   return (
@@ -33,10 +37,19 @@ export const Tags: FC<TagsProps> = (props) => {
         isShowAdditionModal={isShowAdditionModal}
         handleHideAdditionModal={handleHideAdditionModal}
       />
+
+      <ChangingModal
+        isShowChangingModal={isShowChangingModal}
+        handleHideChangingModal={handleHideChangingModal}
+      />
+
       <MainContents>
         <HeaderWrapper>
           <Heading2>タグ編集</Heading2>
-          <SubMenu handleShowAdditionModal={handleShowAdditionModal} />
+          <SubMenu
+            handleShowAdditionModal={handleShowAdditionModal}
+            handleShowChangingModal={handleShowChangingModal}
+          />
         </HeaderWrapper>
       </MainContents>
 
