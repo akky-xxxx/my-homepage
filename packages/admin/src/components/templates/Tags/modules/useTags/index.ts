@@ -1,9 +1,7 @@
-// import node_modules
-import { useState } from "react"
-
-// import others
+// import
 import { UseTags } from "./types"
 import { useTagList } from "./modules/useTagList"
+import { useAddModal } from "./modules/useAddModal"
 
 // main
 export const useTags: UseTags = (props) => {
@@ -14,10 +12,11 @@ export const useTags: UseTags = (props) => {
     handleClickRelease,
     handleClickSelectAll,
   } = useTagList(props)
-  const [isShowAddModal, setShowAddModal] = useState(false)
-
-  const handleShowAddModal = () => setShowAddModal(true)
-  const handleHideAddModal = () => setShowAddModal(false)
+  const {
+    isShowAddModal,
+    handleShowAddModal,
+    handleHideAddModal,
+  } = useAddModal()
 
   return {
     tags,
