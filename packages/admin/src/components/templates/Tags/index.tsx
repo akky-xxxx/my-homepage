@@ -22,21 +22,21 @@ export const Tags: FC<TagsProps> = (props) => {
     tags,
     handleClickSelect,
     handleClickRelease,
-    isShowAddModal,
-    handleShowAddModal,
-    handleHideAddModal,
+    isShowAdditionModal,
+    handleShowAdditionModal,
+    handleHideAdditionModal,
   } = useTags(props)
 
   return (
     <div>
       <AdditionModal
-        isShowAddModal={isShowAddModal}
-        handleHideAddModal={handleHideAddModal}
+        isShowAdditionModal={isShowAdditionModal}
+        handleHideAdditionModal={handleHideAdditionModal}
       />
       <MainContents>
         <HeaderWrapper>
           <Heading2>タグ編集</Heading2>
-          <SubMenu handleShowAddModal={handleShowAddModal} />
+          <SubMenu handleShowAdditionModal={handleShowAdditionModal} />
         </HeaderWrapper>
       </MainContents>
 

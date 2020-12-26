@@ -72,27 +72,27 @@ describe("useTags", () => {
   })
 
   describe("タグ追加モーダル関連", () => {
-    it("isShowAddModal の初期値は false", () => {
+    it("isShowAdditionModal の初期値は false", () => {
       const { result } = renderHook(() => useTags(props))
-      expect(result.current.isShowAddModal).toEqual(false)
+      expect(result.current.isShowAdditionModal).toEqual(false)
     })
 
-    it("handleShowAddModal を実行すると isShowAddModal は true になる", () => {
+    it("handleShowAdditionModal を実行すると isShowAdditionModal は true になる", () => {
       const { result } = renderHook(() => useTags(props))
-      act(() => result.current.handleShowAddModal())
-      expect(result.current.isShowAddModal).toEqual(true)
-      act(() => result.current.handleShowAddModal())
-      expect(result.current.isShowAddModal).toEqual(true)
+      act(() => result.current.handleShowAdditionModal())
+      expect(result.current.isShowAdditionModal).toEqual(true)
+      act(() => result.current.handleShowAdditionModal())
+      expect(result.current.isShowAdditionModal).toEqual(true)
     })
 
-    it("handleHideAddModal を実行すると isShowAddModal は false になる", () => {
+    it("handleHideAdditionModal を実行すると isShowAdditionModal は false になる", () => {
       const { result } = renderHook(() => useTags(props))
-      act(() => result.current.handleShowAddModal())
-      expect(result.current.isShowAddModal).toEqual(true)
-      act(() => result.current.handleHideAddModal())
-      expect(result.current.isShowAddModal).toEqual(false)
-      act(() => result.current.handleHideAddModal())
-      expect(result.current.isShowAddModal).toEqual(false)
+      act(() => result.current.handleShowAdditionModal())
+      expect(result.current.isShowAdditionModal).toEqual(true)
+      act(() => result.current.handleHideAdditionModal())
+      expect(result.current.isShowAdditionModal).toEqual(false)
+      act(() => result.current.handleHideAdditionModal())
+      expect(result.current.isShowAdditionModal).toEqual(false)
     })
   })
 })

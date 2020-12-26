@@ -8,16 +8,16 @@ const { DIVIDER } = Color
 const { MARGIN20 } = Margin
 
 export type SubMenuProps = {
-  handleShowAddModal: () => void
+  handleShowAdditionModal: () => void
 }
 
 export const SubMenu: FC<SubMenuProps> = (props) => {
-  const { handleShowAddModal } = props
+  const { handleShowAdditionModal } = props
   /* eslint-disable no-console, jsx-a11y/anchor-is-valid */
   return (
     <StyledUl>
       <StyledLi>
-        <Link handleClick={handleShowAddModal}>追加</Link>
+        <Link handleClick={handleShowAdditionModal}>追加</Link>
       </StyledLi>
 
       <StyledLi>

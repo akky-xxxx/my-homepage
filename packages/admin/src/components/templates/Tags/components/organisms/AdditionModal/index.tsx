@@ -4,24 +4,27 @@ import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // main
 type AdditionModalProps = {
-  isShowAddModal: boolean
-  handleHideAddModal: () => void
+  isShowAdditionModal: boolean
+  handleHideAdditionModal: () => void
 }
 export const AdditionModal: FC<AdditionModalProps> = (props) => {
-  const { isShowAddModal, handleHideAddModal } = props
+  const { isShowAdditionModal, handleHideAdditionModal } = props
 
   return (
     <RootPortal>
-      <Background onClick={handleHideAddModal} isShow={isShowAddModal}>
+      <Background
+        onClick={handleHideAdditionModal}
+        isShow={isShowAdditionModal}
+      >
         <Modal
           title="タグを追加"
           width={400}
-          isShow={isShowAddModal}
+          isShow={isShowAdditionModal}
           hasHeader
           hasFooter
           hasCancelButton
-          handleOkCallback={handleHideAddModal}
-          handleCancelCallback={handleHideAddModal}
+          handleOkCallback={handleHideAdditionModal}
+          handleCancelCallback={handleHideAdditionModal}
         >
           タグを追加モーダルのコンテンツ
         </Modal>
