@@ -97,10 +97,27 @@ describe("useTags", () => {
   })
 
   describe("タグ変更モーダル関連", () => {
-    it.todo("isShowChangingModal の初期値は false")
+    it("isShowChangingModal の初期値は false", () => {
+      const { result } = renderHook(() => useTags(props))
+      expect(result.current.isShowChangingModal).toEqual(false)
+    })
 
-    it.todo("handleShowChangingModal を実行すると isShowChangingModal は true になる")
+    it("handleShowChangingModal を実行すると isShowChangingModal は true になる", () => {
+      const { result } = renderHook(() => useTags(props))
+      act(() => result.current.handleShowChangingModal())
+      expect(result.current.isShowChangingModal).toEqual(true)
+      act(() => result.current.handleShowChangingModal())
+      expect(result.current.isShowChangingModal).toEqual(true)
+    })
 
-    it.todo("handleHideChangingModal を実行すると isShowChangingModal は false になる")
+    it("handleHideChangingModal を実行すると isShowChangingModal は false になる", () => {
+      const { result } = renderHook(() => useTags(props))
+      act(() => result.current.handleShowChangingModal())
+      expect(result.current.isShowChangingModal).toEqual(true)
+      act(() => result.current.handleHideChangingModal())
+      expect(result.current.isShowChangingModal).toEqual(false)
+      act(() => result.current.handleHideChangingModal())
+      expect(result.current.isShowChangingModal).toEqual(false)
+    })
   })
 })
