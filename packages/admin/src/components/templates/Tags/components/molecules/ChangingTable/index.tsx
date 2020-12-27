@@ -10,6 +10,7 @@ import {
   StyledTh,
   StyledTd,
 } from "../../atoms/StyledTable"
+import { useChangingTable } from "./modules/useChangingTable"
 
 // main
 export type ChangingTableProps = {
@@ -18,8 +19,15 @@ export type ChangingTableProps = {
 
 export const ChangingTable: FC<ChangingTableProps> = (props) => {
   const { selectedTags } = props
+  const {
+    stateTags,
+    isReleaseAll,
+    handleChangeTagName,
+    handleChangeRelease,
+    handleChangeReleaseAll,
+  } = useChangingTable({ originTags: selectedTags })
 
-  if (!selectedTags.length) return null
+  if (!stateTags.length) return null
 
   return (
     <StyledTable>
@@ -27,21 +35,31 @@ export const ChangingTable: FC<ChangingTableProps> = (props) => {
         <tr>
           <StyledTh>タグ名</StyledTh>
           <StyledTh>
-            <CheckMark isChecked />
+            <CheckMark
+              isChecked={isReleaseAll}
+              onClick={handleChangeReleaseAll}
+            />
           </StyledTh>
         </tr>
       </thead>
 
       <tbody>
-        {selectedTags.map((tag) => {
+        {stateTags.map((tag) => {
           const { tagId, tagName, isRelease } = tag
           return (
             <StyledTr key={tagId}>
               <StyledTd>
-                <input type="text" value={tagName} />
+                <input
+                  type="text"
+                  value={tagName}
+                  onChange={handleChangeTagName(tagId)}
+                />
               </StyledTd>
               <StyledTd>
-                <CheckMark isChecked={isRelease} />
+                <CheckMark
+                  isChecked={isRelease}
+                  onClick={handleChangeRelease(tagId)}
+                />
               </StyledTd>
             </StyledTr>
           )
