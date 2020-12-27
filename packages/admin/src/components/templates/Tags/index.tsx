@@ -20,6 +20,7 @@ import { useTags } from "./modules/useTags"
 export const Tags: FC<TagsProps> = (props) => {
   const {
     isSelectAll,
+    isSelectSome,
     handleClickSelectAll,
     tags,
     handleClickSelect,
@@ -56,6 +57,7 @@ export const Tags: FC<TagsProps> = (props) => {
         <HeaderWrapper>
           <Heading2>タグ編集</Heading2>
           <SubMenu
+            isSelectSome={isSelectSome}
             handleShowAdditionModal={handleShowAdditionModal}
             handleShowChangingModal={handleShowChangingModal}
             handleShowDeletingModal={handleShowDeletingModal}

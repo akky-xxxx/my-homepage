@@ -9,6 +9,7 @@ const { DIVIDER } = Color
 const { MARGIN20 } = Margin
 
 export type SubMenuProps = {
+  isSelectSome?: boolean
   handleShowAdditionModal: EmptyFunction
   handleShowChangingModal: EmptyFunction
   handleShowDeletingModal: EmptyFunction
@@ -16,6 +17,7 @@ export type SubMenuProps = {
 
 export const SubMenu: FC<SubMenuProps> = (props) => {
   const {
+    isSelectSome,
     handleShowAdditionModal,
     handleShowChangingModal,
     handleShowDeletingModal,
@@ -28,7 +30,11 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
       </StyledLi>
 
       <StyledLi>
-        <Link handleClick={handleShowChangingModal}>変更</Link>
+        {isSelectSome ? (
+          <Link handleClick={handleShowChangingModal}>変更</Link>
+        ) : (
+          "変更"
+        )}
       </StyledLi>
 
       <StyledLi>
@@ -36,7 +42,11 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
       </StyledLi>
 
       <StyledLi>
-        <Link handleClick={handleShowDeletingModal}>削除</Link>
+        {isSelectSome ? (
+          <Link handleClick={handleShowDeletingModal}>削除</Link>
+        ) : (
+          "削除"
+        )}
       </StyledLi>
     </StyledUl>
   )
