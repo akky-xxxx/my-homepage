@@ -10,7 +10,9 @@
     "doc": "lerna run doc --stream",
     "fix": "run-p fix:*",
     "fix:json": "prettier ./*.json --write",
-    "fix:pack": "fixpack"
+    "fix:pack": "fixpack",
+    "green-keep": "yarn re-install && yarn upgrade-interactive --latest",
+    "re-install": "lerna clean && lerna bootstrap"
   },
   "devDependencies": {
     "fixpack": "^3.0.6",
