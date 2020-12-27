@@ -18,6 +18,7 @@
     "lint:ts": "eslint './src/**/*.ts'",
     "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
+    "re-install": "lerna clean && lerna bootstrap",
     "shared-items": "yarn remove shared-items; yarn add ../shared-items",
     "spell-check": "cspell './src/**/*.ts'",
     "test": "jest",

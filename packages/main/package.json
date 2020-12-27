@@ -20,6 +20,7 @@
     "lint:ts": "eslint './src/**/*.{ts,tsx}'",
     "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
+    "re-install": "lerna clean && lerna bootstrap",
     "server:dev": "nodemon",
     "server:prod": "ts-node --files ./src/bin/www/index.ts",
     "shared-items": "yarn remove shared-items; yarn add ../shared-items",

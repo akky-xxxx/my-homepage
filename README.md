@@ -44,6 +44,7 @@ Refer the node-version or root package.json.
 | check-all | check code on each packages |
 | doc | start documentations on each packages |
 | fix | automatic fix of the root materials |
+| re-install | re install of all packages |
 
 ## Scripts of each packages
 | scripts | description |
@@ -53,3 +54,4 @@ Refer the node-version or root package.json.
 | fix | automatic fix of the materials |
 | dev | run by the development mode |
 | start | run by the production mode |
+| re-install | re install of all packages |

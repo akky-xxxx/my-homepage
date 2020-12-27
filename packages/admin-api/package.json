@@ -21,6 +21,7 @@
     "lint:ts": "eslint './src/**/*.ts'",
     "pre-commit": "lint-staged --config lint-staged.pre-commit.config.js",
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
+    "re-install": "lerna clean && lerna bootstrap",
     "serve:api": "nodemon",
     "serve:mock": "agreed-server --path ./spec/agreed/index.ts --port 4101 -l",
     "shared-items": "yarn remove shared-items; yarn add ../shared-items",
