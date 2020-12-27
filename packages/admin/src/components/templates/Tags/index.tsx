@@ -23,6 +23,7 @@ export const Tags: FC<TagsProps> = (props) => {
     isSelectSome,
     handleClickSelectAll,
     tags,
+    selectedTags,
     handleClickSelect,
     handleClickRelease,
     isShowAdditionModal,
@@ -44,6 +45,7 @@ export const Tags: FC<TagsProps> = (props) => {
       />
 
       <ChangingModal
+        selectedTags={selectedTags}
         isShowChangingModal={isShowChangingModal}
         handleHideChangingModal={handleHideChangingModal}
       />
