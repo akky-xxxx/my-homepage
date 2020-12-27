@@ -45,6 +45,7 @@ Refer the node-version or root package.json.
 | doc | start documentations on each packages |
 | fix | automatic fix of the root materials |
 | re-install | re install of all packages |
+| green-keep | green keeping of all packages | 
 
 ## Scripts of each packages
 | scripts | description |
