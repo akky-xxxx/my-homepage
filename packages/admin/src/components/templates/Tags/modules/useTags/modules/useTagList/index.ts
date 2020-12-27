@@ -10,6 +10,7 @@ export const useTagList: UseTagList = (props) => {
   const { tags: originTags } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
 
+  const selectedTags = tags.filter(({ isSelect }) => isSelect)
   const isSelectAll = tags.every(({ isSelect }) => isSelect)
   const isSelectSome = tags.some(({ isSelect }) => isSelect)
 
@@ -48,6 +49,7 @@ export const useTagList: UseTagList = (props) => {
 
   return {
     tags,
+    selectedTags,
     isSelectAll,
     isSelectSome,
     handleClickSelectAll,

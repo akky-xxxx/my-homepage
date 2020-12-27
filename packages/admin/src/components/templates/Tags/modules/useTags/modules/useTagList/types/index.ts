@@ -9,6 +9,7 @@ type HandleClickRelease = (tagId: string) => void
 type UseTagListReturn = TagsTableHeaderProps & {
   isSelectSome: boolean
   tags: TagsTableRecordStates[]
+  selectedTags: TagsTableRecordStates[]
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease
 }

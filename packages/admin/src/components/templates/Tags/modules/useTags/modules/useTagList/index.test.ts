@@ -76,4 +76,11 @@ describe("useTagList", () => {
     const { result } = renderHook(() => useTagList(props))
     expect(result.current.isSelectSome).toEqual(false)
   })
+
+  it("selectedTags は tags の isSelect が true のもの", () => {
+    const { result } = renderHook(() => useTagList(props))
+    expect(result.current.selectedTags).toEqual([])
+    act(() => result.current.handleClickSelect("2"))
+    expect(result.current.selectedTags[0].tagId).toEqual("2")
+  })
 })
