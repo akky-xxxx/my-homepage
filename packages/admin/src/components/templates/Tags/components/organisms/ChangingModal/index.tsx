@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
@@ -16,29 +16,35 @@ export type ChangingModalProps = {
   handleHideChangingModal: EmptyFunction
 }
 
-export const ChangingModal: FC<ChangingModalProps> = (props) => {
-  const { isShowChangingModal, handleHideChangingModal, selectedTags } = props
+export const ChangingModal: FC<ChangingModalProps> = memo(
+  (props) => {
+    const { isShowChangingModal, handleHideChangingModal, selectedTags } = props
 
-  return (
-    <RootPortal>
-      <Background
-        onClick={handleHideChangingModal}
-        isShow={isShowChangingModal}
-      >
-        <Modal
-          title="タグを変更"
-          width={400}
+    return (
+      <RootPortal>
+        <Background
+          onClick={handleHideChangingModal}
           isShow={isShowChangingModal}
-          hasHeader
-          hasFooter
-          hasCancelButton
-          okText="変更"
-          handleOkCallback={handleHideChangingModal}
-          handleCancelCallback={handleHideChangingModal}
         >
-          <ChangingTable selectedTags={selectedTags} />
-        </Modal>
-      </Background>
-    </RootPortal>
-  )
-}
+          <Modal
+            title="タグを変更"
+            width={400}
+            isShow={isShowChangingModal}
+            hasHeader
+            hasFooter
+            hasCancelButton
+            okText="変更"
+            handleOkCallback={handleHideChangingModal}
+            handleCancelCallback={handleHideChangingModal}
+          >
+            <ChangingTable
+              selectedTags={selectedTags}
+              isShow={isShowChangingModal}
+            />
+          </Modal>
+        </Background>
+      </RootPortal>
+    )
+  },
+  (before, after) => before.isShowChangingModal === after.isShowChangingModal,
+)

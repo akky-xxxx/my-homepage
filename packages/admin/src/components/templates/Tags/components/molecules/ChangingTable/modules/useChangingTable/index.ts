@@ -10,12 +10,12 @@ import {
 
 // main
 export const useChangingTable: UseChangingTable = (useChangingTableArgs) => {
-  const { originTags } = useChangingTableArgs
+  const { originTags, isShow } = useChangingTableArgs
   const [stateTags, setStateTags] = useState(originTags)
 
   useEffect(() => {
     setStateTags(originTags)
-  }, [originTags])
+  }, [originTags, isShow])
 
   const isReleaseAll = stateTags.every(({ isRelease }) => isRelease)
   const handleChangeTagName: HandleChangeTagName = (tagId) => (event) => {

@@ -20,6 +20,7 @@ type UseChangingTableReturn = {
 }
 
 type UseChangingTableArgs = {
+  isShow: boolean
   originTags: TagsTableRecordStates[]
 }
 
