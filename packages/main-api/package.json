@@ -25,11 +25,11 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "apollo-server-fastify": "^2.19.0",
+    "apollo-server-fastify": "^2.19.1",
     "dotenv": "^8.2.0",
     "faker": "^5.1.0",
     "fastify": "^3.9.2",
-    "fastify-compress": "^3.4.0",
+    "fastify-compress": "^3.4.1",
     "fastify-helmet": "^5.0.3",
     "remeda": "^0.0.27",
     "shared-items": "^0.0.0",
@@ -38,11 +38,11 @@
   "devDependencies": {
     "@types/faker": "^5.1.5",
     "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.14",
+    "@types/node": "^14.14.16",
     "@types/supertest": "^2.0.10",
     "@types/uuid": "^8.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "@typescript-eslint/parser": "^4.10.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
     "cspell": "^5.0.8",
     "eslint": "^7.16.0",
     "eslint-config-airbnb-base": "^14.2.1",
