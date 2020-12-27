@@ -10,7 +10,7 @@ import { ChangingTable } from "../../molecules/ChangingTable"
 import { TagsTableRecordStates } from "../../molecules/TagsTableRecord/types"
 
 // main
-type ChangingModalProps = {
+export type ChangingModalProps = {
   selectedTags: TagsTableRecordStates[]
   isShowChangingModal: boolean
   handleHideChangingModal: EmptyFunction

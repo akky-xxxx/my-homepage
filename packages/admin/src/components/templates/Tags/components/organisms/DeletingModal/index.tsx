@@ -4,7 +4,7 @@ import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // main
-type DeletingModalProps = {
+export type DeletingModalProps = {
   isShowDeletingModal: boolean
   handleHideDeletingModal: EmptyFunction
 }
