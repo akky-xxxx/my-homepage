@@ -22,7 +22,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
     handleShowChangingModal,
     handleShowDeletingModal,
   } = props
-  /* eslint-disable no-console, jsx-a11y/anchor-is-valid */
+  /* eslint-disable jsx-a11y/anchor-is-valid */
   return (
     <StyledUl>
       <StyledLi>
@@ -37,9 +37,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
         )}
       </StyledLi>
 
-      <StyledLi>
-        <Link handleClick={() => console.log("click")}>設定</Link>
-      </StyledLi>
+      <StyledLi>設定</StyledLi>
 
       <StyledLi>
         {isSelectSome ? (
@@ -50,7 +48,7 @@ export const SubMenu: FC<SubMenuProps> = (props) => {
       </StyledLi>
     </StyledUl>
   )
-  /* eslint-enable no-console, jsx-a11y/anchor-is-valid */
+  /* eslint-enable jsx-a11y/anchor-is-valid */
 }
 
 const StyledUl = styled.ul`
