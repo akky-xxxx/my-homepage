@@ -7,6 +7,7 @@ import { TagsProps } from "@@/components/templates/Tags/types"
 type HandleClickSelect = (tagId: string) => void
 type HandleClickRelease = (tagId: string) => void
 type UseTagListReturn = TagsTableHeaderProps & {
+  isSelectSome: boolean
   tags: TagsTableRecordStates[]
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease

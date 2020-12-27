@@ -64,4 +64,16 @@ describe("useTagList", () => {
     act(() => result.current.handleClickSelectAll())
     expect(result.current.tags.every(({ isSelect }) => !isSelect)).toEqual(true)
   })
+
+  it("tags の isSelect が一つでも true なら isSelectSome は true", () => {
+    const { result } = renderHook(() => useTagList(props))
+    act(() => result.current.handleClickSelect("1"))
+    expect(result.current.tags[0].isSelect).toEqual(true)
+    expect(result.current.isSelectSome).toEqual(true)
+  })
+
+  it("tags の isSelect が全て false なら isSelectSome は false", () => {
+    const { result } = renderHook(() => useTagList(props))
+    expect(result.current.isSelectSome).toEqual(false)
+  })
 })

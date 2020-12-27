@@ -11,6 +11,7 @@ export const useTagList: UseTagList = (props) => {
   const [tags, setTags] = useState(originTags.map(addIsSelect))
 
   const isSelectAll = tags.every(({ isSelect }) => isSelect)
+  const isSelectSome = tags.some(({ isSelect }) => isSelect)
 
   const handleClickSelect = (tagId: string) => {
     setTags(
@@ -48,6 +49,7 @@ export const useTagList: UseTagList = (props) => {
   return {
     tags,
     isSelectAll,
+    isSelectSome,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
