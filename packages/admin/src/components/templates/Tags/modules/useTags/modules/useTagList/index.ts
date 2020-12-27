@@ -4,15 +4,16 @@ import { useState } from "react"
 // import others
 import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
+import { returnIsSelect } from "./modules/returnIsSelect"
 
 // main
 export const useTagList: UseTagList = (props) => {
   const { tags: originTags } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
 
-  const selectedTags = tags.filter(({ isSelect }) => isSelect)
-  const isSelectAll = tags.every(({ isSelect }) => isSelect)
-  const isSelectSome = tags.some(({ isSelect }) => isSelect)
+  const selectedTags = tags.filter(returnIsSelect)
+  const isSelectAll = tags.every(returnIsSelect)
+  const isSelectSome = tags.some(returnIsSelect)
 
   const handleClickSelect = (tagId: string) => {
     setTags(
