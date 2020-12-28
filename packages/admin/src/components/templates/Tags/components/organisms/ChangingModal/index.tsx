@@ -8,6 +8,7 @@ import { ChangingTable } from "../../molecules/ChangingTable"
 
 // import others
 import { TagsTableRecordStates } from "../../molecules/TagsTableRecord/types"
+import { useChangingModal } from "./modules/useChangingModal"
 
 // main
 export type ChangingModalProps = {
@@ -18,7 +19,18 @@ export type ChangingModalProps = {
 
 export const ChangingModal: FC<ChangingModalProps> = memo(
   (props) => {
-    const { isShowChangingModal, handleHideChangingModal, selectedTags } = props
+    const {
+      isShowChangingModal,
+      handleHideChangingModal,
+      selectedTags: originTags,
+    } = props
+    const {
+      selectedTags,
+      isReleaseAll,
+      handleChangeTagName,
+      handleChangeRelease,
+      handleChangeReleaseAll,
+    } = useChangingModal({ originTags })
 
     return (
       <RootPortal>
@@ -37,7 +49,13 @@ export const ChangingModal: FC<ChangingModalProps> = memo(
             handleOkCallback={handleHideChangingModal}
             handleCancelCallback={handleHideChangingModal}
           >
-            <ChangingTable selectedTags={selectedTags} />
+            <ChangingTable
+              selectedTags={selectedTags}
+              isReleaseAll={isReleaseAll}
+              handleChangeTagName={handleChangeTagName}
+              handleChangeRelease={handleChangeRelease}
+              handleChangeReleaseAll={handleChangeReleaseAll}
+            />
           </Modal>
         </Background>
       </RootPortal>

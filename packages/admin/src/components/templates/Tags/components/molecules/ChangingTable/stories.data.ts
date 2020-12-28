@@ -1,5 +1,5 @@
 // import
-import { ChangingTableProps } from "./index"
+import { ChangingTableProps } from "./types"
 
 // main
 export const selectedTags: ChangingTableProps["selectedTags"] = [...Array(20)]

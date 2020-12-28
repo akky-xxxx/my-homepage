@@ -12,7 +12,7 @@ export type HandleChangeTagName = (
 export type HandleChangeRelease = (tagId: string) => () => void
 
 export type ChangingTableProps = {
-  stateTags: TagsTableRecordStates[]
+  selectedTags: TagsTableRecordStates[]
   isReleaseAll: boolean
   handleChangeTagName: HandleChangeTagName
   handleChangeRelease: HandleChangeRelease

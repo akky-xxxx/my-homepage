@@ -3,31 +3,25 @@ import React, { FC } from "react"
 import { CheckMark } from "shared-items/dist/client"
 
 // import others
-import { TagsTableRecordStates } from "../TagsTableRecord/types"
 import {
   StyledTable,
   StyledTr,
   StyledTh,
   StyledTd,
 } from "../../atoms/StyledTable"
-import { useChangingModal } from "../../organisms/ChangingModal/modules/useChangingModal"
+import { ChangingTableProps } from "./types"
 
 // main
-export type ChangingTableProps = {
-  selectedTags: TagsTableRecordStates[]
-}
-
 export const ChangingTable: FC<ChangingTableProps> = (props) => {
-  const { selectedTags } = props
   const {
-    stateTags,
+    selectedTags,
     isReleaseAll,
     handleChangeTagName,
     handleChangeRelease,
     handleChangeReleaseAll,
-  } = useChangingModal({ originTags: selectedTags })
+  } = props
 
-  if (!stateTags.length) return null
+  if (!selectedTags.length) return null
 
   return (
     <StyledTable>
@@ -44,7 +38,7 @@ export const ChangingTable: FC<ChangingTableProps> = (props) => {
       </thead>
 
       <tbody>
-        {stateTags.map((tag) => {
+        {selectedTags.map((tag) => {
           const { tagId, tagName, isRelease } = tag
           return (
             <StyledTr key={tagId}>

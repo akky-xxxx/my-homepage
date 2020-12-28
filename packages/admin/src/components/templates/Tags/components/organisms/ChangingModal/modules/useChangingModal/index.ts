@@ -11,19 +11,19 @@ import {
 // main
 export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
   const { originTags } = useChangingModalArgs
-  const [stateTags, setStateTags] = useState(originTags)
+  const [selectedTags, setStateTags] = useState(originTags)
 
   useEffect(() => {
     setStateTags(originTags)
   }, [originTags])
 
-  const isReleaseAll = stateTags.every(({ isRelease }) => isRelease)
+  const isReleaseAll = selectedTags.every(({ isRelease }) => isRelease)
   const handleChangeTagName: HandleChangeTagName = (tagId) => (event) => {
     const {
       currentTarget: { value },
     } = event
     setStateTags(
-      stateTags.map((stateTag) => {
+      selectedTags.map((stateTag) => {
         if (stateTag.tagId !== tagId) return stateTag
         return {
           ...stateTag,
@@ -34,7 +34,7 @@ export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
   }
   const handleChangeRelease: HandleChangeRelease = (tagId) => () => {
     setStateTags(
-      stateTags.map((stateTag) => {
+      selectedTags.map((stateTag) => {
         if (stateTag.tagId !== tagId) return stateTag
         return {
           ...stateTag,
@@ -45,7 +45,7 @@ export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
   }
   const handleChangeReleaseAll = () => {
     setStateTags(
-      stateTags.map((stateTag) => ({
+      selectedTags.map((stateTag) => ({
         ...stateTag,
         isRelease: !isReleaseAll,
       })),
@@ -53,7 +53,7 @@ export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
   }
 
   return {
-    stateTags,
+    selectedTags,
     isReleaseAll,
     handleChangeTagName,
     handleChangeRelease,
