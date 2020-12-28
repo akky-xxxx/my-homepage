@@ -10,12 +10,12 @@ import {
 
 // main
 export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
-  const { originTags, isShow } = useChangingModalArgs
+  const { originTags } = useChangingModalArgs
   const [stateTags, setStateTags] = useState(originTags)
 
   useEffect(() => {
     setStateTags(originTags)
-  }, [originTags, isShow])
+  }, [originTags])
 
   const isReleaseAll = stateTags.every(({ isRelease }) => isRelease)
   const handleChangeTagName: HandleChangeTagName = (tagId) => (event) => {

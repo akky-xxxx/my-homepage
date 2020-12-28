@@ -20,7 +20,6 @@ type UseChangingModalReturn = {
 }
 
 type UseChangingModalArgs = {
-  isShow: boolean
   originTags: TagsTableRecordStates[]
 }
 

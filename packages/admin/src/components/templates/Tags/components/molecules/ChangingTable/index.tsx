@@ -14,19 +14,18 @@ import { useChangingModal } from "../../organisms/ChangingModal/modules/useChang
 
 // main
 export type ChangingTableProps = {
-  isShow: boolean
   selectedTags: TagsTableRecordStates[]
 }
 
 export const ChangingTable: FC<ChangingTableProps> = (props) => {
-  const { selectedTags, isShow } = props
+  const { selectedTags } = props
   const {
     stateTags,
     isReleaseAll,
     handleChangeTagName,
     handleChangeRelease,
     handleChangeReleaseAll,
-  } = useChangingModal({ originTags: selectedTags, isShow })
+  } = useChangingModal({ originTags: selectedTags })
 
   if (!stateTags.length) return null
 

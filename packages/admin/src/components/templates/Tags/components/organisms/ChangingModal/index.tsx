@@ -37,10 +37,7 @@ export const ChangingModal: FC<ChangingModalProps> = memo(
             handleOkCallback={handleHideChangingModal}
             handleCancelCallback={handleHideChangingModal}
           >
-            <ChangingTable
-              selectedTags={selectedTags}
-              isShow={isShowChangingModal}
-            />
+            <ChangingTable selectedTags={selectedTags} />
           </Modal>
         </Background>
       </RootPortal>
