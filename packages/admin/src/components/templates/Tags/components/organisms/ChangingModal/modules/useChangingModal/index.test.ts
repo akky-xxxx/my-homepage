@@ -12,7 +12,7 @@ const props = {
   originTags,
 }
 
-describe("useChangingTable", () => {
+describe("useChangingModal", () => {
   it("レンダリング時の origin tags と state tags は同一", () => {
     const { result } = renderHook(() => useChangingModal(props))
     expect(result.current.stateTags).toEqual(originTags)
