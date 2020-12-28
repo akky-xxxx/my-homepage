@@ -11,7 +11,7 @@ export type HandleChangeTagName = (
 ) => (event: ChangeEvent<HTMLInputElement>) => void
 export type HandleChangeRelease = (tagId: string) => () => void
 
-type UseChangingTableReturn = {
+type UseChangingModalReturn = {
   stateTags: TagsTableRecordStates[]
   isReleaseAll: boolean
   handleChangeTagName: HandleChangeTagName
@@ -19,11 +19,11 @@ type UseChangingTableReturn = {
   handleChangeReleaseAll: EmptyFunction
 }
 
-type UseChangingTableArgs = {
+type UseChangingModalArgs = {
   isShow: boolean
   originTags: TagsTableRecordStates[]
 }
 
-export type UseChangingTable = (
-  args: UseChangingTableArgs,
-) => UseChangingTableReturn
+export type UseChangingModal = (
+  args: UseChangingModalArgs,
+) => UseChangingModalReturn

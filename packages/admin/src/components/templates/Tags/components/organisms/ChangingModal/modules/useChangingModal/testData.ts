@@ -1,8 +1,8 @@
 // import
-import { UseChangingTable } from "./types"
+import { UseChangingModal } from "./types"
 
 // main
-export const originTags: Parameters<UseChangingTable>[0]["originTags"] = [
+export const originTags: Parameters<UseChangingModal>[0]["originTags"] = [
   {
     isSelect: true,
     tagId: "1",

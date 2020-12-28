@@ -3,13 +3,13 @@ import { useState, useEffect } from "react"
 
 // import others
 import {
-  UseChangingTable,
+  UseChangingModal,
   HandleChangeTagName,
   HandleChangeRelease,
 } from "./types"
 
 // main
-export const useChangingTable: UseChangingTable = (useChangingTableArgs) => {
+export const useChangingTable: UseChangingModal = (useChangingTableArgs) => {
   const { originTags, isShow } = useChangingTableArgs
   const [stateTags, setStateTags] = useState(originTags)
 
