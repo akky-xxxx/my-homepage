@@ -16,7 +16,7 @@ import { opacity, pointerEvents } from "../../../utils"
 // main
 const { COLOR_FFFFFF } = Color
 const { SINGLE } = Radius
-const { MARGIN10 } = Margin
+const { MARGIN10, MARGIN25 } = Margin
 const { DURATION, TIMING_FUNCTION } = Transition
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -60,6 +60,8 @@ const ModalWrapper = styled.main`
   border-radius: ${SINGLE};
   display: flex;
   flex-direction: column;
+  max-height: calc(100vh - ${MARGIN25}px);
+  max-width: calc(100vw - ${MARGIN25}px);
   ${rectangle};
   ${opacity};
   overflow: hidden;
