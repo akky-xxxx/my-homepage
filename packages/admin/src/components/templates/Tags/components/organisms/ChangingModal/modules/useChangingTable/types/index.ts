@@ -3,7 +3,7 @@ import { ChangeEvent } from "react"
 import { EmptyFunction } from "shared-items"
 
 // import others
-import { TagsTableRecordStates } from "../../../../TagsTableRecord/types"
+import { TagsTableRecordStates } from "../../../../../molecules/TagsTableRecord/types"
 
 // main
 export type HandleChangeTagName = (
