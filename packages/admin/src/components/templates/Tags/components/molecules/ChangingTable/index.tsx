@@ -10,7 +10,7 @@ import {
   StyledTh,
   StyledTd,
 } from "../../atoms/StyledTable"
-import { useChangingTable } from "../../organisms/ChangingModal/modules/useChangingModal"
+import { useChangingModal } from "../../organisms/ChangingModal/modules/useChangingModal"
 
 // main
 export type ChangingTableProps = {
@@ -26,7 +26,7 @@ export const ChangingTable: FC<ChangingTableProps> = (props) => {
     handleChangeTagName,
     handleChangeRelease,
     handleChangeReleaseAll,
-  } = useChangingTable({ originTags: selectedTags, isShow })
+  } = useChangingModal({ originTags: selectedTags, isShow })
 
   if (!stateTags.length) return null
 

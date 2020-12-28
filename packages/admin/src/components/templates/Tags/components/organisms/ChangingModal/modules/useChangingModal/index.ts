@@ -9,8 +9,8 @@ import {
 } from "./types"
 
 // main
-export const useChangingTable: UseChangingModal = (useChangingTableArgs) => {
-  const { originTags, isShow } = useChangingTableArgs
+export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
+  const { originTags, isShow } = useChangingModalArgs
   const [stateTags, setStateTags] = useState(originTags)
 
   useEffect(() => {
