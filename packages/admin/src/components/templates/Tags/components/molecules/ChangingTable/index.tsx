@@ -10,7 +10,7 @@ import {
   StyledTh,
   StyledTd,
 } from "../../atoms/StyledTable"
-import { useChangingTable } from "../../organisms/ChangingModal/modules/useChangingTable"
+import { useChangingTable } from "../../organisms/ChangingModal/modules/useChangingModal"
 
 // main
 export type ChangingTableProps = {
