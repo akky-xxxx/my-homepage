@@ -1,9 +1,9 @@
 // import node_modules
 import { ChangeEvent } from "react"
-import { EmptyFunction } from "shared-items"
 
 // import others
 import { TagsTableRecordStates } from "../../../../../molecules/TagsTableRecord/types"
+import { ChangingTableProps } from "../../../../../molecules/ChangingTable/types"
 
 // main
 export type HandleChangeTagName = (
@@ -11,13 +11,7 @@ export type HandleChangeTagName = (
 ) => (event: ChangeEvent<HTMLInputElement>) => void
 export type HandleChangeRelease = (tagId: string) => () => void
 
-type UseChangingModalReturn = {
-  stateTags: TagsTableRecordStates[]
-  isReleaseAll: boolean
-  handleChangeTagName: HandleChangeTagName
-  handleChangeRelease: HandleChangeRelease
-  handleChangeReleaseAll: EmptyFunction
-}
+type UseChangingModalReturn = ChangingTableProps
 
 type UseChangingModalArgs = {
   originTags: TagsTableRecordStates[]
