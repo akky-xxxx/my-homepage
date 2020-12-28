@@ -8,6 +8,7 @@ import { originTags } from "./testData"
 
 // main
 const props = {
+  isShow: true,
   originTags,
 }
 
