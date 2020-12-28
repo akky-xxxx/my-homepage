@@ -9,12 +9,14 @@ import { ChangingTable } from "../../molecules/ChangingTable"
 // import others
 import { TagsTableRecordStates } from "../../molecules/TagsTableRecord/types"
 import { useChangingModal } from "./modules/useChangingModal"
+import { HandleUpdateTagsMain } from "./modules/useChangingModal/types"
 
 // main
 export type ChangingModalProps = {
   selectedTags: TagsTableRecordStates[]
   isShowChangingModal: boolean
   handleHideChangingModal: EmptyFunction
+  handleUpdateTagsMain: HandleUpdateTagsMain
 }
 
 export const ChangingModal: FC<ChangingModalProps> = memo(
@@ -22,6 +24,7 @@ export const ChangingModal: FC<ChangingModalProps> = memo(
     const {
       isShowChangingModal,
       handleHideChangingModal,
+      handleUpdateTagsMain,
       selectedTags: originTags,
     } = props
     const {
@@ -30,7 +33,7 @@ export const ChangingModal: FC<ChangingModalProps> = memo(
       handleChangeTagName,
       handleChangeRelease,
       handleChangeReleaseAll,
-    } = useChangingModal({ originTags })
+    } = useChangingModal({ originTags, handleUpdateTagsMain })
 
     return (
       <RootPortal>

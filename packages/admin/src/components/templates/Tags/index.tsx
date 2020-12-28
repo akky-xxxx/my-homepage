@@ -18,6 +18,7 @@ import { useTags } from "./modules/useTags"
 
 // main
 export const Tags: FC<TagsProps> = (props) => {
+  const { handleUpdateTagsMain } = props
   const {
     isSelectAll,
     isSelectSome,
@@ -48,6 +49,7 @@ export const Tags: FC<TagsProps> = (props) => {
         selectedTags={selectedTags}
         isShowChangingModal={isShowChangingModal}
         handleHideChangingModal={handleHideChangingModal}
+        handleUpdateTagsMain={handleUpdateTagsMain}
       />
 
       <DeletingModal

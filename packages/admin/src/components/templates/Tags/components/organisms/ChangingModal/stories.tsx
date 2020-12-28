@@ -18,6 +18,9 @@ const config: Meta<ChangingModalProps> = {
     handleHideChangingModal: {
       action: "handleHideChangingModal",
     },
+    handleUpdateTagsMain: {
+      action: "handleUpdateTagsMain",
+    },
   },
 }
 export default config
