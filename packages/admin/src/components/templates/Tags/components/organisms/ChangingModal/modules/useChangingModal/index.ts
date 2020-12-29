@@ -11,7 +11,11 @@ import {
 
 // main
 export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
-  const { originTags, handleUpdateTagsMain } = useChangingModalArgs
+  const {
+    originTags,
+    handleUpdateTagsMain,
+    handleHideChangingModal,
+  } = useChangingModalArgs
   const [selectedTags, setStateTags] = useState(originTags)
 
   useEffect(() => {
@@ -54,6 +58,7 @@ export const useChangingModal: UseChangingModal = (useChangingModalArgs) => {
   }
   const handleUpdateTags: HandleUpdateTags = () => {
     handleUpdateTagsMain(selectedTags)
+    handleHideChangingModal()
   }
 
   return {

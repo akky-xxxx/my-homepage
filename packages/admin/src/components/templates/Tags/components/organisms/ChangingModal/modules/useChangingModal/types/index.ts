@@ -21,6 +21,7 @@ type UseChangingModalReturn = ChangingTableProps & {
 type UseChangingModalArgs = {
   originTags: TagsTableRecordStates[]
   handleUpdateTagsMain: HandleUpdateTagsMain
+  handleHideChangingModal: EmptyFunction
 }
 
 export type UseChangingModal = (

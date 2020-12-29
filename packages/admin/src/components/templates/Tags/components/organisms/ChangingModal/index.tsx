@@ -33,7 +33,12 @@ export const ChangingModal: FC<ChangingModalProps> = memo(
       handleChangeTagName,
       handleChangeRelease,
       handleChangeReleaseAll,
-    } = useChangingModal({ originTags, handleUpdateTagsMain })
+      handleUpdateTags,
+    } = useChangingModal({
+      originTags,
+      handleUpdateTagsMain,
+      handleHideChangingModal,
+    })
 
     return (
       <RootPortal>
@@ -49,7 +54,7 @@ export const ChangingModal: FC<ChangingModalProps> = memo(
             hasFooter
             hasCancelButton
             okText="変更"
-            handleOkCallback={handleHideChangingModal}
+            handleOkCallback={handleUpdateTags}
             handleCancelCallback={handleHideChangingModal}
           >
             <ChangingTable
