@@ -13,10 +13,12 @@ const {
 } = Endpoints
 const logger = createLogger(__filename)
 
-const apiHandlerCallback: ApiHandlerCallback = async () => {
+const apiHandlerCallback: ApiHandlerCallback = async (req) => {
+  const { body } = req
   logger.info("start")
+  logger.debug(body)
   try {
-    await adminApiClient.put(TAGS)
+    await adminApiClient.put(TAGS, body)
     logger.info("success")
     return Promise.resolve()
   } catch (error) {
