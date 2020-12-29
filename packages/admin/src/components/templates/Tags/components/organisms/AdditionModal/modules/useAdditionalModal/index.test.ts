@@ -22,4 +22,17 @@ describe("useAdditionalModal", () => {
     })
     expect(result.current.newTagName).toEqual("test")
   })
+
+  it("handleResetNewTagName を実行すると、 newTagName が初期値に戻る", () => {
+    const { result } = renderHook(() => useAdditionalModal())
+    act(() => {
+      const event = {
+        currentTarget: { value: "test" },
+      } as ChangeEvent<HTMLInputElement>
+      return result.current.handleChangeNewTagName(event)
+    })
+    expect(result.current.newTagName).toEqual("test")
+    act(() => result.current.handleResetNewTagName())
+    expect(result.current.newTagName).toEqual("")
+  })
 })
