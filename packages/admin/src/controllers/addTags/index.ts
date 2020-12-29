@@ -18,7 +18,7 @@ const apiHandlerCallback: ApiHandlerCallback = async (req) => {
   logger.info("start")
   logger.debug(body)
   try {
-    await adminApiClient.post(TAGS, { body })
+    await adminApiClient.post(TAGS, body)
     logger.info("success")
     return Promise.resolve()
   } catch (error) {
