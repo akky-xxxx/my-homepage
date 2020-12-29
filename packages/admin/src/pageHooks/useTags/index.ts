@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux"
 
 // import others
 import { useSelector, actions } from "@@/store"
-import { tagsSelector } from "@@/selectors/server/pages/tags/tagsSelector"
+import { tagsSelector as serverTagsSelector } from "@@/selectors/server/pages/tags/tagsSelector"
+import { tagsSelector as clientTagsSelector } from "@@/selectors/client/pages/tags"
 import { TagsProps } from "@@/components/templates/Tags/types"
 import { HandleUpdateTagsMain } from "@@/components/templates/Tags/components/organisms/ChangingModal/modules/useChangingModal/types"
 
@@ -18,7 +19,10 @@ const {
 
 type UseTags = () => TagsProps
 export const useTags: UseTags = () => {
-  const state = useSelector(tagsSelector)
+  const state = {
+    ...useSelector(serverTagsSelector),
+    ...useSelector(clientTagsSelector),
+  }
   const dispatch = useDispatch()
   const handleUpdateTagsMain: HandleUpdateTagsMain = (tags) =>
     dispatch(updateTags({ tags }))
