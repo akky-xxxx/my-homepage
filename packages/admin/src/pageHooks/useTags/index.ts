@@ -7,12 +7,13 @@ import { tagsSelector as serverTagsSelector } from "@@/selectors/server/pages/ta
 import { tagsSelector as clientTagsSelector } from "@@/selectors/client/pages/tags"
 import { TagsProps } from "@@/components/templates/Tags/types"
 import { HandleUpdateTagsMain } from "@@/components/templates/Tags/components/organisms/ChangingModal/modules/useChangingModal/types"
+import { HandleAddTagsMain } from "@@/components/templates/Tags/components/organisms/AdditionModal/modules/useAdditionalModal/types"
 
 // main
 const {
   client: {
     pages: {
-      tags: { updateTags },
+      tags: { addTags, updateTags },
     },
   },
 } = actions
@@ -26,6 +27,8 @@ export const useTags: UseTags = () => {
   const dispatch = useDispatch()
   const handleUpdateTagsMain: HandleUpdateTagsMain = (tags) =>
     dispatch(updateTags({ tags }))
+  const handleAddTagsMain: HandleAddTagsMain = (tagNames) =>
+    dispatch(addTags({ tagNames }))
 
-  return { ...state, handleUpdateTagsMain }
+  return { ...state, handleUpdateTagsMain, handleAddTagsMain }
 }
