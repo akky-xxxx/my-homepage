@@ -1,5 +1,4 @@
 // import node_modules
-import { format } from "url"
 import { AsyncThunkPayloadCreator } from "@reduxjs/toolkit"
 
 // import others
@@ -13,8 +12,7 @@ export const payloadCreator: AsyncThunkPayloadCreator<
 > = async (args) => {
   try {
     const { tagNames } = args
-    const endpoint = format({ href: "/api/tags", query: { tagNames } })
-    await selfApiClient.get(endpoint)
+    await selfApiClient.post("/api/tags", { tagNames })
     return Promise.resolve()
   } catch (error) {
     return Promise.reject(error)

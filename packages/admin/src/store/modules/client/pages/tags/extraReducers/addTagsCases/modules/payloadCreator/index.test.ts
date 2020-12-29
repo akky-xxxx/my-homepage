@@ -8,13 +8,13 @@ const { MOCK, THUNK_API } = Test
 
 describe("payloadCreator", () => {
   it("fulfilled", async () => {
-    MOCK.onGet(endpoint, { tagNames }).reply(200)
+    MOCK.onPost(endpoint, { tagNames }).reply(200)
     const result = await payloadCreator({ tagNames }, THUNK_API)
     expect(result).toEqual(undefined)
   })
 
   it("rejected", async () => {
-    MOCK.onGet(endpoint, { tagNames }).reply(500)
+    MOCK.onPost(endpoint, { tagNames }).reply(500)
     try {
       await payloadCreator({ tagNames }, THUNK_API)
     } catch (error) {
