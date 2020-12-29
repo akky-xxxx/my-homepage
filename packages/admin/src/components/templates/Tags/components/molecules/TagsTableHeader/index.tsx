@@ -23,7 +23,8 @@ export const TagsTableHeader: FC<TagsTableHeaderProps> = memo((props) => {
         </StyledTh>
         <StyledTh>タグ名</StyledTh>
         <StyledTh />
-        <StyledTh>設定数</StyledTh>
+        {/* TODO: 設定数を返すまでコメントアウト */}
+        {/*<StyledTh>設定数</StyledTh>*/}
         <StyledTh>追加日</StyledTh>
         <StyledTh>変更日</StyledTh>
       </tr>
