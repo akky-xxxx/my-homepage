@@ -6,12 +6,12 @@ import styled from "styled-components"
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
+import { Loading } from "@@/components/atoms/Loading"
 import { SubMenu } from "./components/molecules/SubMenu"
 import { TagsTable } from "./components/organisms/TagsTable"
 import { AdditionModal } from "./components/organisms/AdditionModal"
 import { ChangingModal } from "./components/organisms/ChangingModal"
 import { DeletingModal } from "./components/organisms/DeletingModal"
-import { Loading } from "@@/components/atoms/Loading"
 
 // import others
 import { TagsProps } from "./types"
