@@ -12,8 +12,7 @@ export const payloadCreator: AsyncThunkPayloadCreator<
 > = async (args) => {
   try {
     const { tags } = args
-    const params = { tags }
-    await selfApiClient.put("/api/tags", { params })
+    await selfApiClient.put("/api/tags", { tags })
     return Promise.resolve()
   } catch (error) {
     return Promise.reject(error)

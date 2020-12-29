@@ -16,7 +16,5 @@ export const incorrectTags = [
     tagId: "2",
   },
 ]
-export const params = {
-  tags,
-}
+
 export const endpoint = "/api/tags"
