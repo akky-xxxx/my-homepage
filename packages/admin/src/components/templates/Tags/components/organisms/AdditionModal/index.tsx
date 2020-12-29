@@ -3,6 +3,9 @@ import React, { FC } from "react"
 import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
+// import others
+import { useAdditionalModal } from "./modules/useAdditionalModal"
+
 // main
 export type AdditionModalProps = {
   isShowAdditionModal: boolean
@@ -11,6 +14,7 @@ export type AdditionModalProps = {
 
 export const AdditionModal: FC<AdditionModalProps> = (props) => {
   const { isShowAdditionModal, handleHideAdditionModal } = props
+  const { newTagName, handleChangeNewTagName } = useAdditionalModal()
 
   return (
     <RootPortal>
@@ -28,7 +32,7 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
           handleOkCallback={handleHideAdditionModal}
           handleCancelCallback={handleHideAdditionModal}
         >
-          タグを追加モーダルのコンテンツ
+          <input value={newTagName} onChange={handleChangeNewTagName} />
         </Modal>
       </Background>
     </RootPortal>
