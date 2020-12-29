@@ -20,8 +20,13 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
     handleHideAdditionModal,
     handleAddTagsMain,
   } = props
-  const { newTagName, handleChangeNewTagName } = useAdditionalModal({
+  const {
+    newTagName,
+    handleChangeNewTagName,
+    handleAddTags,
+  } = useAdditionalModal({
     handleAddTagsMain,
+    handleHideAdditionModal,
   })
 
   return (
@@ -37,7 +42,7 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
           hasHeader
           hasFooter
           hasCancelButton
-          handleOkCallback={handleHideAdditionModal}
+          handleOkCallback={handleAddTags}
           handleCancelCallback={handleHideAdditionModal}
         >
           <input value={newTagName} onChange={handleChangeNewTagName} />

@@ -9,6 +9,7 @@ import { useAdditionalModal } from "./index"
 const props = {
   /* eslint-disable no-console */
   handleAddTagsMain: () => console.log("handleAddTagsMain"),
+  handleHideAdditionModal: () => console.log("handleHideAdditionModal"),
   /* eslint-enable no-console */
 }
 describe("useAdditionalModal", () => {
