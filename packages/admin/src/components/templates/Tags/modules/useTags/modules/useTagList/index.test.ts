@@ -8,6 +8,7 @@ import { tags } from "./testData"
 // main
 const props = {
   tags,
+  isLoading: false,
   // eslint-disable-next-line no-console
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
 }

@@ -9,8 +9,10 @@ import { originTags } from "./testData"
 // main
 const props = {
   originTags,
-  // eslint-disable-next-line no-console
+  /* eslint-disable no-console */
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
+  handleHideChangingModal: () => console.log("handleHideChangingModal"),
+  /* eslint-enable no-console */
 }
 
 describe("useChangingModal", () => {
