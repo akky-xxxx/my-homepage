@@ -6,7 +6,7 @@ import { UseAdditionalModal, HandleChangeNewTagName } from "./types"
 
 // main
 export const useAdditionalModal: UseAdditionalModal = (args) => {
-  const { handleAddTagsMain } = args
+  const { handleAddTagsMain, handleHideAdditionModal } = args
   const [newTagName, setNewTagName] = useState("")
   const handleResetNewTagName = () => {
     setNewTagName("")
@@ -19,6 +19,8 @@ export const useAdditionalModal: UseAdditionalModal = (args) => {
   }
   const handleAddTags = () => {
     handleAddTagsMain([newTagName])
+    handleResetNewTagName()
+    handleHideAdditionModal()
   }
 
   return {
