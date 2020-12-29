@@ -9,8 +9,10 @@ import { tags } from "./testData"
 const props = {
   tags,
   isLoading: false,
-  // eslint-disable-next-line no-console
+  /* eslint-disable no-console */
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
+  handleAddTagsMain: () => console.log("handleAddTagsMain"),
+  /* eslint-enable no-console */
 }
 
 describe("useTagList", () => {

@@ -5,16 +5,24 @@ import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
 // import others
 import { useAdditionalModal } from "./modules/useAdditionalModal"
+import { HandleAddTagsMain } from "./modules/useAdditionalModal/types"
 
 // main
 export type AdditionModalProps = {
   isShowAdditionModal: boolean
   handleHideAdditionModal: EmptyFunction
+  handleAddTagsMain: HandleAddTagsMain
 }
 
 export const AdditionModal: FC<AdditionModalProps> = (props) => {
-  const { isShowAdditionModal, handleHideAdditionModal } = props
-  const { newTagName, handleChangeNewTagName } = useAdditionalModal()
+  const {
+    isShowAdditionModal,
+    handleHideAdditionModal,
+    handleAddTagsMain,
+  } = props
+  const { newTagName, handleChangeNewTagName } = useAdditionalModal({
+    handleAddTagsMain,
+  })
 
   return (
     <RootPortal>

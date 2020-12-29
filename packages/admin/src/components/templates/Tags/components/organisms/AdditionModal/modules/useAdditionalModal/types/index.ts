@@ -6,8 +6,14 @@ import { EmptyFunction } from "shared-items"
 export type HandleChangeNewTagName = ChangeEventHandler<HTMLInputElement>
 export type HandleAddTagsMain = (tagNames: string[]) => void
 export type HandleAddTags = EmptyFunction
-export type UseAdditionalModal = () => {
+type UseAdditionalModalArgs = {
+  handleAddTagsMain: HandleAddTagsMain
+}
+export type UseAdditionalModal = (
+  args: UseAdditionalModalArgs,
+) => {
   newTagName: string
   handleChangeNewTagName: HandleChangeNewTagName
   handleResetNewTagName: EmptyFunction
+  handleAddTags: HandleAddTags
 }

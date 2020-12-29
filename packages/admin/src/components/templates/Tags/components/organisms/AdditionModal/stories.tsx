@@ -16,6 +16,9 @@ const config: Meta<AdditionModalProps> = {
     handleHideAdditionModal: {
       action: "handleHideAdditionModal",
     },
+    handleAddTagsMain: {
+      action: "handleAddTagsMain",
+    },
   },
 }
 export default config

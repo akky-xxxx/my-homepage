@@ -5,7 +5,8 @@ import { useState } from "react"
 import { UseAdditionalModal, HandleChangeNewTagName } from "./types"
 
 // main
-export const useAdditionalModal: UseAdditionalModal = () => {
+export const useAdditionalModal: UseAdditionalModal = (args) => {
+  const { handleAddTagsMain } = args
   const [newTagName, setNewTagName] = useState("")
   const handleResetNewTagName = () => {
     setNewTagName("")
@@ -16,10 +17,14 @@ export const useAdditionalModal: UseAdditionalModal = () => {
     } = event
     setNewTagName(value)
   }
+  const handleAddTags = () => {
+    handleAddTagsMain([newTagName])
+  }
 
   return {
     newTagName,
     handleChangeNewTagName,
     handleResetNewTagName,
+    handleAddTags,
   }
 }

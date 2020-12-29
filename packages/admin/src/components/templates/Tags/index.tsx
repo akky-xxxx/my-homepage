@@ -19,7 +19,7 @@ import { useTags } from "./modules/useTags"
 
 // main
 export const Tags: FC<TagsProps> = (props) => {
-  const { handleUpdateTagsMain, isLoading } = props
+  const { handleUpdateTagsMain, handleAddTagsMain, isLoading } = props
   const {
     isSelectAll,
     isSelectSome,
@@ -42,6 +42,7 @@ export const Tags: FC<TagsProps> = (props) => {
   return (
     <div>
       <AdditionModal
+        handleAddTagsMain={handleAddTagsMain}
         isShowAdditionModal={isShowAdditionModal}
         handleHideAdditionModal={handleHideAdditionModal}
       />
