@@ -13,7 +13,7 @@ import { Key } from "@google-cloud/datastore"
 export type Tag = {
   tagId: string
   tagName: string
-  settingImages: Key[]
+  settingImages: Key[] | null
   isRelease: boolean
   createdAt: Date
   updatedAt: Date
