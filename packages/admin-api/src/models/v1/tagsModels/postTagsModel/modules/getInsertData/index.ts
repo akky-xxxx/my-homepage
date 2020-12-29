@@ -14,7 +14,7 @@ const {
 
 type GetInsertDataReturn = {
   key: entity.Key
-  data: Omit<Tag, "settingImages">
+  data: Tag
 }
 type GetInsertData = (tagName: string) => GetInsertDataReturn
 export const getInsertData: GetInsertData = (tagName) => {
@@ -26,6 +26,7 @@ export const getInsertData: GetInsertData = (tagName) => {
     data: {
       tagId,
       tagName,
+      settingImages: null,
       isRelease: false,
       createdAt: now,
       updatedAt: now,
