@@ -11,6 +11,7 @@ import { TagsTable } from "./components/organisms/TagsTable"
 import { AdditionModal } from "./components/organisms/AdditionModal"
 import { ChangingModal } from "./components/organisms/ChangingModal"
 import { DeletingModal } from "./components/organisms/DeletingModal"
+import { Loading } from "@@/components/atoms/Loading"
 
 // import others
 import { TagsProps } from "./types"
@@ -18,7 +19,7 @@ import { useTags } from "./modules/useTags"
 
 // main
 export const Tags: FC<TagsProps> = (props) => {
-  const { handleUpdateTagsMain } = props
+  const { handleUpdateTagsMain, isLoading } = props
   const {
     isSelectAll,
     isSelectSome,
@@ -80,6 +81,8 @@ export const Tags: FC<TagsProps> = (props) => {
           handleClickRelease={handleClickRelease}
         />
       </MainContents>
+
+      <Loading isShow={isLoading} />
     </div>
   )
 }
