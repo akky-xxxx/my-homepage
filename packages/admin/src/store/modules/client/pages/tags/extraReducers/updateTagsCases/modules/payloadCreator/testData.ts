@@ -19,4 +19,4 @@ export const incorrectTags = [
 export const params = {
   tags,
 }
-export const endpoint = "/api/v1/tags"
+export const endpoint = "/api/tags"

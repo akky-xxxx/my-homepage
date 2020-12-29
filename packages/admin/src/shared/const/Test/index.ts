@@ -3,11 +3,11 @@
 import MockAdapter from "axios-mock-adapter"
 
 // import others
-import { adminApiClient } from "@@/shared/utils/adminApiClient"
+import { selfApiClient } from "@@/shared/utils/selfApiClient"
 
 // main
 export const Test = {
-  MOCK: new MockAdapter(adminApiClient),
+  MOCK: new MockAdapter(selfApiClient),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   THUNK_API: {} as any,
 } as const

@@ -2,7 +2,7 @@
 import { AsyncThunkPayloadCreator } from "@reduxjs/toolkit"
 
 // import others
-import { adminApiClient } from "@@/shared/utils/adminApiClient"
+import { selfApiClient } from "@@/shared/utils/selfApiClient"
 import { ActionArgs, ActionPayload } from "../../types"
 
 // main
@@ -13,7 +13,7 @@ export const payloadCreator: AsyncThunkPayloadCreator<
   try {
     const { tags } = args
     const params = { tags }
-    await adminApiClient.put("/api/v1/tags", { params })
+    await selfApiClient.put("/api/tags", { params })
     return Promise.resolve()
   } catch (error) {
     return Promise.reject(error)
