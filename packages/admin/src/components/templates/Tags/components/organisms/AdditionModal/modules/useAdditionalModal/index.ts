@@ -23,12 +23,19 @@ export const useAdditionalModal: UseAdditionalModal = (args) => {
     const {
       currentTarget: { value },
     } = event
-    setNewTagNames(
-      newTagNames.map((setNewTagName) => {
-        if (setNewTagName.id !== id) return setNewTagName
-        return { id, value }
-      }),
+    const newStates = newTagNames.reduce<State[]>(
+      (newState, newTagName, index) => {
+        if (newTagName.id === id) return [...newState, { id, value }]
+        if (newTagName.value === "") return newState
+        if (index === newTagNames.length - 1)
+          return [...newState, createInitialState()]
+        return [...newState, newTagName]
+      },
+      [],
     )
+    const isLastFilled = newStates[newStates.length - 1].value.length > 0
+    if (isLastFilled) newStates.push(createInitialState())
+    setNewTagNames(newStates)
   }
   const handleAddTags = () => {
     handleAddTagsMain(newTagNames.map(({ value }) => value))
