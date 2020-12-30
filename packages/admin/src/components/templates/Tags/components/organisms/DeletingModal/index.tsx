@@ -30,6 +30,7 @@ export const DeletingModal: FC<DeletingModalProps> = (props) => {
           hasHeader
           hasFooter
           hasCancelButton
+          okText="削除"
           handleOkCallback={handleHideDeletingModal}
           handleCancelCallback={handleHideDeletingModal}
         >
