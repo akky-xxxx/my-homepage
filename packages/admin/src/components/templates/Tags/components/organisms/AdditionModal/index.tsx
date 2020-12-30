@@ -21,7 +21,7 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
     handleAddTagsMain,
   } = props
   const {
-    newTagName,
+    newTagNames,
     handleChangeNewTagName,
     handleAddTags,
   } = useAdditionalModal({
@@ -45,7 +45,14 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
           handleOkCallback={handleAddTags}
           handleCancelCallback={handleHideAdditionModal}
         >
-          <input value={newTagName} onChange={handleChangeNewTagName} />
+          {newTagNames.map((newTagName) => {
+            const { id, value } = newTagName
+            return (
+              <div key={id}>
+                <input value={value} onChange={handleChangeNewTagName(id)} />
+              </div>
+            )
+          })}
         </Modal>
       </Background>
     </RootPortal>
