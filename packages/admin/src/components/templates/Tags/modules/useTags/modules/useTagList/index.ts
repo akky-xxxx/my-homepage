@@ -1,5 +1,5 @@
 // import node_modules
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // import others
 import { UseTagList } from "./types"
@@ -14,6 +14,10 @@ export const useTagList: UseTagList = (props) => {
   const selectedTags = tags.filter(returnIsSelect)
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
+
+  useEffect(() => {
+    setTags(originTags.map(addIsSelect))
+  }, [originTags])
 
   const handleClickSelect = (tagId: string) => {
     setTags(
