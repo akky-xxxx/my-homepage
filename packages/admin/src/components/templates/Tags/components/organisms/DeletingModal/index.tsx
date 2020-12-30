@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 import { TagsTableRecordStates } from "../../molecules/TagsTableRecord/types"
@@ -14,34 +14,37 @@ export type DeletingModalProps = {
   handleHideDeletingModal: EmptyFunction
 }
 
-export const DeletingModal: FC<DeletingModalProps> = (props) => {
-  const { selectedTags, isShowDeletingModal, handleHideDeletingModal } = props
+export const DeletingModal: FC<DeletingModalProps> = memo(
+  (props) => {
+    const { selectedTags, isShowDeletingModal, handleHideDeletingModal } = props
 
-  return (
-    <RootPortal>
-      <Background
-        onClick={handleHideDeletingModal}
-        isShow={isShowDeletingModal}
-      >
-        <Modal
-          title="タグを削除"
-          width={400}
+    return (
+      <RootPortal>
+        <Background
+          onClick={handleHideDeletingModal}
           isShow={isShowDeletingModal}
-          hasHeader
-          hasFooter
-          hasCancelButton
-          okText="削除"
-          handleOkCallback={handleHideDeletingModal}
-          handleCancelCallback={handleHideDeletingModal}
         >
-          <StyledList>
-            {selectedTags.map((selectedTag) => {
-              const { tagId, tagName } = selectedTag
-              return <StyledListItem key={tagId}>{tagName}</StyledListItem>
-            })}
-          </StyledList>
-        </Modal>
-      </Background>
-    </RootPortal>
-  )
-}
+          <Modal
+            title="タグを削除"
+            width={400}
+            isShow={isShowDeletingModal}
+            hasHeader
+            hasFooter
+            hasCancelButton
+            okText="削除"
+            handleOkCallback={handleHideDeletingModal}
+            handleCancelCallback={handleHideDeletingModal}
+          >
+            <StyledList>
+              {selectedTags.map((selectedTag) => {
+                const { tagId, tagName } = selectedTag
+                return <StyledListItem key={tagId}>{tagName}</StyledListItem>
+              })}
+            </StyledList>
+          </Modal>
+        </Background>
+      </RootPortal>
+    )
+  },
+  (before, after) => before.isShowDeletingModal === after.isShowDeletingModal,
+)
