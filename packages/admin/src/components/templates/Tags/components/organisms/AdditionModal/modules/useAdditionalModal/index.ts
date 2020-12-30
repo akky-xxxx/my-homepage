@@ -1,32 +1,45 @@
 // import node_modules
 import { useState } from "react"
+import { v4 as uuid } from "uuid"
 
 // import others
-import { UseAdditionalModal, HandleChangeNewTagName } from "./types"
+import { UseAdditionalModal, HandleChangeNewTagName, State } from "./types"
 
 // main
+const createInitialState = (): State => ({
+  id: uuid(),
+  value: "",
+})
+
 export const useAdditionalModal: UseAdditionalModal = (args) => {
   const { handleAddTagsMain, handleHideAdditionModal } = args
-  const [newTagName, setNewTagName] = useState("")
-  const handleResetNewTagName = () => {
-    setNewTagName("")
+  const [newTagNames, setNewTagNames] = useState<State[]>([
+    createInitialState(),
+  ])
+  const handleResetNewTagNames = () => {
+    setNewTagNames([createInitialState()])
   }
-  const handleChangeNewTagName: HandleChangeNewTagName = (event) => {
+  const handleChangeNewTagName: HandleChangeNewTagName = (id) => (event) => {
     const {
       currentTarget: { value },
     } = event
-    setNewTagName(value)
+    setNewTagNames(
+      newTagNames.map((setNewTagName) => {
+        if (setNewTagName.id !== id) return setNewTagName
+        return { id, value }
+      }),
+    )
   }
   const handleAddTags = () => {
-    handleAddTagsMain([newTagName])
-    handleResetNewTagName()
+    handleAddTagsMain(newTagNames.map(({ value }) => value))
+    handleResetNewTagNames()
     handleHideAdditionModal()
   }
 
   return {
-    newTagName,
+    newTagNames,
     handleChangeNewTagName,
-    handleResetNewTagName,
+    handleResetNewTagNames,
     handleAddTags,
   }
 }

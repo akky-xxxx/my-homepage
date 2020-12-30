@@ -3,7 +3,13 @@ import { ChangeEventHandler } from "react"
 import { EmptyFunction } from "shared-items"
 
 // main
-export type HandleChangeNewTagName = ChangeEventHandler<HTMLInputElement>
+export type State = {
+  id: string
+  value: string
+}
+export type HandleChangeNewTagName = (
+  id: string,
+) => ChangeEventHandler<HTMLInputElement>
 export type HandleAddTagsMain = (tagNames: string[]) => void
 export type HandleAddTags = EmptyFunction
 type UseAdditionalModalArgs = {
@@ -13,8 +19,8 @@ type UseAdditionalModalArgs = {
 export type UseAdditionalModal = (
   args: UseAdditionalModalArgs,
 ) => {
-  newTagName: string
+  newTagNames: State[]
   handleChangeNewTagName: HandleChangeNewTagName
-  handleResetNewTagName: EmptyFunction
+  handleResetNewTagNames: EmptyFunction
   handleAddTags: HandleAddTags
 }
