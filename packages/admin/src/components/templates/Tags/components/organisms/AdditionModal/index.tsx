@@ -41,6 +41,7 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
           isShow={isShowAdditionModal}
           hasHeader
           hasFooter
+          okText="追加"
           hasCancelButton
           handleOkCallback={handleAddTags}
           handleCancelCallback={handleHideAdditionModal}
