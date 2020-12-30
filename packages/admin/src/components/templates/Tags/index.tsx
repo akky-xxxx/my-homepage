@@ -19,7 +19,12 @@ import { useTags } from "./modules/useTags"
 
 // main
 export const Tags: FC<TagsProps> = (props) => {
-  const { handleUpdateTagsMain, handleAddTagsMain, isLoading } = props
+  const {
+    handleUpdateTagsMain,
+    handleAddTagsMain,
+    handleDeleteTagsMain,
+    isLoading,
+  } = props
   const {
     isSelectAll,
     isSelectSome,
@@ -58,6 +63,7 @@ export const Tags: FC<TagsProps> = (props) => {
         selectedTags={selectedTags}
         isShowDeletingModal={isShowDeletingModal}
         handleHideDeletingModal={handleHideDeletingModal}
+        handleDeleteTagsMain={handleDeleteTagsMain}
       />
 
       <MainContents>

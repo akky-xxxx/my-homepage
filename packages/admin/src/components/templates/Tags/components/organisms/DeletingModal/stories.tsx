@@ -16,6 +16,9 @@ const config: Meta<DeletingModalProps> = {
     handleHideDeletingModal: {
       action: "handleHideDeletingModal",
     },
+    handleDeleteTagsMain: {
+      action: "handleDeleteTagsMain",
+    },
   },
 }
 export default config

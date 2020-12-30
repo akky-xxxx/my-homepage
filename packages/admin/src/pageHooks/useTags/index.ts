@@ -8,12 +8,13 @@ import { tagsSelector as clientTagsSelector } from "@@/selectors/client/pages/ta
 import { TagsProps } from "@@/components/templates/Tags/types"
 import { HandleUpdateTagsMain } from "@@/components/templates/Tags/components/organisms/ChangingModal/modules/useChangingModal/types"
 import { HandleAddTagsMain } from "@@/components/templates/Tags/components/organisms/AdditionModal/modules/useAdditionalModal/types"
+import { HandleDeleteTagsMain } from "@@/components/templates/Tags/components/organisms/DeletingModal"
 
 // main
 const {
   client: {
     pages: {
-      tags: { addTags, updateTags },
+      tags: { addTags, updateTags, deleteTags },
     },
   },
 } = actions
@@ -29,6 +30,13 @@ export const useTags: UseTags = () => {
     dispatch(updateTags({ tags }))
   const handleAddTagsMain: HandleAddTagsMain = (tagNames) =>
     dispatch(addTags({ tagNames }))
+  const handleDeleteTagsMain: HandleDeleteTagsMain = (tagIds) =>
+    dispatch(deleteTags({ tagIds }))
 
-  return { ...state, handleUpdateTagsMain, handleAddTagsMain }
+  return {
+    ...state,
+    handleUpdateTagsMain,
+    handleAddTagsMain,
+    handleDeleteTagsMain,
+  }
 }

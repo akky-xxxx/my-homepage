@@ -12,6 +12,7 @@ const props = {
   /* eslint-disable no-console */
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
   handleAddTagsMain: () => console.log("handleAddTagsMain"),
+  handleDeleteTagsMain: () => console.log("handleDeleteTagsMain"),
   /* eslint-enable no-console */
 }
 

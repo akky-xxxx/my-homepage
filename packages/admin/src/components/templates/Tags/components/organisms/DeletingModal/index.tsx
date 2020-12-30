@@ -8,15 +8,26 @@ import { TagsTableRecordStates } from "../../molecules/TagsTableRecord/types"
 import { StyledList, StyledListItem } from "../../atoms/StyledList"
 
 // main
+export type HandleDeleteTagsMain = (tagIds: string[]) => void
 export type DeletingModalProps = {
   selectedTags: TagsTableRecordStates[]
   isShowDeletingModal: boolean
   handleHideDeletingModal: EmptyFunction
+  handleDeleteTagsMain: HandleDeleteTagsMain
 }
 
 export const DeletingModal: FC<DeletingModalProps> = memo(
   (props) => {
-    const { selectedTags, isShowDeletingModal, handleHideDeletingModal } = props
+    const {
+      selectedTags,
+      isShowDeletingModal,
+      handleHideDeletingModal,
+      handleDeleteTagsMain,
+    } = props
+    const handleDeleteTags = () => {
+      handleDeleteTagsMain(selectedTags.map(({ tagId }) => tagId))
+      handleHideDeletingModal()
+    }
 
     return (
       <RootPortal>
@@ -32,7 +43,7 @@ export const DeletingModal: FC<DeletingModalProps> = memo(
             hasFooter
             hasCancelButton
             okText="削除"
-            handleOkCallback={handleHideDeletingModal}
+            handleOkCallback={handleDeleteTags}
             handleCancelCallback={handleHideDeletingModal}
           >
             <StyledList>
