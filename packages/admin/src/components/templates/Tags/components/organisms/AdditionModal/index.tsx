@@ -3,6 +3,9 @@ import React, { FC } from "react"
 import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
 
+// import components
+import { StyledList, StyledListItem } from "../../atoms/StyledList"
+
 // import others
 import { useAdditionalModal } from "./modules/useAdditionalModal"
 import { HandleAddTagsMain } from "./modules/useAdditionalModal/types"
@@ -46,14 +49,16 @@ export const AdditionModal: FC<AdditionModalProps> = (props) => {
           handleOkCallback={handleAddTags}
           handleCancelCallback={handleHideAdditionModal}
         >
-          {newTagNames.map((newTagName) => {
-            const { id, value } = newTagName
-            return (
-              <div key={id}>
-                <input value={value} onChange={handleChangeNewTagName(id)} />
-              </div>
-            )
-          })}
+          <StyledList>
+            {newTagNames.map((newTagName) => {
+              const { id, value } = newTagName
+              return (
+                <StyledListItem key={id}>
+                  <input value={value} onChange={handleChangeNewTagName(id)} />
+                </StyledListItem>
+              )
+            })}
+          </StyledList>
         </Modal>
       </Background>
     </RootPortal>
