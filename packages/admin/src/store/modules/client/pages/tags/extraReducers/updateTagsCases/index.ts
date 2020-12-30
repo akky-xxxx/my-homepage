@@ -16,16 +16,19 @@ export const updateTags = createAsyncThunk<ActionPayload, ActionArgs>(
 const pendingReducer: CaseReducer<State> = (state) => ({
   ...state,
   isLoading: true,
+  isLoaded: false,
 })
 
 const fulfilledReducer: CaseReducer<State> = (state) => ({
   ...state,
   isLoading: false,
+  isLoaded: true,
 })
 
 const rejectedReducer: CaseReducer<State> = (state) => ({
   ...state,
   isLoading: false,
+  isLoaded: false,
 })
 
 export const updateTagsCases = {

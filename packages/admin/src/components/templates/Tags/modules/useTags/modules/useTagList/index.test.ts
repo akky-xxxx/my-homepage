@@ -9,6 +9,7 @@ import { tags } from "./testData"
 const props = {
   tags,
   isLoading: false,
+  isLoaded: false,
   /* eslint-disable no-console */
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
   handleAddTagsMain: () => console.log("handleAddTagsMain"),

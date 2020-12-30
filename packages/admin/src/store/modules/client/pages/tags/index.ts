@@ -11,6 +11,7 @@ import { deleteTags, deleteTagsCases } from "./extraReducers/deleteTagsCases"
 // main
 export const tagsInitialState: State = {
   isLoading: false,
+  isLoaded: false,
 }
 
 const tagsSlice = createSlice({

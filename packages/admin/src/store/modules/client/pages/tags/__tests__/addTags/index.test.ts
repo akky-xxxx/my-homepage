@@ -13,6 +13,7 @@ describe("store/client/pages/tags/addTags", () => {
     expect(action.type).toEqual("client/pages/tags/addTags/pending")
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: true,
+      isLoaded: false,
     })
   })
 
@@ -24,6 +25,7 @@ describe("store/client/pages/tags/addTags", () => {
     expect(action.payload).toEqual({ tagNames })
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: false,
+      isLoaded: true,
     })
   })
 
@@ -34,6 +36,7 @@ describe("store/client/pages/tags/addTags", () => {
     expect(action.type).toEqual("client/pages/tags/addTags/rejected")
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: false,
+      isLoaded: false,
     })
   })
 })

@@ -13,6 +13,7 @@ describe("store/client/pages/tags/deleteTags", () => {
     expect(action.type).toEqual("client/pages/tags/deleteTags/pending")
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: true,
+      isLoaded: false,
     })
   })
 
@@ -24,6 +25,7 @@ describe("store/client/pages/tags/deleteTags", () => {
     expect(action.payload).toEqual({ tagIds })
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: false,
+      isLoaded: true,
     })
   })
 
@@ -34,6 +36,7 @@ describe("store/client/pages/tags/deleteTags", () => {
     expect(action.type).toEqual("client/pages/tags/deleteTags/rejected")
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: false,
+      isLoaded: false,
     })
   })
 })
