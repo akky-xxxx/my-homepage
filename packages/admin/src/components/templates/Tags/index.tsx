@@ -55,6 +55,7 @@ export const Tags: FC<TagsProps> = (props) => {
       />
 
       <DeletingModal
+        selectedTags={selectedTags}
         isShowDeletingModal={isShowDeletingModal}
         handleHideDeletingModal={handleHideDeletingModal}
       />

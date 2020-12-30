@@ -2,15 +2,20 @@
 import React, { FC } from "react"
 import { EmptyFunction } from "shared-items"
 import { Background, Modal, RootPortal } from "shared-items/dist/client"
+import { TagsTableRecordStates } from "../../molecules/TagsTableRecord/types"
+
+// import components
+import { StyledList, StyledListItem } from "../../atoms/StyledList"
 
 // main
 export type DeletingModalProps = {
+  selectedTags: TagsTableRecordStates[]
   isShowDeletingModal: boolean
   handleHideDeletingModal: EmptyFunction
 }
 
 export const DeletingModal: FC<DeletingModalProps> = (props) => {
-  const { isShowDeletingModal, handleHideDeletingModal } = props
+  const { selectedTags, isShowDeletingModal, handleHideDeletingModal } = props
 
   return (
     <RootPortal>
@@ -28,7 +33,12 @@ export const DeletingModal: FC<DeletingModalProps> = (props) => {
           handleOkCallback={handleHideDeletingModal}
           handleCancelCallback={handleHideDeletingModal}
         >
-          タグ削除モーダルのコンテンツ
+          <StyledList>
+            {selectedTags.map((selectedTag) => {
+              const { tagId, tagName } = selectedTag
+              return <StyledListItem key={tagId}>{tagName}</StyledListItem>
+            })}
+          </StyledList>
         </Modal>
       </Background>
     </RootPortal>
