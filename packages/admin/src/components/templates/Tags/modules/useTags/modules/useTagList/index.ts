@@ -8,7 +8,7 @@ import { returnIsSelect } from "./modules/returnIsSelect"
 
 // main
 export const useTagList: UseTagList = (props) => {
-  const { tags: originTags } = props
+  const { tags: originTags, isLoaded } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
 
   const selectedTags = tags.filter(returnIsSelect)
@@ -18,6 +18,14 @@ export const useTagList: UseTagList = (props) => {
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
   }, [originTags])
+
+  useEffect(() => {
+    if (isLoaded) {
+      // TODO: タグ一覧を更新
+      // eslint-disable-next-line no-console
+      console.log("一覧更新タイミングのはず")
+    }
+  }, [isLoaded])
 
   const handleClickSelect = (tagId: string) => {
     setTags(
