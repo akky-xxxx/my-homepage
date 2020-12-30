@@ -38,7 +38,7 @@ export const postTagsModel: PostTagsModel = async (body) => {
   logger.debug({ registerTagNames })
 
   try {
-    await dataStore.insert(registerTagNames.map(getInsertData))
+    await dataStore.insert(registerTagNames.filter(Boolean).map(getInsertData))
     logger.info("success")
     return Promise.resolve(SUCCESS_RESPONSE)
   } catch (error) {
