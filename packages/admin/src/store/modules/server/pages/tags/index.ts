@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 // import reducers
 import { reducers, CaseReducers } from "./reducers"
+import { extraReducersActions, extraReducers } from "./extraReducers"
 
 // import others
 import { TagsState } from "./types"
@@ -18,7 +19,13 @@ const layoutSlice = createSlice<TagsState, CaseReducers>({
   name: TYPE_BASE,
   initialState: tagsInitialState,
   reducers,
+  extraReducers,
 })
 
-const { reducer: tagsReducer, actions: tagsActions } = layoutSlice
+const { reducer: tagsReducer, actions } = layoutSlice
+const tagsActions = {
+  ...actions,
+  ...extraReducersActions,
+}
+
 export { tagsReducer, tagsActions }
