@@ -26,9 +26,12 @@ const {
 
 type UseTags = () => TagsProps
 export const useTags: UseTags = () => {
+  const serverTags = useSelector(serverTagsSelector)
+  const clientTags = useSelector(clientTagsSelector)
   const state = {
-    ...useSelector(serverTagsSelector),
-    ...useSelector(clientTagsSelector),
+    ...clientTags,
+    tags: serverTags.tags,
+    isTagsLoading: serverTags.isLoading,
   }
   const dispatch = useDispatch()
   const handleUpdateTagsMain: HandleUpdateTagsMain = (tags) =>

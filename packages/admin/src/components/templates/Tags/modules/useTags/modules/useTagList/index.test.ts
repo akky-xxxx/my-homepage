@@ -10,6 +10,7 @@ const props = {
   tags,
   isLoading: false,
   isLoaded: false,
+  isTagsLoading: false,
   /* eslint-disable no-console */
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
   handleAddTagsMain: () => console.log("handleAddTagsMain"),

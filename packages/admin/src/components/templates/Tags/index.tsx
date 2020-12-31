@@ -24,6 +24,7 @@ export const Tags: FC<TagsProps> = (props) => {
     handleAddTagsMain,
     handleDeleteTagsMain,
     isLoading,
+    isTagsLoading,
   } = props
   const {
     isSelectAll,
@@ -90,7 +91,7 @@ export const Tags: FC<TagsProps> = (props) => {
         />
       </MainContents>
 
-      <Loading isShow={isLoading} />
+      <Loading isShow={isLoading || isTagsLoading} />
     </div>
   )
 }

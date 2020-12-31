@@ -15,4 +15,5 @@ export type TagsProps = {
   handleAddTagsMain: HandleAddTagsMain
   handleDeleteTagsMain: HandleDeleteTagsMain
   handleGetTags: EmptyFunction
+  isTagsLoading: boolean
 } & RootState["client"]["pages"]["tags"]
