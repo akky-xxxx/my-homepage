@@ -6,7 +6,7 @@ const { addTags } = tagsActions
 describe("store/client/pages/tags/addTags", () => {
   const tagNames = ["tagId1", "tagId2"]
 
-  it("addTags.pending が dispatch されると isLoading が true になる", () => {
+  it("addTags.pending が dispatch されると isLoading が true になり、 isLoaded が false になる", () => {
     const action = addTags.pending("", {
       tagNames,
     })
@@ -17,7 +17,7 @@ describe("store/client/pages/tags/addTags", () => {
     })
   })
 
-  it("addTags.fulfilled が dispatch されると isLoading が false になる", () => {
+  it("addTags.fulfilled が dispatch されると isLoading が false になり、 isLoaded が false になる", () => {
     const action = addTags.fulfilled({ tagNames }, "", {
       tagNames,
     })
@@ -29,7 +29,7 @@ describe("store/client/pages/tags/addTags", () => {
     })
   })
 
-  it("addTags.rejected が dispatch されると isLoading が false になる", () => {
+  it("addTags.rejected が dispatch されると isLoading, isLoaded が false になる", () => {
     const action = addTags.rejected(null, "", {
       tagNames,
     })
