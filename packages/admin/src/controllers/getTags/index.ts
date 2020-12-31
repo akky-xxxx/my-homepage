@@ -18,7 +18,9 @@ const apiHandlerCallback: ApiHandlerCallback = async () => {
 
   try {
     // TODO: 型を付ける
-    const { data: { data } } = await adminApiClient.get(TAGS)
+    const {
+      data: { data },
+    } = await adminApiClient.get(TAGS)
     logger.debug(data)
     logger.info("success")
     return Promise.resolve(data)
