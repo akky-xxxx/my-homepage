@@ -9,6 +9,7 @@ type Tag = {
 
 export type TagsState = {
   tags: Tag[]
+  isLoading: boolean
 }
 
 export type GetTagsPayload = {

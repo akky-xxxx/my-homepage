@@ -7,6 +7,7 @@ import { TagsState, GetTagsPayload } from "../../types"
 
 // main
 type Action = ReducerAction<GetTagsPayload>
-export const getTags: CaseReducer<TagsState, Action> = (_state, action) => ({
+export const getTags: CaseReducer<TagsState, Action> = (state, action) => ({
+  ...state,
   tags: action.payload.newTags,
 })

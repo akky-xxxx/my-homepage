@@ -42,6 +42,7 @@ describe("store/server/pages/tags/reducer", () => {
           updatedAt: "2020-12-31",
         },
       ],
+      isLoading: false,
     }
     expect(
       tagsReducer(tagsInitialState, getTags({ newTags: inputTags })),
