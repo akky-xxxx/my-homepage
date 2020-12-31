@@ -3,15 +3,17 @@ import { createSlice } from "@reduxjs/toolkit"
 
 // import others
 import { TagsState } from "./types"
+import { TYPE_BASE } from "./const"
 import { reducers, CaseReducers } from "./reducers"
 
 // main
 export const tagsInitialState: TagsState = {
   tags: [],
+  isLoading: false,
 }
 
 const layoutSlice = createSlice<TagsState, CaseReducers>({
-  name: "server/pages/tags",
+  name: TYPE_BASE,
   initialState: tagsInitialState,
   reducers,
 })
