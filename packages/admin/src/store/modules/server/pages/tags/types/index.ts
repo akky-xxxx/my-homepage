@@ -1,4 +1,4 @@
-type Tag = {
+export type Tag = {
   tagId: string
   tagName: string
   settingCount: number

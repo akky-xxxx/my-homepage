@@ -1,5 +1,6 @@
 // import
 import { tagsActions, tagsInitialState, tagsReducer } from "../../index"
+import { tags } from "../../testData"
 
 // main
 const { clientGetTags } = tagsActions
@@ -14,11 +15,12 @@ describe("clientGetTags", () => {
   })
 
   it("fulfilled が dispatch されたら isLoading が false になり、 tags が更新される", () => {
-    const action = clientGetTags.fulfilled({}, "")
+    const args = { tags }
+    const action = clientGetTags.fulfilled(args, "")
     expect(action.type).toEqual("server/pages/tags/getTags/fulfilled")
     expect(tagsReducer(tagsInitialState, action)).toEqual({
       isLoading: false,
-      tags: [],
+      tags,
     })
   })
 
