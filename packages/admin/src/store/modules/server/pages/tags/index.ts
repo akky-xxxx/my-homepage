@@ -1,10 +1,12 @@
 // import node_modules
 import { createSlice } from "@reduxjs/toolkit"
 
+// import reducers
+import { reducers, CaseReducers } from "./reducers"
+
 // import others
 import { TagsState } from "./types"
 import { TYPE_BASE } from "./const"
-import { reducers, CaseReducers } from "./reducers"
 
 // main
 export const tagsInitialState: TagsState = {
