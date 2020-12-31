@@ -10,6 +10,7 @@ export const isDeleteTagsQuery = (
 ): query is DeleteTagsQuery => {
   const { tagIds } = query
   if (!tagIds) return false
+  if (typeof tagIds === "string") return true
   if (!Array.isArray(tagIds)) return false
   return (tagIds as unknown[]).every((tagId) => typeof tagId === "string")
 }

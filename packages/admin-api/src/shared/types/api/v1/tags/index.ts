@@ -42,7 +42,9 @@ export type PutTagsResponse = ResponseData<{
 
 // delete (delete)
 export type DeleteTagsQuery = {
-  tagIds: (keyof Pick<DataStoreTag, "tagId">)[]
+  tagIds:
+    | keyof Pick<DataStoreTag, "tagId">
+    | (keyof Pick<DataStoreTag, "tagId">)[]
 }
 
 export type DeleteTagsResponse = ResponseData<{

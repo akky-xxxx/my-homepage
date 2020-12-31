@@ -28,8 +28,9 @@ export const deleteTagsModel: DeleteTagsModel = async (query) => {
   }
 
   const { tagIds } = query
+  const arrayIds = typeof tagIds === "string" ? [tagIds] : tagIds
 
-  const keys = tagIds.map((tagId) => dataStore.key([TAGS, tagId]))
+  const keys = arrayIds.map((tagId) => dataStore.key([TAGS, tagId]))
 
   try {
     await dataStore.delete(keys)
