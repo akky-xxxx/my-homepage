@@ -27,6 +27,7 @@ const apiHandlerCallback: ApiHandlerCallback = async (req) => {
   }
 
   const endpoint = `${TAGS}${format({ query: { tagIds } })}`
+  logger.debug({ endpoint })
   try {
     await adminApiClient.delete(endpoint)
     logger.info("success")
