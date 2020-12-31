@@ -36,14 +36,6 @@ describe("useTagList", () => {
     expect(result.current.tags[0].isSelect).toEqual(false)
   })
 
-  it("handleClickRelease を実行すると、対象 id の isRelease が反転する", () => {
-    const { result } = renderHook(() => useTagList(props))
-    act(() => result.current.handleClickRelease("1"))
-    expect(result.current.tags[0].isRelease).toEqual(true)
-    act(() => result.current.handleClickRelease("1"))
-    expect(result.current.tags[0].isRelease).toEqual(false)
-  })
-
   it("tags の全ての isSelect が true の場合、 isSelectAll は true となる", () => {
     const { result } = renderHook(() => useTagList(props))
     act(() => result.current.handleClickSelect("1"))
