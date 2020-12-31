@@ -5,6 +5,7 @@ import Server from "next/dist/next-server/server/next-server"
 // import middleware
 import { commonMiddleware } from "@@/middleware/commonMiddleware"
 import { authRouter } from "@@/middleware/auth"
+import { apiAggregation } from "@@/middleware/apiAggregation"
 import { nextRoutes } from "@@/middleware/nextRoutes"
 
 // main
@@ -16,6 +17,7 @@ export const createServer: CreateServer = (nextServer) => {
   expressServer.use(commonMiddleware)
 
   expressServer.use(authRouter)
+  expressServer.use("/api", apiAggregation)
 
   expressServer.use(nextHandler)
 

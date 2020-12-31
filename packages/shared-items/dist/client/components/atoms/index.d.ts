@@ -11,6 +11,7 @@ export type { MenuButtonProps } from "../layouts/MenuButton/types";
 export { Divider } from "./Divider";
 export { Link } from "./Link";
 export type { LinkProps } from "./Link";
+export { RootPortal } from "./RootPortal";
 export { Spinner } from "./Spinner";
 export { Tag } from "./Tag";
 export type { TagProps } from "./Tag/types";

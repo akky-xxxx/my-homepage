@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 
 // import components
 import { Wrapper } from "./components/Wrapper"
@@ -9,7 +9,7 @@ import { Inner } from "./components/Inner"
 import { CheckboxProps } from "./types"
 
 // main
-export const Checkbox: FC<CheckboxProps> = (props) => {
+export const Checkbox: FC<CheckboxProps> = memo((props) => {
   const { isChecked, handleChange } = props
 
   return (
@@ -18,4 +18,4 @@ export const Checkbox: FC<CheckboxProps> = (props) => {
       <Inner isChecked={isChecked} />
     </Wrapper>
   )
-}
+})

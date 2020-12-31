@@ -5,29 +5,21 @@
  */
 const getJoinedPaths = (filenames) => filenames.join(" ")
 
-/**
- * @description ルート相対パスに書き換えたファイルパス配列を返す
- * @param filenames -  {string[]}
- * @returns {string[]}
- */
-const getReplacedFilePaths = (filenames) =>
-  filenames.map((filename) => filename.replace(`${__dirname}/`, ""))
-
 module.exports = {
   "src/**/*.{ts,tsx}": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
-      `cspell ${getReplacedFilePaths(filenames)}`,
+      `cspell ${getJoinedPaths(filenames)}`,
       `stylelint ${joinedHalfSpace}`,
     ]
   },
-  "!(src/)**/*.{ts,tsx}": (filenames) => {
-    return [`cspell ${getReplacedFilePaths(filenames)}`]
-  },
+  "!(src/)**/*.{ts,tsx}": (filenames) => [
+    `cspell ${getJoinedPaths(filenames)}`,
+  ],
   "*.js": (filenames) => {
     const joinedHalfSpace = getJoinedPaths(filenames)
     return [
-      `cspell ${getReplacedFilePaths(filenames)}`,
+      `cspell ${getJoinedPaths(filenames)}`,
       `eslint  ${joinedHalfSpace} --fix`,
     ]
   },

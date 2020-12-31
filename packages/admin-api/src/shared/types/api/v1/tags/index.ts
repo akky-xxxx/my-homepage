@@ -6,7 +6,11 @@ import { ResponseData } from "@@/shared/types/api"
 import { Tag as DataStoreTag } from "@@/shared/types/gcp/dataStore"
 
 // main
-export type Tag = Omit<DataStoreTag, "createdAt" | "updatedAt"> & {
+export type Tag = Omit<
+  DataStoreTag,
+  "settingImages" | "createdAt" | "updatedAt"
+> & {
+  settingCount: number
   createdAt: StringDatetime
   updatedAt: StringDatetime
 }
@@ -38,7 +42,9 @@ export type PutTagsResponse = ResponseData<{
 
 // delete (delete)
 export type DeleteTagsQuery = {
-  tagIds: (keyof Pick<DataStoreTag, "tagId">)[]
+  tagIds:
+    | keyof Pick<DataStoreTag, "tagId">
+    | (keyof Pick<DataStoreTag, "tagId">)[]
 }
 
 export type DeleteTagsResponse = ResponseData<{

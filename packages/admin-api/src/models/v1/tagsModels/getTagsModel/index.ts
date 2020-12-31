@@ -18,6 +18,7 @@ type GetTagsModel = () => Promise<GetTagsResponse>
 export const getTagsModel: GetTagsModel = async () => {
   logger.info("start")
   const query = dataStore.createQuery(TAGS)
+  query.order("updatedAt", { descending: true })
 
   try {
     const [entities] = await dataStore.runQuery(query)

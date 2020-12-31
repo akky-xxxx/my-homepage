@@ -1,4 +1,5 @@
 // import node_modules
+import { pick } from "remeda"
 import { entity } from "@google-cloud/datastore/build/src/entity"
 import { Transaction } from "@google-cloud/datastore"
 import { ThisError } from "shared-items"
@@ -24,19 +25,21 @@ type GetUpdateDataMain = (
 type GetUpdateData = (transaction: Transaction) => GetUpdateDataMain
 export const getUpdateData: GetUpdateData = (transaction) => {
   const getUpdateDataMain: GetUpdateDataMain = async (tag) => {
+    const pickedTag = pick(tag, ["tagId", "tagName", "isRelease"])
+
     try {
-      const key = dataStore.key([TAGS, tag.tagId])
+      const key = dataStore.key([TAGS, pickedTag.tagId])
       const [originTag] = await transaction.get(key)
       const hasDiff =
-        tag.tagName !== originTag.tagName ||
-        tag.isRelease !== originTag.isRelease
+        pickedTag.tagName !== originTag.tagName ||
+        pickedTag.isRelease !== originTag.isRelease
       if (!hasDiff) return null
 
       const updateData = {
         key,
         data: {
           ...originTag,
-          ...tag,
+          ...pickedTag,
           updatedAt: new Date(),
         },
       }

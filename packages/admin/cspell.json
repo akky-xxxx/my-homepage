@@ -8,5 +8,5 @@
       "path": "./cspell.txt"
     }
   ],
-  "ignorePaths": ["node_modules/**"]
+  "ignorePaths": ["node_modules/**", "coverage/**"]
 }

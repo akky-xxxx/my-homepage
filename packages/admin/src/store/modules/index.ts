@@ -8,16 +8,19 @@ import {
   sampleActions,
   initialState as sampleInitialState,
 } from "./sample"
+import { clientInitialState, clientReducer, clientActions } from "./client"
 import { serverInitialState, serverReducer, serverActions } from "./server"
 
 // main
 export const initialState = {
   sample: sampleInitialState,
+  client: clientInitialState,
   server: serverInitialState,
 } as const
 
 const combineReducer = combineReducers({
   sample: sampleReducer,
+  client: clientReducer,
   server: serverReducer,
 })
 
@@ -36,5 +39,6 @@ export const reducer: Reducer = (state = initialState, action) => {
 
 export const actions = {
   sample: sampleActions,
+  client: clientActions,
   server: serverActions,
 } as const

@@ -37,8 +37,15 @@ export const postTagsModel: PostTagsModel = async (body) => {
     typeof body.tagNames === "string" ? [body.tagNames] : [...body.tagNames]
   logger.debug({ registerTagNames })
 
+  const insertData = registerTagNames.filter(Boolean).map(getInsertData)
+  if (!insertData.length) {
+    const thisError = new ThisError(createErrorData(__filename, 400))
+    logger.error("failure")
+    return Promise.reject(thisError)
+  }
+
   try {
-    await dataStore.insert(registerTagNames.map(getInsertData))
+    await dataStore.insert(insertData)
     logger.info("success")
     return Promise.resolve(SUCCESS_RESPONSE)
   } catch (error) {
