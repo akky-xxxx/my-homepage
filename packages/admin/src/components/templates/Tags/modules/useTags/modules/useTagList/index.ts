@@ -8,7 +8,12 @@ import { returnIsSelect } from "./modules/returnIsSelect"
 
 // main
 export const useTagList: UseTagList = (props) => {
-  const { tags: originTags, isLoaded, handleGetTags } = props
+  const {
+    tags: originTags,
+    isLoaded,
+    handleGetTags,
+    handleUpdateTagsMain,
+  } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
 
   const selectedTags = tags.filter(returnIsSelect)
@@ -38,16 +43,14 @@ export const useTagList: UseTagList = (props) => {
   }
 
   const handleClickRelease = (tagId: string) => {
-    // TODO: api 叩く処理に変える
-    setTags(
-      tags.map((tag) => {
-        if (tag.tagId !== tagId) return tag
-        return {
-          ...tag,
-          isRelease: !tag.isRelease,
-        }
-      }),
-    )
+    const targetTag = tags.find((tag) => tag.tagId === tagId)
+    if (!targetTag) return
+    handleUpdateTagsMain([
+      {
+        ...targetTag,
+        isRelease: !targetTag.isRelease,
+      },
+    ])
   }
 
   const handleClickSelectAll = () =>
