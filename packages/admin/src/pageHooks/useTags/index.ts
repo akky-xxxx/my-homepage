@@ -17,6 +17,11 @@ const {
       tags: { addTags, updateTags, deleteTags },
     },
   },
+  server: {
+    pages: {
+      tags: { clientGetTags },
+    },
+  },
 } = actions
 
 type UseTags = () => TagsProps
@@ -32,11 +37,14 @@ export const useTags: UseTags = () => {
     dispatch(addTags({ tagNames }))
   const handleDeleteTagsMain: HandleDeleteTagsMain = (tagIds) =>
     dispatch(deleteTags({ tagIds }))
+  const handleGetTags: TagsProps["handleGetTags"] = () =>
+    dispatch(clientGetTags())
 
   return {
     ...state,
     handleUpdateTagsMain,
     handleAddTagsMain,
     handleDeleteTagsMain,
+    handleGetTags,
   }
 }

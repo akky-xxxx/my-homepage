@@ -14,6 +14,7 @@ const props = {
   handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
   handleAddTagsMain: () => console.log("handleAddTagsMain"),
   handleDeleteTagsMain: () => console.log("handleDeleteTagsMain"),
+  handleGetTags: () => console.log("handleGetTags"),
   /* eslint-enable no-console */
 }
 
