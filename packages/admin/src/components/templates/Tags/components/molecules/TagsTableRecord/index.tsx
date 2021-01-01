@@ -1,6 +1,11 @@
 // import node_modules
 import React, { FC, memo } from "react"
-import { Checkbox, CheckMark, DateFns } from "shared-items/dist/client"
+import {
+  Checkbox,
+  CheckMark,
+  DateFns,
+  getSeparatedNumbers,
+} from "shared-items/dist/client"
 import styled from "styled-components"
 import { format } from "date-fns"
 
@@ -20,6 +25,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
     isSelect,
     tagName,
     isRelease,
+    settingCount,
     createdAt,
     updatedAt,
     handleClickSelect,
@@ -37,8 +43,7 @@ export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
           <CheckMark isChecked={isRelease} onClick={handleClickRelease} />
         </IconWrapper>
       </StyledTd>
-      {/* TODO: 設定数を返すまでコメントアウト */}
-      {/* <StyledTd>{getSeparatedNumbers(settingCount)}</StyledTd> */}
+      <StyledTd>{getSeparatedNumbers(settingCount)}</StyledTd>
       <StyledTd>{format(new Date(createdAt), DATETIME_SLASH)}</StyledTd>
       <StyledTd>{format(new Date(updatedAt), DATETIME_SLASH)}</StyledTd>
     </StyledTr>
