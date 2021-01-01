@@ -26,7 +26,7 @@ export const getInsertData: GetInsertData = (tagName) => {
     data: {
       tagId,
       tagName,
-      settingImages: null,
+      settingImages: [],
       isRelease: false,
       createdAt: now,
       updatedAt: now,
