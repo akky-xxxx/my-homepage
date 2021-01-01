@@ -1,13 +1,23 @@
 // import node_modules
+import { omit } from "remeda"
 import { formatDatetime } from "shared-items/dist/server"
 
 // import
-import { Tag } from "@@/shared/types/api/v1/tags"
+import { Tag as DataStoreTag } from "@@/shared/types/gcp/dataStore"
+import { Tag as ResponseTag } from "@@/shared/types/api/v1/tags"
 
 // main
-type FormatTags = (entity: Tag) => Tag
-export const formatTags: FormatTags = (entity) => ({
-  ...entity,
-  createdAt: formatDatetime(entity.createdAt),
-  updatedAt: formatDatetime(entity.updatedAt),
-})
+type FormatTags = (entity: DataStoreTag) => ResponseTag
+export const formatTags: FormatTags = (entity) => {
+  const { createdAt: _createdAt, updatedAt: _updatedAt, settingImages } = entity
+  const settingCount = settingImages === null ? 0 : settingImages.length
+  const createdAt = formatDatetime(_createdAt.toString())
+  const updatedAt = formatDatetime(_updatedAt.toString())
+
+  return {
+    ...omit(entity, ["settingImages"]),
+    settingCount,
+    createdAt,
+    updatedAt,
+  }
+}
