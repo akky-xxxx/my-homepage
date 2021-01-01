@@ -31,7 +31,7 @@ export type GetTagsResponse = ResponseData<{
 
 // update (put)
 export type PutTag = Pick<DataStoreTag, "tagId"> &
-  Partial<Pick<DataStoreTag, "tagName" | "isRelease">>
+  Partial<Pick<DataStoreTag, "tagName" | "isRelease" | "settingImages">>
 export type PutTagsRequestBody = {
   tags: PutTag[]
 }

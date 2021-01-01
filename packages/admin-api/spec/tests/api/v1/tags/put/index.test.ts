@@ -1,5 +1,6 @@
 // import node_modules
 import supertest from "supertest"
+import { Key } from "@google-cloud/datastore"
 
 // import others
 import { server } from "@@/modules/server"
@@ -15,13 +16,14 @@ const request = supertest(server)
 
 describe("app test `PUT:/api/v1/tags`", () => {
   describe("success patterns", () => {
-    it("correct request body has tagId, tagName, isRelease", async () => {
+    it("correct request body has tagId, tagName, isRelease, settingImages", async () => {
       const idList = await insertTestRecord(TAG_NAME)
       const tagName = `${TAG_NAME}-1`
       const tags = idList.map((tagId) => ({
         tagId,
         tagName,
         isRelease: true,
+        settingImages: [new Key({ path: [] })],
       }))
 
       await request
@@ -61,6 +63,25 @@ describe("app test `PUT:/api/v1/tags`", () => {
       const tags = idList.map((tagId) => ({
         tagId,
         isRelease: true,
+      }))
+
+      await request
+        .put("/api/v1/tags")
+        .send({ tags })
+        .expect(200)
+        .then((res) => {
+          const { data } = res.body
+          expect(typeof data).toEqual("object")
+          expect(data).toEqual(responseData)
+        })
+      await removeTestRecords(TAG_NAME)
+    })
+
+    it("correct request body has tagId, settingImages", async () => {
+      const idList = await insertTestRecord(TAG_NAME)
+      const tags = idList.map((tagId) => ({
+        tagId,
+        settingImages: [new Key({ path: [] })],
       }))
 
       await request

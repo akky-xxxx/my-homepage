@@ -30,6 +30,7 @@ export const insertTestRecord: InsertTestRecord = async (tagName) => {
         tagId: id,
         tagName,
         isRelease: false,
+        settingImages: [],
         createdAt: now,
         updatedAt: now,
       },
