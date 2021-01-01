@@ -10,7 +10,7 @@ import { Tag as ResponseTag } from "@@/shared/types/api/v1/tags"
 type FormatTags = (entity: DataStoreTag) => ResponseTag
 export const formatTags: FormatTags = (entity) => {
   const { createdAt: _createdAt, updatedAt: _updatedAt, settingImages } = entity
-  const settingCount = settingImages === null ? 0 : settingImages.length
+  const settingCount = settingImages.length
   const createdAt = formatDatetime(_createdAt.toString())
   const updatedAt = formatDatetime(_updatedAt.toString())
 
