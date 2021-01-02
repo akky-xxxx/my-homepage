@@ -22,9 +22,11 @@ export const dataStore2response: DataStore2response = (entity) => {
     createdAt: _createdAt,
     updatedAt: _updatedAt,
   } = entity
-  const prefectureId = prefecture === null ? null : extractName(prefecture) || null
+  const prefectureId =
+    prefecture === null ? null : extractName(prefecture) || null
   const tagIds = tags.map(extractName)
-  const photographAt = _photographAt === null ? null : format(_photographAt, DATETIME)
+  const photographAt =
+    _photographAt === null ? null : format(_photographAt, DATETIME)
   const createdAt = format(_createdAt, DATETIME)
   const updatedAt = format(_updatedAt, DATETIME)
 
