@@ -1,6 +1,7 @@
 // import
 import { GetGalleryImage } from "@@/shared/types/api/v1/galleryImages"
 import { sampleTags } from "../../../tags/get/sampleData"
+import { prefectures } from "../../../prefectures/get/sampleData"
 
 // main
 export const images: GetGalleryImage[] = [
@@ -16,8 +17,7 @@ export const images: GetGalleryImage[] = [
   {
     imageId: "imageId1",
     isRelease: false,
-    // TODO: GET prefecture 実装後、ダミーデータの id と差し替え
-    prefectureId: "prefectureId1",
+    prefectureId: prefectures[0].prefectureCode,
     tagIds: [sampleTags[0].tagId, sampleTags[1].tagId],
     photographAt: null,
     createdAt: "2020-01-01 00:00:00",
