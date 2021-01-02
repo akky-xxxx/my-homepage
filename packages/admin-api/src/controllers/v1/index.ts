@@ -2,10 +2,10 @@
 import { Router } from "express"
 
 // import controllers
-import { galleryImagesControllers } from "@@/controllers/v1/galleryImagesControllers"
-import { prefecturesControllers } from "@@/controllers/v1/prefecturesControllers"
-import { tagsControllers } from "@@/controllers/v1/tagsControllers"
-import { authUserControllers } from "@@/controllers/v1/authUserController"
+import { galleryImagesControllers } from "@@/controllers/v1/galleryImages"
+import { prefecturesControllers } from "@@/controllers/v1/prefectures"
+import { tagsControllers } from "@@/controllers/v1/tags"
+import { authUserControllers } from "@@/controllers/v1/authUser"
 
 // import others
 import { Endpoints } from "@@/shared/const/Endpoints"
