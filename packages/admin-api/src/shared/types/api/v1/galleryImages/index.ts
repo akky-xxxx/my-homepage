@@ -23,10 +23,7 @@ export type PostGalleryImagesResponse = ResponseData<{
 }>
 
 // read (get)
-export type GetGalleryImage = Pick<
-  GalleryImage,
-  "imageId" | "isRelease"
-> & {
+export type GetGalleryImage = Pick<GalleryImage, "imageId" | "isRelease"> & {
   prefectureId: string | null
   tagIds: string[]
   photographAt: StringDatetime | null
