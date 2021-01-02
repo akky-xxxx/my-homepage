@@ -4,19 +4,14 @@ import { ThisError } from "shared-items"
 
 // import others
 import { GetPrefecturesResponse } from "@@/shared/types/api/v1/prefectures"
+import { prefectures } from "@@/models/v1/prefectures/get"
 
 // main
 type GetPrefecturesController = RequestHandler<never, GetPrefecturesResponse>
 export const get: GetPrefecturesController = async (_req, res, next) => {
   try {
-    // TODO: 仮データ
-    const prefectures = [
-      {
-        prefectureCode: "00",
-        prefectureName: "未設定",
-      },
-    ]
-    res.status(200).send({ data: { prefectures } })
+    const data = await prefectures()
+    res.status(200).send(data)
   } catch (error) {
     const thisError = new ThisError({ error })
     next(thisError)
