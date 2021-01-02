@@ -9,11 +9,11 @@ import { getModel } from "@@/models/v1/galleryImages/getModel"
 import { GetGalleryImagesResponse } from "@@/shared/types/api/v1/galleryImages"
 
 // main
-type PostGalleryImagesController = RequestHandler<
+type GetGalleryImagesController = RequestHandler<
   never,
   GetGalleryImagesResponse
 >
-export const get: PostGalleryImagesController = async (_req, res, next) => {
+export const get: GetGalleryImagesController = async (_req, res, next) => {
   try {
     const responseData = await getModel()
     res.status(200).send(responseData)
