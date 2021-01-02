@@ -3,7 +3,7 @@ import { RequestHandler } from "express"
 import { ThisError } from "shared-items"
 
 // import model
-import { getModel } from "@@/models/v1/galleryImages/getModel"
+import { getModel } from "@@/models/v1/galleryImagesModels/getModel"
 
 // import others
 import { GetGalleryImagesResponse } from "@@/shared/types/api/v1/galleryImages"
