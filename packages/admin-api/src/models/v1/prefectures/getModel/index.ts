@@ -13,8 +13,8 @@ const {
   TYPES: { PREFECTURES },
 } = DataStore
 
-type Prefectures = () => Promise<GetPrefecturesResponse>
-export const prefectures: Prefectures = async () => {
+type GetModel = () => Promise<GetPrefecturesResponse>
+export const getModel: GetModel = async () => {
   logger.info("start")
 
   const query = dataStore.createQuery(PREFECTURES)

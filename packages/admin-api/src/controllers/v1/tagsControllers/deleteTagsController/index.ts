@@ -6,7 +6,7 @@ import {
   DeleteTagsQuery,
   DeleteTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { deleteTagsModel } from "@@/models/v1/tagsModels/deleteTagsModel"
+import { deleteModel } from "@@/models/v1/tags/deleteModel"
 
 // main
 type DeleteTagsController = RequestHandler<
@@ -21,7 +21,7 @@ export const deleteTagsController: DeleteTagsController = async (
   next,
 ) => {
   try {
-    const result = await deleteTagsModel(req.query)
+    const result = await deleteModel(req.query)
     res.status(200).send(result)
   } catch (error) {
     next(error)

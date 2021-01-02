@@ -7,7 +7,7 @@ import {
   PostTagsRequestBody,
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { postTagsModel } from "@@/models/v1/tagsModels/postTagsModel"
+import { postModel } from "@@/models/v1/tags/postModel"
 
 // main
 type PostTagsController = RequestHandler<
@@ -23,7 +23,7 @@ export const postTagsController: PostTagsController = async (
   const { body } = req
 
   try {
-    const result = await postTagsModel(body)
+    const result = await postModel(body)
     res.status(201).send(result)
   } catch (error) {
     const thisError = new ThisError({ error })

@@ -3,12 +3,12 @@ import { RequestHandler } from "express"
 import { ThisError } from "shared-items"
 
 // import model
-import { getTagsModel } from "@@/models/v1/tagsModels/getTagsModel"
+import { getModel } from "@@/models/v1/tags/getModel"
 
 // main
 export const getTagsController: RequestHandler = async (_req, res, next) => {
   try {
-    const responseData = await getTagsModel()
+    const responseData = await getModel()
     res.status(200).send(responseData)
   } catch (error) {
     const thisError = new ThisError({ error })

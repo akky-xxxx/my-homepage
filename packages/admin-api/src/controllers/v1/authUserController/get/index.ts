@@ -3,7 +3,7 @@ import { RequestHandler } from "express"
 
 // import others
 import { GetAuthUserResponse } from "@@/shared/types/api/v1/authUser"
-import { getAuthUserModel } from "@@/models/v1/authUserModels/getAuthUserModel"
+import { getModel } from "@@/models/v1/authUser/getModel"
 
 // main
 export const get: RequestHandler<never, GetAuthUserResponse> = async (
@@ -14,7 +14,7 @@ export const get: RequestHandler<never, GetAuthUserResponse> = async (
   const { query } = req
 
   try {
-    const sessionId = await getAuthUserModel(query)
+    const sessionId = await getModel(query)
     const responseBody: GetAuthUserResponse = {
       data: { sessionId },
     } as const

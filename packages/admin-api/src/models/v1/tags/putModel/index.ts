@@ -14,19 +14,19 @@ import {
 import { Server } from "@@/shared/const/Server"
 
 // import others
-import { isPutTagsRequestBody } from "@@/models/v1/tagsModels/putTagsModel/modules/isPutTagsRequestBody"
-import { getUpdateData } from "@@/models/v1/tagsModels/putTagsModel/modules/getUpdateData"
+import { isPutTagsRequestBody } from "@@/models/v1/tags/putModel/modules/isPutTagsRequestBody"
+import { getUpdateData } from "@@/models/v1/tags/putModel/modules/getUpdateData"
 
 // main
 const logger = createLogger(__filename)
 const { SUCCESS_RESPONSE } = Server
 const error400 = new ThisError({ ...createErrorData(__filename, 400) })
 
-type PutTagsModel = (
+type PutModel = (
   body: Request<PutTagsRequestBody>["body"],
 ) => Promise<PutTagsResponse>
 
-export const putTagsModel: PutTagsModel = async (body) => {
+export const putModel: PutModel = async (body) => {
   logger.info("start")
   logger.debug({ body })
   if (!isPutTagsRequestBody(body)) {

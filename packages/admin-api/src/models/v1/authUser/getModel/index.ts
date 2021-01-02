@@ -9,8 +9,8 @@ import { checkBySessionId } from "./modules/checkBySessionId"
 
 // main
 const logger = createLogger(__filename)
-type GetAuthUserModel = (query: Request["query"]) => Promise<string>
-export const getAuthUserModel: GetAuthUserModel = async (query) => {
+type GetModel = (query: Request["query"]) => Promise<string>
+export const getModel: GetModel = async (query) => {
   logger.info("start")
   logger.debug(query)
   const { googleId, sessionId } = query

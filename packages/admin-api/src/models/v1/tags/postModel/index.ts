@@ -14,15 +14,16 @@ import {
   PostTagsRequestBody,
   PostTagsResponse,
 } from "@@/shared/types/api/v1/tags"
-import { getInsertData } from "@@/models/v1/tagsModels/postTagsModel/modules/getInsertData"
+import { getInsertData } from "@@/models/v1/tags/postModel/modules/getInsertData"
 
 // main
 const logger = createLogger(__filename)
 const { SUCCESS_RESPONSE } = Server
-type PostTagsModel = (
+
+type PostModel = (
   body: Request<PostTagsRequestBody>["body"],
 ) => Promise<PostTagsResponse>
-export const postTagsModel: PostTagsModel = async (body) => {
+export const postModel: PostModel = async (body) => {
   logger.info("start")
   if (!body.tagNames) {
     const error = new ThisError({

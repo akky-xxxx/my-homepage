@@ -8,7 +8,7 @@ import {
   DeleteTagsResponse,
 } from "@@/shared/types/api/v1/tags"
 import { Server } from "@@/shared/const/Server"
-import { isDeleteTagsQuery } from "@@/models/v1/tagsModels/deleteTagsModel/modules/isDeleteTagsQuery"
+import { isDeleteTagsQuery } from "@@/models/v1/tags/deleteModel/modules/isDeleteTagsQuery"
 import { DataStore } from "@@/shared/const/DataStore"
 import { dataStore } from "@@/shared/utils/gcp"
 
@@ -17,11 +17,11 @@ const {
   TYPES: { TAGS },
 } = DataStore
 const { SUCCESS_RESPONSE } = Server
-type DeleteTagsModel = (
+type DeleteModel = (
   query: Request<DeleteTagsQuery>["query"],
 ) => Promise<DeleteTagsResponse>
 
-export const deleteTagsModel: DeleteTagsModel = async (query) => {
+export const deleteModel: DeleteModel = async (query) => {
   if (!isDeleteTagsQuery(query)) {
     const error = new ThisError({ ...createErrorData(__filename, 400) })
     return Promise.reject(error)
