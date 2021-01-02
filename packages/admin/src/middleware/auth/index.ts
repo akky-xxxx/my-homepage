@@ -21,7 +21,6 @@ const { ALL, LOGIN, CALLBACK, LOGOUT } = Endpoints
 
 passport.use(new Strategy(StrategyOption, verify))
 passport.serializeUser((user, callback) => callback(null, user))
-passport.deserializeUser((obj, callback) => callback(null, obj))
 
 authRouter.use(passport.initialize())
 
