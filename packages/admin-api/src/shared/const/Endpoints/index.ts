@@ -3,6 +3,7 @@ export const Endpoints = {
   V1: {
     ROOT: "/v1",
     GALLERY_IMAGES: "/gallery-images",
+    PREFECTURES: "/prefectures",
     TAGS: "/tags",
     AUTH_USER: "/auth/user",
   },
