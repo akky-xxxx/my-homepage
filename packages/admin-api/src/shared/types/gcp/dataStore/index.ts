@@ -34,9 +34,9 @@ export type Tag = {
 export type GalleryImage = {
   imageId: string
   isRelease: boolean
-  prefecture: Key[]
+  prefecture: Key | null
   tags: Key[]
-  photographAt: Date
+  photographAt: Date | null
   createdAt: Date
   updatedAt: Date
 }
