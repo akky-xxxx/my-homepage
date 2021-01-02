@@ -9,16 +9,12 @@ import {
 } from "@@/shared/types/api/v1/galleryImages"
 
 // main
-type PostGalleryImagesController = RequestHandler<
+type PostController = RequestHandler<
   never,
   PostGalleryImagesResponse,
   PostGalleryImagesRequestBody
 >
-export const postGalleryImagesController: PostGalleryImagesController = async (
-  req,
-  res,
-  next,
-) => {
+export const postController: PostController = async (req, res, next) => {
   const { body } = req
   // TODO: 仮
   // eslint-disable-next-line no-console

@@ -9,17 +9,13 @@ import {
 import { deleteModel } from "@@/models/v1/tags/deleteModel"
 
 // main
-type DeleteTagsController = RequestHandler<
+type DeleteController = RequestHandler<
   never,
   DeleteTagsResponse,
   never,
   DeleteTagsQuery
 >
-export const deleteTagsController: DeleteTagsController = async (
-  req,
-  res,
-  next,
-) => {
+export const deleteController: DeleteController = async (req, res, next) => {
   try {
     const result = await deleteModel(req.query)
     res.status(200).send(result)

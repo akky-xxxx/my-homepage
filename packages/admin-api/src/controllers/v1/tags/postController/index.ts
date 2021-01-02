@@ -10,16 +10,12 @@ import {
 import { postModel } from "@@/models/v1/tags/postModel"
 
 // main
-type PostTagsController = RequestHandler<
+type PostController = RequestHandler<
   never,
   PostTagsResponse,
   PostTagsRequestBody
 >
-export const postTagsController: PostTagsController = async (
-  req,
-  res,
-  next,
-) => {
+export const postController: PostController = async (req, res, next) => {
   const { body } = req
 
   try {

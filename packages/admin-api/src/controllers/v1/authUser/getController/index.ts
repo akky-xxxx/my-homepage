@@ -6,7 +6,7 @@ import { GetAuthUserResponse } from "@@/shared/types/api/v1/authUser"
 import { getModel } from "@@/models/v1/authUser/getModel"
 
 // main
-export const get: RequestHandler<never, GetAuthUserResponse> = async (
+export const getController: RequestHandler<never, GetAuthUserResponse> = async (
   req,
   res,
   next,
