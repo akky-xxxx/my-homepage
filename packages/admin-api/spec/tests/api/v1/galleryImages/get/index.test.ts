@@ -32,16 +32,13 @@ describe("app test `GET:/api/v1/gallery-images`", () => {
             expect(imageData.prefectureId).toEqual(null)
           }
 
-          expect(Array.isArray(imageData.tags)).toEqual(true)
-          ;(imageData.tags as unknown[]).forEach((tag: unknown) => {
+          expect(Array.isArray(imageData.tagIds)).toEqual(true)
+          ;(imageData.tagIds as unknown[]).forEach((tag: unknown) => {
             expect(typeof tag).toEqual("string")
-            if (typeof tag === "string") {
-              expect(dateTimeRegExp.test(tag)).toEqual("string")
-            }
           })
 
           if (typeof imageData.photographAt === "string") {
-            expect(typeof imageData.photographAt).toEqual("string")
+            expect(dateTimeRegExp.test(imageData.photographAt)).toEqual(true)
           } else {
             expect(imageData.photographAt).toEqual(null)
           }
