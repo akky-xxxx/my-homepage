@@ -2,11 +2,11 @@
 import { RequestHandler } from "express"
 import { ThisError } from "shared-items"
 
+// import model
+import { getModel } from "@@/models/v1/galleryImages/getModel"
+
 // import others
-import {
-  GetGalleryImagesResponse,
-  GetGalleryImage,
-} from "@@/shared/types/api/v1/galleryImages"
+import { GetGalleryImagesResponse } from "@@/shared/types/api/v1/galleryImages"
 
 // main
 type PostGalleryImagesController = RequestHandler<
@@ -15,10 +15,8 @@ type PostGalleryImagesController = RequestHandler<
 >
 export const get: PostGalleryImagesController = async (_req, res, next) => {
   try {
-    const data = {
-      images: [] as GetGalleryImage[],
-    }
-    res.status(200).send({ data })
+    const responseData = await getModel()
+    res.status(200).send(responseData)
   } catch (error) {
     const thisError = new ThisError({ error })
     next(thisError)
