@@ -17,7 +17,7 @@ export const images: GetGalleryImage[] = [
   {
     imageId: "imageId1",
     isRelease: false,
-    prefectureId: prefectures[0].prefectureCode,
+    prefectureId: prefectures[0].prefectureId,
     tagIds: [sampleTags[0].tagId, sampleTags[1].tagId],
     photographAt: null,
     createdAt: "2020-01-01 00:00:00",

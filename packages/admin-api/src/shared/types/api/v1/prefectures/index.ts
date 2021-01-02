@@ -4,7 +4,7 @@ import { ResponseData } from "@@/shared/types/api"
 // main
 // read (get)
 export type GetPrefecture = {
-  prefectureCode: string
+  prefectureId: string
   prefectureName: string
 }
 
