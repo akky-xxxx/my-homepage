@@ -72,6 +72,7 @@ export const Tags: FC<TagsProps> = (props) => {
           placeholder="タグを選択"
           value={selectedOptions}
           onChange={handleSelectOptions}
+          closeMenuOnSelect={false}
           isClearable
           isMulti
           isSearchable
