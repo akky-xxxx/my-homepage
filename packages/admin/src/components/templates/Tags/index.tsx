@@ -20,7 +20,7 @@ import { TagsProps } from "./types"
 import { useTags } from "./modules/useTags"
 
 // main
-const { MARGIN20 } = Margin
+const { MARGIN20, MARGIN25 } = Margin
 
 export const Tags: FC<TagsProps> = (props) => {
   const {
@@ -81,11 +81,9 @@ export const Tags: FC<TagsProps> = (props) => {
           handleChangeFilterText={handleChangeFilterText}
           handleSelectOptions={handleSelectOptions}
         />
-      </MainContents>
 
-      <Divider />
+      <StyledDivider />
 
-      <MainContents>
         <TagsTable
           isSelectAll={isSelectAll}
           handleClickSelectAll={handleClickSelectAll}
@@ -131,6 +129,11 @@ export const Tags: FC<TagsProps> = (props) => {
 const HeaderWrapper = styled.div`
   align-items: center;
   display: flex;
+`
+
+const StyledDivider = styled(Divider)`
+  margin-bottom: ${MARGIN25}px;
+  margin-top: ${MARGIN25}px;
 `
 
 const PaginationWrapper = styled.div`
