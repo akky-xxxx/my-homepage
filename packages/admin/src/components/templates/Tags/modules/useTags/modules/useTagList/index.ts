@@ -32,6 +32,7 @@ export const useTagList: UseTagList = (props) => {
 
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
+    setSelectedOptions(null)
   }, [originTags])
 
   useEffect(() => {
