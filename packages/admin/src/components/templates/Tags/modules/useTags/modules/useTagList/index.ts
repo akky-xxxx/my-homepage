@@ -92,12 +92,14 @@ export const useTagList: UseTagList = (props) => {
 
   const handleSelectOptions = (values: ValueType<SelectOption, true>) => {
     if (values === undefined) return
+    setCurrentPage(1)
     setSelectedOptions(values)
   }
 
   const handleChangeFilterText: ChangeEventHandler<HTMLInputElement> = (
     event,
   ) => {
+    setCurrentPage(1)
     setFilterText(event.currentTarget.value)
   }
 
