@@ -8,6 +8,7 @@ import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
 import { returnIsSelect } from "./modules/returnIsSelect"
 import { filterBySelected } from "./modules/filterBySelected"
+import { filterByText } from "./modules/filterByText"
 
 // main
 export const useTagList: UseTagList = (props) => {
@@ -33,7 +34,8 @@ export const useTagList: UseTagList = (props) => {
   ] = useState<OptionsType<SelectOption> | null>(null)
 
   const filterBySelectedMain = filterBySelected(selectedOptions)
-  const displayTags = tags.filter(filterBySelectedMain)
+  const filterByTextMain = filterByText(filterText)
+  const displayTags = tags.filter(filterBySelectedMain).filter(filterByTextMain)
 
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
