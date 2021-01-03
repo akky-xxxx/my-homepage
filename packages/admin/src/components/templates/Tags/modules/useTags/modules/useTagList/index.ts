@@ -7,6 +7,7 @@ import { SelectOption } from "@@/shared/types/lib"
 import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
 import { returnIsSelect } from "./modules/returnIsSelect"
+import { filterBySelected } from "./modules/filterBySelected"
 
 // main
 export const useTagList: UseTagList = (props) => {
@@ -31,12 +32,8 @@ export const useTagList: UseTagList = (props) => {
     setSelectedOptions,
   ] = useState<OptionsType<SelectOption> | null>(null)
 
-  const displayTags = tags.filter((tag) => {
-    if (!selectedOptions) return true
-    return selectedOptions.find(
-      (selectedOption) => selectedOption.value === tag.tagId,
-    )
-  })
+  const filterBySelectedMain = filterBySelected(selectedOptions)
+  const displayTags = tags.filter(filterBySelectedMain)
 
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
