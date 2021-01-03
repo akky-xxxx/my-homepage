@@ -2,18 +2,17 @@
 import React, { FC } from "react"
 import { Divider } from "shared-items/dist/client"
 import styled from "styled-components"
-import Select from "react-select"
 
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
 import { Loading } from "@@/components/atoms/Loading"
-import { SelectOption } from "@@/shared/types/lib"
 import { SubMenu } from "./components/molecules/SubMenu"
 import { TagsTable } from "./components/organisms/TagsTable"
 import { AdditionModal } from "./components/organisms/AdditionModal"
 import { ChangingModal } from "./components/organisms/ChangingModal"
 import { DeletingModal } from "./components/organisms/DeletingModal"
+import { ConditionArea } from "./components/organisms/ConditionArea"
 
 // import others
 import { TagsProps } from "./types"
@@ -67,15 +66,10 @@ export const Tags: FC<TagsProps> = (props) => {
       <Divider />
 
       <MainContents>
-        <Select<SelectOption, true>
-          options={selectOptions}
-          placeholder="タグを選択"
-          value={selectedOptions}
-          onChange={handleSelectOptions}
-          closeMenuOnSelect={false}
-          isClearable
-          isMulti
-          isSearchable
+        <ConditionArea
+          selectOptions={selectOptions}
+          selectedOptions={selectedOptions}
+          handleSelectOptions={handleSelectOptions}
         />
       </MainContents>
 
