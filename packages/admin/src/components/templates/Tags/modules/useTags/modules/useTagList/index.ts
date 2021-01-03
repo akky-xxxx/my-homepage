@@ -1,5 +1,5 @@
 // import node_modules
-import { useState, useEffect } from "react"
+import { useState, useEffect, ChangeEventHandler } from "react"
 import { ValueType, OptionsType } from "react-select"
 
 // import others
@@ -17,6 +17,7 @@ export const useTagList: UseTagList = (props) => {
     handleUpdateTagsMain,
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
+  const [filterText, setFilterText] = useState("")
 
   const selectedTags = tags.filter(returnIsSelect)
   const selectOptions = tags.map(({ tagId: value, tagName: label }) => ({
@@ -84,17 +85,25 @@ export const useTagList: UseTagList = (props) => {
     setSelectedOptions(values)
   }
 
+  const handleChangeFilterText: ChangeEventHandler<HTMLInputElement> = (
+    event,
+  ) => {
+    setFilterText(event.currentTarget.value)
+  }
+
   return {
     tags,
     displayTags,
     selectedTags,
     selectOptions,
     selectedOptions,
+    filterText,
     isSelectAll,
     isSelectSome,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
     handleSelectOptions,
+    handleChangeFilterText,
   }
 }

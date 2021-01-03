@@ -1,4 +1,5 @@
 // import node_modules
+import { ChangeEventHandler } from "react"
 import { ValueType, OptionsType } from "react-select"
 
 // import others
@@ -19,6 +20,8 @@ type UseTagListReturn = TagsTableHeaderProps & {
   selectOptions: SelectOption[]
   displayTags: TagsTableRecordStates[]
   selectedOptions: null | OptionsType<SelectOption>
+  filterText: string
+  handleChangeFilterText: ChangeEventHandler<HTMLInputElement>
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease
   handleSelectOptions: HandleSelectOptions

@@ -2,6 +2,7 @@
 import { renderHook, act } from "@testing-library/react-hooks"
 
 // import others
+import { ChangeEvent } from "react"
 import { useTagList } from "./index"
 import { tags } from "./testData"
 
@@ -123,5 +124,21 @@ describe("useTagList", () => {
     act(() => result.current.handleSelectOptions(inputValue))
     expect(result.current.displayTags[0].tagId).toEqual(thisValue)
     expect(result.current.displayTags[0].tagName).toEqual(thisLabel)
+  })
+
+  it("filterText の初期値は空文字", () => {
+    const { result } = renderHook(() => useTagList(props))
+    expect(result.current.filterText).toEqual("")
+  })
+
+  it("handleChangeFilterText を実行すると filterText は test となる", () => {
+    const { result } = renderHook(() => useTagList(props))
+    act(() => {
+      const event = {
+        currentTarget: { value: "test" },
+      } as ChangeEvent<HTMLInputElement>
+      result.current.handleChangeFilterText(event)
+    })
+    expect(result.current.filterText).toEqual("test")
   })
 })
