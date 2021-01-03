@@ -2,6 +2,7 @@
 import React, { FC } from "react"
 import { Divider } from "shared-items/dist/client"
 import styled from "styled-components"
+import Select from "react-select"
 
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
@@ -32,6 +33,7 @@ export const Tags: FC<TagsProps> = (props) => {
     handleClickSelectAll,
     tags,
     selectedTags,
+    selectOptions,
     handleClickSelect,
     handleClickRelease,
     isShowAdditionModal,
@@ -57,6 +59,18 @@ export const Tags: FC<TagsProps> = (props) => {
             handleShowDeletingModal={handleShowDeletingModal}
           />
         </HeaderWrapper>
+      </MainContents>
+
+      <Divider />
+
+      <MainContents>
+        <Select
+          options={selectOptions}
+          placeholder="タグを選択"
+          isClearable
+          isMulti
+          isSearchable
+        />
       </MainContents>
 
       <Divider />

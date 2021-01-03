@@ -84,4 +84,13 @@ describe("useTagList", () => {
     act(() => result.current.handleClickSelect("2"))
     expect(result.current.selectedTags[0].tagId).toEqual("2")
   })
+
+  it("selectOptions は Record<'value' | 'label', string> の配列", () => {
+    const { result } = renderHook(() => useTagList(props))
+    result.current.selectOptions.forEach((option) => {
+      const { value, label } = option
+      expect(typeof label).toEqual("string")
+      expect(typeof value).toEqual("string")
+    })
+  })
 })
