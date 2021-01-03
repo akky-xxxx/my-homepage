@@ -47,26 +47,6 @@ export const Tags: FC<TagsProps> = (props) => {
 
   return (
     <div>
-      <AdditionModal
-        handleAddTagsMain={handleAddTagsMain}
-        isShowAdditionModal={isShowAdditionModal}
-        handleHideAdditionModal={handleHideAdditionModal}
-      />
-
-      <ChangingModal
-        selectedTags={selectedTags}
-        isShowChangingModal={isShowChangingModal}
-        handleHideChangingModal={handleHideChangingModal}
-        handleUpdateTagsMain={handleUpdateTagsMain}
-      />
-
-      <DeletingModal
-        selectedTags={selectedTags}
-        isShowDeletingModal={isShowDeletingModal}
-        handleHideDeletingModal={handleHideDeletingModal}
-        handleDeleteTagsMain={handleDeleteTagsMain}
-      />
-
       <MainContents>
         <HeaderWrapper>
           <Heading2>タグ編集</Heading2>
@@ -92,6 +72,26 @@ export const Tags: FC<TagsProps> = (props) => {
       </MainContents>
 
       <Loading isShow={isLoading || isTagsLoading} />
+
+      <AdditionModal
+        handleAddTagsMain={handleAddTagsMain}
+        isShowAdditionModal={isShowAdditionModal}
+        handleHideAdditionModal={handleHideAdditionModal}
+      />
+
+      <ChangingModal
+        selectedTags={selectedTags}
+        isShowChangingModal={isShowChangingModal}
+        handleHideChangingModal={handleHideChangingModal}
+        handleUpdateTagsMain={handleUpdateTagsMain}
+      />
+
+      <DeletingModal
+        selectedTags={selectedTags}
+        isShowDeletingModal={isShowDeletingModal}
+        handleHideDeletingModal={handleHideDeletingModal}
+        handleDeleteTagsMain={handleDeleteTagsMain}
+      />
     </div>
   )
 }
