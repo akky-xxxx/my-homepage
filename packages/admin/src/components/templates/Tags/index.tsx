@@ -35,6 +35,7 @@ export const Tags: FC<TagsProps> = (props) => {
     displayTags,
     selectOptions,
     selectedOptions,
+    filterText,
     handleClickSelect,
     handleClickRelease,
     isShowAdditionModal,
@@ -47,6 +48,7 @@ export const Tags: FC<TagsProps> = (props) => {
     handleShowDeletingModal,
     handleHideDeletingModal,
     handleSelectOptions,
+    handleChangeFilterText,
   } = useTags(props)
 
   return (
@@ -67,8 +69,10 @@ export const Tags: FC<TagsProps> = (props) => {
 
       <MainContents>
         <ConditionArea
+          filterText={filterText}
           selectOptions={selectOptions}
           selectedOptions={selectedOptions}
+          handleChangeFilterText={handleChangeFilterText}
           handleSelectOptions={handleSelectOptions}
         />
       </MainContents>

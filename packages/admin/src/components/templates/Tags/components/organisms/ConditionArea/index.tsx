@@ -1,5 +1,5 @@
 // import node_modules
-import React, { Fragment, FC } from "react"
+import React, { Fragment, FC, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import Select, { OptionsType, ValueType } from "react-select"
 import { Margin } from "shared-items/dist/client"
@@ -12,18 +12,31 @@ import { SelectOption } from "@@/shared/types/lib"
 const { MARGIN10 } = Margin
 
 export type ConditionAreaProps = {
+  filterText: string
   selectOptions: SelectOption[]
   selectedOptions: null | OptionsType<SelectOption>
+  handleChangeFilterText: ChangeEventHandler<HTMLInputElement>
   handleSelectOptions: (values: ValueType<SelectOption, true>) => void
 }
 
 export const ConditionArea: FC<ConditionAreaProps> = (props) => {
-  const { selectOptions, selectedOptions, handleSelectOptions } = props
+  const {
+    filterText,
+    selectOptions,
+    selectedOptions,
+    handleSelectOptions,
+    handleChangeFilterText,
+  } = props
 
   return (
     <Fragment>
       <Wrapper>
-        <StyledInput placeholder="部分一致検索" type="text" />
+        <StyledInput
+          value={filterText}
+          onChange={handleChangeFilterText}
+          placeholder="部分一致検索"
+          type="text"
+        />
 
         <Select<SelectOption, true>
           options={selectOptions}
