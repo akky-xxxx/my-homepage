@@ -17,6 +17,7 @@ type UseTagListReturn = TagsTableHeaderProps & {
   tags: TagsTableRecordStates[]
   selectedTags: TagsTableRecordStates[]
   selectOptions: SelectOption[]
+  displayTags: TagsTableRecordStates[]
   selectedOptions: null | OptionsType<SelectOption>
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease

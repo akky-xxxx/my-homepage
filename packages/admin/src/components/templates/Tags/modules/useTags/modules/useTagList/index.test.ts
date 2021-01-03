@@ -108,4 +108,20 @@ describe("useTagList", () => {
       expect(result.current.selectedOptions[0].value).toEqual("testValue")
     }
   })
+
+  it("Select が未選択時、 displayTags は Tags と同一", () => {
+    const { result } = renderHook(() => useTagList(props))
+    const { current } = result
+    expect(current.tags).toEqual(current.displayTags)
+  })
+
+  it("Select 選択時、 displayTags は Select で選択されてるものだけ", () => {
+    const { result } = renderHook(() => useTagList(props))
+    const thisLabel = props.tags[0].tagName
+    const thisValue = props.tags[0].tagId
+    const inputValue = [{ label: thisLabel, value: thisValue }]
+    act(() => result.current.handleSelectOptions(inputValue))
+    expect(result.current.displayTags[0].tagId).toEqual(thisValue)
+    expect(result.current.displayTags[0].tagName).toEqual(thisLabel)
+  })
 })

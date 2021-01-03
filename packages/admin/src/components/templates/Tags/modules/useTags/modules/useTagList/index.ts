@@ -30,6 +30,13 @@ export const useTagList: UseTagList = (props) => {
     setSelectedOptions,
   ] = useState<OptionsType<SelectOption> | null>(null)
 
+  const displayTags = tags.filter((tag) => {
+    if (!selectedOptions) return true
+    return selectedOptions.find(
+      (selectedOption) => selectedOption.value === tag.tagId,
+    )
+  })
+
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
     setSelectedOptions(null)
@@ -79,6 +86,7 @@ export const useTagList: UseTagList = (props) => {
 
   return {
     tags,
+    displayTags,
     selectedTags,
     selectOptions,
     selectedOptions,

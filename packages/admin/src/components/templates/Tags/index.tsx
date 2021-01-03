@@ -32,8 +32,8 @@ export const Tags: FC<TagsProps> = (props) => {
     isSelectAll,
     isSelectSome,
     handleClickSelectAll,
-    tags,
     selectedTags,
+    displayTags,
     selectOptions,
     selectedOptions,
     handleClickSelect,
@@ -85,7 +85,7 @@ export const Tags: FC<TagsProps> = (props) => {
         <TagsTable
           isSelectAll={isSelectAll}
           handleClickSelectAll={handleClickSelectAll}
-          tags={tags}
+          tags={displayTags}
           handleClickSelect={handleClickSelect}
           handleClickRelease={handleClickRelease}
         />
