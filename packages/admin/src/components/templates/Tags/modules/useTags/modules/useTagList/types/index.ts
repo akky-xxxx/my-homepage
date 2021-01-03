@@ -21,10 +21,13 @@ type UseTagListReturn = TagsTableHeaderProps & {
   displayTags: TagsTableRecordStates[]
   selectedOptions: null | OptionsType<SelectOption>
   filterText: string
+  maxPages: number
+  currentPage: number
   handleChangeFilterText: ChangeEventHandler<HTMLInputElement>
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease
   handleSelectOptions: HandleSelectOptions
+  handleClickPagination: (targetPage: number) => void
 }
 
 export type UseTagList = (props: TagsProps) => UseTagListReturn

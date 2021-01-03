@@ -11,6 +11,8 @@ import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 
 // main
+const PAGE_NUMBER = 10
+
 export const useTagList: UseTagList = (props) => {
   const {
     tags: originTags,
@@ -20,6 +22,7 @@ export const useTagList: UseTagList = (props) => {
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
   const [filterText, setFilterText] = useState("")
+  const [currentPage, setCurrentPage] = useState(1)
 
   const selectedTags = tags.filter(returnIsSelect)
   const selectOptions = tags.map(({ tagId: value, tagName: label }) => ({
@@ -35,7 +38,15 @@ export const useTagList: UseTagList = (props) => {
 
   const filterBySelectedMain = filterBySelected(selectedOptions)
   const filterByTextMain = filterByText(filterText)
-  const displayTags = tags.filter(filterBySelectedMain).filter(filterByTextMain)
+  const displayTagsBase = tags
+    .filter(filterBySelectedMain)
+    .filter(filterByTextMain)
+  const maxPages = Math.ceil(displayTagsBase.length / PAGE_NUMBER)
+  const slicePosition: [number, number] = [
+    (currentPage - 1) * PAGE_NUMBER,
+    currentPage * PAGE_NUMBER,
+  ]
+  const displayTags = [...displayTagsBase].slice(...slicePosition)
 
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
@@ -90,6 +101,10 @@ export const useTagList: UseTagList = (props) => {
     setFilterText(event.currentTarget.value)
   }
 
+  const handleClickPagination = (targetPage: number) => {
+    setCurrentPage(targetPage)
+  }
+
   return {
     tags,
     displayTags,
@@ -97,6 +112,8 @@ export const useTagList: UseTagList = (props) => {
     selectOptions,
     selectedOptions,
     filterText,
+    maxPages,
+    currentPage,
     isSelectAll,
     isSelectSome,
     handleClickSelectAll,
@@ -104,5 +121,6 @@ export const useTagList: UseTagList = (props) => {
     handleClickRelease,
     handleSelectOptions,
     handleChangeFilterText,
+    handleClickPagination,
   }
 }

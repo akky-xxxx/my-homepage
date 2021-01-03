@@ -39,6 +39,8 @@ export const Tags: FC<TagsProps> = (props) => {
     selectOptions,
     selectedOptions,
     filterText,
+    maxPages,
+    currentPage,
     handleClickSelect,
     handleClickRelease,
     isShowAdditionModal,
@@ -52,6 +54,7 @@ export const Tags: FC<TagsProps> = (props) => {
     handleHideDeletingModal,
     handleSelectOptions,
     handleChangeFilterText,
+    handleClickPagination,
   } = useTags(props)
 
   return (
@@ -93,11 +96,9 @@ export const Tags: FC<TagsProps> = (props) => {
 
         <PaginationWrapper>
           <Pagination
-            maxPages={10}
-            currentPage={2}
-            // TODO: 仮実装
-            // eslint-disable-next-line no-console
-            handleClickPagination={() => console.log("handleClickPagination")}
+            maxPages={maxPages}
+            currentPage={currentPage}
+            handleClickPagination={handleClickPagination}
           />
         </PaginationWrapper>
       </MainContents>
