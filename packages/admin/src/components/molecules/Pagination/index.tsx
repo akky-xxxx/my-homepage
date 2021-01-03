@@ -1,9 +1,11 @@
 // import node_modules
 import React, { FC, Fragment } from "react"
-import { Button } from "shared-items/dist/client"
+import { Button, Margin } from "shared-items/dist/client"
 import styled from "styled-components"
 
 // main
+const { MARGIN10 } = Margin
+
 export type PaginationProps = {
   maxPages: number
   currentPage: number
@@ -93,6 +95,6 @@ const StyledButton = styled(Button)`
   min-width: 38px;
 
   & + & {
-    margin-left: 5px;
+    margin-left: ${MARGIN10}px;
   }
 `
