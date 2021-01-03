@@ -9,7 +9,7 @@ import { Input } from "@@/components/atoms/Input"
 import { SelectOption } from "@@/shared/types/lib"
 
 // main
-const { MARGIN10 } = Margin
+const { MARGIN20 } = Margin
 
 export type ConditionAreaProps = {
   filterText: string
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
   width: 100%;
 
   & + & {
-    margin-top: ${MARGIN10}px;
+    margin-top: ${MARGIN20}px;
   }
 
   & > div {
@@ -69,5 +69,5 @@ const Wrapper = styled.div`
 `
 
 const StyledInput = styled(Input)`
-  margin-right: ${MARGIN10}px;
+  margin-right: ${MARGIN20}px;
 `
