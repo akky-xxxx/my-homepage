@@ -10,6 +10,10 @@ describe("filterBySelected", () => {
     expect(filterBySelected(null)(thisTags[0])).toEqual(true)
   })
 
+  it("リセット時 (空配列) の時は true を返す", () => {
+    expect(filterBySelected([])(thisTags[0])).toEqual(true)
+  })
+
   it("selectedOptions があり、 tag.tagId に selectedOptions.value 存在する場合は true を返す", () => {
     const selectedOptions = [
       {

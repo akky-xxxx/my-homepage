@@ -13,7 +13,7 @@ type FilterBySelected = (
 
 export const filterBySelected: FilterBySelected = (selectedOptions) => {
   const filterBySelectedMain: FilterBySelectedMain = (tag) => {
-    if (!selectedOptions) return true
+    if (!selectedOptions || !selectedOptions.length) return true
     const findResult = selectedOptions.find(
       (selectedOption) => selectedOption.value === tag.tagId,
     )
