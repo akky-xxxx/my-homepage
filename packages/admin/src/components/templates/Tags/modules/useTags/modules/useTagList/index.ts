@@ -1,7 +1,9 @@
 // import node_modules
 import { useState, useEffect } from "react"
+import { ValueType, OptionsType } from "react-select"
 
 // import others
+import { SelectOption } from "@@/shared/types/lib"
 import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
 import { returnIsSelect } from "./modules/returnIsSelect"
@@ -23,6 +25,10 @@ export const useTagList: UseTagList = (props) => {
   }))
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
+  const [
+    selectedOptions,
+    setSelectedOptions,
+  ] = useState<OptionsType<SelectOption> | null>(null)
 
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
@@ -65,14 +71,21 @@ export const useTagList: UseTagList = (props) => {
       })),
     )
 
+  const handleSelectOptions = (values: ValueType<SelectOption, true>) => {
+    if (values === undefined) return
+    setSelectedOptions(values)
+  }
+
   return {
     tags,
     selectedTags,
     selectOptions,
+    selectedOptions,
     isSelectAll,
     isSelectSome,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
+    handleSelectOptions,
   }
 }

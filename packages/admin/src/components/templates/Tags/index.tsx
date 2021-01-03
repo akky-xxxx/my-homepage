@@ -8,6 +8,7 @@ import Select from "react-select"
 import { MainContents } from "@@/components/atoms/MainContents"
 import { Heading2 } from "@@/components/atoms/Heading2"
 import { Loading } from "@@/components/atoms/Loading"
+import { SelectOption } from "@@/shared/types/lib"
 import { SubMenu } from "./components/molecules/SubMenu"
 import { TagsTable } from "./components/organisms/TagsTable"
 import { AdditionModal } from "./components/organisms/AdditionModal"
@@ -34,6 +35,7 @@ export const Tags: FC<TagsProps> = (props) => {
     tags,
     selectedTags,
     selectOptions,
+    selectedOptions,
     handleClickSelect,
     handleClickRelease,
     isShowAdditionModal,
@@ -45,6 +47,7 @@ export const Tags: FC<TagsProps> = (props) => {
     isShowDeletingModal,
     handleShowDeletingModal,
     handleHideDeletingModal,
+    handleSelectOptions,
   } = useTags(props)
 
   return (
@@ -64,9 +67,11 @@ export const Tags: FC<TagsProps> = (props) => {
       <Divider />
 
       <MainContents>
-        <Select
+        <Select<SelectOption, true>
           options={selectOptions}
           placeholder="タグを選択"
+          value={selectedOptions}
+          onChange={handleSelectOptions}
           isClearable
           isMulti
           isSearchable

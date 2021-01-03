@@ -93,4 +93,19 @@ describe("useTagList", () => {
       expect(typeof value).toEqual("string")
     })
   })
+
+  it("selectedOptions の初期値は null", () => {
+    const { result } = renderHook(() => useTagList(props))
+    expect(result.current.selectedOptions).toEqual(null)
+  })
+
+  it("selectedOptions に値が入ると Record<'value' | 'label', string> の配列", () => {
+    const { result } = renderHook(() => useTagList(props))
+    const inputValue = [{ label: "testLabel", value: "testValue" }]
+    act(() => result.current.handleSelectOptions(inputValue))
+    if (result.current.selectedOptions) {
+      expect(result.current.selectedOptions[0].label).toEqual("testLabel")
+      expect(result.current.selectedOptions[0].value).toEqual("testValue")
+    }
+  })
 })
