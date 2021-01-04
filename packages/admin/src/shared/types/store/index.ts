@@ -1,4 +1,4 @@
-// shared-items に移す
+// TODO: shared-items に移す
 export type ReducerAction<P> = {
   type: string
   payload: P
