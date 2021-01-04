@@ -2,3 +2,4 @@ fastify
 fixpack
 Hiragino
 Kaku
+datepicker
