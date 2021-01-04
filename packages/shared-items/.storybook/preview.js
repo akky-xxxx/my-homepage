@@ -2,6 +2,7 @@
 import React from "react"
 import { addDecorator } from "@storybook/react"
 import { RouterContext } from "next/dist/next-server/lib/router-context"
+import "react-datepicker/dist/react-datepicker.css"
 
 // import others
 import { GlobalStyle } from "../src/client"
