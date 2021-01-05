@@ -31,7 +31,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
 
   return (
     <Fragment>
-      <Wrapper>
+      <RowWrapper>
         <StyledSelect
           options={selectOptions}
           placeholder="タグを選択"
@@ -42,9 +42,9 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
           isMulti
           isSearchable
         />
-      </Wrapper>
+      </RowWrapper>
 
-      <Wrapper>
+      <RowWrapper>
         <Input
           value={filterText}
           onChange={handleChangeFilterText}
@@ -71,12 +71,12 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             handleChangeEndDate={() => console.log("handleChangeEndDate")}
           />
         </div>
-      </Wrapper>
+      </RowWrapper>
     </Fragment>
   )
 }
 
-const Wrapper = styled.div`
+const RowWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 850px;
