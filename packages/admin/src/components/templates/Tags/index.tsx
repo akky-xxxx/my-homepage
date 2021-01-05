@@ -82,7 +82,7 @@ export const Tags: FC<TagsProps> = (props) => {
           handleSelectOptions={handleSelectOptions}
         />
 
-      <StyledDivider />
+        <StyledDivider />
 
         <TagsTable
           isSelectAll={isSelectAll}
