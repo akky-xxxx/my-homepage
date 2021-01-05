@@ -1,8 +1,8 @@
 // import node_modules
-import React, { Fragment, FC, ChangeEventHandler } from "react"
+import React, { FC, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import Select, { OptionsType, ValueType } from "react-select"
-import { Margin } from "shared-items/dist/client"
+import { Margin, Button } from "shared-items/dist/client"
 
 // import components
 import { Input } from "@@/components/atoms/Input"
@@ -10,7 +10,7 @@ import { SelectOption } from "@@/shared/types/lib"
 import { HorizonDateRangePicker } from "@@/components/templates/Tags/components/molecules/HorizonDateRangePicker"
 
 // main
-const { MARGIN20 } = Margin
+const { MARGIN10, MARGIN25 } = Margin
 
 export type ConditionAreaProps = {
   filterText: string
@@ -30,62 +30,79 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
   } = props
 
   return (
-    <Fragment>
-      <RowWrapper>
-        <StyledSelect
-          options={selectOptions}
-          placeholder="タグを選択"
-          value={selectedOptions}
-          onChange={handleSelectOptions}
-          closeMenuOnSelect={false}
-          isClearable
-          isMulti
-          isSearchable
-        />
-      </RowWrapper>
-
-      <RowWrapper>
-        <Input
-          value={filterText}
-          onChange={handleChangeFilterText}
-          placeholder="部分一致検索"
-          type="text"
-        />
-
-        <div>
-          追加日：
-          <HorizonDateRangePicker
-            startDate={new Date()}
-            endDate={new Date()}
-            handleChangeStartDate={() => console.log("handleChangeStartDate")}
-            handleChangeEndDate={() => console.log("handleChangeEndDate")}
+    <Wrapper>
+      <ConditionWrapper>
+        <RowWrapper>
+          <StyledSelect
+            options={selectOptions}
+            placeholder="タグを選択"
+            value={selectedOptions}
+            onChange={handleSelectOptions}
+            closeMenuOnSelect={false}
+            isClearable
+            isMulti
+            isSearchable
           />
-        </div>
+        </RowWrapper>
 
-        <div>
-          変更日：
-          <HorizonDateRangePicker
-            startDate={new Date()}
-            endDate={new Date()}
-            handleChangeStartDate={() => console.log("handleChangeStartDate")}
-            handleChangeEndDate={() => console.log("handleChangeEndDate")}
+        <RowWrapper>
+          <Input
+            value={filterText}
+            onChange={handleChangeFilterText}
+            placeholder="部分一致検索"
+            type="text"
           />
-        </div>
-      </RowWrapper>
-    </Fragment>
+
+          <div>
+            追加日：
+            <HorizonDateRangePicker
+              startDate={new Date()}
+              endDate={new Date()}
+              handleChangeStartDate={() => console.log("handleChangeStartDate")}
+              handleChangeEndDate={() => console.log("handleChangeEndDate")}
+            />
+          </div>
+
+          <div>
+            変更日：
+            <HorizonDateRangePicker
+              startDate={new Date()}
+              endDate={new Date()}
+              handleChangeStartDate={() => console.log("handleChangeStartDate")}
+              handleChangeEndDate={() => console.log("handleChangeEndDate")}
+            />
+          </div>
+        </RowWrapper>
+      </ConditionWrapper>
+
+      <StyledButton colorType="accent">リセット</StyledButton>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+`
+
+const ConditionWrapper = styled.div`
+  flex-grow: 1;
+`
 
 const RowWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 850px;
 
   & + & {
-    margin-top: ${MARGIN20}px;
+    margin-top: ${MARGIN10}px;
   }
 `
 
 const StyledSelect = styled(Select)`
   flex-grow: 1;
+`
+
+const StyledButton = styled(Button)`
+  margin-left: ${MARGIN25}px;
 `
