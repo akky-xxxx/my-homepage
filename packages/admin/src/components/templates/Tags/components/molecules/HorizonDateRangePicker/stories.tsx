@@ -4,7 +4,8 @@ import { Meta, Story } from "@storybook/react"
 import { subDays } from "date-fns"
 
 // import components
-import { HorizonDateRangePicker, HorizonDateRangePickerProps } from "./index"
+import { HorizonDateRangePicker } from "./index"
+import { HorizonDateRangePickerProps } from "./types"
 
 // main
 const config: Meta<HorizonDateRangePickerProps> = {

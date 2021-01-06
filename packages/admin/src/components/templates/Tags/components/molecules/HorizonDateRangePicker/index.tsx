@@ -1,19 +1,15 @@
-// import
+// import node_modules
 import React, { FC } from "react"
 import ReactDatePicker from "react-datepicker"
 import { PickerWrapper, Input, Radius, Color } from "shared-items/dist/client"
 import styled, { css } from "styled-components"
 
+// import others
+import { HorizonDateRangePickerProps } from "./types"
+
 // main
 const { UNIT_LEFT, UNIT_RIGHT } = Radius
 const { COLOR_FFFFFF, DIVIDER } = Color
-
-export type HorizonDateRangePickerProps = {
-  startDate: Date | null
-  endDate: Date | null
-  handleChangeStartDate: (date: Date | null) => void
-  handleChangeEndDate: (date: Date | null) => void
-}
 
 export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
   props,
