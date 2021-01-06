@@ -62,7 +62,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
         </RowWrapper>
 
         <RowWrapper>
-          <Input
+          <PartialMatch
             value={filterText}
             onChange={handleChangeFilterText}
             placeholder="部分一致検索"
@@ -121,4 +121,8 @@ const StyledSelect = styled(Select)`
 
 const StyledButton = styled(Button)`
   margin-left: ${MARGIN25}px;
+`
+
+const PartialMatch = styled(Input)`
+  width: 340px;
 `
