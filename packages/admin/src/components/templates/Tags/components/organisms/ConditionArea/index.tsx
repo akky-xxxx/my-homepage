@@ -18,6 +18,14 @@ export type ConditionAreaProps = {
   selectedOptions: null | OptionsType<SelectOption>
   handleChangeFilterText: ChangeEventHandler<HTMLInputElement>
   handleSelectOptions: (values: ValueType<SelectOption, true>) => void
+  createStartDate: Date | null
+  createEndDate: Date | null
+  updateStartDate: Date | null
+  updateEndDate: Date | null
+  handleChangeCreateStartDate: (date: Date | null) => void
+  handleChangeCreateEndDate: (date: Date | null) => void
+  handleChangeUpdateStartDate: (date: Date | null) => void
+  handleChangeUpdateEndDate: (date: Date | null) => void
 }
 
 export const ConditionArea: FC<ConditionAreaProps> = (props) => {
@@ -27,6 +35,14 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
     selectedOptions,
     handleSelectOptions,
     handleChangeFilterText,
+    createStartDate,
+    createEndDate,
+    updateStartDate,
+    updateEndDate,
+    handleChangeCreateStartDate,
+    handleChangeCreateEndDate,
+    handleChangeUpdateStartDate,
+    handleChangeUpdateEndDate,
   } = props
 
   return (
@@ -56,20 +72,20 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
           <div>
             追加日：
             <HorizonDateRangePicker
-              startDate={new Date()}
-              endDate={new Date()}
-              handleChangeStartDate={() => console.log("handleChangeStartDate")}
-              handleChangeEndDate={() => console.log("handleChangeEndDate")}
+              startDate={createStartDate}
+              endDate={createEndDate}
+              handleChangeStartDate={handleChangeCreateStartDate}
+              handleChangeEndDate={handleChangeCreateEndDate}
             />
           </div>
 
           <div>
             変更日：
             <HorizonDateRangePicker
-              startDate={new Date()}
-              endDate={new Date()}
-              handleChangeStartDate={() => console.log("handleChangeStartDate")}
-              handleChangeEndDate={() => console.log("handleChangeEndDate")}
+              startDate={updateStartDate}
+              endDate={updateEndDate}
+              handleChangeStartDate={handleChangeUpdateStartDate}
+              handleChangeEndDate={handleChangeUpdateEndDate}
             />
           </div>
         </RowWrapper>

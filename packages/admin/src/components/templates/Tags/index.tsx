@@ -80,6 +80,25 @@ export const Tags: FC<TagsProps> = (props) => {
           selectedOptions={selectedOptions}
           handleChangeFilterText={handleChangeFilterText}
           handleSelectOptions={handleSelectOptions}
+          createStartDate={null}
+          createEndDate={null}
+          updateStartDate={null}
+          updateEndDate={null}
+          // TODO: 仮実装
+          /* eslint-disable no-console */
+          handleChangeCreateStartDate={() =>
+            console.log("handleChangeCreateStartDate")
+          }
+          handleChangeCreateEndDate={() =>
+            console.log("handleChangeCreateEndDate")
+          }
+          handleChangeUpdateStartDate={() =>
+            console.log("handleChangeUpdateStartDate")
+          }
+          handleChangeUpdateEndDate={() =>
+            console.log("handleChangeUpdateEndDate")
+          }
+          /* eslint-enable no-console */
         />
 
         <StyledDivider />

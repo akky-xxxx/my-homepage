@@ -17,10 +17,26 @@ const config: Meta<ConditionAreaProps> = {
   args: {
     selectOptions: option,
     selectedOptions: [option[0]],
+    createStartDate: null,
+    createEndDate: null,
+    updateStartDate: null,
+    updateEndDate: null,
   },
   argTypes: {
     handleSelectOptions: {
       action: "handleSelectOptions",
+    },
+    handleChangeCreateStartDate: {
+      action: "handleChangeCreateStartDate",
+    },
+    handleChangeCreateEndDate: {
+      action: "handleChangeCreateEndDate",
+    },
+    handleChangeUpdateStartDate: {
+      action: "handleChangeUpdateStartDate",
+    },
+    handleChangeUpdateEndDate: {
+      action: "handleChangeUpdateEndDate",
     },
   },
 }
