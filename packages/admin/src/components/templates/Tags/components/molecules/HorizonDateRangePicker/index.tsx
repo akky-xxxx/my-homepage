@@ -37,6 +37,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
         maxDate={new Date()}
         selectsStart
         dateFormat="yyyy/MM/dd"
+        placeholderText="from"
       />
       <Tilde>〜</Tilde>
       <ReactDatePicker
@@ -50,6 +51,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
         maxDate={new Date()}
         selectsEnd
         dateFormat="yyyy/MM/dd"
+        placeholderText="to"
       />
     </Wrapper>
   )
