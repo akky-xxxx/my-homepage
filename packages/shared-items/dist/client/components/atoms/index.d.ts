@@ -10,7 +10,7 @@ export { Divider } from "./Divider";
 export { Input } from "./Input";
 export { Link } from "./Link";
 export type { LinkProps } from "./Link";
-export { PickerWrapper } from "./PickerWrapper";
+export { PickerWrapper, AccentDayClass } from "./PickerWrapper";
 export { RootPortal } from "./RootPortal";
 export { Spinner } from "./Spinner";
 export { Tag } from "./Tag";
