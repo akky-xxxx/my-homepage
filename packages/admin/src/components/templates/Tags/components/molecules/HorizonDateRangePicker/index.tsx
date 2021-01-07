@@ -6,6 +6,7 @@ import styled, { css } from "styled-components"
 
 // import others
 import { HorizonDateRangePickerProps } from "./types"
+import { useHorizonDateRangePicker } from "./modules/useHorizonDateRangePicker"
 
 // main
 const { UNIT_LEFT, UNIT_RIGHT } = Radius
@@ -20,6 +21,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
     handleChangeStartDate,
     handleChangeEndDate,
   } = props
+  const { dayClassName } = useHorizonDateRangePicker(props)
 
   return (
     <Wrapper>
@@ -34,6 +36,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
         selectsStart
         dateFormat="yyyy/MM/dd"
         placeholderText="from"
+        dayClassName={dayClassName}
       />
       <Tilde>〜</Tilde>
       <ReactDatePicker
@@ -48,6 +51,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
         selectsEnd
         dateFormat="yyyy/MM/dd"
         placeholderText="to"
+        dayClassName={dayClassName}
       />
     </Wrapper>
   )
