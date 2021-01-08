@@ -23,7 +23,7 @@ describe("useHorizonDateRangePicker", () => {
 
     describe("dayClassName が関数のパターン", () => {
       const props = {
-        accentDates: [new Date(2021, 0, 1)],
+        accentDates: ["2021-01-01"],
       }
 
       it("accentDates が Date[] の時", () => {
