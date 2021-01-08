@@ -1,6 +1,7 @@
 // import node_modules
 import { useState, useEffect, ChangeEventHandler } from "react"
 import { ValueType, OptionsType } from "react-select"
+import { useRangePicker } from "shared-items/dist/client"
 
 // import others
 import { SelectOption } from "@@/shared/types/lib"
@@ -23,6 +24,14 @@ export const useTagList: UseTagList = (props) => {
   const [tags, setTags] = useState(originTags.map(addIsSelect))
   const [filterText, setFilterText] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
+  const [
+    [createStartDate, handleChangeCreateStartDate],
+    [createEndDate, handleChangeCreateEndDate],
+  ] = useRangePicker()
+  const [
+    [updateStartDate, handleChangeUpdateStartDate],
+    [updateEndDate, handleChangeUpdateEndDate],
+  ] = useRangePicker()
 
   const selectedTags = tags.filter(returnIsSelect)
   const selectOptions = tags.map(({ tagId: value, tagName: label }) => ({
@@ -118,11 +127,19 @@ export const useTagList: UseTagList = (props) => {
     currentPage,
     isSelectAll,
     isSelectSome,
+    createStartDate,
+    createEndDate,
+    updateStartDate,
+    updateEndDate,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
     handleSelectOptions,
     handleChangeFilterText,
     handleClickPagination,
+    handleChangeCreateStartDate,
+    handleChangeCreateEndDate,
+    handleChangeUpdateStartDate,
+    handleChangeUpdateEndDate,
   }
 }

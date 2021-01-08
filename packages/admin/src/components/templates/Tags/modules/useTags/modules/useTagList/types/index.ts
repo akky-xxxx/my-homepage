@@ -1,6 +1,7 @@
 // import node_modules
 import { ChangeEventHandler } from "react"
 import { ValueType, OptionsType } from "react-select"
+import { NullableDate, HandleChangeRangeDate } from "shared-items/dist/client"
 
 // import others
 import { TagsTableHeaderProps } from "@@/components/templates/Tags/components/molecules/TagsTableHeader/types"
@@ -12,6 +13,17 @@ import { SelectOption } from "@@/shared/types/lib"
 type HandleClickSelect = (tagId: string) => void
 type HandleClickRelease = (tagId: string) => void
 type HandleSelectOptions = (values: ValueType<SelectOption, true>) => void
+
+type NullableDateProps =
+  | "createStartDate"
+  | "createEndDate"
+  | "updateStartDate"
+  | "updateEndDate"
+type HandleChangeRangeDateProps =
+  | "handleChangeCreateStartDate"
+  | "handleChangeCreateEndDate"
+  | "handleChangeUpdateStartDate"
+  | "handleChangeUpdateEndDate"
 
 type UseTagListReturn = TagsTableHeaderProps & {
   isSelectSome: boolean
@@ -28,6 +40,7 @@ type UseTagListReturn = TagsTableHeaderProps & {
   handleClickRelease: HandleClickRelease
   handleSelectOptions: HandleSelectOptions
   handleClickPagination: (targetPage: number) => void
-}
+} & Record<NullableDateProps, NullableDate> &
+  Record<HandleChangeRangeDateProps, HandleChangeRangeDate>
 
 export type UseTagList = (props: TagsProps) => UseTagListReturn
