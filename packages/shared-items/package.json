@@ -26,7 +26,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "re-install": "lerna clean && lerna bootstrap",
     "spell-check": "cspell './src/**/*.ts*'",
-    "test": "jest",
+    "test": "jest --coverage",
     "type-check": "tsc"
   },
   "dependencies": {
