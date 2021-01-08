@@ -41,6 +41,10 @@ export const Tags: FC<TagsProps> = (props) => {
     filterText,
     maxPages,
     currentPage,
+    createStartDate,
+    createEndDate,
+    updateStartDate,
+    updateEndDate,
     handleClickSelect,
     handleClickRelease,
     isShowAdditionModal,
@@ -55,6 +59,10 @@ export const Tags: FC<TagsProps> = (props) => {
     handleSelectOptions,
     handleChangeFilterText,
     handleClickPagination,
+    handleChangeCreateStartDate,
+    handleChangeCreateEndDate,
+    handleChangeUpdateStartDate,
+    handleChangeUpdateEndDate,
   } = useTags(props)
 
   return (
@@ -80,27 +88,16 @@ export const Tags: FC<TagsProps> = (props) => {
           selectedOptions={selectedOptions}
           handleChangeFilterText={handleChangeFilterText}
           handleSelectOptions={handleSelectOptions}
-          // TODO: 仮実装
-          createStartDate={null}
-          createEndDate={null}
-          updateStartDate={null}
-          updateEndDate={null}
+          createStartDate={createStartDate}
+          createEndDate={createEndDate}
+          updateStartDate={updateStartDate}
+          updateEndDate={updateEndDate}
           accentCreateDates={undefined}
           accentUpdateDates={undefined}
-          /* eslint-disable no-console */
-          handleChangeCreateStartDate={() =>
-            console.log("handleChangeCreateStartDate")
-          }
-          handleChangeCreateEndDate={() =>
-            console.log("handleChangeCreateEndDate")
-          }
-          handleChangeUpdateStartDate={() =>
-            console.log("handleChangeUpdateStartDate")
-          }
-          handleChangeUpdateEndDate={() =>
-            console.log("handleChangeUpdateEndDate")
-          }
-          /* eslint-enable no-console */
+          handleChangeCreateStartDate={handleChangeCreateStartDate}
+          handleChangeCreateEndDate={handleChangeCreateEndDate}
+          handleChangeUpdateStartDate={handleChangeUpdateStartDate}
+          handleChangeUpdateEndDate={handleChangeUpdateEndDate}
         />
 
         <StyledDivider />
