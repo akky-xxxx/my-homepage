@@ -10,6 +10,7 @@ import { addIsSelect } from "./modules/addIsSelect"
 import { returnIsSelect } from "./modules/returnIsSelect"
 import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
+import { usePagination } from "./modules/usePagination"
 
 // main
 const PAGE_NUMBER = 10
@@ -23,7 +24,7 @@ export const useTagList: UseTagList = (props) => {
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
   const [filterText, setFilterText] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, handleClickPagination] = usePagination()
   const [
     [createStartDate, handleChangeCreateStartDate],
     [createEndDate, handleChangeCreateEndDate],
@@ -101,19 +102,15 @@ export const useTagList: UseTagList = (props) => {
 
   const handleSelectOptions = (values: ValueType<SelectOption, true>) => {
     if (values === undefined) return
-    setCurrentPage(1)
+    handleClickPagination(1)
     setSelectedOptions(values)
   }
 
   const handleChangeFilterText: ChangeEventHandler<HTMLInputElement> = (
     event,
   ) => {
-    setCurrentPage(1)
+    handleClickPagination(1)
     setFilterText(event.currentTarget.value)
-  }
-
-  const handleClickPagination = (targetPage: number) => {
-    setCurrentPage(targetPage)
   }
 
   return {

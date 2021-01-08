@@ -125,10 +125,4 @@ describe("useTagList", () => {
     })
     expect(result.current.filterText).toEqual("test")
   })
-
-  it("handleClickPagination を実行すると引数の値が currentPage に格納される", () => {
-    const { result } = renderHook(() => useTagList(props))
-    act(() => result.current.handleClickPagination(3))
-    expect(result.current.currentPage).toEqual(3)
-  })
 })
