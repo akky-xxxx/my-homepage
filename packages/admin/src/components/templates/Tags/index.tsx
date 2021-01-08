@@ -80,11 +80,13 @@ export const Tags: FC<TagsProps> = (props) => {
           selectedOptions={selectedOptions}
           handleChangeFilterText={handleChangeFilterText}
           handleSelectOptions={handleSelectOptions}
+          // TODO: 仮実装
           createStartDate={null}
           createEndDate={null}
           updateStartDate={null}
           updateEndDate={null}
-          // TODO: 仮実装
+          accentCreateDates={undefined}
+          accentUpdateDates={undefined}
           /* eslint-disable no-console */
           handleChangeCreateStartDate={() =>
             console.log("handleChangeCreateStartDate")

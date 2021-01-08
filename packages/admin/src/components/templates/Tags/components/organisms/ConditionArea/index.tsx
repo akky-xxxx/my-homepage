@@ -2,6 +2,7 @@
 import React, { FC, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import Select, { OptionsType, ValueType } from "react-select"
+import { StringDate } from "shared-items"
 import { Margin, Button } from "shared-items/dist/client"
 
 // import components
@@ -22,6 +23,8 @@ export type ConditionAreaProps = {
   createEndDate: Date | null
   updateStartDate: Date | null
   updateEndDate: Date | null
+  accentCreateDates?: StringDate[]
+  accentUpdateDates?: StringDate[]
   handleChangeCreateStartDate: (date: Date | null) => void
   handleChangeCreateEndDate: (date: Date | null) => void
   handleChangeUpdateStartDate: (date: Date | null) => void
@@ -39,6 +42,8 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
     createEndDate,
     updateStartDate,
     updateEndDate,
+    accentCreateDates,
+    accentUpdateDates,
     handleChangeCreateStartDate,
     handleChangeCreateEndDate,
     handleChangeUpdateStartDate,
@@ -74,6 +79,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             <HorizonDateRangePicker
               startDate={createStartDate}
               endDate={createEndDate}
+              accentDates={accentCreateDates}
               handleChangeStartDate={handleChangeCreateStartDate}
               handleChangeEndDate={handleChangeCreateEndDate}
             />
@@ -84,6 +90,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             <HorizonDateRangePicker
               startDate={updateStartDate}
               endDate={updateEndDate}
+              accentDates={accentUpdateDates}
               handleChangeStartDate={handleChangeUpdateStartDate}
               handleChangeEndDate={handleChangeUpdateEndDate}
             />
