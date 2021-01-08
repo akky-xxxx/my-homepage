@@ -95,10 +95,6 @@ describe("useTagList", () => {
     })
   })
 
-  it("selectedOptions の初期値は null", () => {
-    const { result } = renderHook(() => useTagList(props))
-    expect(result.current.selectedOptions).toEqual(null)
-  })
 
   it("selectedOptions に値が入ると Record<'value' | 'label', string> の配列", () => {
     const { result } = renderHook(() => useTagList(props))
@@ -110,10 +106,6 @@ describe("useTagList", () => {
     }
   })
 
-  it("filterText の初期値は空文字", () => {
-    const { result } = renderHook(() => useTagList(props))
-    expect(result.current.filterText).toEqual("")
-  })
 
   it("handleChangeFilterText を実行すると filterText は test となる", () => {
     const { result } = renderHook(() => useTagList(props))

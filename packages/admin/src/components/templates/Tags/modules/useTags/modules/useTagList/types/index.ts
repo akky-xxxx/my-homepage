@@ -1,7 +1,6 @@
 // import node_modules
 import { ChangeEventHandler } from "react"
-import { ValueType, OptionsType } from "react-select"
-import { NullableDate, HandleChangeRangeDate } from "shared-items/dist/client"
+import { ValueType } from "react-select"
 
 // import others
 import { TagsTableHeaderProps } from "@@/components/templates/Tags/components/molecules/TagsTableHeader/types"
@@ -9,22 +8,26 @@ import { TagsTableRecordStates } from "@@/components/templates/Tags/components/m
 import { TagsProps } from "@@/components/templates/Tags/types"
 import { SelectOption } from "@@/shared/types/lib"
 import { Page, HandleClickPagination } from "../modules/usePagination"
+import { UseTagConditions } from "../modules/useTagConditions/types"
 
 // main
 type HandleClickSelect = (tagId: string) => void
 type HandleClickRelease = (tagId: string) => void
 type HandleSelectOptions = (values: ValueType<SelectOption, true>) => void
 
-type NullableDateProps =
+type ConditionTypes = Pick<
+  ReturnType<UseTagConditions>,
+  | "selectedOptions"
+  | "filterText"
   | "createStartDate"
   | "createEndDate"
   | "updateStartDate"
   | "updateEndDate"
-type HandleChangeRangeDateProps =
   | "handleChangeCreateStartDate"
   | "handleChangeCreateEndDate"
   | "handleChangeUpdateStartDate"
   | "handleChangeUpdateEndDate"
+>
 
 type UseTagListReturn = TagsTableHeaderProps & {
   isSelectSome: boolean
@@ -32,8 +35,6 @@ type UseTagListReturn = TagsTableHeaderProps & {
   selectedTags: TagsTableRecordStates[]
   selectOptions: SelectOption[]
   displayTags: TagsTableRecordStates[]
-  selectedOptions: null | OptionsType<SelectOption>
-  filterText: string
   maxPages: number
   currentPage: Page
   handleChangeFilterText: ChangeEventHandler<HTMLInputElement>
@@ -41,7 +42,10 @@ type UseTagListReturn = TagsTableHeaderProps & {
   handleClickRelease: HandleClickRelease
   handleSelectOptions: HandleSelectOptions
   handleClickPagination: HandleClickPagination
-} & Record<NullableDateProps, NullableDate> &
-  Record<HandleChangeRangeDateProps, HandleChangeRangeDate>
+} & ConditionTypes
 
-export type UseTagList = (props: TagsProps) => UseTagListReturn
+type UseTagListProps = Pick<
+  TagsProps,
+  "tags" | "isLoaded" | "handleGetTags" | "handleUpdateTagsMain"
+>
+export type UseTagList = (props: UseTagListProps) => UseTagListReturn

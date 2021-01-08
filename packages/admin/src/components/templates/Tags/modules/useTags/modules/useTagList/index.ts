@@ -1,7 +1,7 @@
 // import node_modules
 import { useState, useEffect, ChangeEventHandler } from "react"
-import { ValueType, OptionsType } from "react-select"
-import { useRangePicker } from "shared-items/dist/client"
+import { ValueType } from "react-select"
+import { omit } from "remeda"
 
 // import others
 import { SelectOption } from "@@/shared/types/lib"
@@ -11,6 +11,7 @@ import { returnIsSelect } from "./modules/returnIsSelect"
 import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 import { usePagination } from "./modules/usePagination"
+import { useTagConditions } from "./modules/useTagConditions"
 
 // main
 const PAGE_NUMBER = 10
@@ -23,16 +24,14 @@ export const useTagList: UseTagList = (props) => {
     handleUpdateTagsMain,
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
-  const [filterText, setFilterText] = useState("")
   const [currentPage, handleClickPagination] = usePagination()
-  const [
-    [createStartDate, handleChangeCreateStartDate],
-    [createEndDate, handleChangeCreateEndDate],
-  ] = useRangePicker()
-  const [
-    [updateStartDate, handleChangeUpdateStartDate],
-    [updateEndDate, handleChangeUpdateEndDate],
-  ] = useRangePicker()
+  const useTagConditionsResult = useTagConditions(props)
+  const {
+    selectedOptions,
+    filterText,
+    setSelectedOptions,
+    setFilterText,
+  } = useTagConditionsResult
 
   const selectedTags = tags.filter(returnIsSelect)
   const selectOptions = tags.map(({ tagId: value, tagName: label }) => ({
@@ -41,10 +40,6 @@ export const useTagList: UseTagList = (props) => {
   }))
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
-  const [
-    selectedOptions,
-    setSelectedOptions,
-  ] = useState<OptionsType<SelectOption> | null>(null)
 
   const filterBySelectedMain = filterBySelected(selectedOptions)
   const filterByTextMain = filterByText(filterText)
@@ -113,30 +108,23 @@ export const useTagList: UseTagList = (props) => {
     setFilterText(event.currentTarget.value)
   }
 
-  return {
+  const returnValue: ReturnType<UseTagList> = {
     tags,
     displayTags,
     selectedTags,
     selectOptions,
-    selectedOptions,
-    filterText,
     maxPages,
     currentPage,
     isSelectAll,
     isSelectSome,
-    createStartDate,
-    createEndDate,
-    updateStartDate,
-    updateEndDate,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
     handleSelectOptions,
     handleChangeFilterText,
     handleClickPagination,
-    handleChangeCreateStartDate,
-    handleChangeCreateEndDate,
-    handleChangeUpdateStartDate,
-    handleChangeUpdateEndDate,
+    ...omit(useTagConditionsResult, ["setFilterText", "setSelectedOptions"]),
   }
+
+  return returnValue
 }
