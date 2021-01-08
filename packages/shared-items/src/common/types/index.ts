@@ -32,6 +32,12 @@ export type Nullable<T> = T | null
 
 /**
  * @typedef StringDatetime
- * @description 日付形式を指す type alias
+ * @description 日時形式を指す type alias
  */
 export type StringDatetime = string
+
+/**
+ * @typedef StringDate
+ * @description 日付形式を指す type alias
+ */
+export type StringDate = string
