@@ -2,7 +2,7 @@
 import React, { FC, ChangeEventHandler } from "react"
 import styled from "styled-components"
 import Select, { OptionsType, ValueType } from "react-select"
-import { StringDate } from "shared-items"
+import { EmptyFunction, StringDate } from "shared-items"
 import { Margin, Button } from "shared-items/dist/client"
 
 // import components
@@ -29,6 +29,7 @@ export type ConditionAreaProps = {
   handleChangeCreateEndDate: (date: Date | null) => void
   handleChangeUpdateStartDate: (date: Date | null) => void
   handleChangeUpdateEndDate: (date: Date | null) => void
+  handleResetConditions: EmptyFunction
 }
 
 export const ConditionArea: FC<ConditionAreaProps> = (props) => {
@@ -48,6 +49,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
     handleChangeCreateEndDate,
     handleChangeUpdateStartDate,
     handleChangeUpdateEndDate,
+    handleResetConditions,
   } = props
 
   return (
@@ -98,7 +100,9 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
         </RowWrapper>
       </ConditionWrapper>
 
-      <StyledButton colorType="accent">リセット</StyledButton>
+      <StyledButton colorType="accent" onClick={handleResetConditions}>
+        リセット
+      </StyledButton>
     </Wrapper>
   )
 }

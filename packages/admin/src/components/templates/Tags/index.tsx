@@ -63,6 +63,7 @@ export const Tags: FC<TagsProps> = (props) => {
     handleChangeCreateEndDate,
     handleChangeUpdateStartDate,
     handleChangeUpdateEndDate,
+    handleResetConditions,
   } = useTags(props)
 
   return (
@@ -98,6 +99,7 @@ export const Tags: FC<TagsProps> = (props) => {
           handleChangeCreateEndDate={handleChangeCreateEndDate}
           handleChangeUpdateStartDate={handleChangeUpdateStartDate}
           handleChangeUpdateEndDate={handleChangeUpdateEndDate}
+          handleResetConditions={handleResetConditions}
         />
 
         <StyledDivider />
