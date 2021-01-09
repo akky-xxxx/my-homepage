@@ -13,6 +13,7 @@ const clientID = process.env.OAUTH2_CLIENT_ID
 const clientSecret = process.env.OAUTH2_CLIENT_SECRET
 const callbackURL = process.env.OAUTH2_CALLBACK
 
+/* istanbul ignore next */
 if (!clientID || !clientSecret || !callbackURL) {
   const loggerMessage =
     "OAUTH2_CLIENT_ID または OAUTH2_CLIENT_SECRET または OAUTH2_CALLBACK がありません"
