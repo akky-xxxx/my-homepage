@@ -1,6 +1,7 @@
 // import node_modules
 import { ChangeEventHandler } from "react"
 import { ValueType } from "react-select"
+import { EmptyFunction } from "shared-items"
 
 // import others
 import { TagsTableHeaderProps } from "@@/components/templates/Tags/components/molecules/TagsTableHeader/types"
@@ -42,6 +43,7 @@ type UseTagListReturn = TagsTableHeaderProps & {
   handleClickRelease: HandleClickRelease
   handleSelectOptions: HandleSelectOptions
   handleClickPagination: HandleClickPagination
+  handleResetConditions: EmptyFunction
 } & ConditionTypes
 
 type UseTagListProps = Pick<

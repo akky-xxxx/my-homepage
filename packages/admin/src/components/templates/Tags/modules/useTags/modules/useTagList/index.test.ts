@@ -115,4 +115,41 @@ describe("useTagList", () => {
     })
     expect(result.current.filterText).toEqual("test")
   })
+
+  it("handleResetConditions を実行するとフィルター条件が全て初期化される", () => {
+    const { result } = renderHook(() => useTagList(props))
+    const testDate = new Date("2021-01-09T08:40:20.232Z")
+    act(() => {
+      const inputValue = [{ label: "testLabel", value: "testValue" }]
+      const event = {
+        currentTarget: { value: "test" },
+      } as ChangeEvent<HTMLInputElement>
+      result.current.handleChangeFilterText(event)
+      result.current.handleSelectOptions(inputValue)
+      result.current.handleClickPagination(2)
+      result.current.handleChangeCreateStartDate(testDate)
+      result.current.handleChangeCreateEndDate(testDate)
+      result.current.handleChangeUpdateStartDate(testDate)
+      result.current.handleChangeUpdateEndDate(testDate)
+    })
+    expect(result.current.filterText).toEqual("test")
+    if (result.current.selectedOptions) {
+      expect(result.current.selectedOptions[0].label).toEqual("testLabel")
+      expect(result.current.selectedOptions[0].value).toEqual("testValue")
+    }
+    expect(result.current.currentPage).toEqual(2)
+    expect(result.current.createStartDate).toEqual(testDate)
+    expect(result.current.createEndDate).toEqual(testDate)
+    expect(result.current.updateStartDate).toEqual(testDate)
+    expect(result.current.updateEndDate).toEqual(testDate)
+
+    act(() => result.current.handleResetConditions())
+    expect(result.current.filterText).toEqual("")
+    expect(result.current.selectedOptions).toEqual(null)
+    expect(result.current.currentPage).toEqual(1)
+    expect(result.current.createStartDate).toEqual(null)
+    expect(result.current.createEndDate).toEqual(null)
+    expect(result.current.updateStartDate).toEqual(null)
+    expect(result.current.updateEndDate).toEqual(null)
+  })
 })

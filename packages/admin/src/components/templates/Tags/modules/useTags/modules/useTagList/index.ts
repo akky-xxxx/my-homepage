@@ -37,6 +37,10 @@ export const useTagList: UseTagList = (props) => {
     createEndDate,
     updateStartDate,
     updateEndDate,
+    handleChangeCreateStartDate,
+    handleChangeCreateEndDate,
+    handleChangeUpdateStartDate,
+    handleChangeUpdateEndDate,
   } = useTagConditionsResult
 
   const selectedTags = tags.filter(returnIsSelect)
@@ -123,6 +127,16 @@ export const useTagList: UseTagList = (props) => {
     setFilterText(event.currentTarget.value)
   }
 
+  const handleResetConditions = () => {
+    setFilterText("")
+    handleClickPagination(1)
+    setSelectedOptions(null)
+    handleChangeCreateStartDate(null)
+    handleChangeCreateEndDate(null)
+    handleChangeUpdateStartDate(null)
+    handleChangeUpdateEndDate(null)
+  }
+
   const returnValue: ReturnType<UseTagList> = {
     tags,
     displayTags,
@@ -138,6 +152,7 @@ export const useTagList: UseTagList = (props) => {
     handleSelectOptions,
     handleChangeFilterText,
     handleClickPagination,
+    handleResetConditions,
     ...omit(useTagConditionsResult, ["setFilterText", "setSelectedOptions"]),
   }
 
