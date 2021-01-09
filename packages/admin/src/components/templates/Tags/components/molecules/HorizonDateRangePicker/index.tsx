@@ -65,7 +65,7 @@ export const Wrapper = styled.div`
 
 const pickerInput = css`
   text-align: center;
-  width: 110px;
+  width: 130px;
 `
 
 const StartInput = styled(Input)`

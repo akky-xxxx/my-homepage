@@ -131,5 +131,5 @@ const StyledButton = styled(Button)`
 `
 
 const PartialMatch = styled(Input)`
-  width: 340px;
+  width: 260px;
 `
