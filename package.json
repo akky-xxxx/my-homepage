@@ -15,8 +15,8 @@
     "re-install": "lerna clean && lerna bootstrap"
   },
   "devDependencies": {
-    "fixpack": "^3.0.6",
-    "husky": "^4.3.6",
+    "fixpack": "^4.0.0",
+    "husky": "^4.3.7",
     "lerna": "^3.22.1",
     "npm-run-all": "^4.1.5"
   },
