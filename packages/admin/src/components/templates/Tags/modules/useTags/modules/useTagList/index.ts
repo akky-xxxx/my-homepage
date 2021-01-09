@@ -8,6 +8,7 @@ import { SelectOption } from "@@/shared/types/lib"
 import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
 import { returnIsSelect } from "./modules/returnIsSelect"
+import { tag2option } from "./modules/tag2option"
 import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 import { usePagination } from "./modules/usePagination"
@@ -34,10 +35,7 @@ export const useTagList: UseTagList = (props) => {
   } = useTagConditionsResult
 
   const selectedTags = tags.filter(returnIsSelect)
-  const selectOptions = tags.map(({ tagId: value, tagName: label }) => ({
-    value,
-    label,
-  }))
+  const selectOptions = tags.map(tag2option)
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
 
