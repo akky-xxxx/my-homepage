@@ -3,14 +3,11 @@ import React, { FC, Fragment } from "react"
 import { Button, Margin } from "shared-items/dist/client"
 import styled from "styled-components"
 
+// import others
+import { PaginationProps } from "./types"
+
 // main
 const { MARGIN10 } = Margin
-
-export type PaginationProps = {
-  maxPages: number
-  currentPage: number
-  handleClickPagination: (targetPage: number) => void
-}
 
 export const Pagination: FC<PaginationProps> = (props) => {
   const { maxPages, currentPage, handleClickPagination } = props

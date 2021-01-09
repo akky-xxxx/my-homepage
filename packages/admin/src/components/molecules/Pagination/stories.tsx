@@ -3,7 +3,8 @@ import React from "react"
 import { Meta, Story } from "@storybook/react"
 
 // import components
-import { Pagination, PaginationProps } from "./index"
+import { Pagination } from "./index"
+import { PaginationProps } from "./types"
 
 // main
 const config: Meta<PaginationProps> = {
