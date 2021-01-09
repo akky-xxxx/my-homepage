@@ -11,6 +11,7 @@ import { returnIsSelect } from "./modules/returnIsSelect"
 import { tag2option } from "./modules/tag2option"
 import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
+import { filterByDate } from "./modules/filterByDate"
 import { usePagination } from "./modules/usePagination"
 import { useTagConditions } from "./modules/useTagConditions"
 
@@ -32,6 +33,10 @@ export const useTagList: UseTagList = (props) => {
     filterText,
     setSelectedOptions,
     setFilterText,
+    createStartDate,
+    createEndDate,
+    updateStartDate,
+    updateEndDate,
   } = useTagConditionsResult
 
   const selectedTags = tags.filter(returnIsSelect)
@@ -41,9 +46,21 @@ export const useTagList: UseTagList = (props) => {
 
   const filterBySelectedMain = filterBySelected(selectedOptions)
   const filterByTextMain = filterByText(filterText)
+  const filterByCreatedDate = filterByDate({
+    start: createStartDate,
+    end: createEndDate,
+    targetType: "createdAt",
+  })
+  const filterByUpdatedDate = filterByDate({
+    start: updateStartDate,
+    end: updateEndDate,
+    targetType: "updatedAt",
+  })
   const displayTagsBase = tags
     .filter(filterBySelectedMain)
     .filter(filterByTextMain)
+    .filter(filterByCreatedDate)
+    .filter(filterByUpdatedDate)
   const maxPages = Math.ceil(displayTagsBase.length / PAGE_NUMBER)
   const slicePosition: [number, number] = [
     (currentPage - 1) * PAGE_NUMBER,
