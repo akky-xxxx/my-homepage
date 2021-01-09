@@ -12,12 +12,10 @@ const props = {
   isLoading: false,
   isLoaded: false,
   isTagsLoading: false,
-  /* eslint-disable no-console */
-  handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
-  handleAddTagsMain: () => console.log("handleAddTagsMain"),
-  handleDeleteTagsMain: () => console.log("handleDeleteTagsMain"),
-  handleGetTags: () => console.log("handleGetTags"),
-  /* eslint-enable no-console */
+  handleUpdateTagsMain: jest.fn(),
+  handleAddTagsMain: jest.fn(),
+  handleDeleteTagsMain: jest.fn(),
+  handleGetTags: jest.fn(),
 }
 
 describe("useTagList", () => {
@@ -92,6 +90,32 @@ describe("useTagList", () => {
       const { value, label } = option
       expect(typeof label).toEqual("string")
       expect(typeof value).toEqual("string")
+    })
+  })
+
+  it("isLoaded = true で実行されると handleGetTags が実行される", () => {
+    renderHook(() => useTagList(props))
+    expect(props.handleGetTags.mock.calls.length).toEqual(0)
+    const thisProps = { ...props, isLoaded: true }
+    renderHook(() => useTagList(thisProps))
+    expect(props.handleGetTags.mock.calls.length).toBeGreaterThan(0)
+  })
+
+  describe("handleClickRelease", () => {
+    it("対象の tag がない場合 handleUpdateTagsMain は実行されない", () => {
+      const { result } = renderHook(() => useTagList(props))
+      const fireTimes = props.handleUpdateTagsMain.mock.calls.length
+      act(() => result.current.handleClickRelease("targetTagId"))
+      expect(props.handleUpdateTagsMain.mock.calls.length).toEqual(fireTimes)
+    })
+
+    it("対象の tag がない場合 handleUpdateTagsMain が実行される", () => {
+      const { result } = renderHook(() => useTagList(props))
+      const fireTimes = props.handleUpdateTagsMain.mock.calls.length
+      act(() => result.current.handleClickRelease("1"))
+      expect(props.handleUpdateTagsMain.mock.calls.length).toEqual(
+        fireTimes + 1,
+      )
     })
   })
 
