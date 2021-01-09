@@ -37,6 +37,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
         dateFormat="yyyy/MM/dd"
         placeholderText="from"
         dayClassName={dayClassName}
+        isClearable
       />
       <Tilde>〜</Tilde>
       <ReactDatePicker
@@ -52,6 +53,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = (
         dateFormat="yyyy/MM/dd"
         placeholderText="to"
         dayClassName={dayClassName}
+        isClearable
       />
     </Wrapper>
   )
