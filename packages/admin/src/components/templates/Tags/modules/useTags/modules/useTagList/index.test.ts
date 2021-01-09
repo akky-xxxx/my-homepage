@@ -95,14 +95,32 @@ describe("useTagList", () => {
     })
   })
 
-  it("selectedOptions に値が入ると Record<'value' | 'label', string> の配列", () => {
-    const { result } = renderHook(() => useTagList(props))
-    const inputValue = [{ label: "testLabel", value: "testValue" }]
-    act(() => result.current.handleSelectOptions(inputValue))
-    if (result.current.selectedOptions) {
-      expect(result.current.selectedOptions[0].label).toEqual("testLabel")
-      expect(result.current.selectedOptions[0].value).toEqual("testValue")
-    }
+  describe("handleSelectOptions", () => {
+    it("values がある場合、selectedOptions が更新され、 currentPage が初期値になる", () => {
+      const { result } = renderHook(() => useTagList(props))
+
+      act(() => result.current.handleClickPagination(2))
+      expect(result.current.currentPage).toEqual(2)
+
+      act(() => {
+        const inputValue = [{ label: "testLabel", value: "testValue" }]
+        result.current.handleSelectOptions(inputValue)
+      })
+      if (result.current.selectedOptions) {
+        expect(result.current.selectedOptions[0].label).toEqual("testLabel")
+        expect(result.current.selectedOptions[0].value).toEqual("testValue")
+      }
+      expect(result.current.currentPage).toEqual(1)
+    })
+
+    it("values が undefined の時は何も処理しない", () => {
+      const { result } = renderHook(() => useTagList(props))
+      act(() => result.current.handleClickPagination(2))
+      expect(result.current.currentPage).toEqual(2)
+
+      act(() => result.current.handleSelectOptions(undefined))
+      expect(result.current.currentPage).toEqual(2)
+    })
   })
 
   it("handleChangeFilterText を実行すると filterText は test となる", () => {
