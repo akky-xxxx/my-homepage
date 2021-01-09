@@ -54,8 +54,8 @@ export const Tags: FC<TagsProps> = (props) => {
     handleShowChangingModal,
     handleHideChangingModal,
     isShowDeletingModal,
-    accentCreatedDate,
-    accentUpdatedDate,
+    accentCreatedDates,
+    accentUpdatedDates,
     handleShowDeletingModal,
     handleHideDeletingModal,
     handleSelectOptions,
@@ -95,8 +95,8 @@ export const Tags: FC<TagsProps> = (props) => {
           createEndDate={createEndDate}
           updateStartDate={updateStartDate}
           updateEndDate={updateEndDate}
-          accentCreateDates={accentCreatedDate}
-          accentUpdateDates={accentUpdatedDate}
+          accentCreateDates={accentCreatedDates}
+          accentUpdateDates={accentUpdatedDates}
           handleChangeCreateStartDate={handleChangeCreateStartDate}
           handleChangeCreateEndDate={handleChangeCreateEndDate}
           handleChangeUpdateStartDate={handleChangeUpdateStartDate}

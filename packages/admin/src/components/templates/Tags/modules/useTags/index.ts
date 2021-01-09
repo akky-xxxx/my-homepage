@@ -12,10 +12,10 @@ export const useTags: UseTags = (props) => {
   const useAdditionModalResult = useAdditionModal()
   const useChangingModalResult = useChangingModal()
   const useDeletingModalResult = useDeletingModal()
-  const accentCreatedDate = props.tags
+  const accentCreatedDates = props.tags
     .map(({ createdAt }) => createdAt)
     .map(stringDatetime2stringDate)
-  const accentUpdatedDate = props.tags
+  const accentUpdatedDates = props.tags
     .map(({ updatedAt }) => updatedAt)
     .map(stringDatetime2stringDate)
 
@@ -24,7 +24,7 @@ export const useTags: UseTags = (props) => {
     ...useAdditionModalResult,
     ...useChangingModalResult,
     ...useDeletingModalResult,
-    accentCreatedDate,
-    accentUpdatedDate,
+    accentCreatedDates,
+    accentUpdatedDates,
   }
 }

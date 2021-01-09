@@ -13,7 +13,7 @@ type UseTagsReturn = ReturnType<UseTagList> &
   ReturnType<UseAdditionModal> &
   ReturnType<UseChangingModal> &
   ReturnType<UseDeletingModal> & {
-    accentCreatedDate: StringDate[]
-    accentUpdatedDate: StringDate[]
+    accentCreatedDates: StringDate[]
+    accentUpdatedDates: StringDate[]
   }
 export type UseTags = (props: TagsProps) => UseTagsReturn
