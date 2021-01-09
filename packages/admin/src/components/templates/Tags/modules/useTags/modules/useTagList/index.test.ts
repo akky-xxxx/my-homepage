@@ -95,7 +95,6 @@ describe("useTagList", () => {
     })
   })
 
-
   it("selectedOptions に値が入ると Record<'value' | 'label', string> の配列", () => {
     const { result } = renderHook(() => useTagList(props))
     const inputValue = [{ label: "testLabel", value: "testValue" }]
@@ -105,7 +104,6 @@ describe("useTagList", () => {
       expect(result.current.selectedOptions[0].value).toEqual("testValue")
     }
   })
-
 
   it("handleChangeFilterText を実行すると filterText は test となる", () => {
     const { result } = renderHook(() => useTagList(props))
