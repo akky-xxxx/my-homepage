@@ -7,10 +7,8 @@ import { useAdditionalModal } from "./index"
 
 // main
 const props = {
-  /* eslint-disable no-console */
-  handleAddTagsMain: () => console.log("handleAddTagsMain"),
-  handleHideAdditionModal: () => console.log("handleHideAdditionModal"),
-  /* eslint-enable no-console */
+  handleAddTagsMain: jest.fn(),
+  handleHideAdditionModal: jest.fn(),
 }
 describe("useAdditionalModal", () => {
   it("newTagNames の初期値 の value は空文字, id は文字列", () => {
@@ -83,5 +81,14 @@ describe("useAdditionalModal", () => {
     expect(result.current.newTagNames.length).toEqual(1)
     const [{ value }] = result.current.newTagNames
     expect(value).toEqual("")
+  })
+
+  it("handleAddTags を実行すると、 handleAddTagsMain, handleHideAdditionModal が実行され、 newTagNames が初期化される", () => {
+    const { result } = renderHook(() => useAdditionalModal(props))
+    act(() => result.current.handleAddTags())
+    expect(props.handleAddTagsMain.mock.calls.length).toEqual(1)
+    expect(props.handleHideAdditionModal.mock.calls.length).toEqual(1)
+    expect(typeof result.current.newTagNames[0].id).toEqual("string")
+    expect(result.current.newTagNames[0].value).toEqual("")
   })
 })
