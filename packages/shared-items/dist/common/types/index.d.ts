@@ -4,3 +4,4 @@ export declare type EmptyObject = Record<never, never>;
 export declare type AnyObject = Record<string, unknown>;
 export declare type Nullable<T> = T | null;
 export declare type StringDatetime = string;
+export declare type StringDate = string;

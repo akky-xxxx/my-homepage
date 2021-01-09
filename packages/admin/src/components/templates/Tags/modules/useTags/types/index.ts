@@ -1,3 +1,6 @@
+// import node_modules
+import { StringDate } from "shared-items"
+
 // import
 import { TagsProps } from "../../../types"
 import { UseTagList } from "../modules/useTagList/types"
@@ -9,5 +12,8 @@ import { UseDeletingModal } from "../modules/useDeletingModal/types"
 type UseTagsReturn = ReturnType<UseTagList> &
   ReturnType<UseAdditionModal> &
   ReturnType<UseChangingModal> &
-  ReturnType<UseDeletingModal>
+  ReturnType<UseDeletingModal> & {
+    accentCreatedDates: StringDate[]
+    accentUpdatedDates: StringDate[]
+  }
 export type UseTags = (props: TagsProps) => UseTagsReturn

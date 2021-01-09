@@ -7,6 +7,7 @@ export declare const Color: {
     readonly COLOR_757575: "#757575";
     readonly COLOR_FEFEFE: "#fcfcfc";
     readonly COLOR_BDBDBD: "#bdbdbd";
+    readonly COLOR_CCCCCC: "#cccccc";
     readonly COLOR_FFFFFF: "#ffffff";
     readonly PRIMARY: "#4285F4";
     readonly SECONDARY: "#11cbd7";

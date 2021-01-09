@@ -2,21 +2,17 @@
 import { Tag } from "@@/shared/types/api/v1/tags"
 
 // main
-export const sampleTags: Tag[] = [
-  {
-    tagId: "1",
-    tagName: "タグ1",
-    settingCount: 100000,
-    isRelease: true,
-    createdAt: "2020-01-01",
-    updatedAt: "2020-01-31",
-  },
-  {
-    tagId: "2",
-    tagName: "タグ2",
-    settingCount: 0,
-    isRelease: false,
-    createdAt: "2020-01-01",
-    updatedAt: "2020-01-31",
-  },
-]
+const createSampleTags = (): Tag[] =>
+  [...new Array(100)].map((_, index) => {
+    const tagId = `${index + 1}`
+    return {
+      tagId,
+      tagName: `タグ${tagId}`,
+      settingCount: index * 75,
+      isRelease: index % 2 === 0,
+      createdAt: "2020-01-01 00:00:00",
+      updatedAt: "2020-12-31 23:59:59",
+    }
+  })
+
+export const sampleTags: Tag[] = createSampleTags()

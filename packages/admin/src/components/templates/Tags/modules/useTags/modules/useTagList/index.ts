@@ -1,12 +1,23 @@
 // import node_modules
-import { useState, useEffect } from "react"
+import { useState, useEffect, ChangeEventHandler } from "react"
+import { ValueType } from "react-select"
+import { omit } from "remeda"
 
 // import others
+import { SelectOption } from "@@/shared/types/lib"
 import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
 import { returnIsSelect } from "./modules/returnIsSelect"
+import { tag2option } from "./modules/tag2option"
+import { filterBySelected } from "./modules/filterBySelected"
+import { filterByText } from "./modules/filterByText"
+import { filterByDate } from "./modules/filterByDate"
+import { usePagination } from "./modules/usePagination"
+import { useTagConditions } from "./modules/useTagConditions"
 
 // main
+const PAGE_NUMBER = 10
+
 export const useTagList: UseTagList = (props) => {
   const {
     tags: originTags,
@@ -15,13 +26,55 @@ export const useTagList: UseTagList = (props) => {
     handleUpdateTagsMain,
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
+  const [currentPage, handleClickPagination] = usePagination()
+  const useTagConditionsResult = useTagConditions(props)
+  const {
+    selectedOptions,
+    filterText,
+    setSelectedOptions,
+    setFilterText,
+    createStartDate,
+    createEndDate,
+    updateStartDate,
+    updateEndDate,
+    handleChangeCreateStartDate,
+    handleChangeCreateEndDate,
+    handleChangeUpdateStartDate,
+    handleChangeUpdateEndDate,
+  } = useTagConditionsResult
 
   const selectedTags = tags.filter(returnIsSelect)
+  const selectOptions = tags.map(tag2option)
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
 
+  const filterBySelectedMain = filterBySelected(selectedOptions)
+  const filterByTextMain = filterByText(filterText)
+  const filterByCreatedDate = filterByDate({
+    start: createStartDate,
+    end: createEndDate,
+    targetType: "createdAt",
+  })
+  const filterByUpdatedDate = filterByDate({
+    start: updateStartDate,
+    end: updateEndDate,
+    targetType: "updatedAt",
+  })
+  const displayTagsBase = tags
+    .filter(filterBySelectedMain)
+    .filter(filterByTextMain)
+    .filter(filterByCreatedDate)
+    .filter(filterByUpdatedDate)
+  const maxPages = Math.ceil(displayTagsBase.length / PAGE_NUMBER)
+  const slicePosition: [number, number] = [
+    (currentPage - 1) * PAGE_NUMBER,
+    currentPage * PAGE_NUMBER,
+  ]
+  const displayTags = [...displayTagsBase].slice(...slicePosition)
+
   useEffect(() => {
     setTags(originTags.map(addIsSelect))
+    setSelectedOptions(null)
   }, [originTags])
 
   useEffect(() => {
@@ -61,13 +114,47 @@ export const useTagList: UseTagList = (props) => {
       })),
     )
 
-  return {
+  const handleSelectOptions = (values: ValueType<SelectOption, true>) => {
+    if (values === undefined) return
+    handleClickPagination(1)
+    setSelectedOptions(values)
+  }
+
+  const handleChangeFilterText: ChangeEventHandler<HTMLInputElement> = (
+    event,
+  ) => {
+    handleClickPagination(1)
+    setFilterText(event.currentTarget.value)
+  }
+
+  const handleResetConditions = () => {
+    setFilterText("")
+    handleClickPagination(1)
+    setSelectedOptions(null)
+    handleChangeCreateStartDate(null)
+    handleChangeCreateEndDate(null)
+    handleChangeUpdateStartDate(null)
+    handleChangeUpdateEndDate(null)
+  }
+
+  const returnValue: ReturnType<UseTagList> = {
     tags,
+    displayTags,
     selectedTags,
+    selectOptions,
+    maxPages,
+    currentPage,
     isSelectAll,
     isSelectSome,
     handleClickSelectAll,
     handleClickSelect,
     handleClickRelease,
+    handleSelectOptions,
+    handleChangeFilterText,
+    handleClickPagination,
+    handleResetConditions,
+    ...omit(useTagConditionsResult, ["setFilterText", "setSelectedOptions"]),
   }
+
+  return returnValue
 }

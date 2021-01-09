@@ -4,6 +4,7 @@ import Head from "next/head"
 import React, { FC } from "react"
 import { GlobalStyle } from "shared-items/dist/client"
 import { Provider, useStore } from "react-redux"
+import "react-datepicker/dist/react-datepicker.css"
 
 // import components
 import { Layout } from "@@/components/layouts/Layout"

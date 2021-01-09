@@ -6,6 +6,7 @@ const COLOR_212121 = "#212121"
 const COLOR_757575 = "#757575"
 const COLOR_FEFEFE = "#fcfcfc"
 const COLOR_BDBDBD = "#bdbdbd"
+const COLOR_CCCCCC = "#cccccc"
 const COLOR_FFFFFF = "#ffffff"
 
 const PRIMARY = COLOR_4285F4
@@ -26,6 +27,7 @@ export const Color = {
   COLOR_757575,
   COLOR_FEFEFE,
   COLOR_BDBDBD,
+  COLOR_CCCCCC,
   COLOR_FFFFFF,
 
   // named

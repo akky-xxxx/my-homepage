@@ -26,7 +26,7 @@
     "pre-push": "lint-staged --config lint-staged.pre-push.config.js",
     "re-install": "lerna clean && lerna bootstrap",
     "spell-check": "cspell './src/**/*.ts*'",
-    "test": "jest",
+    "test": "jest --coverage",
     "type-check": "tsc"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "next": "^10.0.3",
     "polished": "^4.0.5",
     "react": "^17.0.1",
+    "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
   },
@@ -47,9 +48,11 @@
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
     "@storybook/react": "^6.1.11",
+    "@testing-library/react-hooks": "^4.0.0",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.19",
     "@types/react": "^17.0.0",
+    "@types/react-datepicker": "^3.1.2",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
@@ -70,6 +73,7 @@
     "lint-staged": "^10.5.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
+    "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.2",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",

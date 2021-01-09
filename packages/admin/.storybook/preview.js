@@ -3,6 +3,7 @@ import React from "react"
 import { addDecorator } from "@storybook/react"
 import { RouterContext } from "next/dist/next-server/lib/router-context"
 import { GlobalStyle } from "shared-items/dist/client"
+import "react-datepicker/dist/react-datepicker.css"
 
 // main
 export const parameters = {

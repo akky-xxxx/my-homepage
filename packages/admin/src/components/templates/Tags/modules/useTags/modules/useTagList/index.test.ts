@@ -2,6 +2,7 @@
 import { renderHook, act } from "@testing-library/react-hooks"
 
 // import others
+import { ChangeEvent } from "react"
 import { useTagList } from "./index"
 import { tags } from "./testData"
 
@@ -83,5 +84,90 @@ describe("useTagList", () => {
     expect(result.current.selectedTags).toEqual([])
     act(() => result.current.handleClickSelect("2"))
     expect(result.current.selectedTags[0].tagId).toEqual("2")
+  })
+
+  it("selectOptions は Record<'value' | 'label', string> の配列", () => {
+    const { result } = renderHook(() => useTagList(props))
+    result.current.selectOptions.forEach((option) => {
+      const { value, label } = option
+      expect(typeof label).toEqual("string")
+      expect(typeof value).toEqual("string")
+    })
+  })
+
+  describe("handleSelectOptions", () => {
+    it("values がある場合、selectedOptions が更新され、 currentPage が初期値になる", () => {
+      const { result } = renderHook(() => useTagList(props))
+
+      act(() => result.current.handleClickPagination(2))
+      expect(result.current.currentPage).toEqual(2)
+
+      act(() => {
+        const inputValue = [{ label: "testLabel", value: "testValue" }]
+        result.current.handleSelectOptions(inputValue)
+      })
+      if (result.current.selectedOptions) {
+        expect(result.current.selectedOptions[0].label).toEqual("testLabel")
+        expect(result.current.selectedOptions[0].value).toEqual("testValue")
+      }
+      expect(result.current.currentPage).toEqual(1)
+    })
+
+    it("values が undefined の時は何も処理しない", () => {
+      const { result } = renderHook(() => useTagList(props))
+      act(() => result.current.handleClickPagination(2))
+      expect(result.current.currentPage).toEqual(2)
+
+      act(() => result.current.handleSelectOptions(undefined))
+      expect(result.current.currentPage).toEqual(2)
+    })
+  })
+
+  it("handleChangeFilterText を実行すると filterText は test となる", () => {
+    const { result } = renderHook(() => useTagList(props))
+    act(() => {
+      const event = {
+        currentTarget: { value: "test" },
+      } as ChangeEvent<HTMLInputElement>
+      result.current.handleChangeFilterText(event)
+    })
+    expect(result.current.filterText).toEqual("test")
+  })
+
+  it("handleResetConditions を実行するとフィルター条件が全て初期化される", () => {
+    const { result } = renderHook(() => useTagList(props))
+    const testDate = new Date("2021-01-09T08:40:20.232Z")
+    act(() => {
+      const inputValue = [{ label: "testLabel", value: "testValue" }]
+      const event = {
+        currentTarget: { value: "test" },
+      } as ChangeEvent<HTMLInputElement>
+      result.current.handleChangeFilterText(event)
+      result.current.handleSelectOptions(inputValue)
+      result.current.handleClickPagination(2)
+      result.current.handleChangeCreateStartDate(testDate)
+      result.current.handleChangeCreateEndDate(testDate)
+      result.current.handleChangeUpdateStartDate(testDate)
+      result.current.handleChangeUpdateEndDate(testDate)
+    })
+    expect(result.current.filterText).toEqual("test")
+    if (result.current.selectedOptions) {
+      expect(result.current.selectedOptions[0].label).toEqual("testLabel")
+      expect(result.current.selectedOptions[0].value).toEqual("testValue")
+    }
+    expect(result.current.currentPage).toEqual(2)
+    expect(result.current.createStartDate).toEqual(testDate)
+    expect(result.current.createEndDate).toEqual(testDate)
+    expect(result.current.updateStartDate).toEqual(testDate)
+    expect(result.current.updateEndDate).toEqual(testDate)
+
+    act(() => result.current.handleResetConditions())
+    expect(result.current.filterText).toEqual("")
+    expect(result.current.selectedOptions).toEqual(null)
+    expect(result.current.currentPage).toEqual(1)
+    expect(result.current.createStartDate).toEqual(null)
+    expect(result.current.createEndDate).toEqual(null)
+    expect(result.current.updateStartDate).toEqual(null)
+    expect(result.current.updateEndDate).toEqual(null)
   })
 })
