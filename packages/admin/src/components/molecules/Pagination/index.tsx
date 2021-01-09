@@ -34,7 +34,7 @@ export const Pagination: FC<PaginationProps> = (props) => {
 
   return (
     <Wrapper>
-      {maxPages !== 1 && (
+      {maxPages > 1 && (
         <Fragment>
           <StyledButton
             colorType="secondary"
