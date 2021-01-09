@@ -5,6 +5,8 @@ import { EmptyFunction } from "shared-items"
 import { PaginationProps } from "../../types"
 
 // main
+const RANGE = 4
+
 type UsePaginationReturn = {
   enablePrev: boolean
   enableNext: boolean
@@ -26,15 +28,21 @@ export const usePagination: UsePagination = (props) => {
   const handleClickNext = () => handleClickPagination(currentPage + 1)
   const handleClickLast = () => handleClickPagination(maxPages)
 
-  const items = [
-    currentPage - 1 > 0 ? currentPage - 1 : undefined,
-    currentPage,
-    currentPage + 1 <= maxPages ? currentPage + 1 : undefined,
-  ].filter(Boolean) as number[]
-  if (items.length < 3) {
-    if (currentPage - 2 > 0) items.unshift(currentPage - 2)
-    if (currentPage + 2 <= maxPages) items.push(currentPage + 2)
-  }
+  const items = [...new Array(10)]
+    .fill(null)
+    .map((_, index) => index - RANGE + currentPage)
+    .filter((index) => index > 0 && index <= maxPages)
+    .filter((index) => index >= currentPage - RANGE && index <= currentPage + RANGE)
+    .filter((index, _, self) => {
+      if (self.length <= 5) return true
+      const diff = RANGE - 1
+      return index >= currentPage - diff && index <= currentPage + diff
+    })
+    .filter((index, _, self) => {
+      if (self.length <= 5) return true
+      const diff = RANGE - 2
+      return index >= currentPage - diff && index <= currentPage + diff
+    })
 
   return {
     enablePrev,
