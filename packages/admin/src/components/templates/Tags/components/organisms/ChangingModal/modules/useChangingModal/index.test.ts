@@ -9,10 +9,8 @@ import { originTags } from "./testData"
 // main
 const props = {
   originTags,
-  /* eslint-disable no-console */
-  handleUpdateTagsMain: () => console.log("handleUpdateTagsMain"),
-  handleHideChangingModal: () => console.log("handleHideChangingModal"),
-  /* eslint-enable no-console */
+  handleUpdateTagsMain: jest.fn(),
+  handleHideChangingModal: jest.fn(),
 }
 
 describe("useChangingModal", () => {
@@ -72,5 +70,12 @@ describe("useChangingModal", () => {
     })
     act(() => result.current.handleChangeRelease("1")())
     expect(result.current.isReleaseAll).toEqual(false)
+  })
+
+  it("handleUpdateTags を実行すると、 handleUpdateTagsMain, handleHideChangingModal が実行される", () => {
+    const { result } = renderHook(() => useChangingModal(props))
+    act(() => result.current.handleUpdateTags())
+    expect(props.handleUpdateTagsMain.mock.calls.length).toEqual(1)
+    expect(props.handleHideChangingModal.mock.calls.length).toEqual(1)
   })
 })
