@@ -1,6 +1,6 @@
 // import node_modules
 import { NullableDate } from "shared-items/dist/client"
-import { addDays, subDays } from "date-fns"
+import { isBefore, isAfter, isEqual, startOfDay, addDays } from "date-fns"
 
 // import others
 import { TagsTableRecordStates } from "@@/components/templates/Tags/components/molecules/TagsTableRecord/types"
@@ -23,11 +23,14 @@ export const filterByDate: FilterByDate = (props) => {
   const filterByDateMain: FilterByDateMain = (tag) => {
     if (isNotFilter) return true
 
-    const startDate = subDays(start || startInitDate, 0)
-    const endDate = addDays(end || endInitDate, 0)
+    const startDate = startOfDay(start || new Date(startInitDate))
+    const endDate = addDays(startOfDay(end || new Date(endInitDate)), 1)
     const target = new Date(tag[targetType])
+    const isBeforeOrEqual =
+      isBefore(startDate, target) || isEqual(startDate, target)
+    const isAfterOrEqual = isAfter(endDate, target) || isAfter(endDate, target)
 
-    return startDate <= target && target <= endDate
+    return isBeforeOrEqual && isAfterOrEqual
   }
   return filterByDateMain
 }
