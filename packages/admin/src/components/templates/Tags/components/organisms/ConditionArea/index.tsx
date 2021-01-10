@@ -32,7 +32,7 @@ export type ConditionAreaProps = {
   handleResetConditions: EmptyFunction
 }
 
-export const ConditionArea: FC<ConditionAreaProps> = (props) => {
+export const ConditionArea: FC<ConditionAreaProps> = memo((props) => {
   const {
     filterText,
     selectOptions,
@@ -105,7 +105,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
       </StyledButton>
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.div`
   align-items: center;
