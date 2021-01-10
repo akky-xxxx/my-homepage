@@ -13,6 +13,7 @@ import { omit } from "remeda"
 import { SelectOption } from "@@/shared/types/lib"
 import { UseTagList } from "./types"
 import { addIsSelect } from "./modules/addIsSelect"
+import { idName2str } from "./modules/idName2str"
 import { returnIsSelect } from "./modules/returnIsSelect"
 import { tag2option } from "./modules/tag2option"
 import { filterBySelected } from "./modules/filterBySelected"
@@ -50,7 +51,7 @@ export const useTagList: UseTagList = (props) => {
     handleChangeUpdateEndDate,
   } = useTagConditionsResult
 
-  const idNameTags = tags.map(({ tagId, tagName }) => `${tagId}--${tagName}`) // memo 用の補助経数
+  const idNameTags = tags.map(idName2str) // memo 用の補助変数
   const selectedTags = tags.filter(returnIsSelect)
   const selectOptions = useMemo(() => tags.map(tag2option), [...idNameTags])
   const isSelectAll = tags.every(returnIsSelect)
