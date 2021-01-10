@@ -194,4 +194,16 @@ describe("useTagList", () => {
     expect(result.current.updateStartDate).toEqual(null)
     expect(result.current.updateEndDate).toEqual(null)
   })
+
+  describe("pagination 関連", () => {
+    it("currentPage の初期値は 1", () => {
+      const { result } = renderHook(() => useTagList(props))
+      expect(result.current.currentPage).toEqual(1)
+    })
+    it("handleClickPagination を実行すると引数の値が currentPage に格納される", () => {
+      const { result } = renderHook(() => useTagList(props))
+      act(() => result.current.handleClickPagination(3))
+      expect(result.current.currentPage).toEqual(3)
+    })
+  })
 })

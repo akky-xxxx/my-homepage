@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC, Fragment } from "react"
+import React, { FC, Fragment, memo } from "react"
 import { Button, Margin } from "shared-items/dist/client"
 import styled from "styled-components"
 
@@ -10,7 +10,7 @@ import { usePagination } from "./modules/usePagination"
 // main
 const { MARGIN10 } = Margin
 
-export const Pagination: FC<PaginationProps> = (props) => {
+export const Pagination: FC<PaginationProps> = memo((props) => {
   const { maxPages, currentPage, handleClickPagination } = props
   const {
     enablePrev,
@@ -74,7 +74,7 @@ export const Pagination: FC<PaginationProps> = (props) => {
       )}
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.div`
   display: inline-flex;

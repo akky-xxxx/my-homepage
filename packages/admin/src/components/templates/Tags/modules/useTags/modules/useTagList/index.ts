@@ -1,5 +1,11 @@
 // import node_modules
-import { useState, useEffect, ChangeEventHandler } from "react"
+import {
+  useState,
+  useEffect,
+  ChangeEventHandler,
+  useMemo,
+  useCallback,
+} from "react"
 import { ValueType } from "react-select"
 import { omit } from "remeda"
 
@@ -12,7 +18,6 @@ import { tag2option } from "./modules/tag2option"
 import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 import { filterByDate } from "./modules/filterByDate"
-import { usePagination } from "./modules/usePagination"
 import { useTagConditions } from "./modules/useTagConditions"
 
 // main
@@ -26,7 +31,7 @@ export const useTagList: UseTagList = (props) => {
     handleUpdateTagsMain,
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
-  const [currentPage, handleClickPagination] = usePagination()
+  const [currentPage, handleClickPagination] = useState(1)
   const useTagConditionsResult = useTagConditions(props)
   const {
     selectedOptions,
@@ -43,8 +48,9 @@ export const useTagList: UseTagList = (props) => {
     handleChangeUpdateEndDate,
   } = useTagConditionsResult
 
+  const idNameTags = tags.map(({ tagId, tagName }) => `${tagId}--${tagName}`) // memo 用の補助経数
   const selectedTags = tags.filter(returnIsSelect)
-  const selectOptions = tags.map(tag2option)
+  const selectOptions = useMemo(() => tags.map(tag2option), [...idNameTags])
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
 
@@ -114,11 +120,14 @@ export const useTagList: UseTagList = (props) => {
       })),
     )
 
-  const handleSelectOptions = (values: ValueType<SelectOption, true>) => {
-    if (values === undefined) return
-    handleClickPagination(1)
-    setSelectedOptions(values)
-  }
+  const handleSelectOptions = useCallback(
+    (values: ValueType<SelectOption, true>) => {
+      if (values === undefined) return
+      handleClickPagination(1)
+      setSelectedOptions(values)
+    },
+    [...idNameTags],
+  )
 
   const handleChangeFilterText: ChangeEventHandler<HTMLInputElement> = (
     event,

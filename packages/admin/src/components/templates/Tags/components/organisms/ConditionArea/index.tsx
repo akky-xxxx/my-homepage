@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC, ChangeEventHandler } from "react"
+import React, { FC, ChangeEventHandler, memo } from "react"
 import styled from "styled-components"
 import Select, { OptionsType, ValueType } from "react-select"
 import { EmptyFunction, StringDate } from "shared-items"
@@ -23,8 +23,8 @@ export type ConditionAreaProps = {
   createEndDate: Date | null
   updateStartDate: Date | null
   updateEndDate: Date | null
-  accentCreateDates?: StringDate[]
-  accentUpdateDates?: StringDate[]
+  accentCreateDates: StringDate[]
+  accentUpdateDates: StringDate[]
   handleChangeCreateStartDate: (date: Date | null) => void
   handleChangeCreateEndDate: (date: Date | null) => void
   handleChangeUpdateStartDate: (date: Date | null) => void
@@ -32,7 +32,7 @@ export type ConditionAreaProps = {
   handleResetConditions: EmptyFunction
 }
 
-export const ConditionArea: FC<ConditionAreaProps> = (props) => {
+export const ConditionArea: FC<ConditionAreaProps> = memo((props) => {
   const {
     filterText,
     selectOptions,
@@ -105,7 +105,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
       </StyledButton>
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.div`
   align-items: center;
@@ -126,9 +126,9 @@ const RowWrapper = styled.div`
   }
 `
 
-const StyledSelect = styled(Select)`
+const StyledSelect = memo(styled(Select)`
   flex-grow: 1;
-`
+`)
 
 const StyledButton = styled(Button)`
   margin-left: ${MARGIN25}px;

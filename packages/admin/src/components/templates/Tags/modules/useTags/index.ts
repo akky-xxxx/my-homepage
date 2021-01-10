@@ -1,3 +1,6 @@
+// import node_modules
+import { useMemo } from "react"
+
 // import
 import { UseTags } from "./types"
 import { useTagList } from "./modules/useTagList"
@@ -12,12 +15,20 @@ export const useTags: UseTags = (props) => {
   const useAdditionModalResult = useAdditionModal()
   const useChangingModalResult = useChangingModal()
   const useDeletingModalResult = useDeletingModal()
-  const accentCreatedDates = props.tags
-    .map(({ createdAt }) => createdAt)
-    .map(stringDatetime2stringDate)
-  const accentUpdatedDates = props.tags
-    .map(({ updatedAt }) => updatedAt)
-    .map(stringDatetime2stringDate)
+  const accentCreatedDates = useMemo(
+    () =>
+      props.tags
+        .map(({ createdAt }) => createdAt)
+        .map(stringDatetime2stringDate),
+    [...props.tags],
+  )
+  const accentUpdatedDates = useMemo(
+    () =>
+      props.tags
+        .map(({ updatedAt }) => updatedAt)
+        .map(stringDatetime2stringDate),
+    [...props.tags],
+  )
 
   return {
     ...useTagListResult,
