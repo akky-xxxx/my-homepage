@@ -3,10 +3,9 @@ import { EmptyFunction } from "shared-items"
 
 // import others
 import { PaginationProps } from "../../types"
+import { getItems } from "./modules/getItems"
 
 // main
-const RANGE = 4
-
 type UsePaginationReturn = {
   enablePrev: boolean
   enableNext: boolean
@@ -28,21 +27,7 @@ export const usePagination: UsePagination = (props) => {
   const handleClickNext = () => handleClickPagination(currentPage + 1)
   const handleClickLast = () => handleClickPagination(maxPages)
 
-  const items = [...new Array(10)]
-    .fill(null)
-    .map((_, index) => index - RANGE + currentPage)
-    .filter((index) => index > 0 && index <= maxPages)
-    .filter((index) => index >= currentPage - RANGE && index <= currentPage + RANGE)
-    .filter((index, _, self) => {
-      if (self.length <= 5) return true
-      const diff = RANGE - 1
-      return index >= currentPage - diff && index <= currentPage + diff
-    })
-    .filter((index, _, self) => {
-      if (self.length <= 5) return true
-      const diff = RANGE - 2
-      return index >= currentPage - diff && index <= currentPage + diff
-    })
+  const items = getItems({ maxPages, currentPage })
 
   return {
     enablePrev,
