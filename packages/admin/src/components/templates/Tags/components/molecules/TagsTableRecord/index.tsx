@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC, memo } from "react"
+import React, { FC, memo, useCallback } from "react"
 import {
   Checkbox,
   CheckMark,
@@ -23,14 +23,21 @@ const {
 export const TagsTableRecord: FC<TagsTableRecordProps> = memo((props) => {
   const {
     isSelect,
+    tagId,
     tagName,
     isRelease,
     settingCount,
     createdAt,
     updatedAt,
-    handleClickSelect,
-    handleClickRelease,
+    handleClickSelect: _handleClickSelect,
+    handleClickRelease: _handleClickRelease,
   } = props
+  const handleClickSelect = useCallback(() => _handleClickSelect(tagId), [
+    tagId,
+  ])
+  const handleClickRelease = useCallback(() => _handleClickRelease(tagId), [
+    tagId,
+  ])
 
   return (
     <StyledTr>
