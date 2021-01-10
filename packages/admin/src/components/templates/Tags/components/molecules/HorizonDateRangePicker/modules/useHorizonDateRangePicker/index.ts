@@ -1,6 +1,7 @@
 // import node_modules
 import { format } from "date-fns"
 import { AccentDayClass, DateFns } from "shared-items/dist/client"
+import { useMemo } from "react"
 
 // import others
 import { HorizonDateRangePickerProps } from "../../types"
@@ -25,17 +26,20 @@ type UseHorizonDateRangePicker = (
 
 export const useHorizonDateRangePicker: UseHorizonDateRangePicker = (props) => {
   const { accentDates } = props
-  const dayClassName: DayClassName =
-    accentDates && accentDates.length
-      ? (date) =>
-          accentDates?.some(
-            (accentDate) =>
-              format(new Date(accentDate), DATE_SLASH) ===
-              format(date, DATE_SLASH),
-          )
-            ? AccentDayClass
-            : null
-      : undefined
+  const dayClassName: DayClassName = useMemo(
+    () =>
+      accentDates && accentDates.length
+        ? (date) =>
+            accentDates?.some(
+              (accentDate) =>
+                format(new Date(accentDate), DATE_SLASH) ===
+                format(date, DATE_SLASH),
+            )
+              ? AccentDayClass
+              : null
+        : undefined,
+    [...accentDates],
+  )
 
   return { dayClassName }
 }
