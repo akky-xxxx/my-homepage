@@ -1,5 +1,11 @@
 // import node_modules
-import { useState, useEffect, ChangeEventHandler } from "react"
+import {
+  useState,
+  useEffect,
+  ChangeEventHandler,
+  useMemo,
+  useCallback,
+} from "react"
 import { ValueType } from "react-select"
 import { omit } from "remeda"
 
@@ -42,8 +48,9 @@ export const useTagList: UseTagList = (props) => {
     handleChangeUpdateEndDate,
   } = useTagConditionsResult
 
+  const idNameTags = tags.map(({ tagId, tagName }) => `${tagId}--${tagName}`) // memo 用の補助経数
   const selectedTags = tags.filter(returnIsSelect)
-  const selectOptions = tags.map(tag2option)
+  const selectOptions = useMemo(() => tags.map(tag2option), [...idNameTags])
   const isSelectAll = tags.every(returnIsSelect)
   const isSelectSome = tags.some(returnIsSelect)
 
@@ -113,11 +120,14 @@ export const useTagList: UseTagList = (props) => {
       })),
     )
 
-  const handleSelectOptions = (values: ValueType<SelectOption, true>) => {
-    if (values === undefined) return
-    handleClickPagination(1)
-    setSelectedOptions(values)
-  }
+  const handleSelectOptions = useCallback(
+    (values: ValueType<SelectOption, true>) => {
+      if (values === undefined) return
+      handleClickPagination(1)
+      setSelectedOptions(values)
+    },
+    [...idNameTags],
+  )
 
   const handleChangeFilterText: ChangeEventHandler<HTMLInputElement> = (
     event,

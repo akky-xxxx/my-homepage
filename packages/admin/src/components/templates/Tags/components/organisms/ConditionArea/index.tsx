@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC, ChangeEventHandler } from "react"
+import React, { FC, ChangeEventHandler, memo } from "react"
 import styled from "styled-components"
 import Select, { OptionsType, ValueType } from "react-select"
 import { EmptyFunction, StringDate } from "shared-items"
@@ -126,9 +126,9 @@ const RowWrapper = styled.div`
   }
 `
 
-const StyledSelect = styled(Select)`
+const StyledSelect = memo(styled(Select)`
   flex-grow: 1;
-`
+`)
 
 const StyledButton = styled(Button)`
   margin-left: ${MARGIN25}px;
