@@ -8,7 +8,6 @@ import { TagsTableHeaderProps } from "@@/components/templates/Tags/components/mo
 import { TagsTableRecordStates } from "@@/components/templates/Tags/components/molecules/TagsTableRecord/types"
 import { TagsProps } from "@@/components/templates/Tags/types"
 import { SelectOption } from "@@/shared/types/lib"
-import { Page, HandleClickPagination } from "../modules/usePagination"
 import { UseTagConditions } from "../modules/useTagConditions/types"
 
 // main
@@ -37,12 +36,12 @@ type UseTagListReturn = TagsTableHeaderProps & {
   selectOptions: SelectOption[]
   displayTags: TagsTableRecordStates[]
   maxPages: number
-  currentPage: Page
+  currentPage: number
   handleChangeFilterText: ChangeEventHandler<HTMLInputElement>
   handleClickSelect: HandleClickSelect
   handleClickRelease: HandleClickRelease
   handleSelectOptions: HandleSelectOptions
-  handleClickPagination: HandleClickPagination
+  handleClickPagination: (targetPage: number) => void
   handleResetConditions: EmptyFunction
 } & ConditionTypes
 

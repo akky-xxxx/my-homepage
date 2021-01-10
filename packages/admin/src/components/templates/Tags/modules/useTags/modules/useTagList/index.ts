@@ -12,7 +12,6 @@ import { tag2option } from "./modules/tag2option"
 import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 import { filterByDate } from "./modules/filterByDate"
-import { usePagination } from "./modules/usePagination"
 import { useTagConditions } from "./modules/useTagConditions"
 
 // main
@@ -26,7 +25,7 @@ export const useTagList: UseTagList = (props) => {
     handleUpdateTagsMain,
   } = props
   const [tags, setTags] = useState(originTags.map(addIsSelect))
-  const [currentPage, handleClickPagination] = usePagination()
+  const [currentPage, handleClickPagination] = useState(1)
   const useTagConditionsResult = useTagConditions(props)
   const {
     selectedOptions,
