@@ -23,8 +23,8 @@ export type ConditionAreaProps = {
   createEndDate: Date | null
   updateStartDate: Date | null
   updateEndDate: Date | null
-  accentCreateDates?: StringDate[]
-  accentUpdateDates?: StringDate[]
+  accentCreateDates: StringDate[]
+  accentUpdateDates: StringDate[]
   handleChangeCreateStartDate: (date: Date | null) => void
   handleChangeCreateEndDate: (date: Date | null) => void
   handleChangeUpdateStartDate: (date: Date | null) => void
