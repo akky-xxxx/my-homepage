@@ -3,6 +3,7 @@ import { EmptyFunction } from "shared-items"
 
 // import others
 import { PaginationProps } from "../../types"
+import { getItems } from "./modules/getItems"
 
 // main
 type UsePaginationReturn = {
@@ -26,15 +27,7 @@ export const usePagination: UsePagination = (props) => {
   const handleClickNext = () => handleClickPagination(currentPage + 1)
   const handleClickLast = () => handleClickPagination(maxPages)
 
-  const items = [
-    currentPage - 1 > 0 ? currentPage - 1 : undefined,
-    currentPage,
-    currentPage + 1 <= maxPages ? currentPage + 1 : undefined,
-  ].filter(Boolean) as number[]
-  if (items.length < 3) {
-    if (currentPage - 2 > 0) items.unshift(currentPage - 2)
-    if (currentPage + 2 <= maxPages) items.push(currentPage + 2)
-  }
+  const items = getItems({ maxPages, currentPage })
 
   return {
     enablePrev,
