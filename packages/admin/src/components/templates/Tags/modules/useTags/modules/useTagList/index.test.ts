@@ -1,5 +1,6 @@
 // import node_modules
 import { renderHook, act } from "@testing-library/react-hooks"
+import { createNullArray } from "shared-items"
 
 // import others
 import { ChangeEvent } from "react"
@@ -38,7 +39,7 @@ describe("useTagList", () => {
 
   it("tags の全ての isSelect が true の場合、 isSelectAll は true となる", () => {
     const { result } = renderHook(() => useTagList(props))
-    ;[...new Array(100)].fill(null).forEach((_, index) => {
+    createNullArray(100).forEach((_, index) => {
       act(() => result.current.handleClickSelect(`${index + 1}`))
     })
     expect(result.current.isSelectAll).toEqual(true)

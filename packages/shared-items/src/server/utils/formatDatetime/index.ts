@@ -2,8 +2,7 @@
 import { format } from "date-fns"
 
 // import others
-import { StringDatetime } from "../../../common/types"
-import { DateFns } from "../../../common/const/DateFns"
+import { StringDatetime, DateFns } from "../../../common"
 
 // main
 const {

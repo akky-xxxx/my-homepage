@@ -18,14 +18,11 @@ import { ConditionArea } from "./components/organisms/ConditionArea"
 
 // import others
 import { TagsProps } from "./types"
+import { PAGE_NUMBER_OPTIONS } from "./const"
 import { useTags } from "./modules/useTags"
 
 // main
 const { MARGIN20, MARGIN25 } = Margin
-const pageNumberOptions = [...new Array(10)].fill(null).map((_, index) => {
-  const num = (index + 1) * 10
-  return { value: num, label: `${num} 件` }
-})
 
 export const Tags: FC<TagsProps> = (props) => {
   const {
@@ -113,8 +110,8 @@ export const Tags: FC<TagsProps> = (props) => {
         <StyledDivider />
 
         <PageNumberSelect
-          defaultValue={pageNumberOptions[0]}
-          options={pageNumberOptions}
+          defaultValue={PAGE_NUMBER_OPTIONS[0]}
+          options={PAGE_NUMBER_OPTIONS}
           onChange={handleChangePageNumber}
         />
 
