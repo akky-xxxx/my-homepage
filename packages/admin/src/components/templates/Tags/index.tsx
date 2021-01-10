@@ -1,7 +1,8 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Divider, Margin } from "shared-items/dist/client"
 import styled from "styled-components"
+import Select from "react-select"
 
 // import components
 import { MainContents } from "@@/components/atoms/MainContents"
@@ -21,6 +22,10 @@ import { useTags } from "./modules/useTags"
 
 // main
 const { MARGIN20, MARGIN25 } = Margin
+const pageNumberOptions = [...new Array(10)].fill(null).map((_, index) => {
+  const num = (index + 1) * 10
+  return { value: num, label: `${num} 件` }
+})
 
 export const Tags: FC<TagsProps> = (props) => {
   const {
@@ -66,6 +71,7 @@ export const Tags: FC<TagsProps> = (props) => {
     handleChangeUpdateStartDate,
     handleChangeUpdateEndDate,
     handleResetConditions,
+    handleChangePageNumber,
   } = useTags(props)
 
   return (
@@ -105,6 +111,12 @@ export const Tags: FC<TagsProps> = (props) => {
         />
 
         <StyledDivider />
+
+        <PageNumberSelect
+          defaultValue={pageNumberOptions[0]}
+          options={pageNumberOptions}
+          onChange={handleChangePageNumber}
+        />
 
         <TagsTable
           isSelectAll={isSelectAll}
@@ -157,6 +169,12 @@ const StyledDivider = styled(Divider)`
   margin-bottom: ${MARGIN25}px;
   margin-top: ${MARGIN25}px;
 `
+
+const PageNumberSelect = memo(styled(Select)`
+  margin-bottom: ${MARGIN25}px;
+  margin-left: auto;
+  width: 100px;
+`)
 
 const PaginationWrapper = styled.div`
   margin-top: ${MARGIN20}px;

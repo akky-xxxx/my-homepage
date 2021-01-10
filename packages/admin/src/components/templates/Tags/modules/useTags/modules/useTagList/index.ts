@@ -22,8 +22,6 @@ import { useTagConditions } from "./modules/useTagConditions"
 import { useTagsReducer } from "./modules/useTagsReducer"
 
 // main
-const PAGE_NUMBER = 10
-
 export const useTagList: UseTagList = (props) => {
   const {
     tags: originTags,
@@ -35,6 +33,7 @@ export const useTagList: UseTagList = (props) => {
     tags: originTags.map(addIsSelect),
   })
   const [currentPage, handleClickPagination] = useState(1)
+  const [pageNumber, setPageNumber] = useState(10)
   const useTagConditionsResult = useTagConditions(props)
   const {
     selectedOptions,
@@ -74,10 +73,10 @@ export const useTagList: UseTagList = (props) => {
     .filter(filterByTextMain)
     .filter(filterByCreatedDate)
     .filter(filterByUpdatedDate)
-  const maxPages = Math.ceil(displayTagsBase.length / PAGE_NUMBER)
+  const maxPages = Math.ceil(displayTagsBase.length / pageNumber)
   const slicePosition: [number, number] = [
-    (currentPage - 1) * PAGE_NUMBER,
-    currentPage * PAGE_NUMBER,
+    (currentPage - 1) * pageNumber,
+    currentPage * pageNumber,
   ]
   const displayTags = [...displayTagsBase].slice(...slicePosition)
 
@@ -91,6 +90,10 @@ export const useTagList: UseTagList = (props) => {
       handleGetTags()
     }
   }, [isLoaded])
+
+  const handleChangePageNumber = useCallback((selectedValue: SelectOption) => {
+    setPageNumber(Number(selectedValue.value))
+  }, [])
 
   const handleClickSelect = useCallback((tagId: string) => {
     toggleSelect(tagId)
@@ -153,6 +156,7 @@ export const useTagList: UseTagList = (props) => {
     handleChangeFilterText,
     handleClickPagination,
     handleResetConditions,
+    handleChangePageNumber,
     ...omit(useTagConditionsResult, ["setFilterText", "setSelectedOptions"]),
   }
 

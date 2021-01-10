@@ -43,6 +43,7 @@ type UseTagListReturn = TagsTableHeaderProps & {
   handleSelectOptions: HandleSelectOptions
   handleClickPagination: (targetPage: number) => void
   handleResetConditions: EmptyFunction
+  handleChangePageNumber: (selectedValue: SelectOption) => void
 } & ConditionTypes
 
 type UseTagListProps = Pick<
