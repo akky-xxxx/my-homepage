@@ -38,9 +38,9 @@ describe("useTagList", () => {
 
   it("tags の全ての isSelect が true の場合、 isSelectAll は true となる", () => {
     const { result } = renderHook(() => useTagList(props))
-    act(() => result.current.handleClickSelect("1"))
-    act(() => result.current.handleClickSelect("2"))
-    act(() => result.current.handleClickSelect("3"))
+    ;[...new Array(100)].fill(null).forEach((_, index) => {
+      act(() => result.current.handleClickSelect(`${index + 1}`))
+    })
     expect(result.current.isSelectAll).toEqual(true)
   })
 
@@ -200,10 +200,24 @@ describe("useTagList", () => {
       const { result } = renderHook(() => useTagList(props))
       expect(result.current.currentPage).toEqual(1)
     })
+
     it("handleClickPagination を実行すると引数の値が currentPage に格納される", () => {
       const { result } = renderHook(() => useTagList(props))
       act(() => result.current.handleClickPagination(3))
       expect(result.current.currentPage).toEqual(3)
+    })
+
+    it("初期表示数は 10", () => {
+      const { result } = renderHook(() => useTagList(props))
+      expect(result.current.displayTags.length).toEqual(10)
+    })
+
+    it("handleChangePageNumber を実行したら arg.value の値が表示数になる", () => {
+      const { result } = renderHook(() => useTagList(props))
+      act(() =>
+        result.current.handleChangePageNumber({ label: "20 件", value: "20" }),
+      )
+      expect(result.current.displayTags.length).toEqual(20)
     })
   })
 })
