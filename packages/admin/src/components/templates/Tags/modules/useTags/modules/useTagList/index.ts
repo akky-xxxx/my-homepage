@@ -4,6 +4,7 @@ import {
   useEffect,
   useMemo,
   useCallback,
+  useReducer,
   ChangeEventHandler,
 } from "react"
 import { ValueType } from "react-select"
@@ -19,9 +20,11 @@ import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 import { filterByDate } from "./modules/filterByDate"
 import { useTagConditions } from "./modules/useTagConditions"
+import { tagsReducer, ActionTypes } from "./modules/tagsReducer"
 
 // main
 const PAGE_NUMBER = 10
+const { TOGGLE_SELECT, TOGGLE_ALL_SELECT, UPDATE_TAGS } = ActionTypes
 
 export const useTagList: UseTagList = (props) => {
   const {
@@ -30,7 +33,10 @@ export const useTagList: UseTagList = (props) => {
     handleGetTags,
     handleUpdateTagsMain,
   } = props
-  const [tags, setTags] = useState(originTags.map(addIsSelect))
+  const [tags, tagsDispatch] = useReducer(
+    tagsReducer,
+    originTags.map(addIsSelect),
+  )
   const [currentPage, handleClickPagination] = useState(1)
   const useTagConditionsResult = useTagConditions(props)
   const {
@@ -79,7 +85,10 @@ export const useTagList: UseTagList = (props) => {
   const displayTags = [...displayTagsBase].slice(...slicePosition)
 
   useEffect(() => {
-    setTags(originTags.map(addIsSelect))
+    tagsDispatch({
+      type: UPDATE_TAGS,
+      payload: { newTags: originTags.map(addIsSelect) },
+    })
     setSelectedOptions(null)
   }, [originTags])
 
@@ -89,19 +98,11 @@ export const useTagList: UseTagList = (props) => {
     }
   }, [isLoaded])
 
-  const handleClickSelect = (tagId: string) => {
-    setTags(
-      tags.map((tag) => {
-        if (tag.tagId !== tagId) return tag
-        return {
-          ...tag,
-          isSelect: !tag.isSelect,
-        }
-      }),
-    )
-  }
+  const handleClickSelect = useCallback((tagId: string) => {
+    tagsDispatch({ type: TOGGLE_SELECT, payload: { tagId } })
+  }, [])
 
-  const handleClickRelease = (tagId: string) => {
+  const handleClickRelease = useCallback((tagId: string) => {
     const targetTag = tags.find((tag) => tag.tagId === tagId)
     if (!targetTag) return
     handleUpdateTagsMain([
@@ -110,15 +111,12 @@ export const useTagList: UseTagList = (props) => {
         isRelease: !targetTag.isRelease,
       },
     ])
-  }
+  }, [])
 
-  const handleClickSelectAll = () =>
-    setTags(
-      tags.map((tag) => ({
-        ...tag,
-        isSelect: !isSelectAll,
-      })),
-    )
+  const handleClickSelectAll = useCallback(
+    () => tagsDispatch({ type: TOGGLE_ALL_SELECT, payload: { isSelectAll } }),
+    [isSelectAll],
+  )
 
   const handleSelectOptions = useCallback(
     (values: ValueType<SelectOption, true>) => {
