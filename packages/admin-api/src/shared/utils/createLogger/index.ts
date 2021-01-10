@@ -1,5 +1,5 @@
 // import node_modules
-import { createLoggerBase } from "shared-items"
+import { createLoggerBase } from "shared-items/dist/server"
 
 // import others
 import { Common } from "@@/shared/const/Common"
