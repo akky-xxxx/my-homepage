@@ -4,7 +4,6 @@ import {
   useEffect,
   useMemo,
   useCallback,
-  useReducer,
   ChangeEventHandler,
 } from "react"
 import { ValueType } from "react-select"
@@ -20,11 +19,10 @@ import { filterBySelected } from "./modules/filterBySelected"
 import { filterByText } from "./modules/filterByText"
 import { filterByDate } from "./modules/filterByDate"
 import { useTagConditions } from "./modules/useTagConditions"
-import { tagsReducer, ActionTypes } from "./modules/tagsReducer"
+import { useTagsReducer } from "./modules/useTagsReducer"
 
 // main
 const PAGE_NUMBER = 10
-const { TOGGLE_SELECT, TOGGLE_ALL_SELECT, UPDATE_TAGS } = ActionTypes
 
 export const useTagList: UseTagList = (props) => {
   const {
@@ -33,10 +31,9 @@ export const useTagList: UseTagList = (props) => {
     handleGetTags,
     handleUpdateTagsMain,
   } = props
-  const [tags, tagsDispatch] = useReducer(
-    tagsReducer,
-    originTags.map(addIsSelect),
-  )
+  const { tags, updateTags, toggleSelect, toggleAllSelect } = useTagsReducer({
+    tags: originTags.map(addIsSelect),
+  })
   const [currentPage, handleClickPagination] = useState(1)
   const useTagConditionsResult = useTagConditions(props)
   const {
@@ -85,10 +82,7 @@ export const useTagList: UseTagList = (props) => {
   const displayTags = [...displayTagsBase].slice(...slicePosition)
 
   useEffect(() => {
-    tagsDispatch({
-      type: UPDATE_TAGS,
-      payload: { newTags: originTags.map(addIsSelect) },
-    })
+    updateTags(originTags.map(addIsSelect))
     setSelectedOptions(null)
   }, [originTags])
 
@@ -99,7 +93,7 @@ export const useTagList: UseTagList = (props) => {
   }, [isLoaded])
 
   const handleClickSelect = useCallback((tagId: string) => {
-    tagsDispatch({ type: TOGGLE_SELECT, payload: { tagId } })
+    toggleSelect(tagId)
   }, [])
 
   const handleClickRelease = useCallback((tagId: string) => {
@@ -113,10 +107,9 @@ export const useTagList: UseTagList = (props) => {
     ])
   }, [])
 
-  const handleClickSelectAll = useCallback(
-    () => tagsDispatch({ type: TOGGLE_ALL_SELECT, payload: { isSelectAll } }),
-    [isSelectAll],
-  )
+  const handleClickSelectAll = useCallback(() => toggleAllSelect(isSelectAll), [
+    isSelectAll,
+  ])
 
   const handleSelectOptions = useCallback(
     (values: ValueType<SelectOption, true>) => {

@@ -1,19 +1,12 @@
-// import
+// import node_modules
 import { Reducer } from "react"
 import { AnyAction } from "@reduxjs/toolkit"
 
-// import
+// import others
 import { TagsTableRecordStates } from "@@/components/templates/Tags/components/molecules/TagsTableRecord/types"
+import { TOGGLE_SELECT, TOGGLE_ALL_SELECT, UPDATE_TAGS } from "../ActionTypes"
 
 // main
-export const ActionTypes = {
-  TOGGLE_SELECT: "toggleSelect",
-  TOGGLE_ALL_SELECT: "toggleAllSelect",
-  UPDATE_TAGS: "updateTags",
-} as const
-
-const { TOGGLE_SELECT, TOGGLE_ALL_SELECT, UPDATE_TAGS } = ActionTypes
-
 export const tagsReducer: Reducer<TagsTableRecordStates[], AnyAction> = (
   tagsStates,
   action,
