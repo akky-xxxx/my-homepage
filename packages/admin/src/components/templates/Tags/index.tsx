@@ -1,5 +1,6 @@
 // import node_modules
 import React, { FC, memo } from "react"
+import { createNullArray } from "shared-items"
 import { Divider, Margin } from "shared-items/dist/client"
 import styled from "styled-components"
 import Select from "react-select"
@@ -22,7 +23,7 @@ import { useTags } from "./modules/useTags"
 
 // main
 const { MARGIN20, MARGIN25 } = Margin
-const pageNumberOptions = [...new Array(10)].fill(null).map((_, index) => {
+const pageNumberOptions = createNullArray(10).map((_, index) => {
   const num = (index + 1) * 10
   return { value: num, label: `${num} 件` }
 })

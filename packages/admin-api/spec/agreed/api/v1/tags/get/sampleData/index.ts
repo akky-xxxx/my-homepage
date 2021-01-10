@@ -1,9 +1,12 @@
-// import
+// import node_modules
+import { createNullArray } from "shared-items"
+
+// import others
 import { Tag } from "@@/shared/types/api/v1/tags"
 
 // main
 const createSampleTags = (): Tag[] =>
-  [...new Array(100)].map((_, index) => {
+  createNullArray(100).map((_, index) => {
     const tagId = `${index + 1}`
     return {
       tagId,

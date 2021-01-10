@@ -1,10 +1,11 @@
 // import
+import { createNullArray } from "shared-items"
 import { PaginationProps } from "../../../../types"
 
 // main
 const RANGE = 4
 
-type MapCallback = (_: undefined, index: number) => number
+type MapCallback = (_: null, index: number) => number
 type FilterCallback = (value: number, index: number, self: number[]) => boolean
 
 type GetItemsProps = Omit<PaginationProps, "handleClickPagination">
@@ -27,8 +28,7 @@ export const getItems: GetItems = (props) => {
     return index >= currentPage - diff && index <= currentPage + diff
   }
 
-  return [...new Array(10)]
-    .fill(null)
+  return createNullArray(10)
     .map(assignNumber)
     .filter(isOutOfPages)
     .filter(isOutOfDisplay1)
