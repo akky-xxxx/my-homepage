@@ -2,9 +2,9 @@
 import {
   useState,
   useEffect,
-  ChangeEventHandler,
   useMemo,
   useCallback,
+  ChangeEventHandler,
 } from "react"
 import { ValueType } from "react-select"
 import { omit } from "remeda"
