@@ -13,8 +13,8 @@ export type TagsTableRecordStates = {
 }
 
 export type TagsTableRecordHandlers = {
-  handleClickSelect: () => void
-  handleClickRelease: () => void
+  handleClickSelect: (tagId: string) => void
+  handleClickRelease: (tagId: string) => void
 }
 
 export type TagsTableRecordProps = TagsTableRecordStates &

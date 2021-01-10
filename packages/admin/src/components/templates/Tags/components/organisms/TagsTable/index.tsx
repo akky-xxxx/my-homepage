@@ -15,8 +15,8 @@ export const TagsTable: FC<TagsTableProps> = (props) => {
     isSelectAll,
     tags,
     handleClickSelectAll,
-    handleClickRelease: _handleClickRelease,
-    handleClickSelect: _handleClickSelect,
+    handleClickRelease,
+    handleClickSelect,
   } = props
 
   return (
@@ -29,8 +29,6 @@ export const TagsTable: FC<TagsTableProps> = (props) => {
       <tbody>
         {tags.map((tag) => {
           const { tagId } = tag
-          const handleClickRelease = () => _handleClickRelease(tagId)
-          const handleClickSelect = () => _handleClickSelect(tagId)
 
           return (
             <TagsTableRecord
