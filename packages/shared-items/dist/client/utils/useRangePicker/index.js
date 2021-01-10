@@ -21,12 +21,12 @@ var react_1 = require("react");
 var useRangePicker = function () {
     var _a = __read(react_1.useState(null), 2), startDate = _a[0], setStartDate = _a[1];
     var _b = __read(react_1.useState(null), 2), endDate = _b[0], setEndDate = _b[1];
-    var handleChangeStartDate = function (date) {
+    var handleChangeStartDate = react_1.useMemo(function () { return function (date) {
         setStartDate(date);
-    };
-    var handleChangeEndDate = function (date) {
+    }; }, []);
+    var handleChangeEndDate = react_1.useMemo(function () { return function (date) {
         setEndDate(date);
-    };
+    }; }, []);
     return [
         [startDate, handleChangeStartDate],
         [endDate, handleChangeEndDate],
