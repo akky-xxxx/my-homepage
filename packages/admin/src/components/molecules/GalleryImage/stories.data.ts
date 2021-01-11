@@ -1,8 +1,11 @@
 // import node_modules
 import { createNullArray } from "shared-items"
 
+// import others
+import { GalleryImageProps } from "./types"
+
 // main
-export const prefectures = [
+export const prefectures: GalleryImageProps["prefectures"] = [
   {
     value: "00",
     label: "その他",
@@ -20,7 +23,7 @@ export const prefectures = [
   }),
 ]
 
-export const tags = [
+export const tags: GalleryImageProps["tags"] = [
   ...createNullArray(10).map((_, index) => {
     const id = String(index).padStart(2, "0")
     return {

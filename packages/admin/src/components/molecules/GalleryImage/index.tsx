@@ -1,10 +1,9 @@
 // import node_modules
 import React, { FC, memo, useCallback } from "react"
 import styled from "styled-components"
-import Select, { ValueType } from "react-select"
+import Select from "react-select"
 import ReactDatePicker from "react-datepicker"
 import { format } from "date-fns"
-import { StringDate } from "shared-items"
 import {
   Color,
   Margin,
@@ -18,7 +17,7 @@ import {
 import { Input } from "@@/components/atoms/Input"
 
 // import others
-import { SelectOption } from "@@/shared/types/lib"
+import { GalleryImageProps } from "./types"
 
 // main
 const {
@@ -30,23 +29,6 @@ const {
 } = Font
 const { MARGIN10 } = Margin
 export const ITEM_WIDTH = 350
-
-export type GalleryImageProps = {
-  imageId: string
-  imagePath: string
-  prefectures: SelectOption[]
-  selectedPrefecture: SelectOption | null
-  tags: SelectOption[]
-  selectedTags: SelectOption[]
-  photographAt: StringDate | null
-  createdAt: StringDate | null
-  updatedAt: StringDate | null
-  handleClickPrimary: (imageId: string) => void
-  handleClickRemove: (imageId: string) => void
-  handleSelectPhotographAt: (date: Date | null) => void
-  handleSelectPrefecture: (prefecture: ValueType<SelectOption, false>) => void
-  handleSelectTags: (tags: ValueType<SelectOption, true>) => void
-}
 
 export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
   const {

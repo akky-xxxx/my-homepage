@@ -2,8 +2,9 @@
 import React from "react"
 import { Meta, Story } from "@storybook/react"
 
-// import components
-import { GalleryImage, GalleryImageProps } from "./index"
+// import others
+import { GalleryImage } from "./index"
+import { GalleryImageProps } from "./types"
 import { prefectures, tags } from "./stories.data"
 
 // main
