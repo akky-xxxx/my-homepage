@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC, memo, useCallback } from "react"
+import React, { FC, memo } from "react"
 import styled from "styled-components"
 import Select from "react-select"
 import ReactDatePicker from "react-datepicker"
@@ -18,6 +18,7 @@ import { Input } from "@@/components/atoms/Input"
 
 // import others
 import { GalleryImageProps } from "./types"
+import { useGalleryImage } from "./modules/useGalleryImage"
 
 // main
 const {
@@ -32,7 +33,6 @@ export const ITEM_WIDTH = 350
 
 export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
   const {
-    imageId,
     imagePath,
     prefectures,
     selectedPrefecture,
@@ -41,20 +41,11 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
     photographAt,
     createdAt,
     updatedAt,
-    handleClickPrimary: _handleClickPrimary,
-    handleClickRemove: _handleClickRemove,
     handleSelectPhotographAt,
     handleSelectPrefecture,
     handleSelectTags,
   } = props
-
-  const handleClickPrimary = useCallback(() => _handleClickPrimary(imageId), [
-    imageId,
-  ])
-
-  const handleClickRemove = useCallback(() => _handleClickRemove(imageId), [
-    imageId,
-  ])
+  const { handleClickPrimary, handleClickRemove } = useGalleryImage(props)
 
   return (
     <Wrapper>
