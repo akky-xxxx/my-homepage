@@ -52,26 +52,24 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
       <Image src={imagePath} alt="" width={ITEM_WIDTH} />
 
       <ImageInfo>
-        <InfoWrapper>
-          <TwoContents>
-            <Select
-              value={selectedPrefecture}
-              options={prefectures}
-              placeholder="都道府県"
-              onChange={handleSelectPrefecture}
-            />
+        <TwoContents>
+          <Select
+            value={selectedPrefecture}
+            options={prefectures}
+            placeholder="都道府県"
+            onChange={handleSelectPrefecture}
+          />
 
-            <ReactDatePicker
-              selected={photographAt ? new Date(photographAt) : undefined}
-              onChange={handleSelectPhotographAt}
-              dateFormat="yyyy/MM/dd"
-              placeholderText="撮影日"
-              calendarContainer={PickerWrapper}
-              customInput={<PhotographAtInput />}
-              isClearable
-            />
-          </TwoContents>
-        </InfoWrapper>
+          <ReactDatePicker
+            selected={photographAt ? new Date(photographAt) : undefined}
+            onChange={handleSelectPhotographAt}
+            dateFormat="yyyy/MM/dd"
+            placeholderText="撮影日"
+            calendarContainer={PickerWrapper}
+            customInput={<PhotographAtInput />}
+            isClearable
+          />
+        </TwoContents>
 
         <InfoWrapper>
           <Select
@@ -106,8 +104,6 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
 })
 
 const Wrapper = styled.li`
-  background-color: ${COLOR_FFFFFF};
-  border-radius: 0 0 4px 4px;
   list-style: none;
   width: ${ITEM_WIDTH}px;
 `
@@ -126,9 +122,9 @@ const Image = styled.img`
 `
 
 const ImageInfo = styled.div`
-  padding-bottom: ${MARGIN10}px;
-  padding-left: ${MARGIN10}px;
-  padding-right: ${MARGIN10}px;
+  background-color: ${COLOR_FFFFFF};
+  border-radius: 0 0 4px 4px;
+  padding: ${MARGIN10}px;
 `
 
 const Dates = styled.div`
