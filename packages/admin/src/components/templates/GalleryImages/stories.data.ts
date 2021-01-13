@@ -5,8 +5,7 @@ import { createNullArray } from "shared-items"
 import { GalleryImagesProps } from "./types"
 
 // main
-type Condition = GalleryImagesProps["condition"]
-const prefectures: Condition["prefectures"] = [
+const prefectures: GalleryImagesProps["prefectures"] = [
   {
     value: "00",
     label: "その他",
@@ -20,7 +19,7 @@ const prefectures: Condition["prefectures"] = [
   }),
 ]
 
-const tags: Condition["tags"] = [
+const tags: GalleryImagesProps["tags"] = [
   ...createNullArray(10).map((_, index) => {
     const id = String(index).padStart(2, "0")
     return {
@@ -29,11 +28,6 @@ const tags: Condition["tags"] = [
     }
   }),
 ]
-
-const condition: Condition = {
-  prefectures,
-  tags,
-}
 
 const images: GalleryImagesProps["images"] = createNullArray(10).map(
   (_, index) => {
@@ -60,5 +54,6 @@ const images: GalleryImagesProps["images"] = createNullArray(10).map(
 
 export const galleryImagesProps: GalleryImagesProps = {
   images,
-  condition,
+  prefectures,
+  tags,
 }

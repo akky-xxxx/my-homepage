@@ -3,10 +3,11 @@ import { UseGalleryImages } from "./types"
 
 // main
 export const useGalleryImages: UseGalleryImages = (props) => {
-  const { condition: _condition, images: _images } = props
+  const { images: _images, prefectures, tags } = props
 
   const condition = {
-    ..._condition,
+    prefectures,
+    tags,
     selectedPrefecture: null,
     accentDates: [],
     selectedTags: [],
@@ -25,6 +26,8 @@ export const useGalleryImages: UseGalleryImages = (props) => {
 
   const images = _images.map((image) => ({
     ...image,
+    prefectures,
+    tags,
   }))
 
   const imagesHandlers = {
