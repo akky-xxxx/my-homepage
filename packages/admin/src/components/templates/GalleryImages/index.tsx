@@ -16,7 +16,7 @@ import { useGalleryImages } from "./modules/useGalleryImages"
 // main
 const { MARGIN25 } = Margin
 export const GalleryImages: FC<GalleryImagesProps> = (props) => {
-  const { condition, images } = useGalleryImages(props)
+  const { condition, images, imagesHandlers } = useGalleryImages(props)
 
   return (
     <div>
@@ -33,7 +33,7 @@ export const GalleryImages: FC<GalleryImagesProps> = (props) => {
 
         <StyledDivider />
 
-        <Images images={images} />
+        <Images images={images} {...imagesHandlers} />
       </MainContents>
     </div>
   )
