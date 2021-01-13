@@ -3,7 +3,17 @@ import { GalleryImagesProps as ImagesProps } from "@@/components/organisms/Galle
 import { ConditionAreaProps } from "../components/organisms/ConditionArea/types"
 
 // main
+type Image = Omit<
+  ImagesProps["images"][number],
+  | "handleClickPrimary"
+  | "handleClickRemove"
+  | "handleSelectPhotographAt"
+  | "handleSelectPrefecture"
+  | "handleSelectTags"
+>
+type Condition = Pick<ConditionAreaProps, "prefectures" | "tags">
+
 export type GalleryImagesProps = {
-  images: ImagesProps["images"]
-  condition: ConditionAreaProps
+  images: Image[]
+  condition: Condition
 }
