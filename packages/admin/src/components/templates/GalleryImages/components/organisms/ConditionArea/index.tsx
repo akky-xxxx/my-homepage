@@ -63,8 +63,8 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
           </FieldWrapper>
 
           <FieldWrapper>
-            撮影日：
             <HorizonDateRangePicker
+              targetName="撮影日"
               startDate={photographAtStart ? new Date(photographAtStart) : null}
               endDate={photographAtEnd ? new Date(photographAtEnd) : null}
               accentDates={accentDatesOfPhotographAt}
@@ -76,8 +76,8 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
 
         <RowWrapper>
           <FieldWrapper>
-            登録日：
             <HorizonDateRangePicker
+              targetName="登録日"
               startDate={createdAtStart ? new Date(createdAtStart) : null}
               endDate={createdAtEnd ? new Date(createdAtEnd) : null}
               accentDates={accentDatesOfCreatedAt}
@@ -87,8 +87,8 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
           </FieldWrapper>
 
           <FieldWrapper>
-            変更日：
             <HorizonDateRangePicker
+              targetName="変更日"
               startDate={updatedAtStart ? new Date(updatedAtStart) : null}
               endDate={updatedAtEnd ? new Date(updatedAtEnd) : null}
               accentDates={accentDatesOfUpdatedAt}
