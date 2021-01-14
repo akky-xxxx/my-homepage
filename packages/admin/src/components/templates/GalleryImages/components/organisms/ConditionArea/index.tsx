@@ -41,22 +41,23 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
       </FieldWrapper>
 
       <FieldWrapper>
-        <HorizonDateRangePicker
-          startDate={photographAtStart ? new Date(photographAtStart) : null}
-          endDate={photographAtEnd ? new Date(photographAtEnd) : null}
-          accentDates={accentDates}
-          handleChangeStartDate={handleSelectPhotographAtStart}
-          handleChangeEndDate={handleSelectPhotographAtEnd}
-        />
-      </FieldWrapper>
-
-      <FieldWrapper>
         <StyledSelect
           options={tags}
           value={selectedTags}
           placeholder="タグを選択"
           onChange={handleSelectTags}
           isMulti
+        />
+      </FieldWrapper>
+
+      <FieldWrapper>
+        撮影日：
+        <HorizonDateRangePicker
+          startDate={photographAtStart ? new Date(photographAtStart) : null}
+          endDate={photographAtEnd ? new Date(photographAtEnd) : null}
+          accentDates={accentDates}
+          handleChangeStartDate={handleSelectPhotographAtStart}
+          handleChangeEndDate={handleSelectPhotographAtEnd}
         />
       </FieldWrapper>
 
