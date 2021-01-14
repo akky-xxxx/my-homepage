@@ -33,6 +33,10 @@ export const conditionAreaProps: Omit<
   ConditionAreaProps,
   | "handleSelectPhotographAtStart"
   | "handleSelectPhotographAtEnd"
+  | "handleSelectCreatedAtStart"
+  | "handleSelectCreatedAtEnd"
+  | "handleSelectUpdatedAtStart"
+  | "handleSelectUpdatedAtEnd"
   | "handleSelectPrefecture"
   | "handleSelectTags"
   | "handleResetConditions"
@@ -43,5 +47,9 @@ export const conditionAreaProps: Omit<
   selectedTags: [],
   photographAtStart: null,
   photographAtEnd: null,
+  createdAtStart: null,
+  createdAtEnd: null,
+  updatedAtStart: null,
+  updatedAtEnd: null,
   accentDates: [],
 }
