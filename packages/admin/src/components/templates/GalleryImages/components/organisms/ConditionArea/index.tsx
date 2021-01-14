@@ -52,15 +52,15 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             />
           </FieldWrapper>
 
-          <FieldWrapper>
-            <StyledSelect
+          <TagsSelectWrapper>
+            <Select
               options={tags}
               value={selectedTags}
               placeholder="タグを選択"
               onChange={handleSelectTags}
               isMulti
             />
-          </FieldWrapper>
+          </TagsSelectWrapper>
         </RowWrapper>
 
         <RowWrapper>
@@ -116,6 +116,7 @@ const Wrapper = styled.div`
 
 const ConditionWrapper = styled.div`
   flex-grow: 1;
+  margin-right: ${MARGIN20}px;
 `
 
 const RowWrapper = styled.div`
@@ -138,6 +139,11 @@ const fieldWidth = css`
 
 const StyledSelect = styled(Select)`
   ${fieldWidth};
+`
+
+const TagsSelectWrapper = styled.div`
+  flex-grow: 1;
+  margin-left: ${MARGIN20}px;
 `
 
 const ButtonWrapper = styled.div`
