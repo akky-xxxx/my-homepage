@@ -61,7 +61,9 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
               isMulti
             />
           </FieldWrapper>
+        </RowWrapper>
 
+        <RowWrapper>
           <FieldWrapper>
             <HorizonDateRangePicker
               targetName="撮影日"
@@ -72,9 +74,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
               handleChangeEndDate={handleSelectPhotographAtEnd}
             />
           </FieldWrapper>
-        </RowWrapper>
 
-        <RowWrapper>
           <FieldWrapper>
             <HorizonDateRangePicker
               targetName="登録日"
