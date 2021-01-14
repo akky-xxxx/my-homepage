@@ -20,7 +20,11 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = memo(
       handleChangeStartDate,
       handleChangeEndDate,
     } = props
-    const { dayClassName } = useHorizonDateRangePicker(props)
+    const {
+      dayClassName,
+      startTargetName,
+      endTargetName,
+    } = useHorizonDateRangePicker(props)
 
     return (
       <Wrapper>
@@ -34,7 +38,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = memo(
           maxDate={new Date()}
           selectsStart
           dateFormat="yyyy/MM/dd"
-          placeholderText="from"
+          placeholderText={startTargetName}
           dayClassName={dayClassName}
           isClearable
         />
@@ -50,7 +54,7 @@ export const HorizonDateRangePicker: FC<HorizonDateRangePickerProps> = memo(
           maxDate={new Date()}
           selectsEnd
           dateFormat="yyyy/MM/dd"
-          placeholderText="to"
+          placeholderText={endTargetName}
           dayClassName={dayClassName}
           isClearable
         />
