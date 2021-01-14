@@ -31,12 +31,19 @@ type RangeHandlers = Record<
   (date: Date | null) => void
 >
 
+type AccentDates = Record<
+  | "accentDatesOfPhotographAt"
+  | "accentDatesOfCreatedAt"
+  | "accentDatesOfUpdatedAt",
+  StringDate[]
+>
+
 export type ConditionAreaProps = {
   selectedPrefecture: SelectOption | null
-  accentDates: StringDate[]
   handleSelectPrefecture: (prefecture: ValueType<SelectOption, false>) => void
   handleSelectTags: (tags: ValueType<SelectOption, true>) => void
   handleResetConditions: EmptyFunction
 } & SelectOptions &
+  AccentDates &
   RangeValues &
   RangeHandlers

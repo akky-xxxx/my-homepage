@@ -51,5 +51,7 @@ export const conditionAreaProps: Omit<
   createdAtEnd: null,
   updatedAtStart: null,
   updatedAtEnd: null,
-  accentDates: [],
+  accentDatesOfPhotographAt: [],
+  accentDatesOfCreatedAt: [],
+  accentDatesOfUpdatedAt: [],
 }

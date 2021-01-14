@@ -23,7 +23,9 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
     createdAtEnd,
     updatedAtStart,
     updatedAtEnd,
-    accentDates,
+    accentDatesOfPhotographAt,
+    accentDatesOfCreatedAt,
+    accentDatesOfUpdatedAt,
     tags,
     selectedTags,
     handleSelectPhotographAtStart,
@@ -65,7 +67,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             <HorizonDateRangePicker
               startDate={photographAtStart ? new Date(photographAtStart) : null}
               endDate={photographAtEnd ? new Date(photographAtEnd) : null}
-              accentDates={accentDates}
+              accentDates={accentDatesOfPhotographAt}
               handleChangeStartDate={handleSelectPhotographAtStart}
               handleChangeEndDate={handleSelectPhotographAtEnd}
             />
@@ -78,7 +80,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             <HorizonDateRangePicker
               startDate={createdAtStart ? new Date(createdAtStart) : null}
               endDate={createdAtEnd ? new Date(createdAtEnd) : null}
-              accentDates={accentDates}
+              accentDates={accentDatesOfCreatedAt}
               handleChangeStartDate={handleSelectCreatedAtStart}
               handleChangeEndDate={handleSelectCreatedAtEnd}
             />
@@ -89,7 +91,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
             <HorizonDateRangePicker
               startDate={updatedAtStart ? new Date(updatedAtStart) : null}
               endDate={updatedAtEnd ? new Date(updatedAtEnd) : null}
-              accentDates={accentDates}
+              accentDates={accentDatesOfUpdatedAt}
               handleChangeStartDate={handleSelectUpdatedAtStart}
               handleChangeEndDate={handleSelectUpdatedAtEnd}
             />
