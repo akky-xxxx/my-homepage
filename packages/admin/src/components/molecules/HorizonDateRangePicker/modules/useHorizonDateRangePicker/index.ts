@@ -28,12 +28,11 @@ type UseHorizonDateRangePicker = (
 
 export const useHorizonDateRangePicker: UseHorizonDateRangePicker = (props) => {
   const { accentDates, targetName } = props
-  const startTargetName = useMemo(
-    () => [targetName, "from"].filter(Boolean).join(" "),
-    [targetName],
-  )
-  const endTargetName = useMemo(
-    () => [targetName, "to"].filter(Boolean).join(" "),
+  const [startTargetName, endTargetName] = useMemo(
+    () => [
+      [targetName, "from"].filter(Boolean).join(" "),
+      [targetName, "to"].filter(Boolean).join(" "),
+    ],
     [targetName],
   )
   const dayClassName: DayClassName = useMemo(
