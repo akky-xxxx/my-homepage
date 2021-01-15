@@ -1,15 +1,12 @@
 // import node_modules
 import { EmptyFunction, StringDate } from "shared-items"
-import { ValueType } from "react-select"
+import { OptionsType, ValueType } from "react-select"
 
 // import others
 import { SelectOption } from "@@/shared/types/lib"
 
 // main
-type SelectOptions = Record<
-  "prefectures" | "tags" | "selectedTags",
-  SelectOption[]
->
+type SelectOptions = Record<"prefectures" | "tags", SelectOption[]>
 
 type RangeValues = Record<
   | "photographAtStart"
@@ -18,7 +15,7 @@ type RangeValues = Record<
   | "updatedAtEnd"
   | "createdAtStart"
   | "createdAtEnd",
-  StringDate | null
+  Date | null
 >
 
 type RangeHandlers = Record<
@@ -40,6 +37,7 @@ type AccentDates = Record<
 
 export type ConditionAreaProps = {
   selectedPrefecture: SelectOption | null
+  selectedTags: OptionsType<SelectOption> | null
   handleSelectPrefecture: (prefecture: ValueType<SelectOption, false>) => void
   handleSelectTags: (tags: ValueType<SelectOption, true>) => void
   handleResetConditions: EmptyFunction
