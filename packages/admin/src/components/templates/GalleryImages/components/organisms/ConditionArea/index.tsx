@@ -58,7 +58,10 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
               value={selectedTags}
               placeholder="タグを選択"
               onChange={handleSelectTags}
+              closeMenuOnSelect={false}
+              isClearable
               isMulti
+              isSearchable
             />
           </TagsSelectWrapper>
         </RowWrapper>
