@@ -2,6 +2,7 @@
 import { useState, useCallback } from "react"
 import { OptionsType, ValueType } from "react-select"
 import { useRangePicker } from "shared-items/dist/client"
+import { createNullArray } from "shared-items"
 
 // import others
 import { SelectOption } from "@@/shared/types/lib"
@@ -19,17 +20,19 @@ export const useCondition: UseCondition = (props) => {
     setSelectedTags,
   ] = useState<OptionsType<SelectOption> | null>(null)
   const [
-    [photographAtStart, handleSelectPhotographAtStart],
-    [photographAtEnd, handleSelectPhotographAtEnd],
-  ] = useRangePicker()
-  const [
-    [createdAtStart, handleSelectCreatedAtStart],
-    [createdAtEnd, handleSelectCreatedAtEnd],
-  ] = useRangePicker()
-  const [
-    [updatedAtStart, handleSelectUpdatedAtStart],
-    [updatedAtEnd, handleSelectUpdatedAtEnd],
-  ] = useRangePicker()
+    [
+      [photographAtStart, handleSelectPhotographAtStart],
+      [photographAtEnd, handleSelectPhotographAtEnd],
+    ],
+    [
+      [createdAtStart, handleSelectCreatedAtStart],
+      [createdAtEnd, handleSelectCreatedAtEnd],
+    ],
+    [
+      [updatedAtStart, handleSelectUpdatedAtStart],
+      [updatedAtEnd, handleSelectUpdatedAtEnd],
+    ],
+  ] = createNullArray(3).map(useRangePicker)
 
   const handleSelectPrefecture = useCallback(
     (prefecture: ValueType<SelectOption, false>) => {
