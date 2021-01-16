@@ -13,8 +13,8 @@ export const useGalleryImages: UseGalleryImages = (props) => {
   const condition = {
     prefectures,
     tags,
-    ...useMemo(() => {
-      return {
+    ...useMemo(
+      () => ({
         accentDatesOfPhotographAt: _images
           .map(({ photographAt }) => photographAt || "")
           .filter(Boolean)
@@ -27,8 +27,9 @@ export const useGalleryImages: UseGalleryImages = (props) => {
           .map(({ updatedAt }) => updatedAt || "")
           .filter(Boolean)
           .map(stringDatetime2stringDate),
-      }
-    }, [...tags]),
+      }),
+      [...tags],
+    ),
     ...useCondition(props),
   }
 
