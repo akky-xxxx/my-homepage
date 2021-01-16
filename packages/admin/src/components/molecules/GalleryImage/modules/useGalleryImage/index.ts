@@ -6,11 +6,11 @@ import { EmptyFunction } from "shared-items"
 import { GalleryImageProps } from "../../types"
 
 // main
-type Handlers = "handleClickPrimary" | "handleClickRemove" | "handleClickRelease"
-type UseGalleryImageProps = Pick<
-  GalleryImageProps,
-  "imageId" | Handlers
->
+type Handlers =
+  | "handleClickPrimary"
+  | "handleClickRemove"
+  | "handleClickRelease"
+type UseGalleryImageProps = Pick<GalleryImageProps, "imageId" | Handlers>
 type UseGalleryImageReturn = Record<Handlers, EmptyFunction>
 type UseGalleryImage = (props: UseGalleryImageProps) => UseGalleryImageReturn
 
