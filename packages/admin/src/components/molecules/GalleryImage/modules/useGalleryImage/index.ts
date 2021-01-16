@@ -6,7 +6,7 @@ import { EmptyFunction } from "shared-items"
 import { GalleryImageProps } from "../../types"
 
 // main
-type Handlers = "handleClickPrimary" | "handleClickRemove"
+type Handlers = "handleClickPrimary" | "handleClickRemove" | "handleClickRelease"
 type UseGalleryImageProps = Pick<
   GalleryImageProps,
   "imageId" | Handlers
@@ -19,6 +19,7 @@ export const useGalleryImage: UseGalleryImage = (props) => {
     imageId,
     handleClickPrimary: _handleClickPrimary,
     handleClickRemove: _handleClickRemove,
+    handleClickRelease: _handleClickRelease,
   } = props
 
   const handleClickPrimary = useCallback(() => _handleClickPrimary(imageId), [
@@ -29,8 +30,13 @@ export const useGalleryImage: UseGalleryImage = (props) => {
     imageId,
   ])
 
+  const handleClickRelease = useCallback(() => _handleClickRelease(imageId), [
+    imageId,
+  ])
+
   return {
     handleClickPrimary,
     handleClickRemove,
+    handleClickRelease,
   }
 }

@@ -36,6 +36,9 @@ const config: Meta<GalleryImageProps> = {
     handleSelectTags: {
       action: "handleSelectTags",
     },
+    handleClickRelease: {
+      action: "handleClickRelease",
+    },
   },
   parameters: {
     backgrounds: {

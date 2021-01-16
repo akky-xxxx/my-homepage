@@ -47,12 +47,16 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
     handleSelectPrefecture,
     handleSelectTags,
   } = props
-  const { handleClickPrimary, handleClickRemove } = useGalleryImage(props)
+  const {
+    handleClickPrimary,
+    handleClickRemove,
+    handleClickRelease,
+  } = useGalleryImage(props)
 
   return (
     <Wrapper>
       <Header>
-        <CheckMark isChecked={isRelease} />
+        <CheckMark isChecked={isRelease} onClick={handleClickRelease} />
 
         {createdAt && updatedAt && (
           <Dates>

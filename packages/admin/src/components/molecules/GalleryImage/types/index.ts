@@ -20,4 +20,5 @@ export type GalleryImageProps = {
   handleSelectPhotographAt: (date: Date | null) => void
   handleSelectPrefecture: (prefecture: ValueType<SelectOption, false>) => void
   handleSelectTags: (tags: ValueType<SelectOption, true>) => void
+  handleClickRelease: (imageId: string) => void
 }
