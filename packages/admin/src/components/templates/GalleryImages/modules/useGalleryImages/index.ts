@@ -1,4 +1,8 @@
+// import node_modules
+import { useMemo } from "react"
+
 // import
+import { stringDatetime2stringDate } from "@@/shared/utils/stringDatetime2stringDate"
 import { UseGalleryImages } from "./types"
 import { useCondition } from "./modules/useCondition"
 
@@ -9,9 +13,22 @@ export const useGalleryImages: UseGalleryImages = (props) => {
   const condition = {
     prefectures,
     tags,
-    accentDatesOfPhotographAt: [],
-    accentDatesOfCreatedAt: [],
-    accentDatesOfUpdatedAt: [],
+    ...useMemo(() => {
+      return {
+        accentDatesOfPhotographAt: _images
+          .map(({ photographAt }) => photographAt || "")
+          .filter(Boolean)
+          .map(stringDatetime2stringDate),
+        accentDatesOfCreatedAt: _images
+          .map(({ createdAt }) => createdAt || "")
+          .filter(Boolean)
+          .map(stringDatetime2stringDate),
+        accentDatesOfUpdatedAt: _images
+          .map(({ updatedAt }) => updatedAt || "")
+          .filter(Boolean)
+          .map(stringDatetime2stringDate),
+      }
+    }, [...tags]),
     ...useCondition(props),
   }
 
