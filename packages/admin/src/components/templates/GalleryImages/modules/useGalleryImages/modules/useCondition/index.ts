@@ -77,14 +77,14 @@ export const useCondition: UseCondition = (props) => {
 
   const handleResetConditions = useCallback(() => {
     setSelectedPrefecture(null)
-    setSelectedTags([])
+    if (selectedTags?.length) setSelectedTags([])
     handleSelectPhotographAtStart(null)
     handleSelectPhotographAtEnd(null)
     handleSelectCreatedAtStart(null)
     handleSelectCreatedAtEnd(null)
     handleSelectUpdatedAtStart(null)
     handleSelectUpdatedAtEnd(null)
-  }, [])
+  }, [selectedTags])
 
   return {
     selectedReleaseStatus,
