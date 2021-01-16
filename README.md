@@ -41,6 +41,7 @@ Refer the node-version or root package.json.
 ## Scripts of root
 | scripts | description |
 | --- | --- |
+|checks | run fix and check-all |
 | check-all | check code on each packages |
 | doc | start documentations on each packages |
 | fix | automatic fix of the root materials |
