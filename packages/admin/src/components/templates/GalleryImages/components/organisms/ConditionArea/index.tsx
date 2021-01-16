@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import styled, { css } from "styled-components"
 import Select from "react-select"
 import { Margin, Button } from "shared-items/dist/client"
@@ -14,7 +14,7 @@ import { ConditionAreaProps } from "./types"
 // main
 const { MARGIN10, MARGIN20 } = Margin
 
-export const ConditionArea: FC<ConditionAreaProps> = (props) => {
+export const ConditionArea: FC<ConditionAreaProps> = memo((props) => {
   const {
     prefectures,
     selectedReleaseStatus,
@@ -66,7 +66,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
           </FieldWrapper>
 
           <TagsSelectWrapper>
-            <Select
+            <MemoSelect
               options={tags}
               value={selectedTags}
               placeholder="タグを選択"
@@ -122,7 +122,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
       </ButtonWrapper>
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.div`
   align-items: center;
@@ -153,9 +153,11 @@ const fieldWidth = css`
   width: 200px;
 `
 
-const StyledSelect = styled(Select)`
+const StyledSelect = memo(styled(Select)`
   ${fieldWidth};
-`
+`)
+
+const MemoSelect = memo(Select)
 
 const TagsSelectWrapper = styled.div`
   flex-grow: 1;

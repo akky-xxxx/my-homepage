@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import styled from "styled-components"
 
 // import components
@@ -18,7 +18,7 @@ export type GalleryImagesProps = {
   images: Omit<GalleryImageProps, Handler>[]
 } & Pick<GalleryImageProps, Handler>
 
-export const GalleryImages: FC<GalleryImagesProps> = (props) => {
+export const GalleryImages: FC<GalleryImagesProps> = memo((props) => {
   const {
     images,
     handleClickPrimary,
@@ -45,7 +45,7 @@ export const GalleryImages: FC<GalleryImagesProps> = (props) => {
       ))}
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.ul`
   display: grid;

@@ -70,7 +70,7 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
 
       <ImageInfo>
         <TwoContents>
-          <Select
+          <MemoSelect
             value={selectedPrefecture}
             options={prefectures}
             placeholder="都道府県"
@@ -89,7 +89,7 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
         </TwoContents>
 
         <InfoWrapper>
-          <Select
+          <MemoSelect
             placeholder="タグを選択"
             value={selectedTags}
             options={tags}
@@ -163,3 +163,5 @@ const TwoContents = styled.div`
 const PhotographAtInput = styled(Input)`
   width: 100%;
 `
+
+const MemoSelect = memo(Select)
