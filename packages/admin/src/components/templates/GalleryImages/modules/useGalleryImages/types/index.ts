@@ -12,6 +12,7 @@ type ImagesHandler =
   | "handleSelectPhotographAt"
   | "handleSelectPrefecture"
   | "handleSelectTags"
+  | "handleClickRelease"
 
 type UseGalleryImagesReturn = {
   images: Images["images"]

@@ -46,6 +46,7 @@ export const useGalleryImages: UseGalleryImages = (props) => {
     handleSelectPhotographAt: () => console.log("handleSelectPhotographAt"),
     handleSelectPrefecture: () => console.log("handleSelectPrefecture"),
     handleSelectTags: () => console.log("handleSelectTags"),
+    handleClickRelease: () => console.log("handleClickRelease"),
     /* eslint-enable no-console */
   }
 

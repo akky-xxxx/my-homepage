@@ -12,6 +12,7 @@ type Image = Omit<
   | "handleSelectPhotographAt"
   | "handleSelectPrefecture"
   | "handleSelectTags"
+  | "handleClickRelease"
 >
 
 export type GalleryImagesProps = {

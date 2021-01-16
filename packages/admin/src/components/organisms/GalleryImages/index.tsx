@@ -13,6 +13,7 @@ type Handler =
   | "handleSelectPhotographAt"
   | "handleSelectPrefecture"
   | "handleSelectTags"
+  | "handleClickRelease"
 export type GalleryImagesProps = {
   images: Omit<GalleryImageProps, Handler>[]
 } & Pick<GalleryImageProps, Handler>
@@ -25,6 +26,7 @@ export const GalleryImages: FC<GalleryImagesProps> = (props) => {
     handleSelectPrefecture,
     handleSelectTags,
     handleSelectPhotographAt,
+    handleClickRelease,
   } = props
 
   const galleryImageProps = {
@@ -33,6 +35,7 @@ export const GalleryImages: FC<GalleryImagesProps> = (props) => {
     handleSelectPrefecture,
     handleSelectTags,
     handleSelectPhotographAt,
+    handleClickRelease,
   } as const
 
   return (
