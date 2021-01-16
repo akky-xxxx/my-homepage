@@ -2,12 +2,12 @@
 import { useMemo } from "react"
 
 // import
+import { stringDatetime2stringDate } from "@@/shared/utils/stringDatetime2stringDate"
 import { UseTags } from "./types"
 import { useTagList } from "./modules/useTagList"
 import { useAdditionModal } from "./modules/useAdditionModal"
 import { useChangingModal } from "./modules/useChangingModal"
 import { useDeletingModal } from "./modules/useDeletingModal"
-import { stringDatetime2stringDate } from "./modules/stringDatetime2stringDate"
 
 // main
 export const useTags: UseTags = (props) => {
