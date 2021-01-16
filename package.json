@@ -11,6 +11,7 @@
     "fix": "run-p fix:*",
     "fix:json": "prettier ./*.json --write",
     "fix:pack": "fixpack",
+    "fix:packages": "lerna run fix --stream",
     "green-keep": "yarn re-install && yarn upgrade-interactive --latest",
     "re-install": "lerna clean && lerna bootstrap"
   },
