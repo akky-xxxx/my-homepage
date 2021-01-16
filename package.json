@@ -6,6 +6,7 @@
   "repository": "https://github.com/akky-xxxx/my-homepage.git",
   "scripts": {
     "check-all": "lerna run check-all --stream",
+    "checks": "run-s fix check-all",
     "dev": "lerna run dev --stream",
     "doc": "lerna run doc --stream",
     "fix": "run-p fix:*",
