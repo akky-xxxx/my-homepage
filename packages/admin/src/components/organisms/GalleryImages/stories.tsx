@@ -3,8 +3,8 @@ import React from "react"
 import { Meta, Story } from "@storybook/react"
 
 // import components
-import { GalleryImages, GalleryImagesProps } from "./index"
 import { MainContents } from "@@/components/atoms/MainContents"
+import { GalleryImages, GalleryImagesProps } from "./index"
 
 // import others
 import { images } from "./stories.data"

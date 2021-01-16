@@ -15,14 +15,20 @@ const config: Meta<ConditionAreaProps> = {
   title: "templates/Tags/organisms/ConditionArea",
   component: ConditionArea,
   args: {
+    filterText: "",
     selectOptions: option,
     selectedOptions: [option[0]],
     createStartDate: null,
     createEndDate: null,
     updateStartDate: null,
     updateEndDate: null,
+    accentCreateDates: [],
+    accentUpdateDates: [],
   },
   argTypes: {
+    handleChangeFilterText: {
+      action: "handleChangeFilterText",
+    },
     handleSelectOptions: {
       action: "handleSelectOptions",
     },
@@ -37,6 +43,9 @@ const config: Meta<ConditionAreaProps> = {
     },
     handleChangeUpdateEndDate: {
       action: "handleChangeUpdateEndDate",
+    },
+    handleResetConditions: {
+      action: "handleResetConditions",
     },
   },
 }

@@ -8,7 +8,7 @@ import { Margin, Button } from "shared-items/dist/client"
 // import components
 import { Input } from "@@/components/atoms/Input"
 import { SelectOption } from "@@/shared/types/lib"
-import { HorizonDateRangePicker } from "@@/components/templates/Tags/components/molecules/HorizonDateRangePicker"
+import { HorizonDateRangePicker } from "@@/components/molecules/HorizonDateRangePicker"
 
 // main
 const { MARGIN10, MARGIN25 } = Margin

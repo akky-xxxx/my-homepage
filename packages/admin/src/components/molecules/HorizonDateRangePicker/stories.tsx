@@ -14,7 +14,7 @@ const {
 } = DateFns
 
 const config: Meta<HorizonDateRangePickerProps> = {
-  title: "templates/Tags/molecules/HorizonDateRangePicker",
+  title: "molecules/HorizonDateRangePicker",
   component: HorizonDateRangePicker,
   args: {
     startDate: subDays(new Date(), 20),

@@ -15,17 +15,26 @@ type getSelector = (date: Date) => typeof AccentDayClass | null
 type DayClassName = undefined | getSelector
 type UseHorizonDateRangePickerArgs = Pick<
   HorizonDateRangePickerProps,
-  "accentDates"
+  "accentDates" | "targetName"
 >
 type UseHorizonDateRangePickerReturn = {
   dayClassName: DayClassName
+  startTargetName: string
+  endTargetName: string
 }
 type UseHorizonDateRangePicker = (
   props: UseHorizonDateRangePickerArgs,
 ) => UseHorizonDateRangePickerReturn
 
 export const useHorizonDateRangePicker: UseHorizonDateRangePicker = (props) => {
-  const { accentDates } = props
+  const { accentDates, targetName } = props
+  const [startTargetName, endTargetName] = useMemo(
+    () => [
+      [targetName, "from"].filter(Boolean).join(" "),
+      [targetName, "to"].filter(Boolean).join(" "),
+    ],
+    [targetName],
+  )
   const dayClassName: DayClassName = useMemo(
     () =>
       accentDates && accentDates.length
@@ -41,5 +50,5 @@ export const useHorizonDateRangePicker: UseHorizonDateRangePicker = (props) => {
     [...accentDates],
   )
 
-  return { dayClassName }
+  return { dayClassName, startTargetName, endTargetName }
 }

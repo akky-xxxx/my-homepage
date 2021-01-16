@@ -6,19 +6,41 @@ import { useHorizonDateRangePicker } from "./index"
 
 // main
 describe("useHorizonDateRangePicker", () => {
-  describe("dayClassName 関連", () => {
-    describe("dayClassName が undefined のパターン", () => {
-      it("accentDates が undefined の時", () => {
-        const props = { accentDates: [] }
-        const { result } = renderHook(() => useHorizonDateRangePicker(props))
-        expect(result.current.dayClassName).toEqual(undefined)
-      })
+  describe("targetName 関連", () => {
+    describe("startTargetName", () => {
+      it.each([
+        [undefined, "from"],
+        ["登録日", "登録日 from"],
+      ] as const)(
+        "targetName が %s の時、 startTargetName は %s",
+        (targetName, expectedValue) => {
+          const props = { accentDates: [], targetName }
+          const { result } = renderHook(() => useHorizonDateRangePicker(props))
+          expect(result.current.startTargetName).toEqual(expectedValue)
+        },
+      )
+    })
 
-      it("accentDates が空配列の時", () => {
-        const props = { accentDates: [] }
-        const { result } = renderHook(() => useHorizonDateRangePicker(props))
-        expect(result.current.dayClassName).toEqual(undefined)
-      })
+    describe("endTargetName", () => {
+      it.each([
+        [undefined, "to"],
+        ["登録日", "登録日 to"],
+      ] as const)(
+        "targetName が %s の時、 endTargetName は %s",
+        (targetName, expectedValue) => {
+          const props = { accentDates: [], targetName }
+          const { result } = renderHook(() => useHorizonDateRangePicker(props))
+          expect(result.current.endTargetName).toEqual(expectedValue)
+        },
+      )
+    })
+  })
+
+  describe("dayClassName 関連", () => {
+    it("accentDates が空配列の時 dayClassName は undefined", () => {
+      const props = { accentDates: [] }
+      const { result } = renderHook(() => useHorizonDateRangePicker(props))
+      expect(result.current.dayClassName).toEqual(undefined)
     })
 
     describe("dayClassName が関数のパターン", () => {
@@ -26,7 +48,7 @@ describe("useHorizonDateRangePicker", () => {
         accentDates: ["2021-01-01"],
       }
 
-      it("accentDates が Date[] の時", () => {
+      it("accentDates が Date[] の時 dayClassName は関数である", () => {
         const { result } = renderHook(() => useHorizonDateRangePicker(props))
         expect(typeof result.current.dayClassName).toEqual("function")
       })

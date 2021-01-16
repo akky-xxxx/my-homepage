@@ -7,17 +7,38 @@ import { GalleryImage, ITEM_WIDTH } from "@@/components/molecules/GalleryImage"
 import { GalleryImageProps } from "@@/components/molecules/GalleryImage/types"
 
 // main
+type Handler =
+  | "handleClickPrimary"
+  | "handleClickRemove"
+  | "handleSelectPhotographAt"
+  | "handleSelectPrefecture"
+  | "handleSelectTags"
 export type GalleryImagesProps = {
-  images: GalleryImageProps[]
-}
+  images: Omit<GalleryImageProps, Handler>[]
+} & Pick<GalleryImageProps, Handler>
 
 export const GalleryImages: FC<GalleryImagesProps> = (props) => {
-  const { images } = props
+  const {
+    images,
+    handleClickPrimary,
+    handleClickRemove,
+    handleSelectPrefecture,
+    handleSelectTags,
+    handleSelectPhotographAt,
+  } = props
+
+  const galleryImageProps = {
+    handleClickPrimary,
+    handleClickRemove,
+    handleSelectPrefecture,
+    handleSelectTags,
+    handleSelectPhotographAt,
+  } as const
 
   return (
     <Wrapper>
       {images.map((image) => (
-        <GalleryImage key={image.imageId} {...image} />
+        <GalleryImage key={image.imageId} {...image} {...galleryImageProps} />
       ))}
     </Wrapper>
   )
