@@ -10,6 +10,7 @@ const config: Meta<DeletingModalProps> = {
   title: "templates/Tags/organisms/DeletingModal",
   component: DeletingModal,
   args: {
+    selectedTags: [],
     isShowDeletingModal: true,
   },
   argTypes: {
