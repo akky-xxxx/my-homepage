@@ -32,6 +32,7 @@ const tags: GalleryImagesProps["tags"] = [
 const images: GalleryImagesProps["images"] = createNullArray(10).map(
   (_, index) => {
     const imageId = String(index + 1).padStart(2, "0")
+    const isRelease = Boolean(index % 2)
     const width = 500 + index * 10
     const height = 200 + index * 10
     const imagePath = `https://picsum.photos/${width}/${height}/`
@@ -41,6 +42,7 @@ const images: GalleryImagesProps["images"] = createNullArray(10).map(
     return {
       imageId,
       imagePath,
+      isRelease,
       prefectures,
       selectedPrefecture,
       tags,
