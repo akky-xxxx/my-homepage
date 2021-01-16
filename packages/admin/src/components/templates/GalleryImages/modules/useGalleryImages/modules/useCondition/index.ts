@@ -6,11 +6,16 @@ import { createNullArray } from "shared-items"
 
 // import others
 import { SelectOption } from "@@/shared/types/lib"
+import { ReleaseStatuses } from "@@/components/templates/GalleryImages/const"
 import { UseCondition } from "./types"
 
 // main
 export const useCondition: UseCondition = (props) => {
   const { prefectures, tags } = props
+  const [
+    selectedReleaseStatus,
+    setSelectedReleaseStatus,
+  ] = useState<SelectOption | null>(null)
   const [
     selectedPrefecture,
     setSelectedPrefecture,
@@ -33,6 +38,21 @@ export const useCondition: UseCondition = (props) => {
       [updatedAtEnd, handleSelectUpdatedAtEnd],
     ],
   ] = createNullArray(3).map(useRangePicker)
+
+  const handleSelectReleaseStatus = useCallback(
+    (releaseStatus: ValueType<SelectOption, false>) => {
+      if (releaseStatus === undefined || releaseStatus === null) {
+        setSelectedReleaseStatus(null)
+        return
+      }
+
+      const targetReleaseStatus =
+        ReleaseStatuses.find((pref) => pref.value === releaseStatus.value) ||
+        null
+      setSelectedReleaseStatus(targetReleaseStatus)
+    },
+    [...prefectures],
+  )
 
   const handleSelectPrefecture = useCallback(
     (prefecture: ValueType<SelectOption, false>) => {
@@ -67,6 +87,7 @@ export const useCondition: UseCondition = (props) => {
   }, [])
 
   return {
+    selectedReleaseStatus,
     selectedPrefecture,
     selectedTags,
     photographAtStart,
@@ -75,6 +96,7 @@ export const useCondition: UseCondition = (props) => {
     createdAtEnd,
     updatedAtStart,
     updatedAtEnd,
+    handleSelectReleaseStatus,
     handleSelectPhotographAtStart,
     handleSelectPhotographAtEnd,
     handleSelectCreatedAtStart,

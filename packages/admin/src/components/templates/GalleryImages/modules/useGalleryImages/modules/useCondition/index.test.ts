@@ -6,6 +6,38 @@ import { useCondition } from "./index"
 
 // main
 describe("useCondition", () => {
+  describe("handleSelectReleaseStatus", () => {
+    it.each([[{ label: "", value: "" }], [null], [undefined]] as const)(
+      "引数が %s の時、 selectedReleaseStatus null にある",
+      (arg) => {
+        const props = {
+          prefectures: [],
+          tags: [],
+        }
+        const { result } = renderHook(() => useCondition(props))
+
+        act(() => result.current.handleSelectReleaseStatus(arg))
+        expect(result.current.selectedReleaseStatus).toEqual(null)
+      },
+    )
+
+    it("引数の value が ReleaseStatuses に存在する時、 selectedReleaseStatus は引数の値になる", () => {
+      const props = {
+        prefectures: [],
+        tags: [],
+      }
+      const { result } = renderHook(() => useCondition(props))
+      act(() => {
+        const arg = { label: "公開済み", value: "ReleaseStatuses1" }
+        return result.current.handleSelectReleaseStatus(arg)
+      })
+      expect(result.current.selectedReleaseStatus).toEqual({
+        label: "公開済み",
+        value: "ReleaseStatuses1",
+      })
+    })
+  })
+
   describe("handleSelectPrefecture", () => {
     it.each([[{ label: "", value: "" }], [null], [undefined]] as const)(
       "引数が %s の時、 selectedPrefecture null にある",

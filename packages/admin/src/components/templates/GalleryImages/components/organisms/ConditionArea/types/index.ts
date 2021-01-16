@@ -36,8 +36,12 @@ type AccentDates = Record<
 >
 
 export type ConditionAreaProps = {
+  selectedReleaseStatus: SelectOption | null
   selectedPrefecture: SelectOption | null
   selectedTags: OptionsType<SelectOption> | null
+  handleSelectReleaseStatus: (
+    prefecture: ValueType<SelectOption, false>,
+  ) => void
   handleSelectPrefecture: (prefecture: ValueType<SelectOption, false>) => void
   handleSelectTags: (tags: ValueType<SelectOption, true>) => void
   handleResetConditions: EmptyFunction

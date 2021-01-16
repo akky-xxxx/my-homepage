@@ -8,6 +8,7 @@ import { Margin, Button } from "shared-items/dist/client"
 import { HorizonDateRangePicker } from "@@/components/molecules/HorizonDateRangePicker"
 
 // import others
+import { ReleaseStatuses } from "@@/components/templates/GalleryImages/const"
 import { ConditionAreaProps } from "./types"
 
 // main
@@ -16,6 +17,7 @@ const { MARGIN10, MARGIN20 } = Margin
 export const ConditionArea: FC<ConditionAreaProps> = (props) => {
   const {
     prefectures,
+    selectedReleaseStatus,
     selectedPrefecture,
     photographAtStart,
     photographAtEnd,
@@ -28,6 +30,7 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
     accentDatesOfUpdatedAt,
     tags,
     selectedTags,
+    handleSelectReleaseStatus,
     handleSelectPhotographAtStart,
     handleSelectPhotographAtEnd,
     handleSelectCreatedAtStart,
@@ -43,6 +46,16 @@ export const ConditionArea: FC<ConditionAreaProps> = (props) => {
     <Wrapper>
       <ConditionWrapper>
         <RowWrapper>
+          <FieldWrapper>
+            <StyledSelect
+              options={ReleaseStatuses}
+              value={selectedReleaseStatus}
+              placeholder="公開状態を選択"
+              onChange={handleSelectReleaseStatus}
+              isClearable
+            />
+          </FieldWrapper>
+
           <FieldWrapper>
             <StyledSelect
               options={prefectures}
