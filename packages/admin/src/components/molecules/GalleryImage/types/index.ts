@@ -7,6 +7,7 @@ import { StringDate } from "shared-items"
 export type GalleryImageProps = {
   imageId: string
   imagePath: string
+  isRelease: boolean
   prefectures: SelectOption[]
   selectedPrefecture: SelectOption | null
   tags: SelectOption[]

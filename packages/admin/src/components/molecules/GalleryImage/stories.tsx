@@ -14,6 +14,7 @@ const config: Meta<GalleryImageProps> = {
   args: {
     imageId: "imageId",
     imagePath: "https://picsum.photos/1000/800/",
+    isRelease: true,
     prefectures,
     selectedPrefecture: null,
     tags,

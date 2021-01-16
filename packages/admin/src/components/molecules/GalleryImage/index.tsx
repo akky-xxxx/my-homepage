@@ -35,6 +35,7 @@ export const ITEM_WIDTH = 350
 export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
   const {
     imagePath,
+    isRelease,
     prefectures,
     selectedPrefecture,
     tags,
@@ -51,7 +52,7 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
   return (
     <Wrapper>
       <Header>
-        <CheckMark isChecked />
+        <CheckMark isChecked={isRelease} />
 
         {createdAt && updatedAt && (
           <Dates>
