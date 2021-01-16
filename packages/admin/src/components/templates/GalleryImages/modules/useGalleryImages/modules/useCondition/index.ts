@@ -68,9 +68,6 @@ export const useCondition: UseCondition = (props) => {
 
   return {
     selectedPrefecture,
-    accentDatesOfPhotographAt: [],
-    accentDatesOfCreatedAt: [],
-    accentDatesOfUpdatedAt: [],
     selectedTags,
     photographAtStart,
     photographAtEnd,

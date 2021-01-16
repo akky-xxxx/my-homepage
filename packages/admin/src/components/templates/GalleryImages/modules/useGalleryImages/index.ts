@@ -9,6 +9,9 @@ export const useGalleryImages: UseGalleryImages = (props) => {
   const condition = {
     prefectures,
     tags,
+    accentDatesOfPhotographAt: [],
+    accentDatesOfCreatedAt: [],
+    accentDatesOfUpdatedAt: [],
     ...useCondition(props),
   }
 
