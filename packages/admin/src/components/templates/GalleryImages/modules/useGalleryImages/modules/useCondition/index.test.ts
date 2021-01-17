@@ -13,6 +13,7 @@ describe("useCondition", () => {
         const props = {
           prefectures: [],
           tags: [],
+          images: [],
         }
         const { result } = renderHook(() => useCondition(props))
 
@@ -25,6 +26,7 @@ describe("useCondition", () => {
       const props = {
         prefectures: [],
         tags: [],
+        images: [],
       }
       const { result } = renderHook(() => useCondition(props))
       act(() => {
@@ -45,6 +47,7 @@ describe("useCondition", () => {
         const props = {
           prefectures: [],
           tags: [],
+          images: [],
         }
         const { result } = renderHook(() => useCondition(props))
         act(() => result.current.handleSelectPrefecture(arg))
@@ -59,6 +62,7 @@ describe("useCondition", () => {
           { label: "label2", value: "value2" },
         ],
         tags: [],
+        images: [],
       }
       const { result } = renderHook(() => useCondition(props))
       act(() => {
@@ -79,6 +83,7 @@ describe("useCondition", () => {
         const props = {
           prefectures: [],
           tags: [],
+          images: [],
         }
         const { result } = renderHook(() => useCondition(props))
         act(() => result.current.handleSelectTags(arg))
@@ -95,6 +100,7 @@ describe("useCondition", () => {
           { label: "label3", value: "value3" },
           { label: "label4", value: "value4" },
         ],
+        images: [],
       }
       const { result } = renderHook(() => useCondition(props))
       const targetTags = [
@@ -119,6 +125,7 @@ describe("useCondition", () => {
           { label: "label3", value: "value3" },
           { label: "label4", value: "value4" },
         ],
+        images: [],
       }
       const { result } = renderHook(() => useCondition(props))
 
@@ -166,6 +173,7 @@ describe("useCondition", () => {
           { label: "label3", value: "value3" },
           { label: "label4", value: "value4" },
         ],
+        images: [],
       }
       const { result } = renderHook(() => useCondition(props))
 

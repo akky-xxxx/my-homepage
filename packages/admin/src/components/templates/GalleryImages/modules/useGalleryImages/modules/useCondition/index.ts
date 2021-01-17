@@ -7,11 +7,16 @@ import { createNullArray } from "shared-items"
 // import others
 import { SelectOption } from "@@/shared/types/lib"
 import { ReleaseStatuses } from "@@/components/templates/GalleryImages/const"
-import { UseCondition } from "./types"
+import { UseCondition, UseConditionReturn } from "./types"
+import { combine2image } from "./modules/combine2image"
+import { filterByReleaseStatus } from "./modules/filterByReleaseStatus"
+import { filterByPrefecture } from "./modules/filterByPrefecture"
+import { filterByTags } from "./modules/filterByTags"
+import { filterByDate } from "./modules/filterByDate"
 
 // main
 export const useCondition: UseCondition = (props) => {
-  const { prefectures, tags } = props
+  const { prefectures, tags, images: _images } = props
   const [
     selectedReleaseStatus,
     setSelectedReleaseStatus,
@@ -38,6 +43,35 @@ export const useCondition: UseCondition = (props) => {
       [updatedAtEnd, handleSelectUpdatedAtEnd],
     ],
   ] = createNullArray(3).map(useRangePicker)
+
+  const combine2imageMain = combine2image({ prefectures, tags })
+  const filterByReleaseStatusMain = filterByReleaseStatus(selectedReleaseStatus)
+  const filterByPrefectureMain = filterByPrefecture(selectedPrefecture)
+  const filterByTagsMain = filterByTags(selectedTags)
+  const filterByPhotographAt = filterByDate({
+    start: photographAtStart,
+    end: photographAtEnd,
+    targetType: "photographAt",
+  })
+  const filterByCreatedAt = filterByDate({
+    start: createdAtStart,
+    end: createdAtEnd,
+    targetType: "createdAt",
+  })
+  const filterByUpdatedAt = filterByDate({
+    start: updatedAtStart,
+    end: updatedAtEnd,
+    targetType: "updatedAt",
+  })
+
+  const images = _images
+    .map(combine2imageMain)
+    .filter(filterByReleaseStatusMain)
+    .filter(filterByPrefectureMain)
+    .filter(filterByTagsMain)
+    .filter(filterByPhotographAt)
+    .filter(filterByCreatedAt)
+    .filter(filterByUpdatedAt)
 
   const handleSelectReleaseStatus = useCallback(
     (releaseStatus: ValueType<SelectOption, false>) => {
@@ -86,7 +120,8 @@ export const useCondition: UseCondition = (props) => {
     handleSelectUpdatedAtEnd(null)
   }, [selectedTags])
 
-  return {
+  const returnValue: UseConditionReturn = {
+    images,
     selectedReleaseStatus,
     selectedPrefecture,
     selectedTags,
@@ -107,4 +142,6 @@ export const useCondition: UseCondition = (props) => {
     handleSelectTags,
     handleResetConditions,
   }
+
+  return returnValue
 }

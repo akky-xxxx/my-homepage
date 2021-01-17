@@ -1,15 +1,27 @@
 // import
-import { UseGalleryImagesProps, UseGalleryImagesReturn } from "../../../types/index"
+import {
+  UseGalleryImagesProps,
+  UseGalleryImagesReturn,
+} from "../../../types/index"
 
 // main
 type CommonProps = "prefectures" | "tags"
-type UseConditionProps = Pick<UseGalleryImagesProps, CommonProps>
-type UseConditionReturn = Omit<
-  UseGalleryImagesReturn["condition"],
+export type Condition = UseGalleryImagesReturn["condition"]
+export type Image = UseGalleryImagesReturn["images"][number]
+
+export type UseConditionProps = Pick<
+  UseGalleryImagesProps,
+  CommonProps | "images"
+>
+
+export type UseConditionReturn = Omit<
+  Condition,
   | CommonProps
   | "accentDatesOfPhotographAt"
   | "accentDatesOfCreatedAt"
   | "accentDatesOfUpdatedAt"
->
+> & {
+  images: Image[]
+}
 
 export type UseCondition = (props: UseConditionProps) => UseConditionReturn

@@ -3,43 +3,46 @@ import { useMemo } from "react"
 
 // import
 import { stringDatetime2stringDate } from "@@/shared/utils/stringDatetime2stringDate"
-import { UseGalleryImages } from "./types"
+import { UseGalleryImages, UseGalleryImagesReturn } from "./types"
 import { useCondition } from "./modules/useCondition"
 
 // main
 export const useGalleryImages: UseGalleryImages = (props) => {
   const { images: _images, prefectures, tags } = props
+  const [
+    accentDatesOfPhotographAt,
+    accentDatesOfCreatedAt,
+    accentDatesOfUpdatedAt,
+  ] = useMemo(
+    () => [
+      _images
+        .map(({ photographAt }) => photographAt || "")
+        .filter(Boolean)
+        .map(stringDatetime2stringDate),
+      _images
+        .map(({ createdAt }) => createdAt || "")
+        .filter(Boolean)
+        .map(stringDatetime2stringDate),
+      _images
+        .map(({ updatedAt }) => updatedAt || "")
+        .filter(Boolean)
+        .map(stringDatetime2stringDate),
+    ],
+    [...tags],
+  )
 
-  const condition = {
+  const useConditionResult = useCondition(props)
+
+  const condition: UseGalleryImagesReturn["condition"] = {
+    ...useConditionResult,
     prefectures,
     tags,
-    ...useMemo(
-      () => ({
-        accentDatesOfPhotographAt: _images
-          .map(({ photographAt }) => photographAt || "")
-          .filter(Boolean)
-          .map(stringDatetime2stringDate),
-        accentDatesOfCreatedAt: _images
-          .map(({ createdAt }) => createdAt || "")
-          .filter(Boolean)
-          .map(stringDatetime2stringDate),
-        accentDatesOfUpdatedAt: _images
-          .map(({ updatedAt }) => updatedAt || "")
-          .filter(Boolean)
-          .map(stringDatetime2stringDate),
-      }),
-      [...tags],
-    ),
-    ...useCondition(props),
+    accentDatesOfPhotographAt,
+    accentDatesOfCreatedAt,
+    accentDatesOfUpdatedAt,
   }
 
-  const images = _images.map((image) => ({
-    ...image,
-    prefectures,
-    tags,
-  }))
-
-  const imagesHandlers = {
+  const imagesHandlers: UseGalleryImagesReturn["imagesHandlers"] = {
     /* eslint-disable no-console */
     handleClickPrimary: () => console.log("handleClickPrimary"),
     handleClickRemove: () => console.log("handleClickRemove"),
@@ -52,7 +55,7 @@ export const useGalleryImages: UseGalleryImages = (props) => {
 
   return {
     condition,
-    images,
+    images: useConditionResult.images,
     imagesHandlers,
   }
 }
