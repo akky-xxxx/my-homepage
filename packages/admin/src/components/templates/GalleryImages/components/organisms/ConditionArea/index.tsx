@@ -62,6 +62,7 @@ export const ConditionArea: FC<ConditionAreaProps> = memo((props) => {
               value={selectedPrefecture}
               placeholder="都道府県を選択"
               onChange={handleSelectPrefecture}
+              isClearable
             />
           </FieldWrapper>
 
