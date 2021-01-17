@@ -7,7 +7,7 @@ import { createNullArray } from "shared-items"
 // import others
 import { SelectOption } from "@@/shared/types/lib"
 import { ReleaseStatuses } from "@@/components/templates/GalleryImages/const"
-import { UseCondition, UseConditionReturn } from "./types"
+import { UseImages, UseImagesReturn } from "./types"
 import { combine2image } from "./modules/combine2image"
 import { filterByReleaseStatus } from "./modules/filterByReleaseStatus"
 import { filterByPrefecture } from "./modules/filterByPrefecture"
@@ -15,7 +15,7 @@ import { filterByTags } from "./modules/filterByTags"
 import { filterByDate } from "./modules/filterByDate"
 
 // main
-export const useCondition: UseCondition = (props) => {
+export const useImages: UseImages = (props) => {
   const { prefectures, tags, images: _images } = props
   const [
     selectedReleaseStatus,
@@ -120,7 +120,7 @@ export const useCondition: UseCondition = (props) => {
     handleSelectUpdatedAtEnd(null)
   }, [selectedTags])
 
-  const returnValue: UseConditionReturn = {
+  const returnValue: UseImagesReturn = {
     images,
     selectedReleaseStatus,
     selectedPrefecture,

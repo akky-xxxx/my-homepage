@@ -4,7 +4,7 @@ import { useMemo } from "react"
 // import
 import { stringDatetime2stringDate } from "@@/shared/utils/stringDatetime2stringDate"
 import { UseGalleryImages, UseGalleryImagesReturn } from "./types"
-import { useCondition } from "./modules/useCondition"
+import { useImages } from "./modules/useImages"
 
 // main
 export const useGalleryImages: UseGalleryImages = (props) => {
@@ -31,7 +31,7 @@ export const useGalleryImages: UseGalleryImages = (props) => {
     [...tags],
   )
 
-  const useConditionResult = useCondition(props)
+  const useConditionResult = useImages(props)
 
   const condition: UseGalleryImagesReturn["condition"] = {
     ...useConditionResult,

@@ -9,12 +9,12 @@ type CommonProps = "prefectures" | "tags"
 export type Condition = UseGalleryImagesReturn["condition"]
 export type Image = UseGalleryImagesReturn["images"][number]
 
-export type UseConditionProps = Pick<
+export type UseImagesProps = Pick<
   UseGalleryImagesProps,
   CommonProps | "images"
 >
 
-export type UseConditionReturn = Omit<
+export type UseImagesReturn = Omit<
   Condition,
   | CommonProps
   | "accentDatesOfPhotographAt"
@@ -24,4 +24,4 @@ export type UseConditionReturn = Omit<
   images: Image[]
 }
 
-export type UseCondition = (props: UseConditionProps) => UseConditionReturn
+export type UseImages = (props: UseImagesProps) => UseImagesReturn

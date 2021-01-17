@@ -2,10 +2,10 @@
 import { renderHook, act } from "@testing-library/react-hooks"
 
 // import others
-import { useCondition } from "./index"
+import { useImages } from "./index"
 
 // main
-describe("useCondition", () => {
+describe("useImages", () => {
   describe("handleSelectReleaseStatus", () => {
     it.each([[{ label: "", value: "" }], [null], [undefined]] as const)(
       "引数が %s の時、 selectedReleaseStatus null にある",
@@ -15,7 +15,7 @@ describe("useCondition", () => {
           tags: [],
           images: [],
         }
-        const { result } = renderHook(() => useCondition(props))
+        const { result } = renderHook(() => useImages(props))
 
         act(() => result.current.handleSelectReleaseStatus(arg))
         expect(result.current.selectedReleaseStatus).toEqual(null)
@@ -28,7 +28,7 @@ describe("useCondition", () => {
         tags: [],
         images: [],
       }
-      const { result } = renderHook(() => useCondition(props))
+      const { result } = renderHook(() => useImages(props))
       act(() => {
         const arg = { label: "公開済み", value: "ReleaseStatuses1" }
         return result.current.handleSelectReleaseStatus(arg)
@@ -49,7 +49,7 @@ describe("useCondition", () => {
           tags: [],
           images: [],
         }
-        const { result } = renderHook(() => useCondition(props))
+        const { result } = renderHook(() => useImages(props))
         act(() => result.current.handleSelectPrefecture(arg))
         expect(result.current.selectedPrefecture).toEqual(null)
       },
@@ -64,7 +64,7 @@ describe("useCondition", () => {
         tags: [],
         images: [],
       }
-      const { result } = renderHook(() => useCondition(props))
+      const { result } = renderHook(() => useImages(props))
       act(() => {
         const arg = { label: "label2", value: "value2" }
         return result.current.handleSelectPrefecture(arg)
@@ -85,7 +85,7 @@ describe("useCondition", () => {
           tags: [],
           images: [],
         }
-        const { result } = renderHook(() => useCondition(props))
+        const { result } = renderHook(() => useImages(props))
         act(() => result.current.handleSelectTags(arg))
         expect(result.current.selectedTags).toEqual(null)
       },
@@ -102,7 +102,7 @@ describe("useCondition", () => {
         ],
         images: [],
       }
-      const { result } = renderHook(() => useCondition(props))
+      const { result } = renderHook(() => useImages(props))
       const targetTags = [
         { label: "label2", value: "value2" },
         { label: "label4", value: "value4" },
@@ -127,7 +127,7 @@ describe("useCondition", () => {
         ],
         images: [],
       }
-      const { result } = renderHook(() => useCondition(props))
+      const { result } = renderHook(() => useImages(props))
 
       act(() => {
         const arg = { label: "label2", value: "value2" }
@@ -175,7 +175,7 @@ describe("useCondition", () => {
         ],
         images: [],
       }
-      const { result } = renderHook(() => useCondition(props))
+      const { result } = renderHook(() => useImages(props))
 
       act(() => {
         const arg = [

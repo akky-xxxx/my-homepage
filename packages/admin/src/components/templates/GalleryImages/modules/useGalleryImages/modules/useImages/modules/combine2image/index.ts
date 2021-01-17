@@ -1,9 +1,9 @@
 // import
-import { Image, UseConditionProps } from "../../types"
+import { Image, UseImagesProps } from "../../types"
 
 // main
 type AdditionProps = "prefectures" | "tags"
-type Arg = Pick<UseConditionProps, AdditionProps>
+type Arg = Pick<UseImagesProps, AdditionProps>
 type Combine2imageMainReturn = Image
 type Combine2imageMain = (
   image: Omit<Image, AdditionProps>,

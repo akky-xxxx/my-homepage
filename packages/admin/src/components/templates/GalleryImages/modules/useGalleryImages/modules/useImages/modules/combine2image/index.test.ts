@@ -1,10 +1,10 @@
 // import
 import { combine2image } from "./index"
-import { Image, UseConditionProps } from "../../types"
+import { Image, UseImagesProps } from "../../types"
 
 // main
 type AdditionProps = "prefectures" | "tags"
-type Arg = Pick<UseConditionProps, AdditionProps>
+type Arg = Pick<UseImagesProps, AdditionProps>
 type OriginImage = Omit<Image, AdditionProps>
 it("combine2image", () => {
   const arg: Arg = {
