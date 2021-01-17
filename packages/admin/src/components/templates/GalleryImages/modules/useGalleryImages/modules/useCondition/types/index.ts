@@ -1,11 +1,11 @@
 // import
-import { UseGalleryImages } from "../../../types/index"
+import { UseGalleryImagesProps, UseGalleryImagesReturn } from "../../../types/index"
 
 // main
 type CommonProps = "prefectures" | "tags"
-type UseConditionProps = Pick<Parameters<UseGalleryImages>[0], CommonProps>
+type UseConditionProps = Pick<UseGalleryImagesProps, CommonProps>
 type UseConditionReturn = Omit<
-  ReturnType<UseGalleryImages>["condition"],
+  UseGalleryImagesReturn["condition"],
   | CommonProps
   | "accentDatesOfPhotographAt"
   | "accentDatesOfCreatedAt"
