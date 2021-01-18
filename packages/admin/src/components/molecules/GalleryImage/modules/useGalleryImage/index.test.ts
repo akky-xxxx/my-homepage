@@ -9,6 +9,7 @@ const props = {
   imageId: "imageId",
   handleClickPrimary: jest.fn(),
   handleClickRemove: jest.fn(),
+  handleClickRelease: jest.fn(),
 }
 
 describe("useGalleryImage", () => {
@@ -21,6 +22,12 @@ describe("useGalleryImage", () => {
   it("handleClickRemove を実行する際、引数に props.imageId が渡される", () => {
     const { result } = renderHook(() => useGalleryImage(props))
     act(() => result.current.handleClickRemove())
+    expect(props.handleClickRemove.mock.calls[0][0]).toEqual("imageId")
+  })
+
+  it("handleClickRelease を実行する際、引数に props.imageId が渡される", () => {
+    const { result } = renderHook(() => useGalleryImage(props))
+    act(() => result.current.handleClickRelease())
     expect(props.handleClickRemove.mock.calls[0][0]).toEqual("imageId")
   })
 })

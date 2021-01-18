@@ -6,14 +6,12 @@ import { EmptyFunction } from "shared-items"
 import { GalleryImageProps } from "../../types"
 
 // main
-type UseGalleryImageProps = Pick<
-  GalleryImageProps,
-  "imageId" | "handleClickPrimary" | "handleClickRemove"
->
-type UseGalleryImageReturn = {
-  handleClickPrimary: EmptyFunction
-  handleClickRemove: EmptyFunction
-}
+type Handlers =
+  | "handleClickPrimary"
+  | "handleClickRemove"
+  | "handleClickRelease"
+type UseGalleryImageProps = Pick<GalleryImageProps, "imageId" | Handlers>
+type UseGalleryImageReturn = Record<Handlers, EmptyFunction>
 type UseGalleryImage = (props: UseGalleryImageProps) => UseGalleryImageReturn
 
 export const useGalleryImage: UseGalleryImage = (props) => {
@@ -21,6 +19,7 @@ export const useGalleryImage: UseGalleryImage = (props) => {
     imageId,
     handleClickPrimary: _handleClickPrimary,
     handleClickRemove: _handleClickRemove,
+    handleClickRelease: _handleClickRelease,
   } = props
 
   const handleClickPrimary = useCallback(() => _handleClickPrimary(imageId), [
@@ -31,8 +30,13 @@ export const useGalleryImage: UseGalleryImage = (props) => {
     imageId,
   ])
 
+  const handleClickRelease = useCallback(() => _handleClickRelease(imageId), [
+    imageId,
+  ])
+
   return {
     handleClickPrimary,
     handleClickRemove,
+    handleClickRelease,
   }
 }

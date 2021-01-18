@@ -40,8 +40,10 @@ export const conditionAreaProps: Omit<
   | "handleSelectPrefecture"
   | "handleSelectTags"
   | "handleResetConditions"
+  | "handleSelectReleaseStatus"
 > = {
   prefectures,
+  selectedReleaseStatus: null,
   selectedPrefecture: null,
   tags,
   selectedTags: [],

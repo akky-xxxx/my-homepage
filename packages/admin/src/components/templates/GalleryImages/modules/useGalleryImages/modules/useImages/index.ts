@@ -6,11 +6,21 @@ import { createNullArray } from "shared-items"
 
 // import others
 import { SelectOption } from "@@/shared/types/lib"
-import { UseCondition } from "./types"
+import { ReleaseStatuses } from "@@/components/templates/GalleryImages/const"
+import { UseImages, UseImagesReturn } from "./types"
+import { combine2image } from "./modules/combine2image"
+import { filterByReleaseStatus } from "./modules/filterByReleaseStatus"
+import { filterByPrefecture } from "./modules/filterByPrefecture"
+import { filterByTags } from "./modules/filterByTags"
+import { filterByDate } from "./modules/filterByDate"
 
 // main
-export const useCondition: UseCondition = (props) => {
-  const { prefectures, tags } = props
+export const useImages: UseImages = (props) => {
+  const { prefectures, tags, images: _images } = props
+  const [
+    selectedReleaseStatus,
+    setSelectedReleaseStatus,
+  ] = useState<SelectOption | null>(null)
   const [
     selectedPrefecture,
     setSelectedPrefecture,
@@ -33,6 +43,50 @@ export const useCondition: UseCondition = (props) => {
       [updatedAtEnd, handleSelectUpdatedAtEnd],
     ],
   ] = createNullArray(3).map(useRangePicker)
+
+  const combine2imageMain = combine2image({ prefectures, tags })
+  const filterByReleaseStatusMain = filterByReleaseStatus(selectedReleaseStatus)
+  const filterByPrefectureMain = filterByPrefecture(selectedPrefecture)
+  const filterByTagsMain = filterByTags(selectedTags)
+  const filterByPhotographAt = filterByDate({
+    start: photographAtStart,
+    end: photographAtEnd,
+    targetType: "photographAt",
+  })
+  const filterByCreatedAt = filterByDate({
+    start: createdAtStart,
+    end: createdAtEnd,
+    targetType: "createdAt",
+  })
+  const filterByUpdatedAt = filterByDate({
+    start: updatedAtStart,
+    end: updatedAtEnd,
+    targetType: "updatedAt",
+  })
+
+  const images = _images
+    .map(combine2imageMain)
+    .filter(filterByReleaseStatusMain)
+    .filter(filterByPrefectureMain)
+    .filter(filterByTagsMain)
+    .filter(filterByPhotographAt)
+    .filter(filterByCreatedAt)
+    .filter(filterByUpdatedAt)
+
+  const handleSelectReleaseStatus = useCallback(
+    (releaseStatus: ValueType<SelectOption, false>) => {
+      if (releaseStatus === undefined || releaseStatus === null) {
+        setSelectedReleaseStatus(null)
+        return
+      }
+
+      const targetReleaseStatus =
+        ReleaseStatuses.find((pref) => pref.value === releaseStatus.value) ||
+        null
+      setSelectedReleaseStatus(targetReleaseStatus)
+    },
+    [...prefectures],
+  )
 
   const handleSelectPrefecture = useCallback(
     (prefecture: ValueType<SelectOption, false>) => {
@@ -57,16 +111,18 @@ export const useCondition: UseCondition = (props) => {
 
   const handleResetConditions = useCallback(() => {
     setSelectedPrefecture(null)
-    setSelectedTags([])
+    if (selectedTags?.length) setSelectedTags([])
     handleSelectPhotographAtStart(null)
     handleSelectPhotographAtEnd(null)
     handleSelectCreatedAtStart(null)
     handleSelectCreatedAtEnd(null)
     handleSelectUpdatedAtStart(null)
     handleSelectUpdatedAtEnd(null)
-  }, [])
+  }, [selectedTags])
 
-  return {
+  const returnValue: UseImagesReturn = {
+    images,
+    selectedReleaseStatus,
     selectedPrefecture,
     selectedTags,
     photographAtStart,
@@ -75,6 +131,7 @@ export const useCondition: UseCondition = (props) => {
     createdAtEnd,
     updatedAtStart,
     updatedAtEnd,
+    handleSelectReleaseStatus,
     handleSelectPhotographAtStart,
     handleSelectPhotographAtEnd,
     handleSelectCreatedAtStart,
@@ -85,4 +142,6 @@ export const useCondition: UseCondition = (props) => {
     handleSelectTags,
     handleResetConditions,
   }
+
+  return returnValue
 }

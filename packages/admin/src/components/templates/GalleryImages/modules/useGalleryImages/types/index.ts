@@ -4,7 +4,7 @@ import { ConditionAreaProps } from "@@/components/templates/GalleryImages/compon
 import { GalleryImagesProps } from "../../../types"
 
 // main
-type UseGalleryImagesProps = GalleryImagesProps
+export type UseGalleryImagesProps = GalleryImagesProps
 
 type ImagesHandler =
   | "handleClickPrimary"
@@ -12,8 +12,9 @@ type ImagesHandler =
   | "handleSelectPhotographAt"
   | "handleSelectPrefecture"
   | "handleSelectTags"
+  | "handleClickRelease"
 
-type UseGalleryImagesReturn = {
+export type UseGalleryImagesReturn = {
   images: Images["images"]
   condition: ConditionAreaProps
 } & {

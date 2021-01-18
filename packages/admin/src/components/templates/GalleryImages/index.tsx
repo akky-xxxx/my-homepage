@@ -1,5 +1,5 @@
 // import node_modules
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Divider, Margin } from "shared-items/dist/client"
 import styled from "styled-components"
 
@@ -15,7 +15,7 @@ import { useGalleryImages } from "./modules/useGalleryImages"
 
 // main
 const { MARGIN25 } = Margin
-export const GalleryImages: FC<GalleryImagesProps> = (props) => {
+export const GalleryImages: FC<GalleryImagesProps> = memo((props) => {
   const { condition, images, imagesHandlers } = useGalleryImages(props)
 
   return (
@@ -37,7 +37,7 @@ export const GalleryImages: FC<GalleryImagesProps> = (props) => {
       </MainContents>
     </div>
   )
-}
+})
 
 const HeaderWrapper = styled.div`
   align-items: center;

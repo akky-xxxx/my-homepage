@@ -11,6 +11,7 @@ import {
   PickerWrapper,
   Button,
   DateFns,
+  CheckMark,
 } from "shared-items/dist/client"
 
 // import components
@@ -34,6 +35,7 @@ export const ITEM_WIDTH = 350
 export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
   const {
     imagePath,
+    isRelease,
     prefectures,
     selectedPrefecture,
     tags,
@@ -45,15 +47,30 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
     handleSelectPrefecture,
     handleSelectTags,
   } = props
-  const { handleClickPrimary, handleClickRemove } = useGalleryImage(props)
+  const {
+    handleClickPrimary,
+    handleClickRemove,
+    handleClickRelease,
+  } = useGalleryImage(props)
 
   return (
     <Wrapper>
+      <Header>
+        <CheckMark isChecked={isRelease} onClick={handleClickRelease} />
+
+        {createdAt && updatedAt && (
+          <Dates>
+            <div>登録日：{format(new Date(createdAt), DATETIME_SLASH)}</div>
+            <div>更新日：{format(new Date(updatedAt), DATETIME_SLASH)}</div>
+          </Dates>
+        )}
+      </Header>
+
       <Image src={imagePath} alt="" width={ITEM_WIDTH} />
 
       <ImageInfo>
         <TwoContents>
-          <Select
+          <MemoSelect
             value={selectedPrefecture}
             options={prefectures}
             placeholder="都道府県"
@@ -72,7 +89,7 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
         </TwoContents>
 
         <InfoWrapper>
-          <Select
+          <MemoSelect
             placeholder="タグを選択"
             value={selectedTags}
             options={tags}
@@ -80,13 +97,6 @@ export const GalleryImage: FC<GalleryImageProps> = memo((props) => {
             isMulti
           />
         </InfoWrapper>
-
-        {createdAt && updatedAt && (
-          <Dates>
-            <div>登録日：{format(new Date(createdAt), DATETIME_SLASH)}</div>
-            <div>更新日：{format(new Date(updatedAt), DATETIME_SLASH)}</div>
-          </Dates>
-        )}
 
         <InfoWrapper>
           <TwoContents>
@@ -108,12 +118,26 @@ const Wrapper = styled.li`
   width: ${ITEM_WIDTH}px;
 `
 
+const Header = styled.div`
+  align-items: center;
+  background-color: ${COLOR_FFFFFF};
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  justify-content: space-between;
+  padding: ${MARGIN10}px;
+`
+
+const Dates = styled.div`
+  color: ${SECONDARY_TEXT};
+  font-size: ${SMALL};
+  text-align: right;
+`
+
 const InfoWrapper = styled.div`
   margin-top: ${MARGIN10}px;
 `
 
 const Image = styled.img`
-  border-radius: 4px 4px 0 0;
   height: ${ITEM_WIDTH / 1.5}px;
   max-width: ${ITEM_WIDTH}px;
   object-fit: cover;
@@ -125,13 +149,6 @@ const ImageInfo = styled.div`
   background-color: ${COLOR_FFFFFF};
   border-radius: 0 0 4px 4px;
   padding: ${MARGIN10}px;
-`
-
-const Dates = styled.div`
-  color: ${SECONDARY_TEXT};
-  font-size: ${SMALL};
-  margin-top: ${MARGIN10}px;
-  text-align: right;
 `
 
 const TwoContents = styled.div`
@@ -146,3 +163,5 @@ const TwoContents = styled.div`
 const PhotographAtInput = styled(Input)`
   width: 100%;
 `
+
+const MemoSelect = memo(Select)
