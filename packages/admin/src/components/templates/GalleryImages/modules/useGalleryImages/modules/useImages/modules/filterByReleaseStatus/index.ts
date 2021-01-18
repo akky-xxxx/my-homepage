@@ -14,7 +14,10 @@ export const filterByReleaseStatus: FilterByReleaseStatus = (
 ) => {
   const filterByReleaseStatusMain: FilterByReleaseStatusMain = (images) => {
     if (selectedReleaseStatus === null) return true
-    return images.isRelease === (selectedReleaseStatus.value === ReleaseStatuses[0].value)
+    return (
+      images.isRelease ===
+      (selectedReleaseStatus.value === ReleaseStatuses[0].value)
+    )
   }
   return filterByReleaseStatusMain
 }

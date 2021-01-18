@@ -44,12 +44,24 @@ export const useGalleryImages: UseGalleryImages = (props) => {
 
   const imagesHandlers: UseGalleryImagesReturn["imagesHandlers"] = {
     /* eslint-disable no-console */
-    handleClickPrimary: useCallback(() => console.log("handleClickPrimary"), []),
+    handleClickPrimary: useCallback(
+      () => console.log("handleClickPrimary"),
+      [],
+    ),
     handleClickRemove: useCallback(() => console.log("handleClickRemove"), []),
-    handleSelectPhotographAt: useCallback(() => console.log("handleSelectPhotographAt"), []),
-    handleSelectPrefecture: useCallback(() => console.log("handleSelectPrefecture"), []),
+    handleSelectPhotographAt: useCallback(
+      () => console.log("handleSelectPhotographAt"),
+      [],
+    ),
+    handleSelectPrefecture: useCallback(
+      () => console.log("handleSelectPrefecture"),
+      [],
+    ),
     handleSelectTags: useCallback(() => console.log("handleSelectTags"), []),
-    handleClickRelease: useCallback(() => console.log("handleClickRelease"), []),
+    handleClickRelease: useCallback(
+      () => console.log("handleClickRelease"),
+      [],
+    ),
     /* eslint-enable no-console */
   }
 
