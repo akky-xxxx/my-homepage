@@ -10,4 +10,4 @@ export const Endpoints = {
     TAGS: "/tags",
   },
   SAMPLE: "/sample",
-}
+} as const
