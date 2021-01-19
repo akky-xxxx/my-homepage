@@ -2,17 +2,11 @@
 import { Router } from "express"
 
 // import controllers
-import { updateTags } from "@@/controllers/tags/updateTags"
-import { getTags } from "@@/controllers/tags/getTags"
-import { addTags } from "@@/controllers/tags/addTags"
-import { deleteTags } from "@@/controllers/tags/deleteTags"
+import { tagsRouter } from "@@/controllers/tags"
 
 // main
 const apiAggregation = Router()
 
-apiAggregation.post("/tags", addTags)
-apiAggregation.get("/tags", getTags)
-apiAggregation.put("/tags", updateTags)
-apiAggregation.delete("/tags", deleteTags)
+apiAggregation.use("/tags", tagsRouter)
 
 export { apiAggregation }
