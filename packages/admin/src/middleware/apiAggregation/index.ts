@@ -2,10 +2,10 @@
 import { Router } from "express"
 
 // import controllers
-import { updateTags } from "@@/controllers/updateTags"
-import { getTags } from "@@/controllers/getTags"
-import { addTags } from "@@/controllers/addTags"
-import { deleteTags } from "@@/controllers/deleteTags"
+import { updateTags } from "@@/controllers/tags/updateTags"
+import { getTags } from "@@/controllers/tags/getTags"
+import { addTags } from "@@/controllers/tags/addTags"
+import { deleteTags } from "@@/controllers/tags/deleteTags"
 
 // main
 const apiAggregation = Router()
