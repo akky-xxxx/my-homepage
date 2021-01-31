@@ -137,15 +137,6 @@ describe("useTagList", () => {
       }
       expect(result.current.currentPage).toEqual(1)
     })
-
-    it("values が undefined の時は何も処理しない", () => {
-      const { result } = renderHook(() => useTagList(props))
-      act(() => result.current.handleClickPagination(2))
-      expect(result.current.currentPage).toEqual(2)
-
-      act(() => result.current.handleSelectOptions(undefined))
-      expect(result.current.currentPage).toEqual(2)
-    })
   })
 
   it("handleChangeFilterText を実行すると filterText は test となる", () => {
