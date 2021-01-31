@@ -7,7 +7,7 @@ import { useImages } from "./index"
 // main
 describe("useImages", () => {
   describe("handleSelectReleaseStatus", () => {
-    it.each([[{ label: "", value: "" }], [null], [undefined]] as const)(
+    it.each([[{ label: "", value: "" }], [null]] as const)(
       "引数が %s の時、 selectedReleaseStatus null にある",
       (arg) => {
         const props = {
@@ -41,7 +41,7 @@ describe("useImages", () => {
   })
 
   describe("handleSelectPrefecture", () => {
-    it.each([[{ label: "", value: "" }], [null], [undefined]] as const)(
+    it.each([[{ label: "", value: "" }], [null]] as const)(
       "引数が %s の時、 selectedPrefecture null にある",
       (arg) => {
         const props = {
@@ -77,20 +77,6 @@ describe("useImages", () => {
   })
 
   describe("handleSelectTags", () => {
-    it.each([[null], [undefined]] as const)(
-      "引数が %s の時、 selectedTags は null になる",
-      (arg) => {
-        const props = {
-          prefectures: [],
-          tags: [],
-          images: [],
-        }
-        const { result } = renderHook(() => useImages(props))
-        act(() => result.current.handleSelectTags(arg))
-        expect(result.current.selectedTags).toEqual(null)
-      },
-    )
-
     it("引数が存在する時、 selectedTags は引数の値になる", () => {
       const props = {
         prefectures: [],
